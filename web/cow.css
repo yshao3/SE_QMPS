@@ -1,0 +1,72 @@
+/*
+This file contains the styles for all pages on the to-do list site.
+*/
+
+body, input, select, option, button, a {
+	color: #005AB4;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14pt;
+}
+
+body, h1 {
+	margin: 0;
+	padding: 0;
+}
+
+#error {
+	background-color: #ffdddd;
+	border: 1px dotted red;
+	color: red;
+	font-weight: bold;
+	padding: 0.5em;
+}
+
+.headfoot {
+	background-color: #005AB4;
+	color: white;
+	padding: 0.5em;
+}
+
+h1 img {
+	float: left;
+	margin-right: 1em;
+}
+
+.content {
+    overflow: hidden;
+}
+
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 10;
+    left: 0;
+    background-color: #005AB4;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #c3dcee;
+}
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
