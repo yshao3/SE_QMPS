@@ -51,18 +51,37 @@ body, h1 {
 #download {
 	position: absolute;
 	left: 93%;
-	top: 6%;
+	top: 11.5%;
 }
 #analyze {
 	position: absolute;
 	left: 82%;
-	top: 6%;
+	top: 11.5%;
 }
 #showdata {
 	position: absolute;
 	left: 75%;
-	top: 6%;
+	top: 11.5%;
 }
+
+#title{
+	top: 10px;
+	text-align: center;
+	color: #444;
+	font-size: 28px;
+}
+#datepick{
+	position: absolute;
+	top: 10%;
+}
+
+
+
+
+
+
+
+
 
 /*navigation menu*/
 .nav {
