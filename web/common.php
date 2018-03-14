@@ -28,7 +28,7 @@
 	}
     #display the bottom of the page 
 	function footer(){ ?>
-		<div class="headfoot">
+		<div class="footer">
 		© 2018 Cornell University College of Veterinary Medicine<br/>
 		Ithaca, New York 14853-6401
 		</div>

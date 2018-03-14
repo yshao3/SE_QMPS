@@ -27,6 +27,46 @@ body, h1 {
 	background-color: #005AB4;
 	color: white;
 	padding: 0.5em;
+	width:100%;
+}
+
+form {
+	padding-top: 5em;
+    text-align: center;
+}
+
+.footer{
+	background-color: #005AB4;
+	color: white;
+	padding: 0.5em;
+	position:absolute;
+   	bottom:0;
+   	width:100%;
+}
+
+div {
+    padding: 10px;
+}
+
+input[type=submit] {
+    width: 20%;
+    background-color: #005AB4;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.loginform {
+	text-align: center;
+}
+
+h1 img {
+	float: left;
+	margin-right: 1em;
+	/* margin-left: 1em; */
 }
 
 /*display data section*/
@@ -39,6 +79,7 @@ body, h1 {
 	border-left:1px solid #616161;
 	vertical-align: center;
 }
+
 .display a{
 	position: absolute;
 	left: 29%;
@@ -48,6 +89,7 @@ body, h1 {
 	font-weight: bold;
 	color: #444;
 }
+
 #download {
 	position: absolute;
 	left: 93%;
@@ -74,13 +116,6 @@ body, h1 {
 	position: absolute;
 	top: 10%;
 }
-
-
-
-
-
-
-
 
 
 /*navigation menu*/
@@ -126,7 +161,6 @@ body, h1 {
 
 /*top bar user name format*/
 .bx-prev {
-
 position:absolute;
 top:10px;
 left: 5px;
@@ -145,6 +179,7 @@ left: 5px;
 		width:70px;
     background:#3f51b5;
 		color: white;
+	/* font-size: 12pt; */
 
 }
 /*top bar format*/
