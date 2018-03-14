@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="cow.css">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans|Nunito+SansNoto+Sans|Nunito+Sans|Roboto" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="scripts.js"></script>
+  <script>
+
+  </script>
+
+
+</head>
+
+
+<body>
+
+
+	<div class="content">
+		<div class="bx-prev"><a>User Name</a></div>
+    <div class="bx-next"><a href="logout.php" style = "color: white">Log Out</a></div>
+
+	</div>
+
+
+<!--
+		<div class="sidenav">
+
+      <table class = "list2">
+        <tr>
+          <td>
+      <div>
+        <img src="1.png" alt="p1" style="width:30px">
+        <img src="2.png" alt="p1" style="width:30px">
+        <img src="3.png" alt="p1" style="width:30px">
+        <img src="4.png" alt="p1" style="width:30px">
+        <img src="5.png" alt="p1" style="width:30px">
+        <img src="6.png" alt="p1" style="width:30px">
+      </div>
+    </td>
+    <td>
+			<div>
+
+			<a href="#cleanliness">Teat Cleanliness</a>
+			<a href="#unitAlignment">Unit Alignment</a>
+			<a href="#udderHygiene">Udder hygiene</a>
+			<a href="#stripYields">Strip Yields</a>
+			<a href="#postMilking">Post Milking Treat</a>
+			<a href="#lactoCoder">LactoCoder Analysis</a>
+		</div>
+
+</td>
+</tr>
+</table>
+	</div>  -->
+<div class = "nav">
+  <ul>
+    <li class ="option1"><span class = "child">
+      <img id = "p1" src="1.png" alt="p1" style="width:30px">Teat Cleanliness</span></li>
+    <li class ="option2"><span class = "child">
+      <img id = "p2" src="2.png" alt="p1" style="width:30px">Unit Alignment</span></li>
+    <li class ="option3"><span class = "child">
+      <img id = "p3" src="3.png" alt="p1" style="width:30px">Udder hygiene</span></li>
+    <li class ="option4"><span class = "child">
+      <img id = "p4" src="4.png" alt="p1" style="width:30px">Strip Yields</span></li>
+    <li class ="option5"><span class = "child">
+      <img id = "p5" src="5.png" alt="p1" style="width:30px">Post Milking Treat</span></li>
+    <li class ="option6"><span class = "child">
+      <img id = "p6" src="6.png" alt="p1" style="width:30px">LactoCoder Record</span></li>
+  </ul>
+</div>
+<div class="display">
+  <a>Welcome to QMPS</a>
+  <button id="download">Download</button>
+  <p id="demo"></p>
+</div>
+</body>
+</html>
+<script>
+</script>
+<?php
+
+	session_start();
+
+	#send user to the start page if user have not logged in
+    if(!isset($_SESSION["name"]) || !isset($_SESSION["password"])) {
+		header("Location: start.php");
+		die();
+	}
+
+	include("common.php");
+	#display the head title of the page
+	top();
+
+	# changed to session
+	$name = $_SESSION["name"];
+?>
+
+
+
+<?php
+    #display the bottom of the page
+	footer();
+?>
