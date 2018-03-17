@@ -10,6 +10,9 @@ body, input, select, option, button, a {
 	font-size: 14pt;
 }
 
+input {
+	width: 100px;
+}
 a:visited {
 	color:#444;
 }
