@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>List of tables</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item [navPush]="teatPage">
+      Teat Cleanliness
+    </button>
+    <button ion-item [navPush]="hygienePage">
+      Udder Hgyiene
+    </button>
+    <button ion-item [navPush]="alignmentPage">
+      Unit Alignment
+    </button>
+    <button ion-item [navPush]="stripPage">
+      Strip Yields
+    </button>
+    <button ion-item [navPush]="postmilkPage">
+      Post Milking Teat
+    </button>
+    <button ion-item [navPush]="lactocoderPage">
+      LactoCoder Analysis
+    </button>
+    </ion-list>
+</ion-content>

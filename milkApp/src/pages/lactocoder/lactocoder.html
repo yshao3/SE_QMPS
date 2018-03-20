@@ -1,0 +1,114 @@
+<!--
+  Generated template for the LactocoderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lactocoder Analysis</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2>General Info:</h2>
+  <ion-item>
+    <ion-label>Date</ion-label>
+    <ion-datetime displayFormat="MMM DD, h:mm A" [(ngModel)]="myDate"></ion-datetime>
+  </ion-item>
+  <form [formGroup]="todo">
+    <ion-item>
+      <ion-label fixed>Farm</ion-label>
+      <ion-input text-right type="text" formControlName="farm"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Parlor Type</ion-label>
+      <ion-input text-right type="text" formControlName="parlor"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Pre-milking</ion-label>
+      <ion-input text-right type="text" formControlName="pre_milking"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Herd Size</ion-label>
+      <ion-input text-right type="text" formControlName="herd_size"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Size</ion-label>
+      <ion-input text-right type="text" formControlName="size"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Procedures</ion-label>
+      <ion-input text-right type="text" formControlName="procedures"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Milking Frequency</ion-label>
+      <ion-input text-right type="text" formControlName="frequency"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>No. Operators</ion-label>
+      <ion-input text-right type="text" formControlName="operators"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>(Prep)</ion-label>
+      <ion-input text-right type="text" formControlName="prep"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Milking Routine</ion-label>
+      <ion-input text-right type="text" formControlName="routine"></ion-input>
+    </ion-item>
+  </form>
+
+  <h2>Cows Info:</h2>
+    <ion-item>
+      <ion-label fixed>Cow1</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="cowName1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Total Milk</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="milk1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Remark</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="remark1"></ion-input>
+    </ion-item>
+    <Button ion-button (tap)="timer($event,1,timer1)" > {{timer1}} </Button>
+    <Button ion-button> {{timer1Current}} </Button>
+    <hr>
+    <ion-item>
+      <ion-label fixed>Cow2</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="cowName2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Total Milk</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="milk2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Remark</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="remark2"></ion-input>
+    </ion-item>
+    <Button ion-button (tap)="timer($event,2,timer2)" > {{timer2}} </Button>
+    <Button ion-button> {{timer2Current}} </Button>
+    <hr>
+    <ion-item>
+      <ion-label fixed>Cow3</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="cowName3"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Total Milk</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="milk3"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Remark</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="remark3"></ion-input>
+    </ion-item>
+    <Button ion-button (tap)="timer($event,3,timer3)" > {{timer3}} </Button>
+    <Button ion-button> {{timer3Current}} </Button>
+    <hr>
+
+    <button ion-button (click)="saveForm()">Save</button>
+    <button ion-button (click)="submitForm()">Submit</button>
+</ion-content>
