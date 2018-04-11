@@ -6,14 +6,13 @@ export class HygieneService {
     constructor() {}
        addItem(farm: string,
         date: string,
-        time: string,
         observer: string,
-        group: string,
+        group: number,
         clean: number,
         slightly_present: number,
         moderately_dirt: number,
         caked_on_dirt: number) {
-            this.items.push(new Item(farm, date, time, observer,group, clean, slightly_present, moderately_dirt, caked_on_dirt));
+            this.items.push(new Item(farm, date, observer,group, clean, slightly_present, moderately_dirt, caked_on_dirt));
             console.log(this.items);
        }
 
@@ -24,15 +23,14 @@ export class HygieneService {
        updateItems(index: number,
         farm: string,
         date: string,
-        time: string,
         observer: string,
-        group: string,
+        group: number,
         clean: number,
         slightly_present: number,
         moderately_dirt: number,
         caked_on_dirt: number
                     ) {
-            this.items[index] = new Item(farm, date, time, observer,group, clean, slightly_present, moderately_dirt, caked_on_dirt);
+            this.items[index] = new Item(farm, date, observer,group, clean, slightly_present, moderately_dirt, caked_on_dirt);
        }
 
        removeItem(index: number) {

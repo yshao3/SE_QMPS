@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
 import { SQLite } from '@ionic-native/sqlite';
-import { Storage } from '@ionic/storage';
 import { DatabaseProvider } from '../providers/database/database';
 
 import { MyApp } from './app.component';
@@ -74,10 +73,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HygieneService,
     AlignmentService,
     StripService,
+    SQLite,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DatabaseProvider,
-    SQLite,
-    SQLitePorter
+    SQLitePorter,
+    SQLite
   ]
 })
 export class AppModule {}

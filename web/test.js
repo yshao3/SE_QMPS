@@ -40,7 +40,7 @@
 // };
 $(document).ready(function() {
     $.ajax({
-        url: "http://localhost:8080/Alltables"
+        url: "http://localhost:8080/web/teat/2018-08-17"
     }).then(function(data, status, jqxhr) {
        // $('.greeting-id').append(jqxhr.responseText);
        // $('.greeting-content').append(data.content);
