@@ -23,7 +23,12 @@
 
   <ion-item>
     <ion-label>Date</ion-label>
-    <ion-datetime displayFormat="MMM DD, h:mm A" [(ngModel)]="myDate"></ion-datetime>
+    <ion-datetime displayFormat="YYYY MMM DD" [(ngModel)]="myDate"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>Observer</ion-label>
+    <ion-input text-right type="text" [(ngModel)]="observer"></ion-input>
   </ion-item>
 
 

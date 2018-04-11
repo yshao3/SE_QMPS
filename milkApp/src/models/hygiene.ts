@@ -2,9 +2,8 @@ export class Item {
     constructor(
         public farm: string,
         public date: string,
-        public time: string,
         public observer: string,
-        public group: string,
+        public group: number,
         public clean: number,
         public slightly_dirt: number,
         public moderately_dirt: number,

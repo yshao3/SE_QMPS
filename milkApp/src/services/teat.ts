@@ -1,4 +1,3 @@
-
 import { Item } from "../models/teat";
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
@@ -11,16 +10,17 @@ export class TeatService {
 
     constructor(private http: Http,
         private authService: AuthService) {}
+
        addItem(farm: string,
         date: string,
-        time: string,
         observer: string,
         milker: string,
         clean: number,
-        deep_present: number,
+        dip_present: number,
         small_dirt: number,
-        large_dirt: number) {
-            this.items.push(new Item(farm, date, time, observer, milker, clean, deep_present, small_dirt, large_dirt));
+        large_dirt: number,
+        beforeAfter: string) {
+            this.items.push(new Item(farm, date, observer, milker, clean, dip_present, small_dirt, large_dirt, beforeAfter));
             console.log(this.items);
        }
 
@@ -31,14 +31,14 @@ export class TeatService {
        updateItems(index: number,
         farm: string,
         date: string,
-        time: string,
         observer: string,
         milker: string,
         clean: number,
-        deep_present: number,
+        dip_present: number,
         small_dirt: number,
-        large_dirt: number) {
-            this.items[index] = new Item(farm, date, time, observer, milker, clean, deep_present, small_dirt, large_dirt);
+        large_dirt: number,
+        beforeAfter: string) {
+            this.items[index] = new Item(farm, date, observer, milker, clean, dip_present, small_dirt, large_dirt, beforeAfter);
        }
 
        removeItem(index: number) {
