@@ -15,55 +15,52 @@
 
 <ion-content padding>
   <h2>General Info:</h2>
-  <ion-list>
+  <ion-item>
+    <ion-label>Date</ion-label>
+    <ion-datetime displayFormat="MMM DD, h:mm A" [(ngModel)]="myDate"></ion-datetime>
+  </ion-item>
+  <form [formGroup]="todo">
     <ion-item>
       <ion-label fixed>Farm</ion-label>
-      <ion-input text-right type="text" [(ngModel)]="farm"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="YYYY MMM DD" [(ngModel)]="myDate"></ion-datetime>
+      <ion-input text-right type="text" formControlName="farm"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Parlor Type</ion-label>
-      <ion-input text-right type="text" [(ngModel)]="parlor"></ion-input>
+      <ion-input text-right type="text" formControlName="parlor"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Pre-milking</ion-label>
-      <ion-input text-right type="text" [(ngModel)]="pre_milking"></ion-input>
+      <ion-input text-right type="text" formControlName="pre_milking"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Herd Size</ion-label>
-      <ion-input text-right type="text" [(ngModel)]="herd_size"></ion-input>
+      <ion-input text-right type="text" formControlName="herd_size"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Size</ion-label>
-      <ion-input text-right type="text" [(ngModel)]="size"></ion-input>
+      <ion-input text-right type="text" formControlName="size"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Procedures</ion-label>
-      <ion-input text-right type="text" [(ngModel)]="procedures"></ion-input>
+      <ion-input text-right type="text" formControlName="procedures"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Milking Frequency</ion-label>
-      <ion-select [(ngModel)]="frequency" interface="popover">
-        <ion-option value="frequency2X">2X</ion-option>
-        <ion-option value="frequency3X">3X</ion-option>
-      </ion-select>
+      <ion-input text-right type="text" formControlName="frequency"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>No. Operators</ion-label>
-      <ion-input text-right type="text" [(ngModel)]="operators"></ion-input>
+      <ion-input text-right type="text" formControlName="operators"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>(Prep)</ion-label>
-      <ion-input text-right type="text" [(ngModel)]="prep"></ion-input>
+      <ion-input text-right type="text" formControlName="prep"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Milking Routine</ion-label>
-      <ion-input text-right type="text" [(ngModel)]="routine"></ion-input>
+      <ion-input text-right type="text" formControlName="routine"></ion-input>
     </ion-item>
-  </ion-list>
+  </form>
 
   <h2>Cows Info:</h2>
     <ion-item>
@@ -79,6 +76,7 @@
       <ion-input text-right type="text" [(ngModel)]="remark1"></ion-input>
     </ion-item>
     <Button ion-button (tap)="timer($event,1,timer1)" > {{timer1}} </Button>
+    <Button ion-button> {{timer1Current}} </Button>
     <hr>
     <ion-item>
       <ion-label fixed>Cow2</ion-label>
@@ -93,6 +91,7 @@
       <ion-input text-right type="text" [(ngModel)]="remark2"></ion-input>
     </ion-item>
     <Button ion-button (tap)="timer($event,2,timer2)" > {{timer2}} </Button>
+    <Button ion-button> {{timer2Current}} </Button>
     <hr>
     <ion-item>
       <ion-label fixed>Cow3</ion-label>
@@ -107,6 +106,7 @@
       <ion-input text-right type="text" [(ngModel)]="remark3"></ion-input>
     </ion-item>
     <Button ion-button (tap)="timer($event,3,timer3)" > {{timer3}} </Button>
+    <Button ion-button> {{timer3Current}} </Button>
     <hr>
 
     <button ion-button (click)="saveForm()">Save</button>

@@ -17,14 +17,14 @@ import * as moment from 'moment';
   templateUrl: 'hygiene.html',
 })
 export class HygienePage {
-  public farm: string = ""
-  public myDate: string = moment().format()
-  public observer: string = ""
-  public group: number = 0
-  public clean: number = 0
-  public slightlyDirt: number = 0
-  public moderatelyDirt: number = 0
-  public cakedOnDirt: number = 0
+  public clean: number = 0;
+  public slightlyDirt: number = 0;
+  public moderatelyDirt: number = 0;
+  public cakedOnDirt: number = 0;
+  public farm: string = "";
+  public myDate: string = moment().format();
+  public observer: string = "";
+  public group: string = "";
   constructor(public alerCtrl: AlertController,
     private hygieneService: HygieneService) {
 
@@ -61,6 +61,7 @@ export class HygienePage {
     this.hygieneService.updateItems(0,
       this.farm,
       this.myDate,
+      this.myDate,
       this.observer,
       this.group,
       this.clean,
@@ -79,15 +80,14 @@ export class HygienePage {
     });
     alert.present()
 
-    this.farm = ""
-    this.myDate = moment().format()
-    this.observer = ""
-    this.group = 0
     this.clean = 0
     this.slightlyDirt = 0
     this.moderatelyDirt = 0
     this.cakedOnDirt = 0
-
+    this.farm = ""
+    this.myDate = moment().format()
+    this.observer = ""
+    this.group = ""
   }
 
   ionViewDidLoad() {

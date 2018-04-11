@@ -10,12 +10,12 @@ import * as moment from 'moment';
   templateUrl: 'strip.html',
 })
 export class StripPage {
-  public farm: string = ""
-  public myDate: string = moment().format()
-  public observer: string = ""
-  public stall: string = ""
-  public ml: string = ""
-  public balance: string = "balanced"
+  public farm: string = "";
+  public myDate: string = moment().format();
+  public observer: string = "";
+  public stall: string = "";
+  public ml: string = "";
+  public balance: string = "balanced";
 
   constructor(public alerCtrl: AlertController,
     private stripService: StripService) {
@@ -32,6 +32,7 @@ export class StripPage {
 
     //add Item
     this.stripService.addItem(this.farm,
+      this.myDate,
       this.myDate,
       this.observer,
       this.stall,

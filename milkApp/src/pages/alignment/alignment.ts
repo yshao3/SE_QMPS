@@ -9,9 +9,8 @@ import * as moment from 'moment';
   templateUrl: 'alignment.html',
 })
 export class AlignmentPage {
-  public farm: string = ""
-  public myDate: string = moment().format()
-  public observer: string = ""
+  public farm: string = "";
+  public myDate: string = moment().format();
   public good: number = 0;
   public bad: number = 0;
 
@@ -40,12 +39,12 @@ export class AlignmentPage {
       message: 'Data have been saved locally!',
       buttons: ['Ok']
     });
-
+    
     this.alignmentService.updateItems(0,
-      this.farm,
-      this.myDate,
-      this.observer,
-      this.good,
+      this.farm, 
+      this.myDate, 
+      this.myDate, 
+      this.good, 
       this.bad);
 
     console.log(this.alignmentService.getItems());
@@ -61,7 +60,6 @@ export class AlignmentPage {
 
     this.good = 0
     this.bad = 0
-    this.observer = ""
     this.farm = ""
     this.myDate = moment().format()
   }

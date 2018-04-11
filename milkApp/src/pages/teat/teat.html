@@ -5,9 +5,11 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+
   <ion-navbar>
     <ion-title>Teat End Cleanliness</ion-title>
   </ion-navbar>
+
 </ion-header>
 
 
@@ -20,7 +22,7 @@
 
     <ion-item>
       <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="YYYY MMM DD" [(ngModel)]="myDate"></ion-datetime>
+      <ion-datetime displayFormat="MMM DD, h:mm A" [(ngModel)]="myDate"></ion-datetime>
     </ion-item>
 
     <ion-item>
@@ -34,14 +36,6 @@
     </ion-item>
   </ion-list>
 
-  <ion-item>
-    <ion-label>Before or After Milking</ion-label>
-    <ion-select [(ngModel)]="beforeAfter" interface="popover">
-      <ion-option value="beforeAfter1">Before</ion-option>
-      <ion-option value="beforeAfter2">After</ion-option>
-    </ion-select>
-  </ion-item>
-
   <ion-card class="card" margin="0px">
     <img src="assets/imgs/clean.png"/>
     <ion-card-content>
@@ -54,10 +48,10 @@
   </ion-card>
 
   <ion-card class="card" margin="0px">
-    <img src="assets/imgs/dipPresent.png"/>
+    <img src="assets/imgs/deepPresent.png"/>
     <ion-card-content>
       <ion-card-title>
-        <p>Dip Present: {{dipPresent}}</p>
+        <p>Deep Present: {{deepPresent}}</p>
       </ion-card-title>
       <Button ion-button (tap)="tapDecrease($event,2)"> - </Button>
       <Button ion-button (tap)="tapIncrease($event,2)"> + </Button>
@@ -87,11 +81,42 @@
     </ion-card-content>
   </ion-card>
 
+
+<!--
+
+
+  <Button ion-button (tap)="tapDecrease($event,1)"> - </Button>
+  <Button>Clean: {{clean}}</Button>
+  <Button ion-button (tap)="tapIncrease($event,1)"> + </Button>
+
+  <hr>
+
+  <Button ion-button (tap)="tapDecrease($event,2)"> - </Button>
+  <Button>Deep Present: {{deepPresent}}</Button>
+  <Button ion-button (tap)="tapIncrease($event,2)"> + </Button>
+
+  <hr>
+
+  <Button ion-button (tap)="tapDecrease($event,3)"> - </Button>
+  <Button>Small Dirt: {{smallDirt}}</Button>
+  <Button ion-button (tap)="tapIncrease($event,3)"> + </Button>
+
+  <hr>
+
+  <Button ion-button (tap)="tapDecrease($event,4)"> - </Button>
+  <Button>Large Dirt: {{largeDirt}}</Button>
+  <Button ion-button (tap)="tapIncrease($event,4)"> + </Button>
+-->
   <hr>
   <hr>
 
   <Button class="btn" ion-button (click)="saveData()"> Save </Button>
   <Button class="btn" ion-button (click)="submitData()"> Submit </Button>
   <Button class="btn" ion-button navPop> Back </Button>
+
+  <!--<ion-item *ngFor="let i of items">
+    <h2>{{ i.farm }}</h2>
+    <h2>{{ i.date }}</h2>
+  </ion-item>-->
 
 </ion-content>

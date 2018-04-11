@@ -6,10 +6,10 @@ export class AlignmentService {
     constructor() {}
        addItem(farm: string,
         date: string,
-        observer: string,
+        time: string,
         good: number,
         bad: number) {
-            this.items.push(new Item(farm, date, observer, good, bad));
+            this.items.push(new Item(farm, date, time, good, bad));
             console.log(this.items);
        }
 
@@ -20,10 +20,10 @@ export class AlignmentService {
        updateItems(index: number,
         farm: string,
         date: string,
-        observer: string,
+        time: string,
         good: number,
         bad: number) {
-            this.items[index] = new Item(farm, date, observer, good, bad);
+            this.items[index] = new Item(farm, date, time, good, bad);
        }
 
        removeItem(index: number) {

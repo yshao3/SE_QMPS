@@ -16,66 +16,66 @@ import * as moment from 'moment';
   templateUrl: 'postmilk.html',
 })
 export class PostmilkPage {
-  public farm: string = ""
-  public myDate: string = moment().format()
-  public observer: string = ""
+  public farm: String = "";
+  public myDate: String = moment().format();
+  public observer: String = "";
+  
+  public group: String = "";
+  public teatSkinLH: String = "teatSkinLH1";
+  public teatSkinLF: String = "teatSkinLF1";
+  public teatSkinRH: String = "teatSkinRH1";
+  public teatSkinRF: String = "teatSkinRF1";
 
-  public group: number = 0
-  public teatSkinLH: string = "teatSkinLH1"
-  public teatSkinLF: string = "teatSkinLF1"
-  public teatSkinRH: string = "teatSkinRH1"
-  public teatSkinRF: string = "teatSkinRF1"
+  public teatColorLH: String = "teatColorLH1";
+  public teatColorLF: String = "teatColorLF1";
+  public teatColorRH: String = "teatColorRH1";
+  public teatColorRF: String = "teatColorRF1";
 
-  public teatColorLH: string = "teatColorLH1"
-  public teatColorLF: string = "teatColorLF1"
-  public teatColorRH: string = "teatColorRH1"
-  public teatColorRF: string = "teatColorRF1"
+  public swellingLH: String = "swellingLH1";
+  public swellingLF: String = "swellingLF1";
+  public swellingRH: String = "swellingRH1";
+  public swellingRF: String = "swellingRF1";
 
-  public swellingLH: string = "swellingLH1"
-  public swellingLF: string = "swellingLF1"
-  public swellingRH: string = "swellingRH1"
-  public swellingRF: string = "swellingRF1"
+  public hardnessLH: String = "hardnessLH1";
+  public hardnessLF: String = "hardnessLF1";
+  public hardnessRH: String = "hardnessRH1";
+  public hardnessRF: String = "hardnessRF1";
 
-  public hardnessLH: string = "hardnessLH1"
-  public hardnessLF: string = "hardnessLF1"
-  public hardnessRH: string = "hardnessRH1"
-  public hardnessRF: string = "hardnessRF1"
-
-  public scoreLH: string = "scoreLH1"
-  public scoreLF: string = "scoreLF1"
-  public scoreRH: string = "scoreRH1"
-  public scoreRF: string = "scoreRF1"
+  public scoreLH: String = "scoreLH1";
+  public scoreLF: String = "scoreLF1";
+  public scoreRH: String = "scoreRH1";
+  public scoreRF: String = "scoreRF1";
 
 
   constructor(public alerCtrl: AlertController ) {
   }
 
   saveForm(){
-    this.group = 0
-    this.teatSkinLH = "teatSkinLH1"
-    this.teatSkinLF = "teatSkinLF1"
-    this.teatSkinRH = "teatSkinRH1"
-    this.teatSkinRF = "teatSkinRF1"
+    this.group = "";
+    this.teatSkinLH = "teatSkinLH1";
+    this.teatSkinLF = "teatSkinLF1";
+    this.teatSkinRH = "teatSkinRH1";
+    this.teatSkinRF = "teatSkinRF1";
 
-    this.teatColorLH = "teatColorLH1"
-    this.teatColorLF = "teatColorLF1"
-    this.teatColorRH = "teatColorRH1"
-    this.teatColorRF = "teatColorRF1"
+    this.teatColorLH = "teatColorLH1";
+    this.teatColorLF = "teatColorLF1";
+    this.teatColorRH = "teatColorRH1";
+    this.teatColorRF = "teatColorRF1";
 
-    this.swellingLH = "swellingLH1"
-    this.swellingLF = "swellingLF1"
-    this.swellingRH = "swellingRH1"
-    this.swellingRF = "swellingRF1"
+    this.swellingLH = "swellingLH1";
+    this.swellingLF = "swellingLF1";
+    this.swellingRH = "swellingRH1";
+    this.swellingRF = "swellingRF1";
 
-    this.hardnessLH = "hardnessLH1"
-    this.hardnessLF = "hardnessLF1"
-    this.hardnessRH = "hardnessRH1"
-    this.hardnessRF = "hardnessRF1"
+    this.hardnessLH = "hardnessLH1";
+    this.hardnessLF = "hardnessLF1";
+    this.hardnessRH = "hardnessRH1";
+    this.hardnessRF = "hardnessRF1";
 
-    this.scoreLH = "scoreLH1"
-    this.scoreLF = "scoreLF1"
-    this.scoreRH = "scoreRH1"
-    this.scoreRF = "scoreRF1"
+    this.scoreLH = "scoreLH1";
+    this.scoreLF = "scoreLF1";
+    this.scoreRH = "scoreRH1";
+    this.scoreRF = "scoreRF1";
   }
   submitForm(){
     let alert = this.alerCtrl.create({
