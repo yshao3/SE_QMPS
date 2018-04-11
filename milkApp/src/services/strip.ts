@@ -6,12 +6,11 @@ export class StripService {
     constructor() {}
        addItem(farm: string,
         date: string,
-        time: string,
         observer: string,
         stall_no: string,
         volume: string,
         balance: string) {
-            this.items.push(new Item(farm, date, time, observer, stall_no, volume, balance));
+            this.items.push(new Item(farm, date, observer, stall_no, volume, balance));
             console.log(this.items);
        }
 
@@ -22,12 +21,11 @@ export class StripService {
        updateItems(index: number,
         farm: string,
         date: string,
-        time: string,
         observer: string,
         stall_no: string,
         volume: string,
         balance: string) {
-            this.items[index] = new Item(farm, date, time, observer, stall_no, volume, balance);
+            this.items[index] = new Item(farm, date, observer, stall_no, volume, balance);
        }
 
        removeItem(index: number) {
