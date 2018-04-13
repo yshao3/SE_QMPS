@@ -11,6 +11,10 @@
 
     <title>LactoCoder Record</title>
 
+    <!-- D3-->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -44,6 +48,70 @@
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
+    <style>
+
+        table.blueTable {
+        border: 1px solid #1C6EA4;
+        background-color: #EEEEEE;
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+        }
+        table.blueTable td, table.blueTable th {
+        border: 1px solid #AAAAAA;
+        padding: 3px 2px;
+        }
+        table.blueTable tbody td {
+        font-size: 13px;
+        }
+        table.blueTable tr:nth-child(even) {
+        background: #D0E4F5;
+        }
+        table.blueTable thead {
+        background: #1C6EA4;
+        background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+        background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+        background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+        border-bottom: 2px solid #444444;
+        }
+        table.blueTable thead th {
+        font-size: 15px;
+        font-weight: bold;
+        color: #FFFFFF;
+        border-left: 2px solid #D0E4F5;
+        text-align: center;
+        }
+        table.blueTable thead th:first-child {
+        border-left: none;
+        }
+
+        table.blueTable tfoot {
+        font-size: 14px;
+        font-weight: bold;
+        color: #FFFFFF;
+        background: #D0E4F5;
+        background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+        background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+        background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+        border-top: 2px solid #444444;
+        }
+        table.blueTable tfoot td {
+        font-size: 14px;
+        }
+        table.blueTable tfoot .links {
+        text-align: right;
+        }
+        table.blueTable tfoot .links a{
+        display: inline-block;
+        background: #1C6EA4;
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 5px;
+        }
+    
+    </style>
+
 
 </head>
 
@@ -158,7 +226,7 @@
                         <div class='col-sm-3'>
                             <div class="form-group"><br/>
                                 <div>
-                                    <button type="button" class="btn btn-warning">Search</button>
+                                    <button type="button" class="btn btn-warning" id="createbutton">Search</button>
                                     <button type="button" class="btn btn-success" id="lactoDraw">Analytics</button>
                                 </div>
                             </div>
@@ -179,6 +247,10 @@
                             <button type="button" class="btn btn-danger" id="button-lactoCoder">Download</button>
                         </div>
                     </div>
+
+                    <div id="divTable" class="container">
+                    </div>
+
                     <div class='col-sm-10'>
                       <canvas id="canvas"></canvas>
                     </div>
@@ -188,6 +260,109 @@
 
     </div>
     <!-- /#wrapper -->
+
+    <script>
+
+        var lacto_data;
+        var columns = ['Date', 'Stats', 'Dip Contact', 'Lag Time', 'Unit on Time'];
+
+
+        d3.json('../data/search/lacto_data.json', function (error,data) {
+
+            $("#createbutton").one("click",function createTable() {
+            // Create table.
+            lacto_data = data;
+            console.log(lacto_data);
+            //console.log(Math.abs(lacto_data[0].Wipe) - Math.abs(lacto_data[0].Dip));
+            var lacto_data_summary = d3.nest()
+                .key(function (d){ return d.Date;})
+                .rollup(function(v){ return {
+                    //total: d3.sum(v, function(d) {return d.lacto_Yields;}),
+                    average_dip: d3.mean(v, function(d) {return d.Dip_Time;}),
+                    average_lag: d3.mean(v, function(d) {return d.Lag_Time;}),
+                    average_unit: d3.mean(v, function(d) {return d.Unit_Time;}),
+
+                    min_dip: d3.min(v, function(d) {return d.Dip_Time;}),
+                    min_lag: d3.min(v, function(d) {return d.Lag_Time;}),
+                    min_unit: d3.min(v, function(d) {return d.Unit_Time;}),
+
+                    max_dip: d3.max(v, function(d) {return d.Dip_Time;}),
+                    max_lag: d3.max(v, function(d) {return d.Lag_Time;}),
+                    max_unit: d3.max(v, function(d) {return d.Unit_Time;})
+
+                };})
+                .entries(lacto_data);
+            
+            
+            console.log(lacto_data_summary);
+
+            var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
+            var thead = table.append('thead');
+            var tbody = table.append('tbody');
+
+            thead
+                .selectAll('th')
+                .data(columns)
+                .enter()
+                .append('th')
+                .text(function (column) { return column; });
+
+            var rows = tbody.selectAll('tr')
+                .data(lacto_data_summary)
+                .enter()
+                .append('tr')
+
+            
+            var lacto_data_length = lacto_data_summary.length;
+            //console.log(lacto_data_length);
+
+
+            for (var i = 0; i < lacto_data_length; i++){
+                var tr = tbody.append('tr')
+
+                var td_date = tr.append('td')
+                .attr('id', 'date_1')
+                .attr('rowspan', 3)
+                .text(lacto_data_summary[i].key);
+                var td = tr.append('td')
+                .text('Average');
+                var td = tr.append('td')
+                .text(lacto_data_summary[i].value.average_dip);
+                var td = tr.append('td')
+                .text(lacto_data_summary[i].value.average_lag);
+                var td = tr.append('td')
+                .text(lacto_data_summary[i].value.average_lag);
+
+
+                var tr = tbody.append('tr')
+                var td = tr.append('td')
+                .text('Min');
+                var td = tr.append('td')
+                .text(lacto_data_summary[i].value.min_dip);
+                var td = tr.append('td')
+                .text(lacto_data_summary[i].value.min_lag);
+                var td = tr.append('td')
+                .text(lacto_data_summary[i].value.min_lag);
+
+
+                var tr = tbody.append('tr')               
+                var td = tr.append('td')
+                .text('Max');
+                var td = tr.append('td')
+                .text(lacto_data_summary[i].value.max_dip);
+                var td = tr.append('td')
+                .text(lacto_data_summary[i].value.max_lag);
+                var td = tr.append('td')
+                .text(lacto_data_summary[i].value.max_lag);
+
+                
+                
+            }
+
+            }); 
+            
+        });
+    </script>
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
