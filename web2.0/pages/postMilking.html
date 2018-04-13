@@ -137,28 +137,47 @@
                         </div>
     
                         <div class='col-sm-3'>
-                                <div class="form-group">
-                                    Farm: 
-                                <select class="form-control">
-                                    <option>Lively Run Dairy Farm and Creamery</option>
-                                    <option>Northland Sheep Dairy</option>
-                                    <option>Kriemhild Dairy Farms</option>
-                                    <option>Shunpike Dairy Farm</option>
-                                    <option>Lamb Farm</option>
-                                    <option>Teacup Farm</option>
-                                    <option>Bayside Milk Farm</option>
-                                </select>
+                            <div class="form-group">
+                                Farm: 
+                            <select class="form-control">
+                                <option>Lively Run Dairy Farm and Creamery</option>
+                                <option>Northland Sheep Dairy</option>
+                                <option>Kriemhild Dairy Farms</option>
+                                <option>Shunpike Dairy Farm</option>
+                                <option>Lamb Farm</option>
+                                <option>Teacup Farm</option>
+                                <option>Bayside Milk Farm</option>
+                            </select>
+                            </div>
+                        </div>
+
+                        <div class='col-sm-3'>
+                            <div class="form-group"><br/>
+                                <div>
+                                    <button type="button" class="btn btn-warning">Search</button>
+                                    <button type="button" class="btn btn-success">Analytics</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <button type="button" class="btn btn-danger">Download</button>
-                        <button type="button" class="btn btn-warning">Search</button>
-                        <button type="button" class="btn btn-success">Analytics</button>
+
+                    <div class="row">
+                        <div class='col-sm-2'>
+                                Download Data on
+                            <div class='input-group date' id='datetimepicker1'>
+                                    <input type='text' class="form-control" />
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div class='col-sm-3'><br/>
+                            <button type="button" class="btn btn-danger" id="button-postMilking">Download</button>
+                        </div>
                     </div>
                 </div>
-        </div>
-        <!-- /#page-wrapper -->
+            </div>
+            <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
@@ -184,7 +203,13 @@
     <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js'></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js'></script>
-    <script  src="../dist/js/index.js"></script>
+    <script src= "../dist/js/index.js"></script>
+
+    <!-- File Saver -->
+    <script lang="javascript" src="../data/xlsx/dist/xlsx.full.min.js"></script>
+    <script lang="javascript" src="../data/file-saver/FileSaver.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+    <script src="../data/scripts.js"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <!-- <script>
