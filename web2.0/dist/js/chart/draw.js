@@ -1200,7 +1200,7 @@ function unitFunction() {
 
 		};
 
-    var ctx = document.getElementById('canvas2').getContext('2d');
+    var ctx = document.getElementById('canvas').getContext('2d');
     window.myBar = new Chart(ctx, {
       type: 'bar',
       data: barChartData,
