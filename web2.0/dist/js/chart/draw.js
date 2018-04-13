@@ -503,8 +503,8 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 59,
-          lt2 : 34,
+          lt1: 29,
+          lt2 : 93,
           lt3 : 78,
 					Total_Milk: 200,
 					Remark: "N/A"
@@ -527,9 +527,9 @@ function lactoFunction() {
 					Wipe: "12:02:46 AM",
 					Attach: "12:04:02 AM",
 					Remove: "12:06:17 AM",
-          lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
+          lt1: 60,
+          lt2 : 54,
+          lt3 : 28,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -551,8 +551,8 @@ function lactoFunction() {
 					Wipe: "12:04:33 AM",
 					Attach: "12:06:40 AM",
 					Remove: "12:08:15 AM",
-          lt1: 59,
-          lt2 : 34,
+          lt1: 76,
+          lt2 : 84,
           lt3 : 78,
 					Total_Milk: 200,
 					Remark: "N/A"
@@ -575,7 +575,7 @@ function lactoFunction() {
 					Wipe: "12:04:33 AM",
 					Attach: "12:06:40 AM",
 					Remove: "12:08:15 AM",
-          lt1: 59,
+          lt1: 49,
           lt2 : 34,
           lt3 : 78,
 					Total_Milk: 200,
@@ -599,9 +599,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 59,
+          lt1: 35,
           lt2 : 34,
-          lt3 : 78,
+          lt3 : 33,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -624,8 +624,8 @@ function lactoFunction() {
 					Attach: "12:06:40 AM",
 					Remove: "12:08:15 AM",
           lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
+          lt2 : 85,
+          lt3 : 37,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -647,8 +647,8 @@ function lactoFunction() {
 					Wipe: "12:04:33 AM",
 					Attach: "12:06:40 AM",
 					Remove: "12:08:15 AM",
-          lt1: 59,
-          lt2 : 34,
+          lt1: 43,
+          lt2 : 23,
           lt3 : 78,
 					Total_Milk: 200,
 					Remark: "N/A"
@@ -671,9 +671,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
+          lt1: 40,
+          lt2 : 89,
+          lt3 : 45,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -695,9 +695,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
+          lt1: 35,
+          lt2 : 83,
+          lt3 : 47,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -719,9 +719,9 @@ function lactoFunction() {
 					Wipe: "12:02:46 AM",
 					Attach: "12:04:02 AM",
 					Remove: "12:06:17 AM",
-          lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
+          lt1: 39,
+          lt2 : 44,
+          lt3 : 65,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -743,9 +743,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
+          lt1: 30,
+          lt2 : 77,
+          lt3 : 41,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},{
@@ -766,8 +766,8 @@ function lactoFunction() {
 					Wipe: "12:02:46 AM",
 					Attach: "12:04:02 AM",
 					Remove: "12:06:17 AM",
-          lt1: 59,
-          lt2 : 34,
+          lt1: 64,
+          lt2 : 43,
           lt3 : 78,
 					Total_Milk: 200,
 					Remark: "N/A"
@@ -790,9 +790,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
+          lt1: 32,
+          lt2 : 55,
+          lt3 : 28,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -814,9 +814,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
+          lt1: 69,
+          lt2 : 44,
+          lt3 : 38,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -832,7 +832,7 @@ function lactoFunction() {
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 0604,
-          Stall: 3,
+          Stall: 4,
 					Dip: "12:00:10 AM",
 					Strip: "12:01:50 AM",
 					Wipe: "12:02:46 AM",
@@ -886,9 +886,9 @@ function lactoFunction() {
 					Wipe: "12:04:46 AM",
 					Attach: "12:05:02 AM",
 					Remove: "12:06:17 AM",
-          lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
+          lt1: 20,
+          lt2 : 46,
+          lt3 : 68,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -910,8 +910,8 @@ function lactoFunction() {
 					Wipe: "12:06:46 AM",
 					Attach: "12:08:02 AM",
 					Remove: "12:10:17 AM",
-          lt1: 59,
-          lt2 : 34,
+          lt1: 49,
+          lt2 : 14,
           lt3 : 78,
 					Total_Milk: 200,
 					Remark: "N/A"
@@ -928,13 +928,13 @@ function lactoFunction() {
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 996,
-          Stall: 4,
+          Stall: 5,
 					Dip: "12:00:10 AM",
 					Strip: "12:01:50 AM",
 					Wipe: "12:02:46 AM",
 					Attach: "12:04:02 AM",
 					Remove: "12:06:17 AM",
-          lt1: 59,
+          lt1: 23,
           lt2 : 34,
           lt3 : 78,
 					Total_Milk: 200,
@@ -952,15 +952,15 @@ function lactoFunction() {
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 1216,
-          Stall: 4,
+          Stall: 5,
 					Dip: "12:00:10 AM",
 					Strip: "12:01:50 AM",
 					Wipe: "12:02:46 AM",
 					Attach: "12:04:02 AM",
 					Remove: "12:06:17 AM",
-          lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
+          lt1: 50,
+          lt2 : 54,
+          lt3 : 56,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -983,9 +983,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
+          lt1: 45,
+          lt2 : 44,
+          lt3 : 98,
 					Total_Milk: 200,
 					Remark: "N/A"
 			}
@@ -998,26 +998,115 @@ function lactoFunction() {
 		var minsdiff=parseInt(ary2[0],10)*60+parseInt(ary2[1],10)*60+parseInt(ary2[2],10)-parseInt(ary1[0],10)*60-parseInt(ary1[1],10)*60-parseInt(ary1[2],10);
 		return minsdiff;
 	}
-  var ary = [];
+  var stallset = [];
 
-  function isExist(ary, subary){
+  function isExist(st){
+    var stallExists = -1;
+    for (var i = 0; i < stallset.length;) {
+      if (stallset[i].stl == st) {
+          stallExists = i;
 
+        }
+        i++;
+    }
+    console.log(stallExists);
+    return stallExists;
   }
-  	for(var i = 0; i < lacto_data.length; i++) {
+  for(var i = 0; i < lacto_data.length; i++) {
+    var newindex = 0;
+    var obj = lacto_data[i];
+    console.log(obj.Stall);
+    var findindex = isExist(obj.Stall);
+    console.log(findindex)
+    if(findindex >= 0){
+        var token = obj[findindex];
+
+        stallset[findindex].total1 += obj.lt1;
+        stallset[findindex].total2 += obj.lt2;
+        stallset[findindex].total3 += obj.lt3;
+        stallset[findindex].count += 1;
+        stallset[findindex].min1 = Math.min(obj.lt1,stallset[findindex].min1);
+        stallset[findindex].min2 = Math.min(obj.lt2,stallset[findindex].min2);
+        stallset[findindex].min3 = Math.min(obj.lt3,stallset[findindex].min2);
+        stallset[findindex].max1 = Math.max(obj.lt1,stallset[findindex].max1);
+        stallset[findindex].max2 = Math.max(obj.lt2,stallset[findindex].max2);
+        stallset[findindex].max3 = Math.max(obj.lt3,stallset[findindex].max3);
+
 
     }
+    else{
+      var make = {};
+      make.stl = obj.Stall;
+      make.total1 = obj.lt1;
+      make.total2 = obj.lt2;
+      make.total3 = obj.lt3;
+      make.min1 = obj.lt1;
+      make.min2 = obj.lt2;
+      make.min3 = obj.lt3;
+      make.max1 = obj.lt1;
+      make.max2 = obj.lt2;
+      make.max3 = obj.lt3;
+      make.count = 1;
+      stallset.push(make);
+      console.log(stallset);
+      /*
+      stallset[newindex].stl = obj.stall;
+      stallset[newindex].total1 = obj.lt1;
+      stallset[newindex].total2 = obj.lt2;
+      stallset[newindex].total3 = obj.lt3;
+      stallset[newindex].min1 = obj.lt1;
+      stallset[newindex].min2 = obj.lt2;
+      stallset[newindex].min3 = obj.lt3;
+      stallset[newindex].max1 = obj.lt1;
+      stallset[newindex].max2 = obj.lt2;
+      stallset[newindex].max3 = obj.lt3;
+      stallset[newindex].count = 1;
+      */
+      newindex ++;
+    }
+  }
+  console.log(stallset);
     var sort1 = [];
-
-		var label_data = ["Min","Max","Average"];
-		var set1 = [];
-		var set2 = [];
-		var set3 = [];
-		var set4 = [];
+/*
+		var label_data = ["Dip contact time - Min","Dip contact time - Avg","Dip contact time - Max",
+  "Lag time - Min", "Lag time - Avg","Lag time - Max", "Unit on time - Min",
+"Unit on time - Avg","Unit on time - Max"];
+*/
+var label_data = [];
+    //min dataset
+		var set11 = [];
+    var set12 = [];
+    var set13 = [];
+    //average
+		var set21 = [];
+    var set22 = [];
+    var set23 = [];
+    //max
+		var set31 = [];
+    var set32 = [];
+    var set33 = [];
+		//var set4 = [];
 		//var score1set = [];
-    /*
-		for(var i = 0; i < lacto_data.length; i++) {
-	    var obj = lacto_data[i];
-			label_data.push(obj.Cow);
+
+		for(var i = 0; i < stallset.length; i++) {
+	    var obj = stallset[i];
+      console.log(obj);
+      console.log(obj.stl);
+      var stallname = "stall" + obj.stl;
+			label_data.push(stallname);
+      set11.push(obj.min1);
+      set12.push(obj.min2);
+      set13.push(obj.min3);
+
+      set21.push(obj.total1/obj.count);
+      set22.push(obj.total2/obj.count);
+      set23.push(obj.total2/obj.count);
+
+      set31.push(obj.max1);
+      set32.push(obj.max2);
+      set33.push(obj.max3);
+
+      /*
 			var tim1=obj.Dip.replace(" AM","");
 			var tim2=obj.Strip.replace(" AM","");
 			var tim3=obj.Wipe.replace(" AM","");
@@ -1034,44 +1123,78 @@ function lactoFunction() {
 			set2.push(caldiff(ary2, ary3));
 			set3.push(caldiff(ary3, ary4));
 			set4.push(caldiff(ary4, ary5));
-
-		}
 */
+		}
+
 for(var i = 0; i < lacto_data.length; i++) {
   var obj = lacto_data[i];
-  label_data.push(obj.Cow);
+
 }
 			console.log(label_data);
 
-
+      /*
+      		var label_data = ["Dip contact time - Min","Dip contact time - Avg","Dip contact time - Max",
+        "Lag time - Min", "Lag time - Avg","Lag time - Max", "Unit on time - Min",
+      "Unit on time - Avg","Unit on time - Max"];
+      */
 		var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 		var color = Chart.helpers.color;
 		var barChartData = {
 			labels: label_data,
 			datasets: [{
-				label: 'Dip - Strip',
-				backgroundColor: "#EF255F",
+				label: 'Dip contact time - Min',
+				backgroundColor: "#ffffb3",
 				borderColor: window.chartColors.white,
 				borderWidth: 0,
-				data: set1
+				data: set11
 			}, {
-				label: 'Strip - Wipe',
-			backgroundColor: "#FCCF4D",
+				label: 'Dip contact time - Avg',
+			backgroundColor: "#ffe082",
 				borderColor: window.chartColors.white,
 				borderWidth: 0,
-				data: set2
+				data: set21
 			}, {
-				label: 'Wipe - Attach',
-				backgroundColor: "#49BEB7",
+				label: 'Dip contact time - Max',
+				backgroundColor: "#caae53",
 				borderColor: window.chartColors.yellow,
 				borderWidth: 0,
-				data: set3
+				data: set31
 			}, {
-				label: 'Attach - Remove',
-				backgroundColor: "#085F63",
+				label: 'Lag time - Min',
+				backgroundColor: "#c3fdff",
 				borderColor: window.chartColors.purple,
 				borderWidth: 0,
-				data: set4
+				data: set12
+			}, {
+				label: 'Lag time - Avg',
+			backgroundColor: "#90caf9",
+				borderColor: window.chartColors.white,
+				borderWidth: 0,
+				data: set22
+			}, {
+				label: 'Lag time - Max',
+				backgroundColor: "#5d99c6",
+				borderColor: window.chartColors.yellow,
+				borderWidth: 0,
+				data: set32
+			}, {
+				label: 'Unit on time - Min',
+				backgroundColor: "#ffddc1",
+				borderColor: window.chartColors.purple,
+				borderWidth: 0,
+				data: set13
+			}, {
+				label: 'Unit on time - Avg',
+			backgroundColor: "#ffab91",
+				borderColor: window.chartColors.white,
+				borderWidth: 0,
+				data: set23
+			}, {
+				label: 'Unit on time - Max',
+				backgroundColor: "#c97b63",
+				borderColor: window.chartColors.purple,
+				borderWidth: 0,
+				data: set33
 			}
 		]
 
