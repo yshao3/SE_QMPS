@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>Teat Cleaniness</title>
-
+    <script src="../vendor/jquery/jquery.min.js"></script>
     <!-- D3-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -268,7 +268,20 @@
         var teat_data;
         var columns = ['Date', 'Total', 'Percent 3 & 4'];
 
+        var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
+  "method": "GET",
+  "headers": {
+    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+    
+  }
+}
 
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
         d3.json('../data/search/teat_data.json', function (error,data) {
 
             $("#createbutton").one("click",function createTable() {
