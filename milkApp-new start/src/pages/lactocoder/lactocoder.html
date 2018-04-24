@@ -1,0 +1,126 @@
+<!--
+  Generated template for the LactocoderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lactocoder Analysis</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2>General Info:</h2>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Farm</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="farm"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="YYYY MMM DD" [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Parlor Type</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="parlor"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Pre-milking</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="pre_milking"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Herd Size</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="herd_size"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Size</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="size"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Procedures</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="procedures"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Milking Frequency</ion-label>
+      <ion-select [(ngModel)]="frequency" interface="popover">
+        <ion-option value="frequency2X">2X</ion-option>
+        <ion-option value="frequency3X">3X</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>No. Operators</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="operators"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>(Prep)</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="prep"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Milking Routine</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="routine"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <h2>Cows Info:</h2>
+    <ion-item>
+      <ion-label fixed>Cow1</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="cowName1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Total Milk</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="milk1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Remark</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="remark1"></ion-input>
+    </ion-item>
+    <Button class="sbtn" ion-button [disabled]="buttons[0][0]" (click)="buttonControl(0,0)"> Dip </Button>
+    <Button class="sbtn" ion-button [disabled]="buttons[0][1]" (click)="buttonControl(0,1)"> Strip </Button>
+    <Button class="sbtn" ion-button [disabled]="buttons[0][2]" (click)="buttonControl(0,2)"> Wipe </Button>
+    <Button class="sbtn" ion-button [disabled]="buttons[0][3]" (click)="buttonControl(0,3)"> Attach </Button>
+    <Button class="sbtn" ion-button [disabled]="buttons[0][4]" (click)="buttonControl(0,4)"> Remove </Button>
+    <hr>
+    <ion-item>
+      <ion-label fixed>Cow2</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="cowName2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Total Milk</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="milk2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Remark</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="remark2"></ion-input>
+    </ion-item>
+    <Button class="sbtn" ion-button [disabled]="buttons[1][0]" (click)="buttonControl(1,0)"> Dip </Button>
+    <Button class="sbtn" ion-button [disabled]="buttons[1][1]" (click)="buttonControl(1,1)"> Strip </Button>
+    <Button class="sbtn" ion-button [disabled]="buttons[1][2]" (click)="buttonControl(1,2)"> Wipe </Button>
+    <Button class="sbtn" ion-button [disabled]="buttons[1][3]" (click)="buttonControl(1,3)"> Attach </Button>
+    <Button class="sbtn" ion-button [disabled]="buttons[1][4]" (click)="buttonControl(1,4)"> Remove </Button>
+    <hr>
+    <ion-item>
+      <ion-label fixed>Cow3</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="cowName3"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Total Milk</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="milk3"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Remark</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="remark3"></ion-input>
+    </ion-item>
+    <Button class="sbtn" ion-button [disabled]="buttons[2][0]" (click)="buttonControl(2,0)"> Dip </Button>
+    <Button class="sbtn" ion-button [disabled]="buttons[2][1]" (click)="buttonControl(2,1)"> Strip </Button>
+    <Button class="sbtn" ion-button [disabled]="buttons[2][2]" (click)="buttonControl(2,2)"> Wipe </Button>
+    <Button class="sbtn" ion-button [disabled]="buttons[2][3]" (click)="buttonControl(2,3)"> Attach </Button>
+    <Button class="sbtn" ion-button [disabled]="buttons[2][4]" (click)="buttonControl(2,4)"> Remove </Button>
+    <hr>
+
+    <button class="btn" ion-button (click)="saveData()">Save</button>
+    <Button class="btn" ion-button navPop> Back </Button>
+</ion-content>
