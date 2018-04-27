@@ -5,10 +5,10 @@
         "Farm_Name": "Zeus",
         "Date": "03-15-2018",
         "TSC": {
-            "LH": "D",
-            "LF": "OL",
-            "RH": "H",
-            "RF": "D"
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
         },
         "TC": {
             "LH": "R",
@@ -23,10 +23,10 @@
             "RF": "SW"
         },
         "HaTE": {
-            "LH": "F",
-            "LF": "W",
-            "RH": "F",
-            "RF": "W"
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
         },
         "TES": {
             "LH": "N",
@@ -39,7 +39,7 @@
         "Group": 1,
         "Line": 1,
         "Farm_Name": "Zeus",
-        "Date": "03-15-2018",
+        "Date": "03-16-2018",
         "TSC": {
             "LH": "D",
             "LF": "OL",
@@ -75,7 +75,7 @@
         "Group": 1,
         "Line": 1,
         "Farm_Name": "Zeus",
-        "Date": "03-15-2018",
+        "Date": "03-20-2018",
         "TSC": {
             "LH": "D",
             "LF": "OL",
@@ -111,7 +111,7 @@
         "Group": 1,
         "Line": 1,
         "Farm_Name": "Zeus",
-        "Date": "03-15-2018",
+        "Date": "03-27-2018",
         "TSC": {
             "LH": "D",
             "LF": "OL",
@@ -147,7 +147,7 @@
         "Group": 1,
         "Line": 1,
         "Farm_Name": "Zeus",
-        "Date": "03-15-2018",
+        "Date": "03-29-2018",
         "TSC": {
             "LH": "D",
             "LF": "OL",
@@ -155,10 +155,10 @@
             "RF": "D"
         },
         "TC": {
-            "LH": "R",
-            "LF": "DS",
-            "RH": "B",
-            "RF": "R"
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
         },
         "SNTB": {
             "LH": "VM",
@@ -171,6 +171,78 @@
             "LF": "W",
             "RH": "F",
             "RF": "W"
+        },
+        "TES": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        }
+    },
+    {
+        "Group": 1,
+        "Line": 1,
+        "Farm_Name": "Zeus",
+        "Date": "03-29-2018",
+        "TSC": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "H",
+            "RF": "D"
+        },
+        "TC": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        },
+        "SNTB": {
+            "LH": "VM",
+            "LF": "SW",
+            "RH": "VM",
+            "RF": "SW"
+        },
+        "HaTE": {
+            "LH": "F",
+            "LF": "W",
+            "RH": "F",
+            "RF": "W"
+        },
+        "TES": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        }
+    },
+    {
+        "Group": 1,
+        "Line": 1,
+        "Farm_Name": "Zeus",
+        "Date": "03-29-2018",
+        "TSC": {
+            "LH": "N",
+            "LF": "OL",
+            "RH": "H",
+            "RF": "N"
+        },
+        "TC": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        },
+        "SNTB": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        },
+        "HaTE": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
         },
         "TES": {
             "LH": "N",
@@ -183,30 +255,30 @@
         "Group": 1,
         "Line": 1,
         "Farm_Name": "Zeus",
-        "Date": "03-15-2018",
+        "Date": "03-29-2018",
         "TSC": {
-            "LH": "D",
+            "LH": "N",
             "LF": "OL",
             "RH": "H",
-            "RF": "D"
+            "RF": "N"
         },
         "TC": {
-            "LH": "R",
-            "LF": "DS",
-            "RH": "B",
-            "RF": "R"
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
         },
         "SNTB": {
-            "LH": "VM",
-            "LF": "SW",
-            "RH": "VM",
-            "RF": "SW"
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
         },
         "HaTE": {
-            "LH": "F",
-            "LF": "W",
-            "RH": "F",
-            "RF": "W"
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
         },
         "TES": {
             "LH": "N",
@@ -214,40 +286,7 @@
             "RH": "SR",
             "RF": "R"
         }
-    },
-    {
-        "Group": 1,
-        "Line": 1,
-        "Farm_Name": "Zeus",
-        "Date": "03-15-2018",
-        "TSC": {
-            "LH": "D",
-            "LF": "OL",
-            "RH": "H",
-            "RF": "D"
-        },
-        "TC": {
-            "LH": "R",
-            "LF": "DS",
-            "RH": "B",
-            "RF": "R"
-        },
-        "SNTB": {
-            "LH": "VM",
-            "LF": "SW",
-            "RH": "VM",
-            "RF": "SW"
-        },
-        "HaTE": {
-            "LH": "F",
-            "LF": "W",
-            "RH": "F",
-            "RF": "W"
-        },
-        "TES": {
-            "LH": "N",
-            "LF": "S",
-            "RH": "SR",
-            "RF": "R"
-        }
-    }]
+    }
+
+
+]

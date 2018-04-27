@@ -269,19 +269,21 @@
         var columns = ['Date', 'Total', 'Percent 3 & 4'];
 
         var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
-  "method": "GET",
-  "headers": {
-    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
-    
-  }
-}
+        "async": true,
+        "crossDomain": true,
+        "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
+        "method": "GET",
+        "headers": {
+            'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+            
+        }
+        }
 
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
+        $.ajax(settings).done(function (response) {
+        console.log(response);
+        });
+
+        
         d3.json('../data/search/teat_data.json', function (error,data) {
 
             $("#createbutton").one("click",function createTable() {
