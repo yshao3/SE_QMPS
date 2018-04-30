@@ -126,6 +126,11 @@ $(document).ready(function() {
         }
     ];
 
+    var cell_style = {
+        fg_color: 'green',
+        bg_color: 'green'
+    }
+
     var milker_number = milker_data.length;
     
     var data1 = [
@@ -185,8 +190,8 @@ $(document).ready(function() {
 
 
     // Assigning values to cells
-    ws1['B2'] = { t: 'd', v: milker_data[0].Date};
-    ws1['J2'] = { t: 'd', v: milker_data[0].Date};
+    ws1['B2'] = { t: 'd', v: milker_data[0].Date, fill: cell_style};
+    ws1['J2'] = { t: 'd', v: milker_data[0].Date, s: cell_style};
     var score1_sum = 0;
     var score2_sum = 0;
     var score3_sum = 0;

@@ -14,6 +14,10 @@
     <!-- D3-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
+    <!-- Excel Style-->
+    <script lang="javascript" src="../node_modules/xlsx-style/dist/xlsx.core.min.js"></script>
+
+
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -269,14 +273,14 @@
         var columns = ['Date', 'Total', 'Percent 3 & 4'];
 
         var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
-        "method": "GET",
-        "headers": {
-            'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
-            
-        }
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
+            "method": "GET",
+            "headers": {
+                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                
+            }
         }
 
         $.ajax(settings).done(function (response) {
