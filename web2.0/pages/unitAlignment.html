@@ -285,22 +285,8 @@
 
         $("#createbutton").one("click",function createTable() {
 
-<<<<<<< HEAD
             var date_1 = document.getElementById("date_1").value;
             console.log(date_1);
-=======
-            var unit_data_summary = d3.nest()
-                .key(function (d){ return d.Date;})
-                .rollup(function(v){ return {
-                    total: d3.sum(v, function(d) {return d.Good + d.Bad;}),
-                    percent_good: d3.sum(v, function (d){ return d.Good;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
-                    percent_bad: d3.sum(v, function (d){ return d.Bad;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
-                };})
-                .entries(unit_data);
-
-
-            console.log(unit_data_summary);
->>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
 
             var date_2 = document.getElementById("date_2").value;
             console.log(date_2);
@@ -322,7 +308,6 @@
 
             d3.json('../data/search/unit_data.json', function (error,data) {
 
-<<<<<<< HEAD
             
                 // Create table.
                 unit_data = data;
@@ -338,11 +323,6 @@
                 
                 
                 console.log(unit_data_summary);
-=======
-
-            var unit_data_length = unit_data_summary.length;
-            console.log(unit_data_length);
->>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
 
                 var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
                 var thead = table.append('thead');
@@ -360,7 +340,6 @@
                     .enter()
                     .append('tr')
 
-<<<<<<< HEAD
                 
                 var unit_data_length = unit_data_summary.length;
                 console.log(unit_data_length);
@@ -384,23 +363,6 @@
 
                 }); 
             
-=======
-                var td = tr.append('td')
-                .text(unit_data_summary[i].key);
-                var td = tr.append('td')
-                .text(unit_data_summary[i].value.total);
-                var td = tr.append('td')
-                .text(unit_data_summary[i].value.percent_good);
-                var td = tr.append('td')
-                .text(unit_data_summary[i].value.percent_bad);
-
-
-            }
-
-
-            });
-
->>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
         });
     </script>
 

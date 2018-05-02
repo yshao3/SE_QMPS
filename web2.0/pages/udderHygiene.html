@@ -20,11 +20,8 @@
 
     <title>Udder Hygiene</title>
 
-<<<<<<< HEAD
     <script src="../vendor/jquery/jquery.min.js"></script>
     
-=======
->>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
     <!-- D3-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -296,7 +293,6 @@
             var date_2 = document.getElementById("date_2").value;
             console.log(date_2);
 
-<<<<<<< HEAD
             var settings = {
                 "async": true,
                 "crossDomain": true,
@@ -307,24 +303,12 @@
                     
                 }
             }
-=======
-            var udder_data_summary = d3.nest()
-                .key(function (d){ return d.Date;})
-                .rollup(function(v){ return {
-                    total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-                    percent_3_4: d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;})
-                    //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-                };})
-                .entries(udder_data);
-
-
-            console.log(udder_data_summary);
->>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
 
             $.ajax(settings).done(function (response) {
             console.log(response);
             });
 
+            
             d3.json('../data/search/udder_data.json', function (error,data) {
 
                 
@@ -343,15 +327,9 @@
                 
                 console.log(udder_data_summary);
 
-<<<<<<< HEAD
                 var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
                 var thead = table.append('thead');
                 var tbody = table.append('tbody');
-=======
-
-            var udder_data_length = udder_data_summary.length;
-            console.log(udder_data_length);
->>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
 
                 thead
                     .selectAll('th')
@@ -365,7 +343,6 @@
                     .enter()
                     .append('tr')
 
-<<<<<<< HEAD
                 
                 var udder_data_length = udder_data_summary.length;
                 console.log(udder_data_length);
@@ -383,17 +360,6 @@
                     
                     
                 }
-=======
-                var td = tr.append('td')
-                .text(udder_data_summary[i].key);
-                var td = tr.append('td')
-                .text(udder_data_summary[i].value.total);
-                var td = tr.append('td')
-                .text(udder_data_summary[i].value.percent_3_4);
-
-
-            }
->>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
 
 
             });
