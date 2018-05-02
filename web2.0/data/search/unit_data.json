@@ -1,0 +1,36 @@
+[
+    {
+        "Date": "03-15-2018",
+        "Observer": "Jone",
+        "Farm": "Glezon",
+        "Good": 132,
+        "Bad": 21
+    },
+    {
+        "Date": "03-15-2018",
+        "Observer": "Alex",
+        "Farm": "Glezon",
+        "Good": 99,
+        "Bad": 31
+    },
+    {
+        "Date": "03-16-2018",
+        "Observer": "Gina",
+        "Farm": "Glezon",
+        "Good": 70,
+        "Bad": 35
+    },
+    {
+        "Date": "03-17-2018",
+        "Observer": "Irine",
+        "Farm": "Glezon",
+        "Good": 65,
+        "Bad": 10
+    },
+    {
+        "Date": "03-17-2018",
+        "Observer": "Zeiger",
+        "Farm": "Glezon",
+        "Good": 90,
+        "Bad": 36
+    }]

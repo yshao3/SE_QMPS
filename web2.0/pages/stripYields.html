@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<style>
+#stripcanvas {
+  width: 100%;
+  height: 500px;
+}
+</style>
 <head>
 
     <meta charset="utf-8">
@@ -10,6 +15,10 @@
     <meta name="author" content="">
 
     <title>Strip Yields</title>
+
+    <!-- D3-->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,6 +53,81 @@
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
+    <!-- Resources amchart -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+  
+
+
+
+    <style>
+
+        table.blueTable {
+        border: 1px solid #1C6EA4;
+        background-color: #EEEEEE;
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+        }
+        table.blueTable td, table.blueTable th {
+        border: 1px solid #AAAAAA;
+        padding: 3px 2px;
+        }
+        table.blueTable tbody td {
+        font-size: 13px;
+        }
+        table.blueTable tr:nth-child(even) {
+        background: #D0E4F5;
+        }
+        table.blueTable thead {
+        background: #1C6EA4;
+        background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+        background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+        background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+        border-bottom: 2px solid #444444;
+        }
+        table.blueTable thead th {
+        font-size: 15px;
+        font-weight: bold;
+        color: #FFFFFF;
+        border-left: 2px solid #D0E4F5;
+        text-align: center;
+        }
+        table.blueTable thead th:first-child {
+        border-left: none;
+        }
+
+        table.blueTable tfoot {
+        font-size: 14px;
+        font-weight: bold;
+        color: #FFFFFF;
+        background: #D0E4F5;
+        background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+        background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+        background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+        border-top: 2px solid #444444;
+        }
+        table.blueTable tfoot td {
+        font-size: 14px;
+        }
+        table.blueTable tfoot .links {
+        text-align: right;
+        }
+        table.blueTable tfoot .links a{
+        display: inline-block;
+        background: #1C6EA4;
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 5px;
+        }
+
+    </style>
+
 
 </head>
 
@@ -158,7 +242,7 @@
                     <div class='col-sm-3'>
                         <div class="form-group"><br/>
                             <div>
-                                <button type="button" class="btn btn-warning">Search</button>
+                                <button type="button" class="btn btn-warning" id="createbutton">Search</button>
                                 <button type="button" class="btn btn-success" id="stripDraw">Analytics</button>
                             </div>
                         </div>
@@ -179,9 +263,14 @@
                         <button type="button" class="btn btn-danger" id="button-stripYields">Download</button>
                     </div>
                 </div>
-                <div class='col-sm-10'>
-                  <canvas id="canvas"></canvas>
+
+                <div id="divTable" class="container">
                 </div>
+                <div class='col-sm-10'>
+                  <div id="stripcanvas"></div>
+                </div>
+
+
             </div>
         </div>
         <!-- /#page-wrapper -->
@@ -189,8 +278,84 @@
     </div>
     <!-- /#wrapper -->
 
+    <script>
+
+        var strip_data;
+        var columns = ['Date', 'Total', 'Average', 'Yield < 150', '150 <= Yield <= 250', 'Yield > 250'];
+
+
+        d3.json('../data/search/strip_data.json', function (error,data) {
+
+            $("#createbutton").one("click",function createTable() {
+            // Create table.
+            strip_data = data;
+            console.log(strip_data);
+            var strip_data_summary = d3.nest()
+                .key(function (d){ return d.Date;})
+                .rollup(function(v){ return {
+                    total: d3.sum(v, function(d) {return d.Strip_Yields;}),
+                    average: d3.mean(v, function(d) {return d.Strip_Yields;}),
+                    //smaller_150: d3.sum(v, function (d){ return (d.Strip_Yields < 150);}),
+                    smaller_150: d3.sum(v, function (d){ return (d.Strip_Yields < 150);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
+                    between: d3.sum(v, function (d){ return (d.Strip_Yields >= 150 & d.Strip_Yields <= 250);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
+                    larger_250: d3.sum(v, function (d){ return (d.Strip_Yields > 250);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
+                    //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+                };})
+                .entries(strip_data);
+
+
+            console.log(strip_data_summary);
+
+            var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
+            var thead = table.append('thead');
+            var tbody = table.append('tbody');
+
+            thead
+                .selectAll('th')
+                .data(columns)
+                .enter()
+                .append('th')
+                .text(function (column) { return column; });
+
+            var rows = tbody.selectAll('tr')
+                .data(strip_data_summary)
+                .enter()
+                .append('tr')
+
+
+            var strip_data_length = strip_data_summary.length;
+            console.log(strip_data_length);
+
+
+            for (var i = 0; i < strip_data_length; i++){
+                var tr = tbody.append('tr');
+
+                var td = tr.append('td')
+                .text(strip_data_summary[i].key);
+                var td = tr.append('td')
+                .text(strip_data_summary[i].value.total);
+                var td = tr.append('td')
+                .text(strip_data_summary[i].value.average);
+                var td = tr.append('td')
+                .text(strip_data_summary[i].value.smaller_150);
+                var td = tr.append('td')
+                .text(strip_data_summary[i].value.between);
+                var td = tr.append('td')
+                .text(strip_data_summary[i].value.larger_250);
+
+
+            }
+
+            });
+
+        });
+    </script>
+
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
+
+
+
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
