@@ -20,5 +20,8 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/BlackrockDigital/startbootstrap-sb-admin-2.git"
+  },
+  "dependencies": {
+    "xlsx-style": "^0.8.13"
   }
 }

@@ -289,7 +289,7 @@
             $("#createbutton").one("click",function createTable() {
             // Create table.
             strip_data = data;
-            console.log(strip_data);
+            //console.log(strip_data);
             var strip_data_summary = d3.nest()
                 .key(function (d){ return d.Date;})
                 .rollup(function(v){ return {

@@ -162,7 +162,7 @@
                         </li>
 
                         <li>
-                            <a href="unitAlignment.html"><i class="fa fa-cube fa-fw"></i> Unit Alignment</a>
+                            <a href="postAlignment.html"><i class="fa fa-cube fa-fw"></i> post Alignment</a>
                         </li>
 
                         <li>
@@ -237,7 +237,7 @@
                         <div class='col-sm-3'>
                             <div class="form-group"><br/>
                                 <div>
-                                    <button type="button" class="btn btn-warning">Search</button>
+                                    <button type="button" class="btn btn-warning" id="createbutton">Search</button>
                                     <button type="button" class="btn btn-success" id="postDraw">Analytics</button>
                                 </div>
                             </div>
@@ -258,6 +258,10 @@
                             <button type="button" class="btn btn-danger" id="button-postMilking">Download</button>
                         </div>
                     </div>
+
+                    <div id="divTable" class="container">
+                    </div>
+                    
                     <div class='col-sm-10'>
                       <div id="postcanvas"></div>
                     </div>
@@ -267,6 +271,97 @@
 
     </div>
     <!-- /#wrapper -->
+
+    <script>
+
+        var post_data;
+        var columns = ['Date', 'Total Scored', 'Teat Skin Condition (Abnormal %)', 'Teat Color (Abnormal %)', 'Swelling Near Teat Base (Abnormal %)',
+        'Hardness at Teat End (Abnormal %)', 'Teat End Score (Abnormal %)', 'Open Lesion (Abnormal %)', 'Hemorrhage (Abnormal %)'];
+
+
+        d3.json('../data/search/post_data.json', function (error,data) {
+
+            $("#createbutton").one("click",function createTable() {
+            // Create table.
+            post_data = data;
+            
+            var post_data_summary = d3.nest()
+                .key(function (d){ return d.Date;})
+                .rollup(function(v){ return {
+                    Total_Scored: d3.sum(v, function(d) {return d.Group;}),
+                    Total_TSC_Abnormal: d3.sum(v, function(d){return d.TSC.LH != 'N' || d.TSC.LF != 'N' || d.TSC.RH != 'N' || d.TSC.RF != 'N'}),
+                    Total_TC_Abnormal: d3.sum(v, function(d){return d.TC.LH != 'N' || d.TC.LF != 'N' || d.TC.RH != 'N' || d.TC.RF != 'N'}),
+                    Total_SNTB_Abnormal: d3.sum(v, function(d){return d.SNTB.LH != 'N' || d.SNTB.LF != 'N' || d.SNTB.RH != 'N' || d.SNTB.RF != 'N'}),
+                    Total_HaTE_Abnormal: d3.sum(v, function(d){return d.HaTE.LH != 'N' || d.HaTE.LF != 'N' || d.HaTE.RH != 'N' || d.HaTE.RF != 'N'}),
+                    Total_TES_Abnormal: d3.sum(v, function(d){return d.TES.LH != 'N' || d.TES.LF != 'N' || d.TES.RH != 'N' || d.TES.RF != 'N'}),
+                    Total_Open_Leison: d3.sum(v, function(d){return d.TSC.LH == 'OL' || d.TSC.LF == 'OL' || d.TSC.RH == 'OL' || d.TSC.RF == 'OL'}),
+                    Total_Hemorrhage: d3.sum(v, function(d){return d.TSC.LH == 'H' || d.TSC.LF == 'H' || d.TSC.RH == 'H' || d.TSC.RF == 'H'}),
+                    Percent_TSC_Abnormal: d3.sum(v, function(d){return (d.TSC.LH != 'N' || d.TSC.LF != 'N' || d.TSC.RH != 'N' || d.TSC.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_TC_Abnormal: d3.sum(v, function(d){return (d.TC.LH != 'N' || d.TC.LF != 'N' || d.TC.RH != 'N' || d.TC.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_SNTB_Abnormal: d3.sum(v, function(d){return (d.SNTB.LH != 'N' || d.SNTB.LF != 'N' || d.SNTB.RH != 'N' || d.SNTB.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_HaTE_Abnormal: d3.sum(v, function(d){return (d.HaTE.LH != 'N' || d.HaTE.LF != 'N' || d.HaTE.RH != 'N' || d.HaTE.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_TES_Abnormal: d3.sum(v, function(d){return (d.TES.LH != 'N' || d.TES.LF != 'N' || d.TES.RH != 'N' || d.TES.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_Open_Leison: d3.sum(v, function(d){return (d.TSC.LH == 'OL' || d.TSC.LF == 'OL' || d.TSC.RH == 'OL' || d.TSC.RF == 'OL') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_Hemorrhage: d3.sum(v, function(d){return (d.TSC.LH == 'H' || d.TSC.LF == 'H' || d.TSC.RH == 'H' || d.TSC.RF == 'H') / d3.sum(v, function(d) {return d.Group;})})
+                    // percent_good: d3.sum(v, function (d){ return d.Good;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
+                    // percent_bad: d3.sum(v, function (d){ return d.Bad;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
+                };})
+                .entries(post_data);
+            
+            
+            console.log(post_data_summary);
+
+            var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
+            var thead = table.append('thead');
+            var tbody = table.append('tbody');
+
+            thead
+                .selectAll('th')
+                .data(columns)
+                .enter()
+                .append('th')
+                .text(function (column) { return column; });
+
+            var rows = tbody.selectAll('tr')
+                .data(post_data_summary)
+                .enter()
+                .append('tr')
+
+            
+            var post_data_length = post_data_summary.length;
+            console.log(post_data_length);
+
+
+            for (var i = 0; i < post_data_length; i++){
+                var tr = tbody.append('tr');
+
+                var td = tr.append('td')
+                .text(post_data_summary[i].key);
+                var td = tr.append('td')
+                .text(post_data_summary[i].value.Total_Scored);
+                var td = tr.append('td')
+                .text(post_data_summary[i].value.Percent_TSC_Abnormal);
+                var td = tr.append('td')
+                .text(post_data_summary[i].value.Percent_TC_Abnormal);
+                var td = tr.append('td')
+                .text(post_data_summary[i].value.Percent_SNTB_Abnormal);
+                var td = tr.append('td')
+                .text(post_data_summary[i].value.Percent_HaTE_Abnormal);
+                var td = tr.append('td')
+                .text(post_data_summary[i].value.Percent_TES_Abnormal);
+                var td = tr.append('td')
+                .text(post_data_summary[i].value.Percent_Open_Leison);
+                var td = tr.append('td')
+                .text(post_data_summary[i].value.Percent_Hemorrhage);
+                
+                
+            }
+
+
+            }); 
+            
+        });
+    </script>
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
