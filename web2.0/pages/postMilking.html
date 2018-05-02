@@ -11,6 +11,8 @@
 
     <title>Post Milking Teat</title>
 
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
     <!-- D3-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -32,9 +34,9 @@
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
-    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/css/bootstrap-datetimepicker.min.css'>
-    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel='stylesheet prefeColorh' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+    <link rel='stylesheet prefeColorh' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/css/bootstrap-datetimepicker.min.css'>
+    <link rel='stylesheet prefeColorh' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -147,7 +149,7 @@
                         </li>
 
                         <li>
-                            <a href="teatCleaniness.html"><i class="fa fa-table fa-fw"></i> Teat Cleaniness</a>
+                            <a href="teaColorleaniness.html"><i class="fa fa-table fa-fw"></i> Teat Cleaniness</a>
                         </li>
 
                         <li>
@@ -190,7 +192,7 @@
                             <div class="form-group">
                                     Date From
                                 <div class='input-group date' id='datetimepicker1'>
-                                    <input type='text' class="form-control" />
+                                    <input id="date_1" type='text' class="form-control" />
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                                 </div>
@@ -201,7 +203,7 @@
                             <div class="form-group">
                                 To:
                                 <div class='input-group date' id='datetimepicker1'>
-                                    <input type='text' class="form-control" />
+                                    <input  id="date_2" type='text' class="form-control" />
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                                 </div>
@@ -237,7 +239,7 @@
                         <div class='col-sm-2'>
                                 Download Data on
                             <div class='input-group date' id='datetimepicker1'>
-                                    <input type='text' class="form-control" />
+                                    <input id="date_3" type='text' class="form-control" />
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                             </div>
@@ -268,83 +270,107 @@
         'Hardness at Teat End (Abnormal %)', 'Teat End Score (Abnormal %)', 'Open Lesion (Abnormal %)', 'Hemorrhage (Abnormal %)'];
 
 
-        d3.json('../data/search/post_data.json', function (error,data) {
-
-            $("#createbutton").one("click",function createTable() {
-            // Create table.
-            post_data = data;
+        $("#createbutton").one("click",function createTable() {
             
-            var post_data_summary = d3.nest()
-                .key(function (d){ return d.Date;})
-                .rollup(function(v){ return {
-                    Total_Scored: d3.sum(v, function(d) {return d.Group;}),
-                    Total_TSC_Abnormal: d3.sum(v, function(d){return d.TSC.LH != 'N' || d.TSC.LF != 'N' || d.TSC.RH != 'N' || d.TSC.RF != 'N'}),
-                    Total_TC_Abnormal: d3.sum(v, function(d){return d.TC.LH != 'N' || d.TC.LF != 'N' || d.TC.RH != 'N' || d.TC.RF != 'N'}),
-                    Total_SNTB_Abnormal: d3.sum(v, function(d){return d.SNTB.LH != 'N' || d.SNTB.LF != 'N' || d.SNTB.RH != 'N' || d.SNTB.RF != 'N'}),
-                    Total_HaTE_Abnormal: d3.sum(v, function(d){return d.HaTE.LH != 'N' || d.HaTE.LF != 'N' || d.HaTE.RH != 'N' || d.HaTE.RF != 'N'}),
-                    Total_TES_Abnormal: d3.sum(v, function(d){return d.TES.LH != 'N' || d.TES.LF != 'N' || d.TES.RH != 'N' || d.TES.RF != 'N'}),
-                    Total_Open_Leison: d3.sum(v, function(d){return d.TSC.LH == 'OL' || d.TSC.LF == 'OL' || d.TSC.RH == 'OL' || d.TSC.RF == 'OL'}),
-                    Total_Hemorrhage: d3.sum(v, function(d){return d.TSC.LH == 'H' || d.TSC.LF == 'H' || d.TSC.RH == 'H' || d.TSC.RF == 'H'}),
-                    Percent_TSC_Abnormal: d3.sum(v, function(d){return (d.TSC.LH != 'N' || d.TSC.LF != 'N' || d.TSC.RH != 'N' || d.TSC.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
-                    Percent_TC_Abnormal: d3.sum(v, function(d){return (d.TC.LH != 'N' || d.TC.LF != 'N' || d.TC.RH != 'N' || d.TC.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
-                    Percent_SNTB_Abnormal: d3.sum(v, function(d){return (d.SNTB.LH != 'N' || d.SNTB.LF != 'N' || d.SNTB.RH != 'N' || d.SNTB.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
-                    Percent_HaTE_Abnormal: d3.sum(v, function(d){return (d.HaTE.LH != 'N' || d.HaTE.LF != 'N' || d.HaTE.RH != 'N' || d.HaTE.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
-                    Percent_TES_Abnormal: d3.sum(v, function(d){return (d.TES.LH != 'N' || d.TES.LF != 'N' || d.TES.RH != 'N' || d.TES.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
-                    Percent_Open_Leison: d3.sum(v, function(d){return (d.TSC.LH == 'OL' || d.TSC.LF == 'OL' || d.TSC.RH == 'OL' || d.TSC.RF == 'OL') / d3.sum(v, function(d) {return d.Group;}) }),
-                    Percent_Hemorrhage: d3.sum(v, function(d){return (d.TSC.LH == 'H' || d.TSC.LF == 'H' || d.TSC.RH == 'H' || d.TSC.RF == 'H') / d3.sum(v, function(d) {return d.Group;})})
-                    // percent_good: d3.sum(v, function (d){ return d.Good;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
-                    // percent_bad: d3.sum(v, function (d){ return d.Bad;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
-                };})
-                .entries(post_data);
-            
-            
-            console.log(post_data_summary);
+            var date_1 = document.getElementById("date_1").value;
+            console.log(date_1);
 
-            var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
-            var thead = table.append('thead');
-            var tbody = table.append('tbody');
+            var date_2 = document.getElementById("date_2").value;
+            console.log(date_2);
 
-            thead
-                .selectAll('th')
-                .data(columns)
-                .enter()
-                .append('th')
-                .text(function (column) { return column; });
-
-            var rows = tbody.selectAll('tr')
-                .data(post_data_summary)
-                .enter()
-                .append('tr')
-
-            
-            var post_data_length = post_data_summary.length;
-            console.log(post_data_length);
-
-
-            for (var i = 0; i < post_data_length; i++){
-                var tr = tbody.append('tr');
-
-                var td = tr.append('td')
-                .text(post_data_summary[i].key);
-                var td = tr.append('td')
-                .text(post_data_summary[i].value.Total_Scored);
-                var td = tr.append('td')
-                .text(post_data_summary[i].value.Percent_TSC_Abnormal);
-                var td = tr.append('td')
-                .text(post_data_summary[i].value.Percent_TC_Abnormal);
-                var td = tr.append('td')
-                .text(post_data_summary[i].value.Percent_SNTB_Abnormal);
-                var td = tr.append('td')
-                .text(post_data_summary[i].value.Percent_HaTE_Abnormal);
-                var td = tr.append('td')
-                .text(post_data_summary[i].value.Percent_TES_Abnormal);
-                var td = tr.append('td')
-                .text(post_data_summary[i].value.Percent_Open_Leison);
-                var td = tr.append('td')
-                .text(post_data_summary[i].value.Percent_Hemorrhage);
-                
-                
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "http://localhost:3000/laColoro?date1=2012-1-1&date2=2013-1-1",
+                "method": "GET",
+                "headers": {
+                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                    
+                }
             }
+
+            $.ajax(settings).done(function (response) {
+            console.log(response);
+            });
+        
+
+            d3.json('../data/search/post_data.json', function (error,data) {
+
+                
+                // Create table.
+                post_data = data;
+                
+                var post_data_summary = d3.nest()
+                    .key(function (d){ return d.Date;})
+                    .rollup(function(v){ return {
+                        Total_Scored: d3.sum(v, function(d) {return d.Group_ID;}),
+                        Total_Skin_Condition_Abnormal: d3.sum(v, function(d){return d.Skin_Condition.LH != 'N' || d.Skin_Condition.LF != 'N' || d.Skin_Condition.RH != 'N' || d.Skin_Condition.RF != 'N'}),
+                        Total_Color_Abnormal: d3.sum(v, function(d){return d.Color.LH != 'N' || d.Color.LF != 'N' || d.Color.RH != 'N' || d.Color.RF != 'N'}),
+                        Total_Swelling_Abnormal: d3.sum(v, function(d){return d.Swelling.LH != 'N' || d.Swelling.LF != 'N' || d.Swelling.RH != 'N' || d.Swelling.RF != 'N'}),
+                        Total_End_Score_Abnormal: d3.sum(v, function(d){return d.End_Score.LH != 'N' || d.End_Score.LF != 'N' || d.End_Score.RH != 'N' || d.End_Score.RF != 'N'}),
+                        Total_Hardness_Abnormal: d3.sum(v, function(d){return d.Hardness.LH != 'N' || d.Hardness.LF != 'N' || d.Hardness.RH != 'N' || d.Hardness.RF != 'N'}),
+                        Total_Open_Leison: d3.sum(v, function(d){return d.Skin_Condition.LH == 'OL' || d.Skin_Condition.LF == 'OL' || d.Skin_Condition.RH == 'OL' || d.Skin_Condition.RF == 'OL'}),
+                        Total_Hemorrhage: d3.sum(v, function(d){return d.Skin_Condition.LH == 'H' || d.Skin_Condition.LF == 'H' || d.Skin_Condition.RH == 'H' || d.Skin_Condition.RF == 'H'}),
+                        Percent_Skin_Condition_Abnormal: d3.sum(v, function(d){return (d.Skin_Condition.LH != 'N' || d.Skin_Condition.LF != 'N' || d.Skin_Condition.RH != 'N' || d.Skin_Condition.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Color_Abnormal: d3.sum(v, function(d){return (d.Color.LH != 'N' || d.Color.LF != 'N' || d.Color.RH != 'N' || d.Color.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Swelling_Abnormal: d3.sum(v, function(d){return (d.Swelling.LH != 'N' || d.Swelling.LF != 'N' || d.Swelling.RH != 'N' || d.Swelling.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_End_Score_Abnormal: d3.sum(v, function(d){return (d.End_Score.LH != 'N' || d.End_Score.LF != 'N' || d.End_Score.RH != 'N' || d.End_Score.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Hardness_Abnormal: d3.sum(v, function(d){return (d.Hardness.LH != 'N' || d.Hardness.LF != 'N' || d.Hardness.RH != 'N' || d.Hardness.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Open_Leison: d3.sum(v, function(d){return (d.Skin_Condition.LH == 'OL' || d.Skin_Condition.LF == 'OL' || d.Skin_Condition.RH == 'OL' || d.Skin_Condition.RF == 'OL') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Hemorrhage: d3.sum(v, function(d){return (d.Skin_Condition.LH == 'H' || d.Skin_Condition.LF == 'H' || d.Skin_Condition.RH == 'H' || d.Skin_Condition.RF == 'H') / d3.sum(v, function(d) {return d.Group_ID;})})
+                        // percent_good: d3.sum(v, function (d){ return d.Good;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
+                        // percent_bad: d3.sum(v, function (d){ return d.Bad;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
+                    };})
+                    .entries(post_data);
+                
+                
+                console.log(post_data_summary);
+
+                var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
+                var thead = table.append('thead');
+                var tbody = table.append('tbody');
+
+                thead
+                    .selectAll('th')
+                    .data(columns)
+                    .enter()
+                    .append('th')
+                    .text(function (column) { return column; });
+
+                var rows = tbody.selectAll('tr')
+                    .data(post_data_summary)
+                    .enter()
+                    .append('tr')
+
+                
+                var post_data_length = post_data_summary.length;
+                console.log(post_data_length);
+
+
+                for (var i = 0; i < post_data_length; i++){
+                    var tr = tbody.append('tr');
+
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].key);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Total_Scored);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Percent_Skin_Condition_Abnormal);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Percent_Color_Abnormal);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Percent_Swelling_Abnormal);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Percent_End_Score_Abnormal);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Percent_Hardness_Abnormal);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Percent_Open_Leison);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Percent_Hemorrhage);
+                    
+                    
+                }
 
 
             }); 

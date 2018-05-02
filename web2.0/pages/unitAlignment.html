@@ -10,7 +10,9 @@
     <meta name="author" content="">
 
     <title>Unit Alignment</title>
-
+    
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    
     <!-- D3-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -190,7 +192,7 @@
                         <div class="form-group">
                                 Date From
                             <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control" />
+                                <input id="date_1" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
@@ -201,7 +203,7 @@
                         <div class="form-group">
                             To:
                             <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control" />
+                                <input id="date_2" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
@@ -238,7 +240,7 @@
                     <div class='col-sm-2'>
                             Download Data on
                         <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control" />
+                                <input id="date_3" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                         </div>
@@ -268,62 +270,86 @@
         var columns = ['Date', 'Total', 'Good %', 'Bad %'];
 
 
-        d3.json('../data/search/unit_data.json', function (error,data) {
 
-            $("#createbutton").one("click",function createTable() {
-            // Create table.
-            unit_data = data;
+        $("#createbutton").one("click",function createTable() {
 
-            var unit_data_summary = d3.nest()
-                .key(function (d){ return d.Date;})
-                .rollup(function(v){ return {
-                    total: d3.sum(v, function(d) {return d.Good + d.Bad;}),
-                    percent_good: d3.sum(v, function (d){ return d.Good;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
-                    percent_bad: d3.sum(v, function (d){ return d.Bad;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
-                };})
-                .entries(unit_data);
-            
-            
-            console.log(unit_data_summary);
+            var date_1 = document.getElementById("date_1").value;
+            console.log(date_1);
 
-            var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
-            var thead = table.append('thead');
-            var tbody = table.append('tbody');
+            var date_2 = document.getElementById("date_2").value;
+            console.log(date_2);
 
-            thead
-                .selectAll('th')
-                .data(columns)
-                .enter()
-                .append('th')
-                .text(function (column) { return column; });
-
-            var rows = tbody.selectAll('tr')
-                .data(unit_data_summary)
-                .enter()
-                .append('tr')
-
-            
-            var unit_data_length = unit_data_summary.length;
-            console.log(unit_data_length);
-
-
-            for (var i = 0; i < unit_data_length; i++){
-                var tr = tbody.append('tr');
-
-                var td = tr.append('td')
-                .text(unit_data_summary[i].key);
-                var td = tr.append('td')
-                .text(unit_data_summary[i].value.total);
-                var td = tr.append('td')
-                .text(unit_data_summary[i].value.percent_good);
-                var td = tr.append('td')
-                .text(unit_data_summary[i].value.percent_bad);
-                
-                
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
+                "method": "GET",
+                "headers": {
+                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                    
+                }
             }
 
+            $.ajax(settings).done(function (response) {
+            console.log(response);
+            });
 
-            }); 
+            d3.json('../data/search/unit_data.json', function (error,data) {
+
+            
+                // Create table.
+                unit_data = data;
+
+                var unit_data_summary = d3.nest()
+                    .key(function (d){ return d.Date;})
+                    .rollup(function(v){ return {
+                        total: d3.sum(v, function(d) {return d.Good + d.Bad;}),
+                        percent_good: d3.sum(v, function (d){ return d.Good;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
+                        percent_bad: d3.sum(v, function (d){ return d.Bad;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
+                    };})
+                    .entries(unit_data);
+                
+                
+                console.log(unit_data_summary);
+
+                var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
+                var thead = table.append('thead');
+                var tbody = table.append('tbody');
+
+                thead
+                    .selectAll('th')
+                    .data(columns)
+                    .enter()
+                    .append('th')
+                    .text(function (column) { return column; });
+
+                var rows = tbody.selectAll('tr')
+                    .data(unit_data_summary)
+                    .enter()
+                    .append('tr')
+
+                
+                var unit_data_length = unit_data_summary.length;
+                console.log(unit_data_length);
+
+
+                for (var i = 0; i < unit_data_length; i++){
+                    var tr = tbody.append('tr');
+
+                    var td = tr.append('td')
+                    .text(unit_data_summary[i].key);
+                    var td = tr.append('td')
+                    .text(unit_data_summary[i].value.total);
+                    var td = tr.append('td')
+                    .text(unit_data_summary[i].value.percent_good);
+                    var td = tr.append('td')
+                    .text(unit_data_summary[i].value.percent_bad);
+                    
+                    
+                }
+
+
+                }); 
             
         });
     </script>

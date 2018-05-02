@@ -10,7 +10,9 @@
     <meta name="author" content="">
 
     <title>Teat Cleaniness</title>
+
     <script src="../vendor/jquery/jquery.min.js"></script>
+    
     <!-- D3-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -194,7 +196,7 @@
                         <div class="form-group">
                                 Date From
                             <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control" />
+                                <input id="date_1" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
@@ -205,7 +207,7 @@
                         <div class="form-group">
                             To:
                             <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control" />
+                                <input id="date_2" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
@@ -242,7 +244,7 @@
                     <div class='col-sm-2'>
                             Download Data on
                         <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control" />
+                                <input id="date_3" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                         </div>
@@ -271,81 +273,91 @@
 
         var teat_data;
         var columns = ['Date', 'Total', 'Percent 3 & 4'];
-
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
-            "method": "GET",
-            "headers": {
-                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
-                
-            }
-        }
-
-        $.ajax(settings).done(function (response) {
-        console.log(response);
-        });
-
         
-        d3.json('../data/search/teat_data.json', function (error,data) {
 
-            $("#createbutton").one("click",function createTable() {
-            // Create table.
-            teat_data = data;
+        $("#createbutton").one("click",function createTable() {
 
-            var teat_data_summary = d3.nest()
-                .key(function (d){ return d.Date;})
-                .rollup(function(v){ return {
-                    total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-                    percent_3_4: d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;})
-                    //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-                };})
-                .entries(teat_data);
-            
-            
-            console.log(teat_data_summary);
+            var date_1 = document.getElementById("date_1").value;
+            console.log(date_1);
 
-            var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
-            var thead = table.append('thead');
-            var tbody = table.append('tbody');
-
-            thead
-                .selectAll('th')
-                .data(columns)
-                .enter()
-                .append('th')
-                .text(function (column) { return column; });
-
-            var rows = tbody.selectAll('tr')
-                .data(teat_data_summary)
-                .enter()
-                .append('tr')
-
-            
-            var teat_data_length = teat_data_summary.length;
-            console.log(teat_data_length);
+            var date_2 = document.getElementById("date_2").value;
+            console.log(date_2);
 
 
-            for (var i = 0; i < teat_data_length; i++){
-                var tr = tbody.append('tr');
-
-                var td = tr.append('td')
-                .text(teat_data_summary[i].key);
-                var td = tr.append('td')
-                .text(teat_data_summary[i].value.total);
-                var td = tr.append('td')
-                .text(teat_data_summary[i].value.percent_3_4);
-                
-                
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
+                "method": "GET",
+                "headers": {
+                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                    
+                }
             }
 
+            $.ajax(settings).done(function (response) {
+            console.log(response);
+            });
 
+            d3.json('../data/search/teat_data.json', function (error,data) {
 
+                // $("#createbutton").one("click",function createTable() {
+                // Create table.
             
+                teat_data = data;
+
+                var teat_data_summary = d3.nest()
+                    .key(function (d){ return d.Date;})
+                    .rollup(function(v){ return {
+                        total: d3.sum(v, function(d) {return d.Clean + d.Dip_Present + d.Small_Dirt + d.Large_Dirt;}),
+                        percent_3_4: d3.sum(v, function (d){ return d.Small_Dirt + d.Large_Dirt;}) / d3.sum(v, function(d) {return d.Clean + d.Dip_Present + d.Small_Dirt + d.Large_Dirt;})
+                        //percent_4: d3.sum(v, function (d){ return d.Large_Dirt;}) / d3.sum(v, function(d) {return d.Clean + d.Dirt_Present + d.Small_Dirt + d.Large_Dirt;}),
+                    };})
+                    .entries(teat_data);
+                
+                
+                console.log(teat_data_summary);
+
+                var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
+                var thead = table.append('thead');
+                var tbody = table.append('tbody');
+
+                thead
+                    .selectAll('th')
+                    .data(columns)
+                    .enter()
+                    .append('th')
+                    .text(function (column) { return column; });
+
+                var rows = tbody.selectAll('tr')
+                    .data(teat_data_summary)
+                    .enter()
+                    .append('tr')
+
+                
+                var teat_data_length = teat_data_summary.length;
+                console.log(teat_data_length);
 
 
-            }); 
+                for (var i = 0; i < teat_data_length; i++){
+                    var tr = tbody.append('tr');
+
+                    var td = tr.append('td')
+                    .text(teat_data_summary[i].key);
+                    var td = tr.append('td')
+                    .text(teat_data_summary[i].value.total);
+                    var td = tr.append('td')
+                    .text(teat_data_summary[i].value.percent_3_4);
+                    
+                    
+                }
+
+
+
+                
+
+
+                }); 
             
         });
     </script>

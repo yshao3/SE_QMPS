@@ -1,34 +1,35 @@
 [
     {
-        "Group": 1,
+        "Staff": "Tom",
+        "Group_ID": 1,
         "Line": 1,
-        "Farm_Name": "Zeus",
+        "Farm": "Zeus",
         "Date": "03-15-2018",
-        "TSC": {
+        "Skin_Condition": {
             "LH": "N",
             "LF": "N",
             "RH": "N",
             "RF": "N"
         },
-        "TC": {
+        "Color": {
             "LH": "R",
             "LF": "DS",
             "RH": "B",
             "RF": "R"
         },
-        "SNTB": {
+        "Swelling": {
             "LH": "VM",
             "LF": "SW",
             "RH": "VM",
             "RF": "SW"
         },
-        "HaTE": {
+        "End_Score": {
             "LH": "N",
             "LF": "N",
             "RH": "N",
             "RF": "N"
         },
-        "TES": {
+        "Hardness": {
             "LH": "N",
             "LF": "S",
             "RH": "SR",
@@ -36,35 +37,36 @@
         }
     },
     {
-        "Group": 1,
+        "Staff": "Tom",
+        "Group_ID": 1,
         "Line": 1,
-        "Farm_Name": "Zeus",
+        "Farm": "Zeus",
         "Date": "03-16-2018",
-        "TSC": {
+        "Skin_Condition": {
             "LH": "D",
             "LF": "OL",
             "RH": "H",
             "RF": "D"
         },
-        "TC": {
+        "Color": {
             "LH": "R",
             "LF": "DS",
             "RH": "B",
             "RF": "R"
         },
-        "SNTB": {
+        "Swelling": {
             "LH": "VM",
             "LF": "SW",
             "RH": "VM",
             "RF": "SW"
         },
-        "HaTE": {
+        "End_Score": {
             "LH": "F",
             "LF": "W",
             "RH": "F",
             "RF": "W"
         },
-        "TES": {
+        "Hardness": {
             "LH": "N",
             "LF": "S",
             "RH": "SR",
@@ -72,35 +74,36 @@
         }
     },
     {
-        "Group": 1,
+        "Staff": "Tom",
+        "Group_ID": 1,
         "Line": 1,
-        "Farm_Name": "Zeus",
+        "Farm": "Zeus",
         "Date": "03-20-2018",
-        "TSC": {
+        "Skin_Condition": {
             "LH": "D",
             "LF": "OL",
             "RH": "H",
             "RF": "D"
         },
-        "TC": {
+        "Color": {
             "LH": "R",
             "LF": "DS",
             "RH": "B",
             "RF": "R"
         },
-        "SNTB": {
+        "Swelling": {
             "LH": "VM",
             "LF": "SW",
             "RH": "VM",
             "RF": "SW"
         },
-        "HaTE": {
+        "End_Score": {
             "LH": "F",
             "LF": "W",
             "RH": "F",
             "RF": "W"
         },
-        "TES": {
+        "Hardness": {
             "LH": "N",
             "LF": "S",
             "RH": "SR",
@@ -108,35 +111,36 @@
         }
     },
     {
-        "Group": 1,
+        "Staff": "Tom",
+        "Group_ID": 1,
         "Line": 1,
-        "Farm_Name": "Zeus",
+        "Farm": "Zeus",
         "Date": "03-27-2018",
-        "TSC": {
+        "Skin_Condition": {
             "LH": "D",
             "LF": "OL",
             "RH": "H",
             "RF": "D"
         },
-        "TC": {
+        "Color": {
             "LH": "R",
             "LF": "DS",
             "RH": "B",
             "RF": "R"
         },
-        "SNTB": {
+        "Swelling": {
             "LH": "VM",
             "LF": "SW",
             "RH": "VM",
             "RF": "SW"
         },
-        "HaTE": {
+        "End_Score": {
             "LH": "F",
             "LF": "W",
             "RH": "F",
             "RF": "W"
         },
-        "TES": {
+        "Hardness": {
             "LH": "N",
             "LF": "S",
             "RH": "SR",
@@ -144,35 +148,36 @@
         }
     },
     {
-        "Group": 1,
+        "Staff": "Tom",
+        "Group_ID": 1,
         "Line": 1,
-        "Farm_Name": "Zeus",
+        "Farm": "Zeus",
         "Date": "03-29-2018",
-        "TSC": {
+        "Skin_Condition": {
             "LH": "D",
             "LF": "OL",
             "RH": "H",
             "RF": "D"
         },
-        "TC": {
+        "Color": {
             "LH": "N",
             "LF": "N",
             "RH": "N",
             "RF": "N"
         },
-        "SNTB": {
+        "Swelling": {
             "LH": "VM",
             "LF": "SW",
             "RH": "VM",
             "RF": "SW"
         },
-        "HaTE": {
+        "End_Score": {
             "LH": "F",
             "LF": "W",
             "RH": "F",
             "RF": "W"
         },
-        "TES": {
+        "Hardness": {
             "LH": "N",
             "LF": "N",
             "RH": "N",
@@ -180,35 +185,36 @@
         }
     },
     {
-        "Group": 1,
+        "Staff": "Tom",
+        "Group_ID": 1,
         "Line": 1,
-        "Farm_Name": "Zeus",
+        "Farm": "Zeus",
         "Date": "03-29-2018",
-        "TSC": {
+        "Skin_Condition": {
             "LH": "N",
             "LF": "N",
             "RH": "H",
             "RF": "D"
         },
-        "TC": {
+        "Color": {
             "LH": "N",
             "LF": "N",
             "RH": "N",
             "RF": "N"
         },
-        "SNTB": {
+        "Swelling": {
             "LH": "VM",
             "LF": "SW",
             "RH": "VM",
             "RF": "SW"
         },
-        "HaTE": {
+        "End_Score": {
             "LH": "F",
             "LF": "W",
             "RH": "F",
             "RF": "W"
         },
-        "TES": {
+        "Hardness": {
             "LH": "N",
             "LF": "N",
             "RH": "N",
@@ -216,35 +222,36 @@
         }
     },
     {
-        "Group": 1,
+        "Staff": "Tom",
+        "Group_ID": 1,
         "Line": 1,
-        "Farm_Name": "Zeus",
+        "Farm": "Zeus",
         "Date": "03-29-2018",
-        "TSC": {
+        "Skin_Condition": {
             "LH": "N",
             "LF": "OL",
             "RH": "H",
             "RF": "N"
         },
-        "TC": {
+        "Color": {
             "LH": "N",
             "LF": "N",
             "RH": "N",
             "RF": "N"
         },
-        "SNTB": {
+        "Swelling": {
             "LH": "N",
             "LF": "N",
             "RH": "N",
             "RF": "N"
         },
-        "HaTE": {
+        "End_Score": {
             "LH": "N",
             "LF": "N",
             "RH": "N",
             "RF": "N"
         },
-        "TES": {
+        "Hardness": {
             "LH": "N",
             "LF": "S",
             "RH": "SR",
@@ -252,35 +259,36 @@
         }
     },
     {
-        "Group": 1,
+        "Staff": "Tom",
+        "Group_ID": 1,
         "Line": 1,
-        "Farm_Name": "Zeus",
+        "Farm": "Zeus",
         "Date": "03-29-2018",
-        "TSC": {
+        "Skin_Condition": {
             "LH": "N",
             "LF": "OL",
             "RH": "H",
             "RF": "N"
         },
-        "TC": {
+        "Color": {
             "LH": "N",
             "LF": "N",
             "RH": "N",
             "RF": "N"
         },
-        "SNTB": {
+        "Swelling": {
             "LH": "N",
             "LF": "N",
             "RH": "N",
             "RF": "N"
         },
-        "HaTE": {
+        "End_Score": {
             "LH": "N",
             "LF": "N",
             "RH": "N",
             "RF": "N"
         },
-        "TES": {
+        "Hardness": {
             "LH": "N",
             "LF": "S",
             "RH": "SR",
