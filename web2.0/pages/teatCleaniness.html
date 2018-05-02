@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<style>
+#teatcanvas {
+  width: 100%;
+  height: 500px;
+}
+</style>
 <head>
 
     <meta charset="utf-8">
@@ -54,6 +59,12 @@
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
 
     <style>
 
@@ -115,7 +126,7 @@
         padding: 2px 8px;
         border-radius: 5px;
         }
-    
+
     </style>
 
 
@@ -258,10 +269,10 @@
                 <div id="divTable" class="container">
                 </div>
                 <div class='col-sm-10'>
-                  <canvas id="canvas"></canvas>
+                  <div id="teatcanvas"></div>
                 </div>
 
-               
+
             </div>
         </div>
         <!-- /#page-wrapper -->
@@ -275,6 +286,7 @@
         var columns = ['Date', 'Total', 'Percent 3 & 4'];
         
 
+<<<<<<< HEAD
         $("#createbutton").one("click",function createTable() {
 
             var date_1 = document.getElementById("date_1").value;
@@ -283,6 +295,53 @@
             var date_2 = document.getElementById("date_2").value;
             console.log(date_2);
 
+=======
+        var settings = {
+<<<<<<< HEAD
+  "async": true,
+  "crossDomain": true,
+  "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
+  "method": "GET",
+  "headers": {
+    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+
+  }
+}
+=======
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
+            "method": "GET",
+            "headers": {
+                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                
+            }
+        }
+
+        $.ajax(settings).done(function (response) {
+        console.log(response);
+        });
+>>>>>>> e3be24f3433573e5fd71ca42e349ad78a2dfc078
+
+        
+        d3.json('../data/search/teat_data.json', function (error,data) {
+
+            $("#createbutton").one("click",function createTable() {
+            // Create table.
+            teat_data = data;
+
+            var teat_data_summary = d3.nest()
+                .key(function (d){ return d.Date;})
+                .rollup(function(v){ return {
+                    total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+                    percent_3_4: d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;})
+                    //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+                };})
+                .entries(teat_data);
+
+
+            console.log(teat_data_summary);
+>>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
 
             var settings = {
                 "async": true,
@@ -301,6 +360,7 @@
 
             d3.json('../data/search/teat_data.json', function (error,data) {
 
+<<<<<<< HEAD
                 // $("#createbutton").one("click",function createTable() {
                 // Create table.
             
@@ -317,6 +377,11 @@
                 
                 
                 console.log(teat_data_summary);
+=======
+
+            var teat_data_length = teat_data_summary.length;
+            console.log(teat_data_length);
+>>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
 
                 var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
                 var thead = table.append('thead');
@@ -334,14 +399,27 @@
                     .enter()
                     .append('tr')
 
+<<<<<<< HEAD
                 
                 var teat_data_length = teat_data_summary.length;
                 console.log(teat_data_length);
+=======
+                var td = tr.append('td')
+                .text(teat_data_summary[i].key);
+                var td = tr.append('td')
+                .text(teat_data_summary[i].value.total);
+                var td = tr.append('td')
+                .text(teat_data_summary[i].value.percent_3_4);
+
+
+            }
+>>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
 
 
                 for (var i = 0; i < teat_data_length; i++){
                     var tr = tbody.append('tr');
 
+<<<<<<< HEAD
                     var td = tr.append('td')
                     .text(teat_data_summary[i].key);
                     var td = tr.append('td')
@@ -359,6 +437,13 @@
 
                 }); 
             
+=======
+
+
+
+            });
+
+>>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
         });
     </script>
 

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<style>
+#uddercanvas1 {
+  width: 100%;
+  height: 500px;
+}
+#uddercanvas2 {
+  width: 100%;
+  height: 500px;
+}
+</style>
 <head>
 
     <meta charset="utf-8">
@@ -11,8 +20,11 @@
 
     <title>Udder Hygiene</title>
 
+<<<<<<< HEAD
     <script src="../vendor/jquery/jquery.min.js"></script>
     
+=======
+>>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
     <!-- D3-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -49,6 +61,12 @@
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
 
 
     <style>
@@ -111,7 +129,7 @@
         padding: 2px 8px;
         border-radius: 5px;
         }
-    
+
     </style>
 </head>
 
@@ -251,10 +269,13 @@
                 <div id="divTable" class="container">
                 </div>
                 <div class='col-sm-10'>
-                  <canvas id="canvas"></canvas>
+                  <div id="uddercanvas1"></div>
+
+                </div>
+                <div class='col-sm-10'>
+                  <div id="uddercanvas2"></div>
                 </div>
 
-                
             </div>
         </div>
         <!-- /#page-wrapper -->
@@ -275,6 +296,7 @@
             var date_2 = document.getElementById("date_2").value;
             console.log(date_2);
 
+<<<<<<< HEAD
             var settings = {
                 "async": true,
                 "crossDomain": true,
@@ -285,6 +307,19 @@
                     
                 }
             }
+=======
+            var udder_data_summary = d3.nest()
+                .key(function (d){ return d.Date;})
+                .rollup(function(v){ return {
+                    total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+                    percent_3_4: d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;})
+                    //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+                };})
+                .entries(udder_data);
+
+
+            console.log(udder_data_summary);
+>>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
 
             $.ajax(settings).done(function (response) {
             console.log(response);
@@ -308,9 +343,15 @@
                 
                 console.log(udder_data_summary);
 
+<<<<<<< HEAD
                 var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
                 var thead = table.append('thead');
                 var tbody = table.append('tbody');
+=======
+
+            var udder_data_length = udder_data_summary.length;
+            console.log(udder_data_length);
+>>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
 
                 thead
                     .selectAll('th')
@@ -324,6 +365,7 @@
                     .enter()
                     .append('tr')
 
+<<<<<<< HEAD
                 
                 var udder_data_length = udder_data_summary.length;
                 console.log(udder_data_length);
@@ -341,10 +383,21 @@
                     
                     
                 }
+=======
+                var td = tr.append('td')
+                .text(udder_data_summary[i].key);
+                var td = tr.append('td')
+                .text(udder_data_summary[i].value.total);
+                var td = tr.append('td')
+                .text(udder_data_summary[i].value.percent_3_4);
 
 
-            }); 
-            
+            }
+>>>>>>> ff04330f03c155386c70ab8c2337ff0715da3cf2
+
+
+            });
+
         });
     </script>
 

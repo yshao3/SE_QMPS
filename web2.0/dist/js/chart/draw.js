@@ -22,207 +22,437 @@ window.onload = function() {
 
 }
 */
+var formatComma = d3.format(",");
 function convertToPercent(fraction) {
 return (fraction * 100) + '&#37;';
 }
 function udderFunction() {
-  var color = Chart.helpers.color;
-    var milker_data = [
-        {
-            Milker: "Pen1",Date: '03-15-2018',Score1: 15,Score2: 10,Score3: 3,Score4: 10	},
-        {
-            Milker: "Pen2",Date: '03-15-2018',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
-        {
-            Milker: "Pen3",Date: '03-15-2018',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
-        {
-            Milker: "Pen4",Date: '03-15-2018',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
-        {
-            Milker: "Pen5",Date: '03-15-2018',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
-        {
-            Milker: "Pen6",Date: '03-15-2018',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
-    ];
-    var label_data = [];
-    var score4set = [];
-    var score3set = [];
-    var score21set = [];
-    //var score1set = [];
-    for(var i = 0; i < milker_data.length; i++) {
-      var obj = milker_data[i];
-      label_data.push(obj.Milker);
-      console.log(obj);
-      var total = obj.Score1 + obj.Score2 +obj.Score3 +obj.Score4;
-      score4set.push(((obj.Score4 + obj.Score3)/total).toFixed(2));
-      //score4set.push((obj.Score4/total).toFixed(2));
-      score3set.push((obj.Score3/total).toFixed(2));
-      score21set.push(((obj.Score2 + obj.Score1)/total).toFixed(2));
-      console.log(obj.Socre4/total);
-    }
-      console.log(label_data);
-      console.log(score4set);
-        console.log(score3set);
-          console.log(score21set);
+  var udder_data = [
+  		{
+  				Milker: "Pen1",Date: '2018-03-15',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  		{
+  				Milker: "Pen1",Date: '2018-03-15',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  		{
+  				Milker: "Pen2",Date: '2018-03-15',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+  		{
+  				Milker: "Pen3",Date: '2018-03-15',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+  		{
+  				Milker: "Pen4",Date: '2018-03-15',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+  		{
+  				Milker: "Pen5",Date: '2018-03-15',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+  		{
+  				Milker: "Pen1",Date: '2018-03-16',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  		{
+  				Milker: "Pen1",Date: '2018-03-16',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  		{
+  				Milker: "Pen2",Date: '2018-03-16',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+  		{
+  				Milker: "Pen3",Date: '2018-03-16',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+  		{
+  				Milker: "Pen4",Date: '2018-03-16',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+  		{
+  				Milker: "Pen5",Date: '2018-03-16',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+  						{
+  								Milker: "Pen1",Date: '2018-03-17',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  						{
+  								Milker: "Pen2",Date: '2018-03-17',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  						{
+  								Milker: "Pen3",Date: '2018-03-17',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+  						{
+  								Milker: "Pen4",Date: '2018-03-17',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+  						{
+  								Milker: "Pen5",Date: '2018-03-17',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+  						{
+  								Milker: "Pen5",Date: '2018-03-18',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+  								{
+  										Milker: "Pen1",Date: '2018-03-18',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  								{
+  										Milker: "Pen2",Date: '2018-03-18',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  								{
+  										Milker: "Pen3",Date: '2018-03-18',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+  								{
+  										Milker: "Pen4",Date: '2018-03-18',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+  								{
+  										Milker: "Pen5",Date: '2018-03-19',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+  								{
+  										Milker: "Pen6",Date: '2018-03-19',Score1: 19,Score2: 12,Score3: 1,Score4: 5},
+  										{
+  												Milker: "Pen1",Date: '2018-03-22',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  										{
+  												Milker: "Pen2",Date: '2018-03-22',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  										{
+  												Milker: "Pen3",Date: '2018-03-26',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+  										{
+  												Milker: "Pen4",Date: '2018-03-30',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+  										{
+  												Milker: "Pen5",Date: '2018-04-05',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+  										{
+  												Milker: "Pen2",Date: '2018-04-19',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
+  ];
+  var formatComma = d3.format(",");
+  var datanest = d3.nest()
+  		.key(function (d){ return d.Date;})
+  		.rollup(function(v){ return {
+  				total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+  				percent_3_4: formatComma( (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
+  				//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+  		};})
+  		.entries(udder_data);
+  var udderset = [];
+  		for(var i = 0; i < datanest.length; i ++){
+  		  console.log(i);
+  		   var token = {};
+  		   token.date = datanest[i].key;
+  		   token.visits = Math.round(datanest[i].value.percent_3_4);
+  		   //token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
+  		   udderset.push(token);
+  		   console.log(token);
+  		 }
+  		 var datanest2 = d3.nest()
+  		 		.key(function (d){ return d.Milker;})
+  		 		.rollup(function(v){ return {
+  		 				total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+  		 				percent_3_4: formatComma( (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
+  		 				//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+  		 		};})
+  		 		.entries(udder_data);
+  		 var udderset2 = [];
+  		 		for(var i = 0; i < datanest2.length; i ++){
+  		 			 var token = {};
+  		 			 token.country = datanest2[i].key;
+  		 			 token.visits = Math.round(datanest2[i].value.percent_3_4);
+  		 			 //token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
+  		 			 udderset2.push(token);
+  		 		 }
+  //var chartData = generateChartData();
+  var chart = AmCharts.makeChart("uddercanvas1", {
+      "type": "serial",
+      "theme": "light",
+      "marginRight": 80,
+      "autoMarginOffset": 20,
+      "marginTop": 7,
+      "dataProvider": udderset,
+      "valueAxes": [{
+          "axisAlpha": 0.2,
+          "dashLength": 1,
+          "position": "left",
+  				"labelFunction": function(value) {
+  		      return value + "%";
+  		    }
+      }],
+      "mouseWheelZoomEnabled": true,
+      "graphs": [{
+          "id": "g1",
+          "balloonText": "[[value]]",
+          "bullet": "round",
+          "bulletBorderAlpha": 1,
+          "bulletColor": "#FFFFFF",
+          "hideBulletsCount": 50,
+          "title": "3&4 Percent",
+          "valueField": "visits",
+          "useLineColorForBulletBorder": true,
+          "balloon":{
+              "drop":true
+          },
+  				  "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
 
-      var barChartData = {
-        //labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        labels: label_data,
-        datasets: [{
-          //show label of dataset1
-          label: 'Score 3 & 4 percent',
-          backgroundColor: "#4176C1",
-          //orange color
-          //backgroundColor: "rgb(255, 189, 89)",
-          //backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
-          borderColor: window.chartColors.white,
-          borderWidth: 0,
-          //append data of dataset1 a json as a array
-          data: score4set
-        }
-        /*, {
-          label: 'Score3 percent',
-          backgroundColor: "rgb(216, 105, 192)",
-          borderColor: window.chartColors.white,
-          borderWidth: 1,
-          data: score3set
-        }, {
-          label: 'Score2 & 1 percent',
-          backgroundColor: "rgb(220, 218, 218)",
-          borderColor: window.chartColors.white,
-          borderWidth: 1,
-          data: score21set
-        }*/]
-
-      };
-    //	console.log(barChartData);
-
-    var ctx = document.getElementById('canvas').getContext('2d');
-    window.myBar = new Chart(ctx, {
-      type: 'bar',
-      data: barChartData,
-      options: {
-        title: {
-          display: true,
-          text: 'Date: YY-MM-DD Score percent by observer'
-        },
-        tooltips: {
-          mode: 'index',
-          intersect: false
-        },
-        responsive: true,
-        scales: {
-          xAxes: [{
-            stacked: true,
-          }],
-          yAxes: [{
-            stacked: true
-          }]
-        }
+      }],
+      "chartScrollbar": {
+          "autoGridCount": true,
+          "graph": "g1",
+          "scrollbarHeight": 40
+      },
+      "chartCursor": {
+         "limitToGraph":"g1"
+      },
+      "categoryField": "date",
+      "categoryAxis": {
+          "parseDates": true,
+          "axisColor": "#DADADA",
+          "dashLength": 1,
+          "minorGridEnabled": true
+      },
+      "export": {
+          "enabled": true
       }
-    });
+  });
 
+  chart.addListener("rendered", zoomChart);
+  zoomChart();
+
+  // this method is called when chart is first inited as we listen for "rendered" event
+  function zoomChart() {
+      // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
+      chart.zoomToIndexes(udderset.length - 40, udderset.length - 1);
+  }
+
+
+  		var dataset = [];
+  		var parseTime = d3.timeParse("%Y-%m-%d");
+
+  	    var d = parseTime('2018-03-14');
+
+  		// var parseDate = d3.timeFormat("%Y-%m-%d").parse;
+  		// var d = parseDate('2018-03-14');
+
+  		var chart = AmCharts.makeChart( "uddercanvas2", {
+  		  "type": "serial",
+  		  "theme": "light",
+  		  "dataProvider": udderset2,
+  		  "valueAxes": [ {
+  		    "gridColor": "#FFFFFF",
+  		    "gridAlpha": 0.2,
+  		    "dashLength": 0,
+  				"labelFunction": function(value) {
+  		      return value + "%";
+  		    }
+  		  } ],
+  		  "gridAboveGraphs": true,
+  		  "startDuration": 1,
+  		  "graphs": [ {
+  		    "balloonText": "[[title]]: <b>[[value]]</b>",
+  		    "fillAlphas": 0.8,
+          //change bar color
+          "fillColors": "#4176C1",
+  		    "lineAlpha": 0.2,
+  		    "type": "column",
+          "title": "3&4 Percent",
+  		    "valueField": "visits",
+          //construct balloontext
+  				"balloonText": "[[title]]<br />[[category]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+  		  } ],
+  		  "chartCursor": {
+  		    "categoryBalloonEnabled": false,
+  		    "cursorAlpha": 0,
+  		    "zoomable": false
+  		  },
+  		  "categoryField": "country",
+  		  "categoryAxis": {
+  		    "gridPosition": "start",
+  		    "gridAlpha": 0,
+  		    "tickPosition": "start",
+  		    "tickLength": 20
+  		  },
+  		  "export": {
+  		    "enabled": true
+  		  }
+
+  		} );
 }
 function stripFunction() {
   var strip_data = [
-      { Date: '03-15-2018', Stall_number: 1, Strip_Yields: 132, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 2, Strip_Yields: 234, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 3, Strip_Yields: 100, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 4, Strip_Yields: 400, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 5, Strip_Yields: 700, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 1, Strip_Yields: 132, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 2, Strip_Yields: 234, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 3, Strip_Yields: 100, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 4, Strip_Yields: 400, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 5, Strip_Yields: 230, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 1, Strip_Yields: 132, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 2, Strip_Yields: 234, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 3, Strip_Yields: 100, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 4, Strip_Yields: 900, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 5, Strip_Yields: 700, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 1, Strip_Yields: 132, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 2, Strip_Yields: 234, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 3, Strip_Yields: 100, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 4, Strip_Yields: 200, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 5, Strip_Yields: 700, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 1, Strip_Yields: 132, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 2, Strip_Yields: 234, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 3, Strip_Yields: 100, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 4, Strip_Yields: 300, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 5, Strip_Yields: 700, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 1, Strip_Yields: 132, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 2, Strip_Yields: 234, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 3, Strip_Yields: 100, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 4, Strip_Yields: 300, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 5, Strip_Yields: 700, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 1, Strip_Yields: 132, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 2, Strip_Yields: 234, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 3, Strip_Yields: 100, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 4, Strip_Yields: 300, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 5, Strip_Yields: 700, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 1, Strip_Yields: 132, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 2, Strip_Yields: 234, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 3, Strip_Yields: 100, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 4, Strip_Yields: 300, Majority: 0},
-      { Date: '03-15-2018', Stall_number: 5, Strip_Yields: 700, Majority: 0}];
+  		{ Date: '2018-01-10', Stall_number: 1, Strip_Yields: 132, balance: "isbalanced", Majority: 0},
+  		{ Date: '2018-01-10', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  		{ Date: '2018-01-10', Stall_number: 3, Strip_Yields: 300, balance: "isbalanced", Majority: 0},
+  		{ Date: '2018-01-13', Stall_number: 4, Strip_Yields: 400, balance: "balanced",  Majority: 0},
+  		{ Date: '2018-01-13', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+  		{ Date: '2018-01-13', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+  		{ Date: '2018-01-13', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  		{ Date: '2018-01-28', Stall_number: 3, Strip_Yields: 100, balance: "balanced", Majority: 0},
+  		{ Date: '2018-01-28', Stall_number: 4, Strip_Yields: 200, balance: "balanced",  Majority: 0},
+  		{ Date: '2018-01-28', Stall_number: 5, Strip_Yields: 400, balance: "balanced", Majority: 0},
+  		{ Date: '2018-02-07', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+  		{ Date: '2018-02-07', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  		{ Date: '2018-02-07', Stall_number: 3, Strip_Yields: 220, balance: "isbalanced", Majority: 0},
+  		{ Date: '2018-02-07', Stall_number: 4, Strip_Yields: 330, balance: "balanced",  Majority: 0},
+  		{ Date: '2018-02-07', Stall_number: 5, Strip_Yields: 600, balance: "balanced", Majority: 0},
+  		{ Date: '2018-02-20', Stall_number: 1, Strip_Yields: 102, balance: "balanced", Majority: 0},
+  		{ Date: '2018-02-20', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  		{ Date: '2018-02-20', Stall_number: 3, Strip_Yields: 240, balance: "isbalanced", Majority: 0},
+  		{ Date: '2018-02-20', Stall_number: 4, Strip_Yields: 190, balance: "balanced",  Majority: 0},
+  		{ Date: '2018-02-20', Stall_number: 5, Strip_Yields: 500, balance: "balanced", Majority: 0},
+  		{ Date: '2018-02-25', Stall_number: 1, Strip_Yields: 432, balance: "isbalanced", Majority: 0},
+  		{ Date: '2018-02-25', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  		{ Date: '2018-03-03', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
+  		{ Date: '2018-03-03', Stall_number: 4, Strip_Yields: 180, balance: "isbalanced",  Majority: 0},
+  		{ Date: '2018-03-03', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+  		{ Date: '2018-03-03', Stall_number: 1, Strip_Yields: 152, balance: "balanced", Majority: 0},
+  		{ Date: '2018-03-03', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  		{ Date: '2018-03-03', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
+  		{ Date: '2018-03-03', Stall_number: 4, Strip_Yields: 400, balance: "balanced",  Majority: 0},
+  		{ Date: '2018-03-03', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+  		{ Date: '2018-03-03', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+  		{ Date: '2018-03-03', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  		{ Date: '2018-03-03', Stall_number: 3, Strip_Yields: 220, balance: "isbalanced", Majority: 0},
+  		{ Date: '2018-03-06', Stall_number: 5, Strip_Yields: 500, balance: "balanced", Majority: 0},
+  		{ Date: '2018-03-06', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+  		{ Date: '2018-03-06', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  		{ Date: '2018-03-06', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
+  		{ Date: '2018-03-07', Stall_number: 4, Strip_Yields: 200, balance: "isbalanced",  Majority: 0},
+  		{ Date: '2018-03-07', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+  		{ Date: '2018-03-07', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+  		{ Date: '2018-03-07', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  		{ Date: '2018-03-07', Stall_number: 3, Strip_Yields: 300, balance: "isbalanced", Majority: 0},
+  		{ Date: '2018-04-01', Stall_number: 4, Strip_Yields: 400, balance: "isbalanced",  Majority: 0},
+  		{ Date: '2018-04-01', Stall_number: 5, Strip_Yields: 240, balance: "balanced", Majority: 0},
+  		{ Date: '2018-04-01', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+  		{ Date: '2018-04-01', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  		{ Date: '2018-04-10', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
+  		{ Date: '2018-04-10', Stall_number: 4, Strip_Yields: 400, balance: "balanced",  Majority: 0},
+  		{ Date: '2018-04-10', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+  		{ Date: '2018-04-15', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+  		{ Date: '2018-04-15', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  		{ Date: '2018-04-15', Stall_number: 3, Strip_Yields: 200, balance: "isbalanced", Majority: 0},
+  		{ Date: '2018-04-15', Stall_number: 4, Strip_Yields: 210, balance: "isbalanced",  Majority: 0},
+  		{ Date: '2018-04-15', Stall_number: 5, Strip_Yields: 700, balance: "isbalanced", Majority: 0}];
   var label_data = ["<150 ml", "150 ml-250 ml", ">250 ml"];
-  var below = 0; var between = 0; var above = 0;
-  for(var i = 0; i < strip_data.length; i++) {
-    var obj = strip_data[i];
-    if (obj.Strip_Yields < 150){
-      below ++;}
-    else if(obj.Strip_Yields > 250){
-      above ++;}
-    else {
-      between ++;}
+  var formatComma = d3.format(",");
+  var datanest = d3.nest().key(function(d) { return d.Date; })
+  .rollup(function(v){ return {
+  		total: d3.sum(v, function(d) {return d.Strip_Yields;}),
+  		average: d3.mean(v, function(d) {return d.Strip_Yields;}),
+  		//smaller_150: d3.sum(v, function (d){ return (d.Strip_Yields < 150);}),
+  		smaller_150: d3.sum(v, function (d){ return (d.Strip_Yields < 150);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
+  		between: d3.sum(v, function (d){ return (d.Strip_Yields >= 150 & d.Strip_Yields <= 250);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
+  		larger_250: d3.sum(v, function (d){ return (d.Strip_Yields > 250);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
+  		//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+  };})
+  .entries(strip_data);
+  console.log(datanest);
+  var stripset = [];
+  for(var i = 0; i < datanest.length; i ++){
+    console.log(i);
+     var token = {};
+     token.date = datanest[i].key;
+     token.visits = Math.round((datanest[i].value.smaller_150)* 100);
+  	 token.hits = Math.round((datanest[i].value.between)* 100);
+     token.views = Math.round((datanest[i].value.larger_250)*100);
+     stripset.push(token);
+     console.log(token);
+   }
+   console.log(stripset);
+
+
+  var chart = AmCharts.makeChart("stripcanvas", {
+      "type": "serial",
+      "theme": "light",
+      "legend": {
+          "useGraphSettings": true
+      },
+      "dataProvider": stripset,
+      "synchronizeGrid":true,
+      "valueAxes": [{
+          "id":"v1",
+          "axisColor": "#444",
+          "axisThickness": 2,
+          "axisAlpha": 1,
+          "position": "left",
+  				"labelFunction": function(value) {
+  		      return value + "%";
+  		    }
+  		  }, {
+          "id":"v2",
+          "axisColor": "#FCD202",
+          "axisThickness": 2,
+          "axisAlpha": 1,
+          "position": "right",
+  				"labelFunction": function(value) {
+  		      return value + "%";
+  		    }
+      }, {
+          "id":"v3",
+          "axisColor": "#B0DE09",
+          "axisThickness": 2,
+          "gridAlpha": 0,
+          "offset": 50,
+          "axisAlpha": 1,
+          "position": "left",
+  				"labelFunction": function(value) {
+  		      return value + "%";
+  		    }
+      }],
+      "graphs": [{
+          "valueAxis": "v1",
+          "lineColor": "#FF6600",
+          "bullet": "round",
+          "bulletBorderThickness": 1,
+          "hideBulletsCount": 30,
+          "title": "<150 ml",
+          "valueField": "visits",
+  		"fillAlphas": 0,
+  		"legendValueText": "[[value]]%",
+  		//浮标label
+  		"balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+      }, {
+          "valueAxis": "v1",
+          "lineColor": "#FCD202",
+          "bullet": "square",
+          "bulletBorderThickness": 1,
+          "hideBulletsCount": 30,
+          "title": "150 ml-250 ml",
+          "valueField": "hits",
+  		"fillAlphas": 0,
+  		"legendValueText": "[[value]]%",
+  		//浮标label
+  		"balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+      }, {
+          "valueAxis": "v1",
+          "lineColor": "#B0DE09",
+          "bullet": "triangleUp",
+          "bulletBorderThickness": 1,
+          "hideBulletsCount": 30,
+          "title": ">250 ml",
+          "valueField": "views",
+  		"fillAlphas": 0,
+  		"legendValueText": "[[value]]%",
+  		//浮标label
+  		"balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+      }],
+      "chartScrollbar": {},
+      "chartCursor": {
+          "cursorPosition": "mouse"
+      },
+      "categoryField": "date",
+      "categoryAxis": {
+          "parseDates": true,
+          "axisColor": "#DADADA",
+          "minorGridEnabled": true
+      },
+      "export": {
+      	"enabled": true,
+          "position": "bottom-right"
+       }
+  });
+
+  chart.addListener("dataUpdated", zoomChart);
+  zoomChart();
+
+
+  // generate some random data, quite different range
+  function generateChartData() {
+      var chartData = [];
+      var firstDate = new Date();
+      firstDate.setDate(firstDate.getDate() - 100);
+
+          var visits = 1600;
+          var hits = 2900;
+          var views = 8700;
+
+
+      for (var i = 0; i < 100; i++) {
+          // we create date objects here. In your data, you can have date strings
+          // and then set format of your dates using chart.dataDateFormat property,
+          // however when possible, use date objects, as this will speed up chart rendering.
+          var newDate = new Date(firstDate);
+          newDate.setDate(newDate.getDate() + i);
+
+          visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+          hits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+          views += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+
+          chartData.push({
+              date: newDate,
+              visits: visits,
+              hits: hits,
+              views: views
+          });
+      }
+      return chartData;
   }
-  var categorydata = [];
-  var total = below + between + above;
-  categorydata.push((below/total).toFixed(2));
-  categorydata.push((between/total).toFixed(2));
-  categorydata.push((above/total).toFixed(2));
 
-    var barChartData = {
-      //labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      labels: label_data,
-      datasets: [{
-        //show label of dataset1
-        label: 'Strip Yields',
-        backgroundColor: "#4176C1",
-        //orange color
-        //backgroundColor: "rgb(255, 189, 89)",
-        //backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
-        borderColor: window.chartColors.white,
-        borderWidth: 0,
-        //append data of dataset1 a json as a array
-        data: categorydata
-      }]
-    }
-
-
-
-
-      var ctx = document.getElementById('canvas').getContext('2d');
-    	window.myBar = new Chart(ctx, {
-    		type: 'bar',
-    		data: barChartData,
-    		options: {
-    			title: {
-    				display: true,
-    				text: 'Date: YY-MM-DD Strip Yields Percent'
-    			},
-    			tooltips: {
-    				mode: 'index',
-    				intersect: false
-    			},
-    			responsive: true,
-    			scales: {
-    				xAxes: [{
-    					stacked: true,
-    				}],
-    				yAxes: [{
-    					stacked: true
-    				}]
-    			}
-    		}
-    	});
+  function zoomChart(){
+      chart.zoomToIndexes(chart.dataProvider.length - 20, chart.dataProvider.length - 1);
+  }
 
 }
 
@@ -234,6 +464,218 @@ function postFunction() {
           Farm_Name: "Zeus",
           Date: '03-15-2018',
           TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          }
+      },{
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-15-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          }
+      },{
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-15-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          }
+      },{
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-15-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          }
+      },{
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-15-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          }
+      },
+      {
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-15-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+              LH: "F",
+              LF: "W",
+              RH: "F",
+              RF: "W"
+          },
+          TES: {
+              LH: "N",
+              LF: "S",
+              RH: "SR",
+              RF: "R"
+          }
+      },
+      {
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-17-2018',
+          TSC: {
               LH: "D",
               LF: "OL",
               RH: "H",
@@ -263,12 +705,327 @@ function postFunction() {
               RH: "SR",
               RF: "R"
           }
+      },{
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-17-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "F",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "SR",
+            RF: "N"
+          }
+      },{
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-17-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "F",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          }
+      },{
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-17-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          }
+      },{
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-17-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          }
+      },{
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-17-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          }
+      },{
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-17-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          }
+      },{
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-17-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          }
+      },{
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-17-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          }
+      },{
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-17-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          }
       },
       {
           Group: 1,
           Line: 1,
           Farm_Name: "Zeus",
-          Date: '03-15-2018',
+          Date: '03-21-2018',
           TSC: {
               LH: "D",
               LF: "OL",
@@ -304,7 +1061,7 @@ function postFunction() {
           Group: 1,
           Line: 1,
           Farm_Name: "Zeus",
-          Date: '03-15-2018',
+          Date: '03-25-2018',
           TSC: {
               LH: "D",
               LF: "OL",
@@ -318,16 +1075,52 @@ function postFunction() {
               RF: "R"
           },
           SNTB: {
-              LH: "VM",
-              LF: "SW",
-              RH: "VM",
-              RF: "SW"
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
           },
           HaTE: {
-              LH: "F",
-              LF: "W",
-              RH: "F",
-              RF: "W"
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TES: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          }
+      },
+      {
+          Group: 1,
+          Line: 1,
+          Farm_Name: "Zeus",
+          Date: '03-28-2018',
+          TSC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          TC: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          SNTB: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
+          },
+          HaTE: {
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
           },
           TES: {
               LH: "N",
@@ -340,12 +1133,12 @@ function postFunction() {
           Group: 1,
           Line: 1,
           Farm_Name: "Zeus",
-          Date: '03-15-2018',
+          Date: '03-30-2018',
           TSC: {
-              LH: "D",
-              LF: "OL",
-              RH: "H",
-              RF: "D"
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
           },
           TC: {
               LH: "R",
@@ -354,132 +1147,262 @@ function postFunction() {
               RF: "R"
           },
           SNTB: {
-              LH: "VM",
-              LF: "SW",
-              RH: "VM",
-              RF: "SW"
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
           },
           HaTE: {
-              LH: "F",
-              LF: "W",
-              RH: "F",
-              RF: "W"
+            LH: "N",
+            LF: "N",
+            RH: "N",
+            RF: "N"
           },
           TES: {
               LH: "N",
-              LF: "S",
-              RH: "SR",
-              RF: "R"
+              LF: "N",
+              RH: "N",
+              RF: "N"
           }
-      },
-      {
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-15-2018',
-          TSC: {
-              LH: "D",
-              LF: "OL",
-              RH: "H",
-              RF: "D"
-          },
-          TC: {
-              LH: "R",
-              LF: "DS",
-              RH: "B",
-              RF: "R"
-          },
-          SNTB: {
-              LH: "VM",
-              LF: "SW",
-              RH: "VM",
-              RF: "SW"
-          },
-          HaTE: {
-              LH: "F",
-              LF: "W",
-              RH: "F",
-              RF: "W"
-          },
-          TES: {
-              LH: "N",
-              LF: "S",
-              RH: "SR",
-              RF: "R"
-          }
-      },
-      {
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-15-2018',
-          TSC: {
-              LH: "D",
-              LF: "OL",
-              RH: "H",
-              RF: "D"
-          },
-          TC: {
-              LH: "R",
-              LF: "DS",
-              RH: "B",
-              RF: "R"
-          },
-          SNTB: {
-              LH: "VM",
-              LF: "SW",
-              RH: "VM",
-              RF: "SW"
-          },
-          HaTE: {
-              LH: "F",
-              LF: "W",
-              RH: "F",
-              RF: "W"
-          },
-          TES: {
-              LH: "N",
-              LF: "S",
-              RH: "SR",
-              RF: "R"
-          }
-      },
-      {
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-15-2018',
-          TSC: {
-              LH: "D",
-              LF: "OL",
-              RH: "H",
-              RF: "D"
-          },
-          TC: {
-              LH: "R",
-              LF: "DS",
-              RH: "B",
-              RF: "R"
-          },
-          SNTB: {
-              LH: "VM",
-              LF: "SW",
-              RH: "VM",
-              RF: "SW"
-          },
-          HaTE: {
-              LH: "F",
-              LF: "W",
-              RH: "F",
-              RF: "W"
-          },
-          TES: {
-              LH: "N",
-              LF: "S",
-              RH: "SR",
-              RF: "R"
-          }
-      }]
+      }];
+      var datanest = d3.nest()
+                .key(function (d){ return d.Date;})
+                .rollup(function(v){ return {
+                    Total_Scored: d3.sum(v, function(d) {return d.Group;}),
+                    Total_TSC_Abnormal: d3.sum(v, function(d){return d.TSC.LH != 'N' || d.TSC.LF != 'N' || d.TSC.RH != 'N' || d.TSC.RF != 'N'}),
+                    Total_TC_Abnormal: d3.sum(v, function(d){return d.TC.LH != 'N' || d.TC.LF != 'N' || d.TC.RH != 'N' || d.TC.RF != 'N'}),
+                    Total_SNTB_Abnormal: d3.sum(v, function(d){return d.SNTB.LH != 'N' || d.SNTB.LF != 'N' || d.SNTB.RH != 'N' || d.SNTB.RF != 'N'}),
+                    Total_HaTE_Abnormal: d3.sum(v, function(d){return d.HaTE.LH != 'N' || d.HaTE.LF != 'N' || d.HaTE.RH != 'N' || d.HaTE.RF != 'N'}),
+                    Total_TES_Abnormal: d3.sum(v, function(d){return d.TES.LH != 'N' || d.TES.LF != 'N' || d.TES.RH != 'N' || d.TES.RF != 'N'}),
+                    Total_Open_Leison: d3.sum(v, function(d){return d.TSC.LH == 'OL' || d.TSC.LF == 'OL' || d.TSC.RH == 'OL' || d.TSC.RF == 'OL'}),
+                    Total_Hemorrhage: d3.sum(v, function(d){return d.TSC.LH == 'H' || d.TSC.LF == 'H' || d.TSC.RH == 'H' || d.TSC.RF == 'H'}),
+                    Percent_TSC_Abnormal: d3.sum(v, function(d){return (d.TSC.LH != 'N' || d.TSC.LF != 'N' || d.TSC.RH != 'N' || d.TSC.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_TC_Abnormal: d3.sum(v, function(d){return (d.TC.LH != 'N' || d.TC.LF != 'N' || d.TC.RH != 'N' || d.TC.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_SNTB_Abnormal: d3.sum(v, function(d){return (d.SNTB.LH != 'N' || d.SNTB.LF != 'N' || d.SNTB.RH != 'N' || d.SNTB.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_HaTE_Abnormal: d3.sum(v, function(d){return (d.HaTE.LH != 'N' || d.HaTE.LF != 'N' || d.HaTE.RH != 'N' || d.HaTE.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_TES_Abnormal: d3.sum(v, function(d){return (d.TES.LH != 'N' || d.TES.LF != 'N' || d.TES.RH != 'N' || d.TES.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_Open_Leison: d3.sum(v, function(d){return (d.TSC.LH == 'OL' || d.TSC.LF == 'OL' || d.TSC.RH == 'OL' || d.TSC.RF == 'OL') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_Hemorrhage: d3.sum(v, function(d){return (d.TSC.LH == 'H' || d.TSC.LF == 'H' || d.TSC.RH == 'H' || d.TSC.RF == 'H') / d3.sum(v, function(d) {return d.Group;})})
+                    // percent_good: d3.sum(v, function (d){ return d.Good;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
+                    // percent_bad: d3.sum(v, function (d){ return d.Bad;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
+                };})
+                .entries(post_data);
+            var postset = [];
+            for(var i = 0; i < datanest.length; i ++){
+              console.log(i);
+               var token = {};
+               token.date = datanest[i].key;
+               token.tsc = Math.round((datanest[i].value.Percent_TSC_Abnormal)* 100);
+               token.tc = Math.round((datanest[i].value.Percent_TC_Abnormal)* 100);
+               token.sntb = Math.round((datanest[i].value.Percent_SNTB_Abnormal)* 100);
+               token.hate = Math.round((datanest[i].value.Percent_HaTE_Abnormal)* 100);
+               token.tes = Math.round((datanest[i].value.Percent_TES_Abnormal)* 100);
+               token.ol = Math.round((datanest[i].value.Percent_Open_Leison)* 100);
+
+               token.h = Math.round((datanest[i].value.Percent_Hemorrhage)* 100);
+
+               postset.push(token);
+               console.log(token);
+             }
+             console.log(postset);
+//predefined bullets (our charts support round, square, triangle, bubble, diamond bullet shapes)
+//var cc = [#6F6456, #CDDC49, #CB7E94, #E94B30, #FEE659, #A1CFDD, #7F3B9B, #3ea900];
+var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#6237B2", "#30A300"];
+                var chart = AmCharts.makeChart("postcanvas", {
+                    "type": "serial",
+                    "theme": "light",
+                    "legend": {
+                        "useGraphSettings": true
+                    },
+                    "dataProvider": postset,
+                    "synchronizeGrid":true,
+                    "valueAxes": [{
+                        "id":"v1",
+                        "axisColor": "#444",
+                        "axisThickness": 2,
+                        "axisAlpha": 1,
+                        "position": "left",
+                        "labelFunction": function(value) {
+                          return value + "%";
+                        }
+                      }, {
+                        "id":"v2",
+                        "axisColor": "#FCD202",
+                        "axisThickness": 2,
+                        "axisAlpha": 1,
+                        "position": "right",
+                        "labelFunction": function(value) {
+                          return value + "%";
+                        }
+                    }, {
+                        "id":"v3",
+                        "axisColor": "#B0DE09",
+                        "axisThickness": 2,
+                        "gridAlpha": 0,
+                        "offset": 50,
+                        "axisAlpha": 1,
+                        "position": "left",
+                        "labelFunction": function(value) {
+                          return value + "%";
+                        }
+                    }],
+                    "graphs": [{
+                      //变量1 TSC
+                        "valueAxis": "v1",
+                        //"lineColor": "#FF6600",
+                        "lineColor": cc[0],
+                        "bullet": "round",
+                        "bulletBorderThickness": 1,
+                        "hideBulletsCount": 30,
+                        "title": "Teat Skin Condition",
+                        "valueField": "tsc",
+                    "fillAlphas": 0,
+                    "legendValueText": "[[value]]%",
+                    //浮标label
+                    "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+                    }, {
+                      //TC
+                        "valueAxis": "v1",
+                        //"lineColor": "#FCD202",
+                        "lineColor": cc[1],
+                        "bullet": "round",
+                        "bulletBorderThickness": 1,
+                        "hideBulletsCount": 30,
+                        "title": "Teat Color",
+                        "valueField": "tc",
+                    "fillAlphas": 0,
+                    "legendValueText": "[[value]]%",
+                    //浮标label
+                    "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+                    }, {
+                      //SNTB3
+                        "valueAxis": "v1",
+                        //"lineColor": "#B0DE09",
+                        "lineColor": cc[2],
+                        "bullet": "round",
+                        "bulletBorderThickness": 1,
+                        "hideBulletsCount": 30,
+                        "title": "Swelling Near Teat Base",
+                        "valueField": "sntb",
+                    "fillAlphas": 0,
+                    "legendValueText": "[[value]]%",
+                    //浮标label
+                    "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+                    },{
+                      //HATE4
+                        "valueAxis": "v1",
+                        //"lineColor": "#6F6456",
+                        "lineColor": cc[3],
+                        "bullet": "round",
+                        "bulletBorderThickness": 1,
+                        "hideBulletsCount": 30,
+                        "title": "Hardness at Teat End",
+                        "valueField": "hate",
+                    "fillAlphas": 0,
+                    "legendValueText": "[[value]]%",
+                    //浮标label
+                    "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+                    },{
+                      //TES5
+                        "valueAxis": "v1",
+                        //"lineColor": "#CB7E94",
+                        "lineColor": cc[4],
+                        "bullet": "round",
+                        "bulletBorderThickness": 1,
+                        "hideBulletsCount": 30,
+                        "title": "Teat End Score",
+                        "valueField": "tes",
+                    "fillAlphas": 0,
+                    "legendValueText": "[[value]]%",
+                    //浮标label
+                    "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+                    },{
+                      //OL
+                        "valueAxis": "v1",
+                        //"lineColor": "#A1CFDD",
+                        "lineColor": cc[5],
+                        "bullet": "square",
+                        "bulletBorderThickness": 1,
+                        "hideBulletsCount": 30,
+                        "title": "Open Lesion",
+                        "valueField": "ol",
+                    "fillAlphas": 0,
+                    "legendValueText": "[[value]]%",
+                    //浮标label
+                    "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+                    },{
+                      //H
+                        "valueAxis": "v1",
+                        //"lineColor": "#3ea900",
+                        "lineColor": cc[6],
+                        "bullet": "triangleUp",
+                        "bulletBorderThickness": 1,
+                        "hideBulletsCount": 30,
+                        "title": "Hemorrhage",
+                        "valueField": "h",
+                    "fillAlphas": 0,
+                    "legendValueText": "[[value]]%",
+                    //浮标label
+                    "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+                    }],
+                    "chartScrollbar": {},
+                    "chartCursor": {
+                        "cursorPosition": "mouse"
+                    },
+                    "categoryField": "date",
+                    "categoryAxis": {
+                        "parseDates": true,
+                        "axisColor": "#DADADA",
+                        "minorGridEnabled": true
+                    },
+                    "export": {
+                      "enabled": true,
+                        "position": "bottom-right"
+                     }
+                });
+
+                chart.addListener("dataUpdated", zoomChart);
+                zoomChart();
+
+
+                // generate some random data, quite different range
+                function generateChartData() {
+                    var chartData = [];
+                    var firstDate = new Date();
+                    firstDate.setDate(firstDate.getDate() - 100);
+
+                        var visits = 1600;
+                        var hits = 2900;
+                        var views = 8700;
+
+
+                    for (var i = 0; i < 100; i++) {
+                        // we create date objects here. In your data, you can have date strings
+                        // and then set format of your dates using chart.dataDateFormat property,
+                        // however when possible, use date objects, as this will speed up chart rendering.
+                        var newDate = new Date(firstDate);
+                        newDate.setDate(newDate.getDate() + i);
+
+                        visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+                        hits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+                        views += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+
+                        chartData.push({
+                            date: newDate,
+                            visits: visits,
+                            hits: hits,
+                            views: views
+                        });
+                    }
+                    return chartData;
+                }
+
+                function zoomChart(){
+                    chart.zoomToIndexes(chart.dataProvider.length - 20, chart.dataProvider.length - 1);
+                }
+
+
+
 
 }
 function lactoFunction() {
@@ -493,7 +1416,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 0456,
@@ -517,7 +1440,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 0110,
@@ -541,7 +1464,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 1026,
@@ -565,7 +1488,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 0960,
@@ -589,7 +1512,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 0126,
@@ -613,7 +1536,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 1230,
@@ -637,7 +1560,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 8821,
@@ -661,7 +1584,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 2024,
@@ -685,7 +1608,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 0091,
@@ -709,7 +1632,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 0330,
@@ -733,7 +1656,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 0035,
@@ -756,7 +1679,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 0256,
@@ -780,7 +1703,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 1204,
@@ -804,7 +1727,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 5610,
@@ -828,7 +1751,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 0604,
@@ -852,7 +1775,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 3456,
@@ -876,7 +1799,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 1256,
@@ -900,7 +1823,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 156,
@@ -924,7 +1847,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 996,
@@ -948,7 +1871,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
 					Cow: 1216,
@@ -972,7 +1895,7 @@ function lactoFunction() {
 					Herd_Size: 10,
 					Size: 5,
 					Procedures: "Normal",
-					Milking_Frequency: "2",
+					Milking_Frequency: "2X",
 					No_Operations: 20,
 					Prep: "False",
           Stall : 5,
@@ -1106,24 +2029,6 @@ var label_data = [];
       set32.push(obj.max2);
       set33.push(obj.max3);
 
-      /*
-			var tim1=obj.Dip.replace(" AM","");
-			var tim2=obj.Strip.replace(" AM","");
-			var tim3=obj.Wipe.replace(" AM","");
-			var tim4=obj.Attach.replace(" AM","");
-			var tim5=obj.Remove.replace(" AM","");
-			var ary1=tim1.split(':'),
-			ary2=tim2.split(':'),
-			ary3=tim3.split(':'),
-			ary4=tim4.split(':'),
-			ary5=tim5.split(':');
-			console.log(ary1);
-			console.log(ary2);
-			set1.push(caldiff(ary1, ary2));
-			set2.push(caldiff(ary2, ary3));
-			set3.push(caldiff(ary3, ary4));
-			set4.push(caldiff(ary4, ary5));
-*/
 		}
 
 for(var i = 0; i < lacto_data.length; i++) {
@@ -1131,12 +2036,6 @@ for(var i = 0; i < lacto_data.length; i++) {
 
 }
 			console.log(label_data);
-
-      /*
-      		var label_data = ["Dip contact time - Min","Dip contact time - Avg","Dip contact time - Max",
-        "Lag time - Min", "Lag time - Avg","Lag time - Max", "Unit on time - Min",
-      "Unit on time - Avg","Unit on time - Max"];
-      */
 		var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 		var color = Chart.helpers.color;
 		var barChartData = {
@@ -1218,135 +2117,351 @@ for(var i = 0; i < lacto_data.length; i++) {
 
 }
 function unitFunction() {
-  var color = Chart.helpers.color;
-	var unit_data = [
-			{
-					Date: '03-15-2018',
-					Observer: 'Jone',
-					Farm: 'Glezon',
-					Good: 132,
-					Bad: 21
-			},
+  var unit_data = [
+    {
+        Date: '2017-11-31',
+        Observer: 'Jone',
+        Farm: 'Glezon',
+        Good: 132,
+        Bad: 21
+    },
+    {
+        Date: '2017-12-04',
+        Observer: 'Alex',
+        Farm: 'Glezon',
+        Good: 99,
+        Bad: 31
+    },
+    {
+        Date: '2017-12-16',
+        Observer: 'Gina',
+        Farm: 'Glezon',
+        Good: 70,
+        Bad: 35
+    },
       {
-          Date: '03-15-2018',
+          Date: '2017-12-22',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-01-15',
           Observer: 'Alex',
           Farm: 'Glezon',
           Good: 99,
           Bad: 31
       },
       {
-          Date: '03-16-2018',
+          Date: '2018-02-02',
           Observer: 'Gina',
           Farm: 'Glezon',
           Good: 70,
           Bad: 35
       },
-			{
-					Date: '03-17-2018',
-					Observer: 'Irine',
-					Farm: 'Glezon',
-					Good: 65,
-					Bad: 10
-			},
-			{
-					Date: '03-17-2018',
-					Observer: 'Zeiger',
-					Farm: 'Glezon',
-					Good: 90,
-					Bad: 36
-			}];
-	var label_data = [];
-	var goodset = [];
-	var badset = [];
-	var totalbad = 0;
-	var totalgood = 0;
-	for(var i = 0; i < unit_data.length - 1; i++) {
-    var obj = unit_data[i];
-    if(unit_data[i] == unit_data[i+1]) {
-      totalgood += obj.Good;
-  		totalbad += obj.Bad;
-    }
-    else {
-      totalgood += obj.Good;
-      totalbad += obj.Bad;
-      label_data.push(obj.Date);
-    //  goodset.push(obj.Good);
-      goodset.push((totalgood/(totalgood + totalbad)).toFixed(2))
-      badset.push((totalbad/(totalgood + totalbad)).toFixed(2))
-  	//	badset.push(obj.Bad);
-    }
-    if (i == unit_data.length - 2 && unit_data[i] == unit_data[i+1]){
-      totalgood += obj.Good;
-      totalbad += obj.Bad;
-      label_data.push(obj.Date);
-      goodset.push((totalgood/(totalgood + totalbad)).toFixed(2));
-      badset.push((totalbad/(totalgood + totalbad)).toFixed(2));
-    }
-    else{
-      label_data.push(obj.Date);
-      goodset.push((totalgood/(totalgood + totalbad)).toFixed(2));
-      badset.push((totalbad/(totalgood + totalbad)).toFixed(2));
-      var nextobj = unit_data[i+1];
-      totalgood = nextobj.Good;
-      totalbad = nextobj.Bad;
-      label_data.push(obj.Date);
-      goodset.push((totalgood/(totalgood + totalbad)).toFixed(2));
-      badset.push((totalbad/(totalgood + totalbad)).toFixed(2));
-    }
+      {
+          Date: '2018-02-05',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-02-06',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-02-07',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-02-08',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-02-09',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-02-10',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-02-13',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-02-15',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-02-16',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-02-19',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-02-25',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-03-01',
+          Observer: 'Alex',
+          Farm: 'Glezon',
+          Good: 99,
+          Bad: 31
+      },
+      {
+          Date: '2018-03-05',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-03-06',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-03-15',
+          Observer: 'Alex',
+          Farm: 'Glezon',
+          Good: 99,
+          Bad: 31
+      },
+      {
+          Date: '2018-03-16',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-03-17',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-04-10',
+          Observer: 'Alex',
+          Farm: 'Glezon',
+          Good: 99,
+          Bad: 31
+      },
+      {
+          Date: '2018-04-21',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-04-22',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-04-23',
+          Observer: 'Alex',
+          Farm: 'Glezon',
+          Good: 99,
+          Bad: 31
+      },
+      {
+          Date: '2018-04-24',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-04-25',
+          Observer: 'Irine',
+          Farm: 'Glezon',
+          Good: 65,
+          Bad: 10
+      },
+      {
+          Date: '2018-04-26',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-04-30',
+          Observer: 'Alex',
+          Farm: 'Glezon',
+          Good: 99,
+          Bad: 31
+      },
+      {
+          Date: '2018-04-30',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-05-03',
+          Observer: 'Zeiger',
+          Farm: 'Glezon',
+          Good: 90,
+          Bad: 36
+      }];
+  var formatComma = d3.format(",");
+  var datanest = d3.nest().key(function(d) { return d.Date; })
+                          .rollup(function(v) { return {
+                              total: d3.sum(v, function(d) { return d.Good + d.Bad; }),
+                              good: formatComma(d3.sum(v, function(d) { return d.Good; })/d3.sum(v, function(d) { return d.Good + d.Bad; }) * 100),
+                              bad: d3.sum(v, function(d) { return d.Bad; })/d3.sum(v, function(d) { return d.Good + d.Bad; })
+                            }; })
+                          .entries(unit_data);
+  console.log(datanest);
 
-	}
+
+  var unitset = [];
+  for(var i = 0; i < datanest.length; i ++){
+    console.log(i);
+     var token = {};
+     token.date = datanest[i].key;
+     token.sales1 = Math.round(datanest[i].value.good);
+     token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
+     unitset.push(token);
+     console.log(token);
+   }
 
 
-		var barChartData = {
-			//labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-			labels: label_data,
-			datasets: [{
-				//show label of dataset1
-				label: 'Proper Unit Alignment',
-         backgroundColor: "#7CDFFF",
-      //  backgroundColor: "#C6F1E7",
-			//	backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
-			//	borderColor: window.chartColors.blue,
-				borderWidth: 0,
-				//append data of dataset1 a json as a array
-				data: goodset
-			}, {
-				label: 'Improper Unit Alignment',
-        //  backgroundColor: "rgb(114,147,203)",
-         backgroundColor: "#FA4659",
-			//	backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
-			//	backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
-				borderColor: window.chartColors.red,
-				borderWidth: 0,
-				data: badset
-			}]
-
-		};
-
-    var ctx = document.getElementById('canvas').getContext('2d');
-    window.myBar = new Chart(ctx, {
-      type: 'bar',
-      data: barChartData,
-      options: {
-        title: {
-          display: true,
-          text: 'Date: YY-MM-DD Good/Bad Unit Alignment percent by observer'
-        },
-        tooltips: {
-          mode: 'index',
-          intersect: false
-        },
-        responsive: true,
-        scales: {
-          xAxes: [{
-            stacked: true,
-          }],
-          yAxes: [{
-            stacked: true
-          }]
-        }
+  var chart = AmCharts.makeChart("unitcanvas", {
+    "type": "serial",
+    "theme": "light",
+    "dataDateFormat": "YYYY-MM-DD",
+    "precision": 2,
+    "valueAxes": [{
+      "id": "v1",
+      "title": "Unit Alignment",
+      "position": "left",
+      "autoGridCount": false,
+      "labelFunction": function(value) {
+        return value + "%";
       }
-    });
+    }],
+    "graphs": [{
+      "id": "g3",
+      "valueAxis": "v1",
+      //bad unit data display
+      "lineColor": "#FA4659",
+      "fillColors": "#FA4659",
+      // "lineColor": "#e1ede9",
+      // "fillColors": "#e1ede9",
+      "fillAlphas": 1,
+      "type": "column",
+      "title": "Improper Unit Alignment",
+      "valueField": "sales2",
+      "clustered": false,
+      "columnWidth": 0.5,
+      "legendValueText": "[[value]]%",
+      //浮标label
+      "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+    }, {
+      "id": "g4",
+      "valueAxis": "v1",
+      // "lineColor": "#62cf73",
+      "lineColor": "#7CDFFF",
+      "fillColors": "#7CDFFF",
+      // "fillColors": "#62cf73",
+      "fillAlphas": 1,
+      "type": "column",
+      "title": "Proper Unit Alignment",
+      "valueField": "sales1",
+      "clustered": false,
+      "columnWidth": 0.3,
+      "legendValueText": "[[value]]%",
+      "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+    }],
+    "chartScrollbar": {
+      "graph": "g1",
+      "oppositeAxis": false,
+      "offset": 30,
+      "scrollbarHeight": 50,
+      "backgroundAlpha": 0,
+      "selectedBackgroundAlpha": 0.1,
+      "selectedBackgroundColor": "#888888",
+      "graphFillAlpha": 0,
+      "graphLineAlpha": 0.5,
+      "selectedGraphFillAlpha": 0,
+      "selectedGraphLineAlpha": 1,
+      "autoGridCount": true,
+      "color": "#AAAAAA"
+    },
+    "chartCursor": {
+      "pan": true,
+      //是否显示游标线对齐
+      "valueLineEnabled": false,
+      //左侧坐标轴balloon显示
+      "valueLineBalloonEnabled": false,
+      "cursorAlpha": 0,
+      "valueLineAlpha": 0.2
+    },
+    "categoryField": "date",
+    "categoryAxis": {
+      "parseDates": true,
+      "dashLength": 1,
+      "minorGridEnabled": true
+    },
+    "legend": {
+      "useGraphSettings": true,
+      "position": "top"
+    },
+    "balloon": {
+      "borderThickness": 1,
+      "shadowAlpha": 0
+    },
+    "export": {
+     "enabled": true
+    },
+     "dataProvider": unitset
+  });
 }
 
 
@@ -1357,93 +2472,156 @@ function teatFunction() {
       {
           Milker: "Aphrodite",Date: '03-15-2018',Score1: 15,Score2: 10,Score3: 3,Score4: 10	},
       {
-          Milker: "Apollo",Date: '03-15-2018',Score1: 11,Score2: 10,Score3: 8,Score4: 6},
+          Milker: "Chris",Date: '03-15-2018',Score1: 11,Score2: 10,Score3: 8,Score4: 6},
       {
-          Milker: "Ares",Date: '03-15-2018',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+          Milker: "Terry",Date: '03-15-2018',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
       {
-          Milker: "Artemis",Date: '03-15-2018',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+          Milker: "Zack",Date: '03-15-2018',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
       {
-          Milker: "Athena",Date: '03-15-2018',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+          Milker: "Kyle",Date: '03-15-2018',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
       {
           Milker: "Zeus",Date: '03-15-2018',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
   	];
-  	var label_data = [];
-  	var score4set = [];
-  	var score3set = [];
-  	var score21set = [];
-  	//var score1set = [];
-  	for(var i = 0; i < teat_data.length; i++) {
-      var obj = teat_data[i];
-  		label_data.push(obj.Milker);
-      console.log(obj);
-  		var total = obj.Score1 + obj.Score2 +obj.Score3 +obj.Score4;
-      score4set.push(((obj.Score4 + obj.Score3)/total).toFixed(2));
-  		//score4set.push((obj.Score4/total).toFixed(2));
-  		score3set.push((obj.Score3/total).toFixed(2));
-  		score21set.push(((obj.Score2 + obj.Score1)/total).toFixed(2));
-  		console.log(obj.Socre4/total);
-  	}
-  		console.log(label_data);
-  		console.log(score4set);
-  			console.log(score3set);
-  				console.log(score21set);
 
-  		var barChartData = {
-  			//labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  			labels: label_data,
-  			datasets: [{
-  				//show label of dataset1
-  				label: 'Score4 percent',
-          backgroundColor: "#4176C1",
-          //backgroundColor: "rgb(255, 189, 89)",
-  				//backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
-  				borderColor: window.chartColors.white,
-  				borderWidth: 0,
-  				//append data of dataset1 a json as a array
-  				data: score4set
-  			}
+    var datanest = d3.nest()
+       .key(function (d){ return d.Milker;})
+       .rollup(function(v){ return {
+           total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+           percent_3_4: formatComma( (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
+           //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+       };})
+       .entries(teat_data);
+    var teatset = [];
+       for(var i = 0; i < datanest.length; i ++){
+          var token = {};
+          token.country = datanest[i].key;
+          token.visits = Math.round(datanest[i].value.percent_3_4);
+          //token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
+          teatset.push(token);
+        }
+    var chart = AmCharts.makeChart( "teatcanvas", {
+      "type": "serial",
+      "theme": "light",
+      "dataProvider": teatset,
+      "valueAxes": [ {
+        "gridColor": "#FFFFFF",
+        "gridAlpha": 0.2,
+        "dashLength": 0,
+        "labelFunction": function(value) {
+          return value + "%";
+        }
+      } ],
+      "gridAboveGraphs": true,
+      "startDuration": 1,
+      "graphs": [ {
+        "balloonText": "[[title]]: <b>[[value]]</b>",
+        "fillAlphas": 0.8,
+        "lineAlpha": 0.2,
+        "fillColors": "#4176C1",
+        "type": "column",
+        "title": "3&4 Percent",
+        "valueField": "visits",
+        "balloonText": "[[title]]<br />[[category]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+      } ],
+      "chartCursor": {
+        "categoryBalloonEnabled": false,
+        "cursorAlpha": 0,
+        "zoomable": false
+      },
+      "categoryField": "country",
+      "categoryAxis": {
+        "gridPosition": "start",
+        "gridAlpha": 0,
+        "tickPosition": "start",
+        "tickLength": 20
+      },
+      "export": {
+        "enabled": true
+      }
 
-        /*, {
-  				label: 'Score3 percent',
-  				backgroundColor: "rgb(216, 105, 192)",
-  				borderColor: "rgb(216, 105, 192)",
-  				borderWidth: 1,
-  				data: score3set
-  			}, {
-  				label: 'Score2 & 1 percent',
-  				backgroundColor: "rgb(220, 218, 218)",
-  				borderColor: window.chartColors.white,
-  				borderWidth: 1,
-  				data: score21set
-  			}*/
-      ]
+    } );
 
-  		};
-  	//	console.log(barChartData);
 
-  	var ctx = document.getElementById('canvas').getContext('2d');
-  	window.myBar = new Chart(ctx, {
-  		type: 'bar',
-  		data: barChartData,
-  		options: {
-  			title: {
-  				display: true,
-  				text: 'Date: YY-MM-DD Score percent by observer'
-  			},
-  			tooltips: {
-  				mode: 'index',
-  				intersect: false
-  			},
-  			responsive: true,
-  			scales: {
-  				xAxes: [{
-  					stacked: true,
-  				}],
-  				yAxes: [{
-  					stacked: true
-  				}]
-  			}
-  		}
-  	});
+    //
+    //
+    //
+  	// var label_data = [];
+  	// var score4set = [];
+  	// var score3set = [];
+  	// var score21set = [];
+  	// //var score1set = [];
+  	// for(var i = 0; i < teat_data.length; i++) {
+    //   var obj = teat_data[i];
+  	// 	label_data.push(obj.Milker);
+    //   console.log(obj);
+  	// 	var total = obj.Score1 + obj.Score2 +obj.Score3 +obj.Score4;
+    //   score4set.push(((obj.Score4 + obj.Score3)/total).toFixed(2));
+  	// 	//score4set.push((obj.Score4/total).toFixed(2));
+  	// 	score3set.push((obj.Score3/total).toFixed(2));
+  	// 	score21set.push(((obj.Score2 + obj.Score1)/total).toFixed(2));
+  	// 	console.log(obj.Socre4/total);
+  	// }
+  	// 	console.log(label_data);
+  	// 	console.log(score4set);
+  	// 		console.log(score3set);
+  	// 			console.log(score21set);
+    //
+  	// 	var barChartData = {
+  	// 		//labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  	// 		labels: label_data,
+  	// 		datasets: [{
+  	// 			//show label of dataset1
+  	// 			label: 'Score4 percent',
+    //       backgroundColor: "#4176C1",
+    //       //backgroundColor: "rgb(255, 189, 89)",
+  	// 			//backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+  	// 			borderColor: window.chartColors.white,
+  	// 			borderWidth: 0,
+  	// 			//append data of dataset1 a json as a array
+  	// 			data: score4set
+  	// 		}
+    //
+    //     /*, {
+  	// 			label: 'Score3 percent',
+  	// 			backgroundColor: "rgb(216, 105, 192)",
+  	// 			borderColor: "rgb(216, 105, 192)",
+  	// 			borderWidth: 1,
+  	// 			data: score3set
+  	// 		}, {
+  	// 			label: 'Score2 & 1 percent',
+  	// 			backgroundColor: "rgb(220, 218, 218)",
+  	// 			borderColor: window.chartColors.white,
+  	// 			borderWidth: 1,
+  	// 			data: score21set
+  	// 		}*/
+    //   ]
+    //
+  	// 	};
+  	// //	console.log(barChartData);
+    //
+  	// var ctx = document.getElementById('canvas').getContext('2d');
+  	// window.myBar = new Chart(ctx, {
+  	// 	type: 'bar',
+  	// 	data: barChartData,
+  	// 	options: {
+  	// 		title: {
+  	// 			display: true,
+  	// 			text: 'Date: YY-MM-DD Score percent by observer'
+  	// 		},
+  	// 		tooltips: {
+  	// 			mode: 'index',
+  	// 			intersect: false
+  	// 		},
+  	// 		responsive: true,
+  	// 		scales: {
+  	// 			xAxes: [{
+  	// 				stacked: true,
+  	// 			}],
+  	// 			yAxes: [{
+  	// 				stacked: true
+  	// 			}]
+  	// 		}
+  	// 	}
+  	// });
 
 }
