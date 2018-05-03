@@ -10,22 +10,13 @@ $(document).ready(function() {
 window.onload = function() {
     var btn1 = document.getElementById("teatDraw")
     btn1.onclick = teatFunction;
-  //  var btn2 = document.getElementById("unitDraw")
-    //btn2.onclick = unitFunction;
-    document.getElementById("unitDraw").onclick=function(){
-            alert("Hello WOrld");
-        }
     document.getElementById("udderDraw").onclick = udderFunction;
-    document.getElementById("stripDraw").onclick = stripFunction;
-    document.getElementById("postDraw").onclick = postFunction;
-    document.getElementById("lactoDraw").onclick = lactoFunction;
-
 }
 */
 var formatComma = d3.format(",");
-function convertToPercent(fraction) {
-return (fraction * 100) + '&#37;';
-}
+// function convertToPercent(fraction) {
+// return (fraction * 100) + '&#37;';
+// }
 function udderFunction() {
   var udder_data = [
   		{
@@ -52,50 +43,52 @@ function udderFunction() {
   				Milker: "Pen4",Date: '2018-03-16',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
   		{
   				Milker: "Pen5",Date: '2018-03-16',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
-  						{
-  								Milker: "Pen1",Date: '2018-03-17',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  						{
-  								Milker: "Pen2",Date: '2018-03-17',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  						{
-  								Milker: "Pen3",Date: '2018-03-17',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
-  						{
-  								Milker: "Pen4",Date: '2018-03-17',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
-  						{
-  								Milker: "Pen5",Date: '2018-03-17',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
-  						{
-  								Milker: "Pen5",Date: '2018-03-18',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
-  								{
-  										Milker: "Pen1",Date: '2018-03-18',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  								{
-  										Milker: "Pen2",Date: '2018-03-18',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  								{
-  										Milker: "Pen3",Date: '2018-03-18',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
-  								{
-  										Milker: "Pen4",Date: '2018-03-18',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
-  								{
-  										Milker: "Pen5",Date: '2018-03-19',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
-  								{
-  										Milker: "Pen6",Date: '2018-03-19',Score1: 19,Score2: 12,Score3: 1,Score4: 5},
-  										{
-  												Milker: "Pen1",Date: '2018-03-22',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  										{
-  												Milker: "Pen2",Date: '2018-03-22',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  										{
-  												Milker: "Pen3",Date: '2018-03-26',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
-  										{
-  												Milker: "Pen4",Date: '2018-03-30',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
-  										{
-  												Milker: "Pen5",Date: '2018-04-05',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
-  										{
-  												Milker: "Pen2",Date: '2018-04-19',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
+			{
+					Milker: "Pen1",Date: '2018-03-17',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+			{
+					Milker: "Pen2",Date: '2018-03-17',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+			{
+					Milker: "Pen3",Date: '2018-03-17',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+			{
+					Milker: "Pen4",Date: '2018-03-17',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+			{
+					Milker: "Pen5",Date: '2018-03-17',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+			{
+					Milker: "Pen5",Date: '2018-03-18',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+			{
+					Milker: "Pen1",Date: '2018-03-18',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+			{
+					Milker: "Pen2",Date: '2018-03-18',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+			{
+					Milker: "Pen3",Date: '2018-03-18',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+			{
+					Milker: "Pen4",Date: '2018-03-18',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+			{
+					Milker: "Pen5",Date: '2018-03-19',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+			{
+			    Milker: "Pen6",Date: '2018-03-19',Score1: 19,Score2: 12,Score3: 1,Score4: 5},
+			{
+					Milker: "Pen1",Date: '2018-03-22',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+			{
+					Milker: "Pen2",Date: '2018-03-22',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+			{
+					Milker: "Pen3",Date: '2018-03-26',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+			{
+					Milker: "Pen4",Date: '2018-03-30',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+			{
+					Milker: "Pen5",Date: '2018-04-05',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+			{
+					Milker: "Pen2",Date: '2018-04-19',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
   ];
-  var formatComma = d3.format(",");
+  //var formatComma = d3.format(",");
   var datanest = d3.nest()
   		.key(function (d){ return d.Date;})
   		.rollup(function(v){ return {
   				total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-  				percent_3_4: formatComma( (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
-  				//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+  				percent_3_4: formatComma(
+            (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) /
+            d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
+
   		};})
   		.entries(udder_data);
   var udderset = [];
@@ -104,27 +97,26 @@ function udderFunction() {
   		   var token = {};
   		   token.date = datanest[i].key;
   		   token.visits = Math.round(datanest[i].value.percent_3_4);
-  		   //token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
   		   udderset.push(token);
   		   console.log(token);
   		 }
-  		 var datanest2 = d3.nest()
-  		 		.key(function (d){ return d.Milker;})
-  		 		.rollup(function(v){ return {
-  		 				total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-  		 				percent_3_4: formatComma( (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
-  		 				//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-  		 		};})
-  		 		.entries(udder_data);
-  		 var udderset2 = [];
-  		 		for(var i = 0; i < datanest2.length; i ++){
-  		 			 var token = {};
-  		 			 token.country = datanest2[i].key;
-  		 			 token.visits = Math.round(datanest2[i].value.percent_3_4);
-  		 			 //token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
-  		 			 udderset2.push(token);
-  		 		 }
-  //var chartData = generateChartData();
+   var datanest2 = d3.nest()
+   		.key(function (d){ return d.Milker;})
+   		.rollup(function(v){ return {
+   				total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+   				percent_3_4: formatComma( (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
+   				//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+   		};})
+   		.entries(udder_data);
+   var udderset2 = [];
+   		for(var i = 0; i < datanest2.length; i ++){
+   			 var token = {};
+   			 token.country = datanest2[i].key;
+   			 token.visits = Math.round(datanest2[i].value.percent_3_4);
+   			 //token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
+   			 udderset2.push(token);
+   		 }
+
   var chart = AmCharts.makeChart("uddercanvas1", {
       "type": "serial",
       "theme": "light",
@@ -296,7 +288,7 @@ function stripFunction() {
   		{ Date: '2018-04-15', Stall_number: 4, Strip_Yields: 210, balance: "isbalanced",  Majority: 0},
   		{ Date: '2018-04-15', Stall_number: 5, Strip_Yields: 700, balance: "isbalanced", Majority: 0}];
   var label_data = ["<150 ml", "150 ml-250 ml", ">250 ml"];
-  var formatComma = d3.format(",");
+  //var formatComma = d3.format(",");
   var datanest = d3.nest().key(function(d) { return d.Date; })
   .rollup(function(v){ return {
   		total: d3.sum(v, function(d) {return d.Strip_Yields;}),
@@ -1426,9 +1418,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 29,
-          lt2 : 93,
-          lt3 : 78,
+          Dip_time: 29,
+          Lag_Time : 93,
+          Unit_Time : 78,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1450,9 +1442,9 @@ function lactoFunction() {
 					Wipe: "12:02:46 AM",
 					Attach: "12:04:02 AM",
 					Remove: "12:06:17 AM",
-          lt1: 60,
-          lt2 : 54,
-          lt3 : 28,
+          Dip_time: 60,
+          Lag_Time : 54,
+          Unit_Time : 28,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1474,9 +1466,9 @@ function lactoFunction() {
 					Wipe: "12:04:33 AM",
 					Attach: "12:06:40 AM",
 					Remove: "12:08:15 AM",
-          lt1: 76,
-          lt2 : 84,
-          lt3 : 78,
+          Dip_time: 76,
+          Lag_Time : 84,
+          Unit_Time : 78,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1498,9 +1490,9 @@ function lactoFunction() {
 					Wipe: "12:04:33 AM",
 					Attach: "12:06:40 AM",
 					Remove: "12:08:15 AM",
-          lt1: 49,
-          lt2 : 34,
-          lt3 : 78,
+          Dip_time: 49,
+          Lag_Time : 34,
+          Unit_Time : 78,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1522,9 +1514,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 35,
-          lt2 : 34,
-          lt3 : 33,
+          Dip_time: 35,
+          Lag_Time : 34,
+          Unit_Time : 33,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1546,9 +1538,9 @@ function lactoFunction() {
 					Wipe: "12:04:33 AM",
 					Attach: "12:06:40 AM",
 					Remove: "12:08:15 AM",
-          lt1: 59,
-          lt2 : 85,
-          lt3 : 37,
+          Dip_time: 59,
+          Lag_Time : 85,
+          Unit_Time : 37,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1570,9 +1562,9 @@ function lactoFunction() {
 					Wipe: "12:04:33 AM",
 					Attach: "12:06:40 AM",
 					Remove: "12:08:15 AM",
-          lt1: 43,
-          lt2 : 23,
-          lt3 : 78,
+          Dip_time: 43,
+          Lag_Time : 23,
+          Unit_Time : 78,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1594,9 +1586,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 40,
-          lt2 : 89,
-          lt3 : 45,
+          Dip_time: 40,
+          Lag_Time : 89,
+          Unit_Time : 45,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1618,9 +1610,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 35,
-          lt2 : 83,
-          lt3 : 47,
+          Dip_time: 35,
+          Lag_Time : 83,
+          Unit_Time : 47,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1642,9 +1634,9 @@ function lactoFunction() {
 					Wipe: "12:02:46 AM",
 					Attach: "12:04:02 AM",
 					Remove: "12:06:17 AM",
-          lt1: 39,
-          lt2 : 44,
-          lt3 : 65,
+          Dip_time: 39,
+          Lag_Time : 44,
+          Unit_Time : 65,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1666,9 +1658,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 30,
-          lt2 : 77,
-          lt3 : 41,
+          Dip_time: 30,
+          Lag_Time : 77,
+          Unit_Time : 41,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},{
@@ -1689,9 +1681,9 @@ function lactoFunction() {
 					Wipe: "12:02:46 AM",
 					Attach: "12:04:02 AM",
 					Remove: "12:06:17 AM",
-          lt1: 64,
-          lt2 : 43,
-          lt3 : 78,
+          Dip_time: 64,
+          Lag_Time : 43,
+          Unit_Time : 78,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1713,9 +1705,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 32,
-          lt2 : 55,
-          lt3 : 28,
+          Dip_time: 32,
+          Lag_Time : 55,
+          Unit_Time : 28,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1737,9 +1729,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 69,
-          lt2 : 44,
-          lt3 : 38,
+          Dip_time: 69,
+          Lag_Time : 44,
+          Unit_Time : 38,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1761,9 +1753,9 @@ function lactoFunction() {
 					Wipe: "12:02:46 AM",
 					Attach: "12:04:02 AM",
 					Remove: "12:06:17 AM",
-          lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
+          Dip_time: 59,
+          Lag_Time : 34,
+          Unit_Time : 78,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1785,9 +1777,9 @@ function lactoFunction() {
 					Wipe: "12:03:46 AM",
 					Attach: "12:05:02 AM",
 					Remove: "12:08:17 AM",
-          lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
+          Dip_time: 59,
+          Lag_Time : 34,
+          Unit_Time : 78,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1809,9 +1801,9 @@ function lactoFunction() {
 					Wipe: "12:04:46 AM",
 					Attach: "12:05:02 AM",
 					Remove: "12:06:17 AM",
-          lt1: 20,
-          lt2 : 46,
-          lt3 : 68,
+          Dip_time: 20,
+          Lag_Time : 46,
+          Unit_Time : 68,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1833,9 +1825,9 @@ function lactoFunction() {
 					Wipe: "12:06:46 AM",
 					Attach: "12:08:02 AM",
 					Remove: "12:10:17 AM",
-          lt1: 49,
-          lt2 : 14,
-          lt3 : 78,
+          Dip_time: 49,
+          Lag_Time : 14,
+          Unit_Time : 78,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1857,9 +1849,9 @@ function lactoFunction() {
 					Wipe: "12:02:46 AM",
 					Attach: "12:04:02 AM",
 					Remove: "12:06:17 AM",
-          lt1: 23,
-          lt2 : 34,
-          lt3 : 78,
+          Dip_time: 23,
+          Lag_Time : 34,
+          Unit_Time : 78,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1881,9 +1873,9 @@ function lactoFunction() {
 					Wipe: "12:02:46 AM",
 					Attach: "12:04:02 AM",
 					Remove: "12:06:17 AM",
-          lt1: 50,
-          lt2 : 54,
-          lt3 : 56,
+          Dip_time: 50,
+          Lag_Time : 54,
+          Unit_Time : 56,
 					Total_Milk: 200,
 					Remark: "N/A"
 			},
@@ -1906,9 +1898,9 @@ function lactoFunction() {
 					Wipe: "12:01:05 AM",
 					Attach: "12:01:52 AM",
 					Remove: "12:03:00 AM",
-          lt1: 45,
-          lt2 : 44,
-          lt3 : 98,
+          Dip_time: 45,
+          Lag_Time : 44,
+          Unit_Time : 98,
 					Total_Milk: 200,
 					Remark: "N/A"
 			}
@@ -1944,47 +1936,33 @@ function lactoFunction() {
     if(findindex >= 0){
         var token = obj[findindex];
 
-        stallset[findindex].total1 += obj.lt1;
-        stallset[findindex].total2 += obj.lt2;
-        stallset[findindex].total3 += obj.lt3;
+        stallset[findindex].total1 += obj.Dip_time;
+        stallset[findindex].total2 += obj.Lag_Time;
+        stallset[findindex].total3 += obj.Unit_Time;
         stallset[findindex].count += 1;
-        stallset[findindex].min1 = Math.min(obj.lt1,stallset[findindex].min1);
-        stallset[findindex].min2 = Math.min(obj.lt2,stallset[findindex].min2);
-        stallset[findindex].min3 = Math.min(obj.lt3,stallset[findindex].min2);
-        stallset[findindex].max1 = Math.max(obj.lt1,stallset[findindex].max1);
-        stallset[findindex].max2 = Math.max(obj.lt2,stallset[findindex].max2);
-        stallset[findindex].max3 = Math.max(obj.lt3,stallset[findindex].max3);
+        stallset[findindex].min1 = Math.min(obj.Dip_time,stallset[findindex].min1);
+        stallset[findindex].min2 = Math.min(obj.Lag_Time,stallset[findindex].min2);
+        stallset[findindex].min3 = Math.min(obj.Unit_Time,stallset[findindex].min2);
+        stallset[findindex].max1 = Math.max(obj.Dip_time,stallset[findindex].max1);
+        stallset[findindex].max2 = Math.max(obj.Lag_Time,stallset[findindex].max2);
+        stallset[findindex].max3 = Math.max(obj.Unit_Time,stallset[findindex].max3);
 
 
     }
     else{
       var make = {};
       make.stl = obj.Stall;
-      make.total1 = obj.lt1;
-      make.total2 = obj.lt2;
-      make.total3 = obj.lt3;
-      make.min1 = obj.lt1;
-      make.min2 = obj.lt2;
-      make.min3 = obj.lt3;
-      make.max1 = obj.lt1;
-      make.max2 = obj.lt2;
-      make.max3 = obj.lt3;
+      make.total1 = obj.Dip_time;
+      make.total2 = obj.Lag_Time;
+      make.total3 = obj.Unit_Time;
+      make.min1 = obj.Dip_time;
+      make.min2 = obj.Lag_Time;
+      make.min3 = obj.Unit_Time;
+      make.max1 = obj.Dip_time;
+      make.max2 = obj.Lag_Time;
+      make.max3 = obj.Unit_Time;
       make.count = 1;
       stallset.push(make);
-      console.log(stallset);
-      /*
-      stallset[newindex].stl = obj.stall;
-      stallset[newindex].total1 = obj.lt1;
-      stallset[newindex].total2 = obj.lt2;
-      stallset[newindex].total3 = obj.lt3;
-      stallset[newindex].min1 = obj.lt1;
-      stallset[newindex].min2 = obj.lt2;
-      stallset[newindex].min3 = obj.lt3;
-      stallset[newindex].max1 = obj.lt1;
-      stallset[newindex].max2 = obj.lt2;
-      stallset[newindex].max3 = obj.lt3;
-      stallset[newindex].count = 1;
-      */
       newindex ++;
     }
   }
@@ -2349,7 +2327,7 @@ function unitFunction() {
           Good: 90,
           Bad: 36
       }];
-  var formatComma = d3.format(",");
+  //var formatComma = d3.format(",");
   var datanest = d3.nest().key(function(d) { return d.Date; })
                           .rollup(function(v) { return {
                               total: d3.sum(v, function(d) { return d.Good + d.Bad; }),
