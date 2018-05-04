@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<style>
+#postcanvas {
+  width: 100%;
+  height: 500px;
+}
+</style>
 <head>
 
     <meta charset="utf-8">
@@ -10,6 +15,8 @@
     <meta name="author" content="">
 
     <title>Post Milking Teat</title>
+
+    <script src="../vendor/jquery/jquery.min.js"></script>
 
     <!-- D3-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -32,9 +39,9 @@
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
-    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/css/bootstrap-datetimepicker.min.css'>
-    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel='stylesheet prefeColorh' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+    <link rel='stylesheet prefeColorh' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/css/bootstrap-datetimepicker.min.css'>
+    <link rel='stylesheet prefeColorh' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -49,6 +56,12 @@
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
 
     <style>
 
@@ -110,7 +123,7 @@
         padding: 2px 8px;
         border-radius: 5px;
         }
-    
+
     </style>
 
 </head>
@@ -147,11 +160,11 @@
                         </li>
 
                         <li>
-                            <a href="teatCleaniness.html"><i class="fa fa-table fa-fw"></i> Teat Cleaniness</a>
+                            <a href="teaColorleaniness.html"><i class="fa fa-table fa-fw"></i> Teat Cleaniness</a>
                         </li>
 
                         <li>
-                            <a href="unitAlignment.html"><i class="fa fa-cube fa-fw"></i> Unit Alignment</a>
+                            <a href="postAlignment.html"><i class="fa fa-cube fa-fw"></i> post Alignment</a>
                         </li>
 
                         <li>
@@ -179,7 +192,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Post Milking Teat Data Retrive</h1>
+                    <h1 class="page-header">Post Milking Teat Data Retrieve</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -190,7 +203,7 @@
                             <div class="form-group">
                                     Date From
                                 <div class='input-group date' id='datetimepicker1'>
-                                    <input type='text' class="form-control" />
+                                    <input id="date_1" type='text' class="form-control" />
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                                 </div>
@@ -201,7 +214,7 @@
                             <div class="form-group">
                                 To:
                                 <div class='input-group date' id='datetimepicker1'>
-                                    <input type='text' class="form-control" />
+                                    <input  id="date_2" type='text' class="form-control" />
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                                 </div>
@@ -226,7 +239,7 @@
                         <div class='col-sm-3'>
                             <div class="form-group"><br/>
                                 <div>
-                                    <button type="button" class="btn btn-warning">Search</button>
+                                    <button type="button" class="btn btn-warning" id="createbutton">Search</button>
                                     <button type="button" class="btn btn-success" id="postDraw">Analytics</button>
                                 </div>
                             </div>
@@ -237,7 +250,7 @@
                         <div class='col-sm-2'>
                                 Download Data on
                             <div class='input-group date' id='datetimepicker1'>
-                                    <input type='text' class="form-control" />
+                                    <input id="date_3" type='text' class="form-control" />
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                             </div>
@@ -247,8 +260,12 @@
                             <button type="button" class="btn btn-danger" id="button-postMilking">Download</button>
                         </div>
                     </div>
+
+                    <div id="divTable" class="container">
+                    </div>
+                    
                     <div class='col-sm-10'>
-                      <canvas id="canvas"></canvas>
+                      <div id="postcanvas"></div>
                     </div>
                 </div>
             </div>
@@ -256,6 +273,121 @@
 
     </div>
     <!-- /#wrapper -->
+
+    <script>
+
+        var post_data;
+        var columns = ['Date', 'Total Scored', 'Teat Skin Condition (Abnormal %)', 'Teat Color (Abnormal %)', 'Swelling Near Teat Base (Abnormal %)',
+        'Hardness at Teat End (Abnormal %)', 'Teat End Score (Abnormal %)', 'Open Lesion (Abnormal %)', 'Hemorrhage (Abnormal %)'];
+
+
+        $("#createbutton").one("click",function createTable() {
+            
+            var date_1 = document.getElementById("date_1").value;
+            console.log(date_1);
+
+            var date_2 = document.getElementById("date_2").value;
+            console.log(date_2);
+
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "http://localhost:3000/laColoro?date1=2012-1-1&date2=2013-1-1",
+                "method": "GET",
+                "headers": {
+                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                    
+                }
+            }
+
+            $.ajax(settings).done(function (response) {
+            console.log(response);
+            });
+        
+
+            d3.json('../data/search/post_data.json', function (error,data) {
+
+                
+                // Create table.
+                post_data = data;
+                
+                var post_data_summary = d3.nest()
+                    .key(function (d){ return d.Date;})
+                    .rollup(function(v){ return {
+                        Total_Scored: d3.sum(v, function(d) {return d.Group_ID;}),
+                        Total_Skin_Condition_Abnormal: d3.sum(v, function(d){return d.Skin_Condition.LH != 'N' || d.Skin_Condition.LF != 'N' || d.Skin_Condition.RH != 'N' || d.Skin_Condition.RF != 'N'}),
+                        Total_Color_Abnormal: d3.sum(v, function(d){return d.Color.LH != 'N' || d.Color.LF != 'N' || d.Color.RH != 'N' || d.Color.RF != 'N'}),
+                        Total_Swelling_Abnormal: d3.sum(v, function(d){return d.Swelling.LH != 'N' || d.Swelling.LF != 'N' || d.Swelling.RH != 'N' || d.Swelling.RF != 'N'}),
+                        Total_End_Score_Abnormal: d3.sum(v, function(d){return d.End_Score.LH != 'N' || d.End_Score.LF != 'N' || d.End_Score.RH != 'N' || d.End_Score.RF != 'N'}),
+                        Total_Hardness_Abnormal: d3.sum(v, function(d){return d.Hardness.LH != 'N' || d.Hardness.LF != 'N' || d.Hardness.RH != 'N' || d.Hardness.RF != 'N'}),
+                        Total_Open_Leison: d3.sum(v, function(d){return d.Skin_Condition.LH == 'OL' || d.Skin_Condition.LF == 'OL' || d.Skin_Condition.RH == 'OL' || d.Skin_Condition.RF == 'OL'}),
+                        Total_Hemorrhage: d3.sum(v, function(d){return d.Skin_Condition.LH == 'H' || d.Skin_Condition.LF == 'H' || d.Skin_Condition.RH == 'H' || d.Skin_Condition.RF == 'H'}),
+                        Percent_Skin_Condition_Abnormal: d3.sum(v, function(d){return (d.Skin_Condition.LH != 'N' || d.Skin_Condition.LF != 'N' || d.Skin_Condition.RH != 'N' || d.Skin_Condition.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Color_Abnormal: d3.sum(v, function(d){return (d.Color.LH != 'N' || d.Color.LF != 'N' || d.Color.RH != 'N' || d.Color.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Swelling_Abnormal: d3.sum(v, function(d){return (d.Swelling.LH != 'N' || d.Swelling.LF != 'N' || d.Swelling.RH != 'N' || d.Swelling.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_End_Score_Abnormal: d3.sum(v, function(d){return (d.End_Score.LH != 'N' || d.End_Score.LF != 'N' || d.End_Score.RH != 'N' || d.End_Score.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Hardness_Abnormal: d3.sum(v, function(d){return (d.Hardness.LH != 'N' || d.Hardness.LF != 'N' || d.Hardness.RH != 'N' || d.Hardness.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Open_Leison: d3.sum(v, function(d){return (d.Skin_Condition.LH == 'OL' || d.Skin_Condition.LF == 'OL' || d.Skin_Condition.RH == 'OL' || d.Skin_Condition.RF == 'OL') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Hemorrhage: d3.sum(v, function(d){return (d.Skin_Condition.LH == 'H' || d.Skin_Condition.LF == 'H' || d.Skin_Condition.RH == 'H' || d.Skin_Condition.RF == 'H') / d3.sum(v, function(d) {return d.Group_ID;})})
+                        // percent_good: d3.sum(v, function (d){ return d.Good;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
+                        // percent_bad: d3.sum(v, function (d){ return d.Bad;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
+                    };})
+                    .entries(post_data);
+                
+                
+                console.log(post_data_summary);
+
+                var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
+                var thead = table.append('thead');
+                var tbody = table.append('tbody');
+
+                thead
+                    .selectAll('th')
+                    .data(columns)
+                    .enter()
+                    .append('th')
+                    .text(function (column) { return column; });
+
+                var rows = tbody.selectAll('tr')
+                    .data(post_data_summary)
+                    .enter()
+                    .append('tr')
+
+                
+                var post_data_length = post_data_summary.length;
+                console.log(post_data_length);
+
+
+                for (var i = 0; i < post_data_length; i++){
+                    var tr = tbody.append('tr');
+
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].key);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Total_Scored);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Percent_Skin_Condition_Abnormal);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Percent_Color_Abnormal);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Percent_Swelling_Abnormal);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Percent_End_Score_Abnormal);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Percent_Hardness_Abnormal);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Percent_Open_Leison);
+                    var td = tr.append('td')
+                    .text(post_data_summary[i].value.Percent_Hemorrhage);
+                    
+                    
+                }
+
+
+            }); 
+            
+        });
+    </script>
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>

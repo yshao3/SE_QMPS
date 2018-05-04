@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<style>
+#stripcanvas {
+  width: 100%;
+  height: 500px;
+}
+</style>
 <head>
 
     <meta charset="utf-8">
@@ -10,6 +15,8 @@
     <meta name="author" content="">
 
     <title>Strip Yields</title>
+
+    <script src="../vendor/jquery/jquery.min.js"></script>
 
     <!-- D3-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -48,8 +55,15 @@
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-    
 
+    <!-- Resources amchart -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+  
 
 
 
@@ -113,7 +127,7 @@
         padding: 2px 8px;
         border-radius: 5px;
         }
-    
+
     </style>
 
 
@@ -183,7 +197,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Strip Yields Data Retrive</h1>
+                    <h1 class="page-header">Strip Yields Data Retrieve</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -194,7 +208,7 @@
                         <div class="form-group">
                                 Date From
                             <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control" />
+                                <input id="date_1" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
@@ -205,7 +219,7 @@
                         <div class="form-group">
                             To:
                             <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control" />
+                                <input id="date_2" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
@@ -241,7 +255,7 @@
                     <div class='col-sm-2'>
                             Download Data on
                         <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control" />
+                                <input id="date_3" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                         </div>
@@ -251,14 +265,14 @@
                         <button type="button" class="btn btn-danger" id="button-stripYields">Download</button>
                     </div>
                 </div>
-                
+
                 <div id="divTable" class="container">
                 </div>
                 <div class='col-sm-10'>
-                  <canvas id="canvas"></canvas>
+                  <div id="stripcanvas"></div>
                 </div>
 
-                
+
             </div>
         </div>
         <!-- /#page-wrapper -->
@@ -272,70 +286,93 @@
         var columns = ['Date', 'Total', 'Average', 'Yield < 150', '150 <= Yield <= 250', 'Yield > 250'];
 
 
-        d3.json('../data/search/strip_data.json', function (error,data) {
+        $("#createbutton").one("click",function createTable() {
 
-            $("#createbutton").one("click",function createTable() {
-            // Create table.
-            strip_data = data;
-            console.log(strip_data);
-            var strip_data_summary = d3.nest()
-                .key(function (d){ return d.Date;})
-                .rollup(function(v){ return {
-                    total: d3.sum(v, function(d) {return d.Strip_Yields;}),
-                    average: d3.mean(v, function(d) {return d.Strip_Yields;}),
-                    //smaller_150: d3.sum(v, function (d){ return (d.Strip_Yields < 150);}),
-                    smaller_150: d3.sum(v, function (d){ return (d.Strip_Yields < 150);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
-                    between: d3.sum(v, function (d){ return (d.Strip_Yields >= 150 & d.Strip_Yields <= 250);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
-                    larger_250: d3.sum(v, function (d){ return (d.Strip_Yields > 250);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
-                    //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-                };})
-                .entries(strip_data);
-            
-            
-            console.log(strip_data_summary);
+            var date_1 = document.getElementById("date_1").value;
+            console.log(date_1);
 
-            var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
-            var thead = table.append('thead');
-            var tbody = table.append('tbody');
+            var date_2 = document.getElementById("date_2").value;
+            console.log(date_2);
 
-            thead
-                .selectAll('th')
-                .data(columns)
-                .enter()
-                .append('th')
-                .text(function (column) { return column; });
-
-            var rows = tbody.selectAll('tr')
-                .data(strip_data_summary)
-                .enter()
-                .append('tr')
-
-            
-            var strip_data_length = strip_data_summary.length;
-            console.log(strip_data_length);
-
-
-            for (var i = 0; i < strip_data_length; i++){
-                var tr = tbody.append('tr');
-
-                var td = tr.append('td')
-                .text(strip_data_summary[i].key);
-                var td = tr.append('td')
-                .text(strip_data_summary[i].value.total);
-                var td = tr.append('td')
-                .text(strip_data_summary[i].value.average);
-                var td = tr.append('td')
-                .text(strip_data_summary[i].value.smaller_150);
-                var td = tr.append('td')
-                .text(strip_data_summary[i].value.between);
-                var td = tr.append('td')
-                .text(strip_data_summary[i].value.larger_250);
-                
-                
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
+                "method": "GET",
+                "headers": {
+                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                    
+                }
             }
 
+            $.ajax(settings).done(function (response) {
+            console.log(response);
+            });
+
+
+            d3.json('../data/search/strip_data.json', function (error,data) {
+
+                // Create table.
+                strip_data = data;
+                //console.log(strip_data);
+                var strip_data_summary = d3.nest()
+                    .key(function (d){ return d.Date;})
+                    .rollup(function(v){ return {
+                        total: d3.sum(v, function(d) {return d.ML;}),
+                        average: d3.mean(v, function(d) {return d.ML;}),
+                        //smaller_150: d3.sum(v, function (d){ return (d.ML < 150);}),
+                        smaller_150: d3.sum(v, function (d){ return (d.ML < 150);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
+                        between: d3.sum(v, function (d){ return (d.ML >= 150 & d.ML <= 250);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
+                        larger_250: d3.sum(v, function (d){ return (d.ML > 250);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
+                        //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+                    };})
+                    .entries(strip_data);
+                
+                
+                console.log(strip_data_summary);
+
+                var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
+                var thead = table.append('thead');
+                var tbody = table.append('tbody');
+
+                thead
+                    .selectAll('th')
+                    .data(columns)
+                    .enter()
+                    .append('th')
+                    .text(function (column) { return column; });
+
+                var rows = tbody.selectAll('tr')
+                    .data(strip_data_summary)
+                    .enter()
+                    .append('tr')
+
+                
+                var strip_data_length = strip_data_summary.length;
+                console.log(strip_data_length);
+
+
+                for (var i = 0; i < strip_data_length; i++){
+                    var tr = tbody.append('tr');
+
+                    var td = tr.append('td')
+                    .text(strip_data_summary[i].key);
+                    var td = tr.append('td')
+                    .text(strip_data_summary[i].value.total);
+                    var td = tr.append('td')
+                    .text(strip_data_summary[i].value.average);
+                    var td = tr.append('td')
+                    .text(strip_data_summary[i].value.smaller_150);
+                    var td = tr.append('td')
+                    .text(strip_data_summary[i].value.between);
+                    var td = tr.append('td')
+                    .text(strip_data_summary[i].value.larger_250);
+                    
+                    
+                }
+
             }); 
-            
+                
         });
     </script>
 

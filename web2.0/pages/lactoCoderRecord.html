@@ -11,6 +11,8 @@
 
     <title>LactoCoder Record</title>
 
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
     <!-- D3-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -179,7 +181,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">LactoCoder Record Data Retrive</h1>
+                    <h1 class="page-header">LactoCoder Record Data Retrieve</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -190,7 +192,7 @@
                         <div class="form-group">
                                 Date From
                             <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control" />
+                                <input id="date_1" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
@@ -201,7 +203,7 @@
                         <div class="form-group">
                             To:
                             <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control" />
+                                <input  id="date_2" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
@@ -237,7 +239,7 @@
                         <div class='col-sm-2'>
                                 Download Data on
                             <div class='input-group date' id='datetimepicker1'>
-                                    <input type='text' class="form-control" />
+                                    <input id="date_3" type='text' class="form-control" />
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                             </div>
@@ -267,97 +269,121 @@
         var columns = ['Date', 'Stats', 'Dip Contact', 'Lag Time', 'Unit on Time'];
 
 
-        d3.json('../data/search/lacto_data.json', function (error,data) {
+        $("#createbutton").one("click",function createTable() {
 
-            $("#createbutton").one("click",function createTable() {
-            // Create table.
-            lacto_data = data;
-            console.log(lacto_data);
-            //console.log(Math.abs(lacto_data[0].Wipe) - Math.abs(lacto_data[0].Dip));
-            var lacto_data_summary = d3.nest()
-                .key(function (d){ return d.Date;})
-                .rollup(function(v){ return {
-                    //total: d3.sum(v, function(d) {return d.lacto_Yields;}),
-                    average_dip: d3.mean(v, function(d) {return d.Dip_Time;}),
-                    average_lag: d3.mean(v, function(d) {return d.Lag_Time;}),
-                    average_unit: d3.mean(v, function(d) {return d.Unit_Time;}),
+            var date_1 = document.getElementById("date_1").value;
+            console.log(date_1);
 
-                    min_dip: d3.min(v, function(d) {return d.Dip_Time;}),
-                    min_lag: d3.min(v, function(d) {return d.Lag_Time;}),
-                    min_unit: d3.min(v, function(d) {return d.Unit_Time;}),
+            var date_2 = document.getElementById("date_2").value;
+            console.log(date_2);
 
-                    max_dip: d3.max(v, function(d) {return d.Dip_Time;}),
-                    max_lag: d3.max(v, function(d) {return d.Lag_Time;}),
-                    max_unit: d3.max(v, function(d) {return d.Unit_Time;})
-
-                };})
-                .entries(lacto_data);
-            
-            
-            console.log(lacto_data_summary);
-
-            var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
-            var thead = table.append('thead');
-            var tbody = table.append('tbody');
-
-            thead
-                .selectAll('th')
-                .data(columns)
-                .enter()
-                .append('th')
-                .text(function (column) { return column; });
-
-            var rows = tbody.selectAll('tr')
-                .data(lacto_data_summary)
-                .enter()
-                .append('tr')
-
-            
-            var lacto_data_length = lacto_data_summary.length;
-            //console.log(lacto_data_length);
-
-
-            for (var i = 0; i < lacto_data_length; i++){
-                var tr = tbody.append('tr')
-
-                var td_date = tr.append('td')
-                .attr('id', 'date_1')
-                .attr('rowspan', 3)
-                .text(lacto_data_summary[i].key);
-                var td = tr.append('td')
-                .text('Average');
-                var td = tr.append('td')
-                .text(lacto_data_summary[i].value.average_dip);
-                var td = tr.append('td')
-                .text(lacto_data_summary[i].value.average_lag);
-                var td = tr.append('td')
-                .text(lacto_data_summary[i].value.average_lag);
-
-
-                var tr = tbody.append('tr')
-                var td = tr.append('td')
-                .text('Min');
-                var td = tr.append('td')
-                .text(lacto_data_summary[i].value.min_dip);
-                var td = tr.append('td')
-                .text(lacto_data_summary[i].value.min_lag);
-                var td = tr.append('td')
-                .text(lacto_data_summary[i].value.min_lag);
-
-
-                var tr = tbody.append('tr')               
-                var td = tr.append('td')
-                .text('Max');
-                var td = tr.append('td')
-                .text(lacto_data_summary[i].value.max_dip);
-                var td = tr.append('td')
-                .text(lacto_data_summary[i].value.max_lag);
-                var td = tr.append('td')
-                .text(lacto_data_summary[i].value.max_lag);
-
-                
-                
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
+                "method": "GET",
+                "headers": {
+                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                    
+                }
             }
+
+            $.ajax(settings).done(function (response) {
+            console.log(response);
+            });
+        
+
+            d3.json('../data/search/lacto_data.json', function (error,data) {
+
+                
+                // Create table.
+                lacto_data = data;
+                console.log(lacto_data);
+                //console.log(Math.abs(lacto_data[0].Wipe) - Math.abs(lacto_data[0].Dip));
+                var lacto_data_summary = d3.nest()
+                    .key(function (d){ return d.Date;})
+                    .rollup(function(v){ return {
+                        //total: d3.sum(v, function(d) {return d.lacto_Yields;}),
+                        average_dip: d3.mean(v, function(d) {return d.Dip_Time;}),
+                        average_lag: d3.mean(v, function(d) {return d.Lag_Time;}),
+                        average_unit: d3.mean(v, function(d) {return d.Unit_Time;}),
+
+                        min_dip: d3.min(v, function(d) {return d.Dip_Time;}),
+                        min_lag: d3.min(v, function(d) {return d.Lag_Time;}),
+                        min_unit: d3.min(v, function(d) {return d.Unit_Time;}),
+
+                        max_dip: d3.max(v, function(d) {return d.Dip_Time;}),
+                        max_lag: d3.max(v, function(d) {return d.Lag_Time;}),
+                        max_unit: d3.max(v, function(d) {return d.Unit_Time;})
+
+                    };})
+                    .entries(lacto_data);
+                
+                
+                console.log(lacto_data_summary);
+
+                var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
+                var thead = table.append('thead');
+                var tbody = table.append('tbody');
+
+                thead
+                    .selectAll('th')
+                    .data(columns)
+                    .enter()
+                    .append('th')
+                    .text(function (column) { return column; });
+
+                var rows = tbody.selectAll('tr')
+                    .data(lacto_data_summary)
+                    .enter()
+                    .append('tr')
+
+                
+                var lacto_data_length = lacto_data_summary.length;
+                //console.log(lacto_data_length);
+
+
+                for (var i = 0; i < lacto_data_length; i++){
+                    var tr = tbody.append('tr')
+
+                    var td_date = tr.append('td')
+                    .attr('id', 'date_1')
+                    .attr('rowspan', 3)
+                    .text(lacto_data_summary[i].key);
+                    var td = tr.append('td')
+                    .text('Average');
+                    var td = tr.append('td')
+                    .text(lacto_data_summary[i].value.average_dip);
+                    var td = tr.append('td')
+                    .text(lacto_data_summary[i].value.average_lag);
+                    var td = tr.append('td')
+                    .text(lacto_data_summary[i].value.average_lag);
+
+
+                    var tr = tbody.append('tr')
+                    var td = tr.append('td')
+                    .text('Min');
+                    var td = tr.append('td')
+                    .text(lacto_data_summary[i].value.min_dip);
+                    var td = tr.append('td')
+                    .text(lacto_data_summary[i].value.min_lag);
+                    var td = tr.append('td')
+                    .text(lacto_data_summary[i].value.min_lag);
+
+
+                    var tr = tbody.append('tr')               
+                    var td = tr.append('td')
+                    .text('Max');
+                    var td = tr.append('td')
+                    .text(lacto_data_summary[i].value.max_dip);
+                    var td = tr.append('td')
+                    .text(lacto_data_summary[i].value.max_lag);
+                    var td = tr.append('td')
+                    .text(lacto_data_summary[i].value.max_lag);
+
+                    
+                    
+                }
 
             }); 
             

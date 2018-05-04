@@ -1,0 +1,235 @@
+<html>
+<!-- Styles -->
+<style>
+#chartdiv {
+	width	: 100%;
+	height	: 500px;
+}
+#chartdiv2 {
+	width	: 100%;
+	height	: 500px;
+}
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<!-- Chart code -->
+<script>
+var udder_data = [
+		{
+				Milker: "Pen1",Date: '2018-03-15',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+		{
+				Milker: "Pen1",Date: '2018-03-15',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+		{
+				Milker: "Pen2",Date: '2018-03-15',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+		{
+				Milker: "Pen3",Date: '2018-03-15',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+		{
+				Milker: "Pen4",Date: '2018-03-15',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+		{
+				Milker: "Pen5",Date: '2018-03-15',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+		{
+				Milker: "Pen1",Date: '2018-03-16',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+		{
+				Milker: "Pen1",Date: '2018-03-16',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+		{
+				Milker: "Pen2",Date: '2018-03-16',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+		{
+				Milker: "Pen3",Date: '2018-03-16',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+		{
+				Milker: "Pen4",Date: '2018-03-16',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+		{
+				Milker: "Pen5",Date: '2018-03-16',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+						{
+								Milker: "Pen1",Date: '2018-03-17',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+						{
+								Milker: "Pen2",Date: '2018-03-17',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+						{
+								Milker: "Pen3",Date: '2018-03-17',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+						{
+								Milker: "Pen4",Date: '2018-03-17',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+						{
+								Milker: "Pen5",Date: '2018-03-17',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+						{
+								Milker: "Pen5",Date: '2018-03-18',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+								{
+										Milker: "Pen1",Date: '2018-03-18',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+								{
+										Milker: "Pen2",Date: '2018-03-18',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+								{
+										Milker: "Pen3",Date: '2018-03-18',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+								{
+										Milker: "Pen4",Date: '2018-03-18',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+								{
+										Milker: "Pen5",Date: '2018-03-19',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+								{
+										Milker: "Pen6",Date: '2018-03-19',Score1: 19,Score2: 12,Score3: 1,Score4: 5},
+										{
+												Milker: "Pen1",Date: '2018-03-22',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+										{
+												Milker: "Pen2",Date: '2018-03-22',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+										{
+												Milker: "Pen3",Date: '2018-03-26',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+										{
+												Milker: "Pen4",Date: '2018-03-30',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+										{
+												Milker: "Pen5",Date: '2018-04-05',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+										{
+												Milker: "Pen2",Date: '2018-04-19',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
+];
+var formatComma = d3.format(",");
+var datanest = d3.nest()
+		.key(function (d){ return d.Date;})
+		.rollup(function(v){ return {
+				total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+				percent_3_4: formatComma( (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
+				//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+		};})
+		.entries(udder_data);
+var udderset = [];
+		for(var i = 0; i < datanest.length; i ++){
+		  console.log(i);
+		   var token = {};
+		   token.date = datanest[i].key;
+		   token.visits = Math.round(datanest[i].value.percent_3_4);
+		   //token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
+		   udderset.push(token);
+		   console.log(token);
+		 }
+		 var datanest2 = d3.nest()
+		 		.key(function (d){ return d.Milker;})
+		 		.rollup(function(v){ return {
+		 				total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+		 				percent_3_4: formatComma( (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
+		 				//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+		 		};})
+		 		.entries(udder_data);
+		 var udderset2 = [];
+		 		for(var i = 0; i < datanest2.length; i ++){
+		 			 var token = {};
+		 			 token.country = datanest2[i].key;
+		 			 token.visits = Math.round(datanest2[i].value.percent_3_4);
+		 			 //token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
+		 			 udderset2.push(token);
+		 		 }
+//var chartData = generateChartData();
+var chart = AmCharts.makeChart("chartdiv", {
+    "type": "serial",
+    "theme": "light",
+    "marginRight": 80,
+    "autoMarginOffset": 20,
+    "marginTop": 7,
+    "dataProvider": udderset,
+    "valueAxes": [{
+        "axisAlpha": 0.2,
+        "dashLength": 1,
+        "position": "left",
+				"labelFunction": function(value) {
+		      return value + "%";
+		    }
+    }],
+    "mouseWheelZoomEnabled": true,
+    "graphs": [{
+        "id": "g1",
+        "balloonText": "[[value]]",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "hideBulletsCount": 50,
+        "title": "3&4 Percent",
+        "valueField": "visits",
+        "useLineColorForBulletBorder": true,
+        "balloon":{
+            "drop":true
+        },
+				  "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+
+    }],
+    "chartScrollbar": {
+        "autoGridCount": true,
+        "graph": "g1",
+        "scrollbarHeight": 40
+    },
+    "chartCursor": {
+       "limitToGraph":"g1"
+    },
+    "categoryField": "date",
+    "categoryAxis": {
+        "parseDates": true,
+        "axisColor": "#DADADA",
+        "dashLength": 1,
+        "minorGridEnabled": true
+    },
+    "export": {
+        "enabled": true
+    }
+});
+
+chart.addListener("rendered", zoomChart);
+zoomChart();
+
+// this method is called when chart is first inited as we listen for "rendered" event
+function zoomChart() {
+    // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
+    chart.zoomToIndexes(udderset.length - 40, udderset.length - 1);
+}
+
+
+		var dataset = [];
+		var parseTime = d3.timeParse("%Y-%m-%d");
+
+	    var d = parseTime('2018-03-14');
+
+		// var parseDate = d3.timeFormat("%Y-%m-%d").parse;
+		// var d = parseDate('2018-03-14');
+
+		var chart = AmCharts.makeChart( "chartdiv2", {
+		  "type": "serial",
+		  "theme": "light",
+		  "dataProvider": udderset2,
+		  "valueAxes": [ {
+		    "gridColor": "#FFFFFF",
+		    "gridAlpha": 0.2,
+		    "dashLength": 0,
+				"labelFunction": function(value) {
+		      return value + "%";
+		    }
+		  } ],
+		  "gridAboveGraphs": true,
+		  "startDuration": 1,
+		  "graphs": [ {
+		    "balloonText": "[[category]]: <b>[[value]]</b>",
+		    "fillAlphas": 0.8,
+		    "lineAlpha": 0.2,
+		    "type": "column",
+		    "valueField": "visits",
+				"balloonText": "[[category]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+		  } ],
+		  "chartCursor": {
+		    "categoryBalloonEnabled": false,
+		    "cursorAlpha": 0,
+		    "zoomable": false
+		  },
+		  "categoryField": "country",
+		  "categoryAxis": {
+		    "gridPosition": "start",
+		    "gridAlpha": 0,
+		    "tickPosition": "start",
+		    "tickLength": 20
+		  },
+		  "export": {
+		    "enabled": true
+		  }
+
+		} );
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>
+<div id="chartdiv2"></div>
+</html>

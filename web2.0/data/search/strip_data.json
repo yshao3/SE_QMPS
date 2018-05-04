@@ -1,147 +1,195 @@
 [
     {
+        "Staff": "Tom",
         "Date": "03-15-2018",
-        "Stall_number": 1,
-        "Strip_Yields": 132,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 1,
+        "ML": 132,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-15-2018",
-        "Stall_number": 2,
-        "Strip_Yields": 234,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 2,
+        "ML": 234,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-15-2018",
-        "Stall_number": 3,
-        "Strip_Yields": 100,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 3,
+        "ML": 100,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-16-2018",
-        "Stall_number": 4,
-        "Strip_Yields": 400,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 4,
+        "ML": 400,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-16-2018",
-        "Stall_number": 5,
-        "Strip_Yields": 700,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 5,
+        "ML": 700,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-17-2018",
-        "Stall_number": 6,
-        "Strip_Yields": 200,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 6,
+        "ML": 200,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-17-2018",
-        "Stall_number": 7,
-        "Strip_Yields": 364,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 7,
+        "ML": 364,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-18-2018",
-        "Stall_number": 8,
-        "Strip_Yields": 112,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 8,
+        "ML": 112,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-19-2018",
-        "Stall_number": 9,
-        "Strip_Yields": 154,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 9,
+        "ML": 154,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-19-2018",
-        "Stall_number": 10,
-        "Strip_Yields": 90,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 10,
+        "ML": 90,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-19-2018",
-        "Stall_number": 11,
-        "Strip_Yields": 375,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 11,
+        "ML": 375,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-19-2018",
-        "Stall_number": 12,
-        "Strip_Yields": 545,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 12,
+        "ML": 545,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-20-2018",
-        "Stall_number": 13,
-        "Strip_Yields": 600,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 13,
+        "ML": 600,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-20-2018",
-        "Stall_number": 14,
-        "Strip_Yields": 290,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 14,
+        "ML": 290,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-20-2018",
-        "Stall_number": 15,
-        "Strip_Yields": 310,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 15,
+        "ML": 310,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-21-2018",
-        "Stall_number": 16,
-        "Strip_Yields": 230,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 16,
+        "ML": 230,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-21-2018",
-        "Stall_number": 17,
-        "Strip_Yields": 187,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 17,
+        "ML": 187,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-21-2018",
-        "Stall_number": 18,
-        "Strip_Yields": 412,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 18,
+        "ML": 412,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-21-2018",
-        "Stall_number": 19,
-        "Strip_Yields": 231,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 19,
+        "ML": 231,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-21-2018",
-        "Stall_number": 20,
-        "Strip_Yields": 245,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 20,
+        "ML": 245,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-21-2018",
-        "Stall_number": 21,
-        "Strip_Yields": 184,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 21,
+        "ML": 184,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-21-2018",
-        "Stall_number": 22,
-        "Strip_Yields": 398,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 22,
+        "ML": 398,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-22-2018",
-        "Stall_number": 23,
-        "Strip_Yields": 405,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 23,
+        "ML": 405,
+        "IsBalanced": 0
     },
     {
+        "Staff": "Tom",
         "Date": "03-23-2018",
-        "Stall_number": 24,
-        "Strip_Yields": 120,
-        "Majority": 0
+        "Farm": "Cornell",
+        "Stall_NO": 24,
+        "ML": 120,
+        "IsBalanced": 0
     }
 
 ]
