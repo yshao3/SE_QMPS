@@ -283,7 +283,7 @@
 
 
 
-        $("#createbutton").one("click",function createTable() {
+        $("#createbutton").click(function createTable() {
 
             var date_1 = document.getElementById("date_1").value;
             console.log(date_1);
@@ -291,33 +291,45 @@
             var date_2 = document.getElementById("date_2").value;
             console.log(date_2);
 
+            var username = localStorage.getItem("username");
+            var password = localStorage.getItem("password");
+
             var settings = {
-                "async": true,
+                "async": false,
                 "crossDomain": true,
-                "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
+                "url": "http://localhost:3000/post?date1="+date_1+"&date2="+date_2+"&farm=123",
                 "method": "GET",
                 "headers": {
                     'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
-                    
-                }
-            }
+                    "username": username,
+                    "password": password
 
+                }
+            };
+
+            var res=[];
             $.ajax(settings).done(function (response) {
-            console.log(response);
+                res = response;
             });
+            console.log(res);
+        
+
+            if (res[0] == false){
+
+            }
 
             d3.json('../data/search/unit_data.json', function (error,data) {
 
             
                 // Create table.
-                unit_data = data;
+                unit_data = res[1];
 
                 var unit_data_summary = d3.nest()
-                    .key(function (d){ return d.Date;})
+                    .key(function (d){ return d.date;})
                     .rollup(function(v){ return {
-                        total: d3.sum(v, function(d) {return d.Good + d.Bad;}),
-                        percent_good: d3.sum(v, function (d){ return d.Good;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
-                        percent_bad: d3.sum(v, function (d){ return d.Bad;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
+                        total: d3.sum(v, function(d) {return d.good + d.bad;}),
+                        percent_good: d3.sum(v, function (d){ return d.good;}) / d3.sum(v, function(d) {return d.good + d.bad;}),
+                        percent_bad: d3.sum(v, function (d){ return d.bad;}) / d3.sum(v, function(d) {return d.good + d.bad;}),
                     };})
                     .entries(unit_data);
                 
@@ -365,6 +377,7 @@
             
         });
     </script>
+
 
 
     <!-- jQuery -->

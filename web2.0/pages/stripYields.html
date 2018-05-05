@@ -282,98 +282,110 @@
 
     <script>
 
-        var strip_data;
-        var columns = ['Date', 'Total', 'Average', 'Yield < 150', '150 <= Yield <= 250', 'Yield > 250'];
+    var strip_data;
+    var columns = ['Date', 'Total', 'Average', 'Yield < 150', '150 <= Yield <= 250', 'Yield > 250'];
 
 
-        $("#createbutton").one("click",function createTable() {
+    $("#createbutton").click(function createTable() {
 
-            var date_1 = document.getElementById("date_1").value;
-            console.log(date_1);
+        var date_1 = document.getElementById("date_1").value;
+        console.log(date_1);
 
-            var date_2 = document.getElementById("date_2").value;
-            console.log(date_2);
+        var date_2 = document.getElementById("date_2").value;
+        console.log(date_2);
 
-            var settings = {
-                "async": true,
-                "crossDomain": true,
-                "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
-                "method": "GET",
-                "headers": {
-                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
-                    
-                }
+        var username = localStorage.getItem("username");
+        var password = localStorage.getItem("password");
+
+        var settings = {
+            "async": false,
+            "crossDomain": true,
+            "url": "http://localhost:3000/post?date1="+date_1+"&date2="+date_2+"&farm=123",
+            "method": "GET",
+            "headers": {
+                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                "username": username,
+                "password": password
+
+            }
+        };
+
+        var res=[];
+        $.ajax(settings).done(function (response) {
+            res = response;
+        });
+        console.log(res);
+
+
+        if (res[0] == false){
+
+        }
+
+
+        d3.json('../data/search/strip_data.json', function (error,data) {
+
+            // Create table.
+            strip_data = res[1];
+            //console.log(strip_data);
+            var strip_data_summary = d3.nest()
+                .key(function (d){ return d.date;})
+                .rollup(function(v){ return {
+                    total: d3.sum(v, function(d) {return d.ML;}),
+                    average: d3.mean(v, function(d) {return d.ML;}),
+                    //smaller_150: d3.sum(v, function (d){ return (d.ML < 150);}),
+                    smaller_150: d3.sum(v, function (d){ return (d.ML < 150);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
+                    between: d3.sum(v, function (d){ return (d.ML >= 150 & d.ML <= 250);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
+                    larger_250: d3.sum(v, function (d){ return (d.ML > 250);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
+                    //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+                };})
+                .entries(strip_data);
+            
+            
+            console.log(strip_data_summary);
+
+            var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
+            var thead = table.append('thead');
+            var tbody = table.append('tbody');
+
+            thead
+                .selectAll('th')
+                .data(columns)
+                .enter()
+                .append('th')
+                .text(function (column) { return column; });
+
+            var rows = tbody.selectAll('tr')
+                .data(strip_data_summary)
+                .enter()
+                .append('tr')
+
+            
+            var strip_data_length = strip_data_summary.length;
+            console.log(strip_data_length);
+
+
+            for (var i = 0; i < strip_data_length; i++){
+                var tr = tbody.append('tr');
+
+                var td = tr.append('td')
+                .text(strip_data_summary[i].key);
+                var td = tr.append('td')
+                .text(strip_data_summary[i].value.total);
+                var td = tr.append('td')
+                .text(strip_data_summary[i].value.average);
+                var td = tr.append('td')
+                .text(strip_data_summary[i].value.smaller_150);
+                var td = tr.append('td')
+                .text(strip_data_summary[i].value.between);
+                var td = tr.append('td')
+                .text(strip_data_summary[i].value.larger_250);
+                
+                
             }
 
-            $.ajax(settings).done(function (response) {
-            console.log(response);
-            });
-
-
-            d3.json('../data/search/strip_data.json', function (error,data) {
-
-                // Create table.
-                strip_data = data;
-                //console.log(strip_data);
-                var strip_data_summary = d3.nest()
-                    .key(function (d){ return d.Date;})
-                    .rollup(function(v){ return {
-                        total: d3.sum(v, function(d) {return d.ML;}),
-                        average: d3.mean(v, function(d) {return d.ML;}),
-                        //smaller_150: d3.sum(v, function (d){ return (d.ML < 150);}),
-                        smaller_150: d3.sum(v, function (d){ return (d.ML < 150);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
-                        between: d3.sum(v, function (d){ return (d.ML >= 150 & d.ML <= 250);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
-                        larger_250: d3.sum(v, function (d){ return (d.ML > 250);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
-                        //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-                    };})
-                    .entries(strip_data);
-                
-                
-                console.log(strip_data_summary);
-
-                var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
-                var thead = table.append('thead');
-                var tbody = table.append('tbody');
-
-                thead
-                    .selectAll('th')
-                    .data(columns)
-                    .enter()
-                    .append('th')
-                    .text(function (column) { return column; });
-
-                var rows = tbody.selectAll('tr')
-                    .data(strip_data_summary)
-                    .enter()
-                    .append('tr')
-
-                
-                var strip_data_length = strip_data_summary.length;
-                console.log(strip_data_length);
-
-
-                for (var i = 0; i < strip_data_length; i++){
-                    var tr = tbody.append('tr');
-
-                    var td = tr.append('td')
-                    .text(strip_data_summary[i].key);
-                    var td = tr.append('td')
-                    .text(strip_data_summary[i].value.total);
-                    var td = tr.append('td')
-                    .text(strip_data_summary[i].value.average);
-                    var td = tr.append('td')
-                    .text(strip_data_summary[i].value.smaller_150);
-                    var td = tr.append('td')
-                    .text(strip_data_summary[i].value.between);
-                    var td = tr.append('td')
-                    .text(strip_data_summary[i].value.larger_250);
-                    
-                    
-                }
-
-            }); 
-                
-        });
+        }); 
+            
+    });
     </script>
 
     <!-- jQuery -->
