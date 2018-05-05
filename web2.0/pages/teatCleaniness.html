@@ -285,7 +285,9 @@
         var teat_data;
         var columns = ['Date', 'Total', 'Percent 3 & 4'];
         
-
+        var username = localStorage.getItem("username");
+        var password = localStorage.getItem("password");
+        // console.log(username);
 
         $("#createbutton").one("click",function createTable() {
 
@@ -294,30 +296,36 @@
 
             var date_2 = document.getElementById("date_2").value;
             console.log(date_2);
-
+            console.log(username);
             var settings = {
-                "async": true,
+                "async": false,
                 "crossDomain": true,
-                "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
+                "url": "http://localhost:3000/latco?date1="+date_1+"&date2="+date_2+"&farm=Null",
                 "method": "GET",
                 "headers": {
                     'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                    "username": username,
+                    "password": password
 
                 }
-            }
+            };
 
-    
+            var res=[];
             $.ajax(settings).done(function (response) {
-            console.log(response);
+                res = response;
             });
+        
 
+            if (res[0] == false){
+
+            }
 
             d3.json('../data/search/teat_data.json', function (error,data) {
 
                 // $("#createbutton").one("click",function createTable() {
                 // Create table.
-            
-                teat_data = data;
+                console.log(res[1]);
+                teat_data = res[1];
 
                 var teat_data_summary = d3.nest()
                     .key(function (d){ return d.Date;})

@@ -1,18 +1,23 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { Injectable } from "@angular/core";
 import { TeatService } from '../../services/teat';
 import { AuthService } from "../../services/auth";
 import { DatabaseProvider } from '../../providers/database/database';
-import { Http } from "@angular/http";
+import { Http, Response, Headers } from "@angular/http";
 import * as moment from 'moment';
+import {Observable} from 'rxjs/Rx';
 
 @IonicPage()
 @Component({
   selector: 'page-teat',
   templateUrl: 'teat.html'
 })
+@Injectable()
+
 export class TeatPage {
+
   public farm: string = ""
   public myDate: string = moment().format()
   public observer: string = ""
@@ -56,6 +61,56 @@ export class TeatPage {
     } else if(param==4){
       this.largeDirt++
     }
+    
+//     var request = require("request");
+
+// var options = { method: 'POST',
+//   url: 'http://localhost:8080/mobile/teat',
+//   headers: 
+//    { 'Postman-Token': 'aa5a2d15-dc55-4bba-953e-93d3de53b7c5',
+//      'Cache-Control': 'no-cache',
+//      'Content-Type': 'application/json' },
+//   body: 
+//    [ { farm: 'is',
+//        date: '2012-08-29',
+//        observer: 'milker1',
+//        milker: 'Bob',
+//        clean: 20,
+//        dip: 30,
+//        smallDirt: 20,
+//        largeDirt: 30,
+//        isbefore: true },
+//      { farm: 'are',
+//        date: '2012-08-29',
+//        observer: 'milker1',
+//        milker: 'Bob',
+//        clean: 20,
+//        dip: 30,
+//        smallDirt: 20,
+//        largeDirt: 30,
+//        isbefore: true } ],
+//   json: true };
+
+// request(options, function (error, response, body) {
+//   if (error) throw new Error(error);
+
+//   console.log(body);
+// });
+  var headers = new Headers();
+    
+    headers.append('Content-Type', 'application/json');
+    this.http.post('http://localhost:8080/mobile/teat', JSON.stringify([{ farm: 'is',
+       date: '2012-08-29',
+       observer: 'milker1',
+       milker: 'Bob',
+       clean: 20,
+       dip: 30,
+       smallDirt: 20,
+       largeDirt: 30,
+       isbefore: true }]), {headers:headers}).map((response:Response) => {
+                console.log(response);
+                // response.json();
+            }).subscribe();
   }
   saveData() {
     let alert = this.alerCtrl.create({
@@ -63,6 +118,10 @@ export class TeatPage {
       message: 'Data have been saved locally!',
       buttons: ['Ok']
     });
+    // this.http.get('http://localhost:8080/Alltables').map((response:Response) => {
+    //             console.log(response.json());
+    //             response.json();
+    //         }).subscribe();
     //add new item
     this.teatService.updateItems(0,
       this.farm,
@@ -77,6 +136,11 @@ export class TeatPage {
     );
 
     console.log("浏览器存储:")
+    this.http.get('http://localhost:8080/Alltables')
+            .map((response:Response) => {
+                console.log(response.json());
+                response.json();
+            }).subscribe();
     console.log(this.teatService.getItems());
     alert.present()
 
@@ -93,10 +157,23 @@ export class TeatPage {
             );
         }
       );
-
+    console.log("the student");
+    
     //local storage to sqlite
     this.pushTeatData();
+    // this.http.get('http://localhost:8080/Alltables')
+    //         .map((response:Response) => {
+    //             console.log(response.json());
+    //             response.json();
+    //         }).subscribe();
+
+           //overwrite the existing item
+           //post: add your item to existing
+           // const userId = this.authService.getActiveUser().uid;
+   
+    
   }
+  
 
   submitData() {
     let alert = this.alerCtrl.create({
@@ -128,6 +205,7 @@ export class TeatPage {
     this.database.getTeatData().then((data) => {
       console.log("数据库里的数据:")
       console.log(data);
+
     }, (error) => {
       console.log(error);
     })
