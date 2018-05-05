@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="cow.css">
+  <link rel="stylesheet" href="bttn.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Nunito+SansNoto+Sans|Nunito+Sans|Roboto" rel="stylesheet">
+  <!--<script src="https://code.jquery.com/jquery-1.10.2.js"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="scripts.js">
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+      rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <!--calendar jquery ui import-->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+  <script lang="javascript" src="xlsx/dist/xlsx.full.min.js"></script>
+  <script lang="javascript" src="file-saver/FileSaver.min.js"></script>
+
+
+  <script>
+      $( function() {
+        $("#datepicker1").datepicker();
+      } );
+  $( function() {
+        $("#datepicker2").datepicker();
+  } );
+  </script>
+
+  <script>
+
+
+  </script>
+
+
+
+</head>
+
+
+<body>
+
+
+
+
+  <div class="content">
+    <div class="bx-prev">
+      <a>User Name</a>
+    </div>
+    <div class="bx-next">
+      <a href="index.html" style="color: white">Log Out</a>
+    </div>
+  </div>
+
+
+
+  <div class="nav">
+    <ul>
+      <a style="text-decoration:none;" href="teatbrowse.html">
+        <li class="option1">
+          <span class="child">
+            <img id="p1" src="1.png" alt="p1" style="width:30px">Teat Cleanliness</span>
+        </li>
+      </a>
+
+      <a style="text-decoration:none;" href="unitalignment.html">
+        <li class="option2">
+          <span class="child">
+            <img id="p2" src="2.png" alt="p1" style="width:30px">Unit Alignment</span>
+        </li>
+      </a>
+
+      <a style="text-decoration:none;" href="udderhygiene.html">
+        <li class="option3">
+          <span class="child">
+            <img id="p3" src="3.png" alt="p1" style="width:30px">Udder hygiene</span>
+        </li>
+      </a>
+
+      <a style="text-decoration:none;" href="stripyields.html">
+        <li class="option4">
+          <span class="child">
+            <img id="p4" src="4.png" alt="p1" style="width:30px">Strip Yields</span>
+        </li>
+      </a>
+
+      <a style="text-decoration:none;" href="postmilkingtreat.html">
+        <li class="option5">
+          <span class="child">
+            <img id="p5" src="5.png" alt="p1" style="width:30px">Post Milking Treat</span>
+        </li>
+      </a>
+
+      <a style="text-decoration:none;" href="lactoCoderrecord.html">
+        <li class="option6">
+          <span class="child">
+            <img id="p6" src="6.png" alt="p1" style="width:30px">LactoCoder Record</span>
+        </li>
+      </a>
+    </ul>
+  </div>
+  <div class="display">
+    <h2 id="title">Teat Cleaniness Data Retrive</h1>
+      <table>
+        <tr>
+          <td>
+            <p>Date from:
+              <input type="text" id="datepicker1"> Date to:
+              <input type="text" id="datepicker2">
+              Farm: <input type="text">
+            </p>
+          </td>
+          <td>
+            <button id="showdata" class="bttn-fill bttn-sm bttn-primary">Search</button>
+          </td>
+          <td>
+            <button id="analyze" class="bttn-fill bttn-sm bttn-primary">Analytics</button>
+          </td>
+          <td>
+            <button class="bttn-float bttn-sm bttn-primary" id="button-a1">Download</button>
+          </td>
+        </tr>
+      </table>
+      <div>
+        <img src="1teat.png" style="width: 1000px">
+      </div>
+      <!--<button class="bttn-unite bttn-sm bttn-primary">medium</button>-->
+
+      <!--checkbox -->
+      <!--
+       <input type = "checkbox"  id = "button-4" >
+       <label for = "button-4">Toggle</label>
+       <br><br>
+
+
+       <div id = "button-5">
+          <input type = "checkbox" id = "check1">
+          <label for = "check1">Left</label>
+          <input type = "checkbox" id = "check2">
+          <label for = "check2">Middle</label>
+          <input type = "checkbox" id = "check3">
+          <label for = "check3">Right</label>
+       </div>
+
+
+
+
+</body>
+
+
+
+</html>
+<script>
+</script>
+<?php
+
+	session_start();
+
+	#send user to the start page if user have not logged in
+    if(!isset($_SESSION["name"]) || !isset($_SESSION["password"])) {
+		header("Location: start.php");
+		die();
+	}
+
+	include("common.php");
+	#display the head title of the page
+	top();
+
+	# changed to session
+	$name = $_SESSION["name"];
+?>
+
+
+
+  <?php
+    #display the bottom of the page
+	footer();
+?>

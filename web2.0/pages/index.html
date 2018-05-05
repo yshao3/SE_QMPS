@@ -62,31 +62,20 @@
 
     <script>
         function validate(){
-            var username = document.getElementById("userName").value;
+            var userName = document.getElementById("userName").value;
             var password = document.getElementById("password").value;
-            localStorage.setItem("username", username);
-            localStorage.setItem("password", password);
-            console.log(username+password);
             var settings = {
-                    "async": true,
-                    "crossDomain": true,
-                    "url": "http://localhost:3000/",
-                    "method": "GET",
-                    "headers": {
-                        "Content-Type": "application/json",
-                        "username": username,
-                        "password": password
-    
-                }
- 
+                "async": true,
+                "crossDomain": true,
+                "url": "http://localhost:3000/?username="+userName+"&password="+password,
+                "method": "GET",
             }
+
             var isUser = false;
-            isUser = $.ajax(settings).done(function (response) {
-              
-              console.log(response);
-              return response;
+            $.ajax(settings).done(function (response) {
+            isUser = response;
             });
-            console.log(isUser)
+
             if(isUser){
                 window.location = "dashboard.html";
             }else{

@@ -1,0 +1,21 @@
+[
+    {
+        "Staff": "Tom", "Milker": "Aphrodite", "Farm": "Cornell", "Date": "03-15-2018", "Clean": 15, "Slightly_Dirt": 10, "Moderate_Dirt": 3, "Cake_On_Dirt": 10	},
+    {
+        "Staff": "Tom", "Milker": "Apollo","Farm": "Cornell", "Date": "03-15-2018","Clean": 11,"Slightly_Dirt": 10,"Moderate_Dirt": 8,"Cake_On_Dirt": 6},
+    {
+        "Staff": "Tom", "Milker": "Ares","Farm": "Cornell", "Date": "03-15-2018","Clean": 10,"Slightly_Dirt": 24,"Moderate_Dirt": 4,"Cake_On_Dirt": 2 },
+    {
+        "Staff": "Tom", "Milker": "Artemis","Farm": "Cornell", "Date": "03-15-2018","Clean": 15,"Slightly_Dirt": 18,"Moderate_Dirt": 5,"Cake_On_Dirt": 5},
+    {
+        "Staff": "Tom", "Milker": "Athena","Farm": "Cornell", "Date": "03-15-2018","Clean": 23,"Slightly_Dirt": 7,"Moderate_Dirt": 8,"Cake_On_Dirt": 3},
+    {
+        "Staff": "Tom", "Milker": "Zeus","Farm": "Cornell", "Date": "03-15-2018","Clean": 19,"Slightly_Dirt": 12,"Moderate_Dirt": 1,"Cake_On_Dirt": 5},
+    {
+        "Staff": "Tom", "Milker": "Zeus","Farm": "Cornell", "Date": "03-16-2018","Clean": 19,"Slightly_Dirt": 12,"Moderate_Dirt": 1,"Cake_On_Dirt": 5},
+    {
+        "Staff": "Tom", "Milker": "Zeus","Farm": "Cornell", "Date": "03-16-2018","Clean": 19,"Slightly_Dirt": 12,"Moderate_Dirt": 1,"Cake_On_Dirt": 5}
+  ]
+
+
+  

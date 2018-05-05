@@ -288,59 +288,47 @@
 
             var date_2 = document.getElementById("date_2").value;
             console.log(date_2);
-             var username = localStorage.getItem("username");
-            var password = localStorage.getItem("password");
 
             var settings = {
-                "async": false,
+                "async": true,
                 "crossDomain": true,
-                "url": "http://localhost:3000/post?date1="+date_1+"&date2="+date_2+"&farm=123",
+                "url": "http://localhost:3000/laColoro?date1=2012-1-1&date2=2013-1-1",
                 "method": "GET",
                 "headers": {
                     'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
-                    "username": username,
-                    "password": password
-
+                    
                 }
-            };
-
-            var res=[];
-            $.ajax(settings).done(function (response) {
-                res = response;
-            });
-            console.log(res);
-        
-
-            if (res[0] == false){
-
             }
+
+            $.ajax(settings).done(function (response) {
+            console.log(response);
+            });
         
 
             d3.json('../data/search/post_data.json', function (error,data) {
 
                 
                 // Create table.
-                console.log(res[1]);
-                post_data = res[1];
+                post_data = data;
                 
                 var post_data_summary = d3.nest()
                     .key(function (d){ return d.Date;})
                     .rollup(function(v){ return {
-                        Total_Scored: d3.sum(v, function(d) {return d.group_id;}),
-                        Total_Skin_Condition_Abnormal: d3.sum(v, function(d){return d.skin_condition.LH != 'N' || d.skin_condition.LF != 'N' || d.skin_condition.RH != 'N' || d.skin_condition.RF != 'N'}),
-                        Total_Color_Abnormal: d3.sum(v, function(d){return d.color.LH != 'N' || d.color.LF != 'N' || d.color.RH != 'N' || d.color.RF != 'N'}),
-                        Total_Swelling_Abnormal: d3.sum(v, function(d){return d.swelling.LH != 'N' || d.swelling.LF != 'N' || d.swelling.RH != 'N' || d.swelling.RF != 'N'}),
-                        Total_End_Score_Abnormal: d3.sum(v, function(d){return d.end_score.LH != 'N' || d.end_score.LF != 'N' || d.end_score.RH != 'N' || d.end_score.RF != 'N'}),
-                        Total_Hardness_Abnormal: d3.sum(v, function(d){return d.hardness.LH != 'N' || d.hardness.LF != 'N' || d.hardness.RH != 'N' || d.hardness.RF != 'N'}),
-                        Total_Open_Leison: d3.sum(v, function(d){return d.skin_condition.LH == 'OL' || d.skin_condition.LF == 'OL' || d.skin_condition.RH == 'OL' || d.skin_condition.RF == 'OL'}),
-                        Total_Hemorrhage: d3.sum(v, function(d){return d.skin_condition.LH == 'H' || d.skin_condition.LF == 'H' || d.skin_condition.RH == 'H' || d.skin_condition.RF == 'H'}),
-                        Percent_Skin_Condition_Abnormal: d3.sum(v, function(d){return (d.skin_condition.LH != 'N' || d.skin_condition.LF != 'N' || d.skin_condition.RH != 'N' || d.skin_condition.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
-                        Percent_Color_Abnormal: d3.sum(v, function(d){return (d.color.LH != 'N' || d.color.LF != 'N' || d.color.RH != 'N' || d.color.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
-                        Percent_Swelling_Abnormal: d3.sum(v, function(d){return (d.swelling.LH != 'N' || d.swelling.LF != 'N' || d.swelling.RH != 'N' || d.swelling.RF != 'N') / d3.sum(v, function(d) {return d.group_id;}) }),
-                        Percent_End_Score_Abnormal: d3.sum(v, function(d){return (d.end_score.LH != 'N' || d.end_score.LF != 'N' || d.end_score.RH != 'N' || d.end_score.RF != 'N') / d3.sum(v, function(d) {return d.group_id;}) }),
-                        Percent_Hardness_Abnormal: d3.sum(v, function(d){return (d.hardness.LH != 'N' || d.hardness.LF != 'N' || d.hardness.RH != 'N' || d.hardness.RF != 'N') / d3.sum(v, function(d) {return d.group_id;}) }),
-                        Percent_Open_Leison: d3.sum(v, function(d){return (d.skin_condition.LH == 'OL' || d.skin_condition.LF == 'OL' || d.skin_condition.RH == 'OL' || d.skin_condition.RF == 'OL') / d3.sum(v, function(d) {return d.group_id;}) }),
-                        Percent_Hemorrhage: d3.sum(v, function(d){return (d.skin_condition.LH == 'H' || d.skin_condition.LF == 'H' || d.skin_condition.RH == 'H' || d.skin_condition.RF == 'H') / d3.sum(v, function(d) {return d.group_id;})})
+                        Total_Scored: d3.sum(v, function(d) {return d.Group_ID;}),
+                        Total_Skin_Condition_Abnormal: d3.sum(v, function(d){return d.Skin_Condition.LH != 'N' || d.Skin_Condition.LF != 'N' || d.Skin_Condition.RH != 'N' || d.Skin_Condition.RF != 'N'}),
+                        Total_Color_Abnormal: d3.sum(v, function(d){return d.Color.LH != 'N' || d.Color.LF != 'N' || d.Color.RH != 'N' || d.Color.RF != 'N'}),
+                        Total_Swelling_Abnormal: d3.sum(v, function(d){return d.Swelling.LH != 'N' || d.Swelling.LF != 'N' || d.Swelling.RH != 'N' || d.Swelling.RF != 'N'}),
+                        Total_End_Score_Abnormal: d3.sum(v, function(d){return d.End_Score.LH != 'N' || d.End_Score.LF != 'N' || d.End_Score.RH != 'N' || d.End_Score.RF != 'N'}),
+                        Total_Hardness_Abnormal: d3.sum(v, function(d){return d.Hardness.LH != 'N' || d.Hardness.LF != 'N' || d.Hardness.RH != 'N' || d.Hardness.RF != 'N'}),
+                        Total_Open_Leison: d3.sum(v, function(d){return d.Skin_Condition.LH == 'OL' || d.Skin_Condition.LF == 'OL' || d.Skin_Condition.RH == 'OL' || d.Skin_Condition.RF == 'OL'}),
+                        Total_Hemorrhage: d3.sum(v, function(d){return d.Skin_Condition.LH == 'H' || d.Skin_Condition.LF == 'H' || d.Skin_Condition.RH == 'H' || d.Skin_Condition.RF == 'H'}),
+                        Percent_Skin_Condition_Abnormal: d3.sum(v, function(d){return (d.Skin_Condition.LH != 'N' || d.Skin_Condition.LF != 'N' || d.Skin_Condition.RH != 'N' || d.Skin_Condition.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Color_Abnormal: d3.sum(v, function(d){return (d.Color.LH != 'N' || d.Color.LF != 'N' || d.Color.RH != 'N' || d.Color.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Swelling_Abnormal: d3.sum(v, function(d){return (d.Swelling.LH != 'N' || d.Swelling.LF != 'N' || d.Swelling.RH != 'N' || d.Swelling.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_End_Score_Abnormal: d3.sum(v, function(d){return (d.End_Score.LH != 'N' || d.End_Score.LF != 'N' || d.End_Score.RH != 'N' || d.End_Score.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Hardness_Abnormal: d3.sum(v, function(d){return (d.Hardness.LH != 'N' || d.Hardness.LF != 'N' || d.Hardness.RH != 'N' || d.Hardness.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Open_Leison: d3.sum(v, function(d){return (d.Skin_Condition.LH == 'OL' || d.Skin_Condition.LF == 'OL' || d.Skin_Condition.RH == 'OL' || d.Skin_Condition.RF == 'OL') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Hemorrhage: d3.sum(v, function(d){return (d.Skin_Condition.LH == 'H' || d.Skin_Condition.LF == 'H' || d.Skin_Condition.RH == 'H' || d.Skin_Condition.RF == 'H') / d3.sum(v, function(d) {return d.Group_ID;})})
                         // percent_good: d3.sum(v, function (d){ return d.Good;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
                         // percent_bad: d3.sum(v, function (d){ return d.Bad;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
                     };})

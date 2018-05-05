@@ -1,0 +1,206 @@
+/*
+This file contains the styles for all pages on the to-do list site.
+*/
+
+body, input, select, option, button, a {
+	/*color: #005AB4;
+	font-family: 'Noto Sans', sans-serif;*/
+	font-family: 'Roboto', sans-serif;
+	font-weight: 200;
+	font-size: 14pt;
+}
+
+input {
+	width: 100px;
+}
+a:visited {
+	color:#444;
+}
+
+body, h1 {
+	margin: 0;
+	padding: 0;
+}
+
+#error {
+	background-color: #ffdddd;
+	border: 1px dotted red;
+	color: red;
+	font-weight: bold;
+	padding: 0.5em;
+}
+
+.headfoot {
+	background-color: #005AB4;
+	color: white;
+	padding: 0.5em;
+	width:100%;
+}
+
+form {
+	padding-top: 5em;
+    text-align: center;
+}
+
+.footer{
+	background-color: #005AB4;
+	color: white;
+	padding: 0.5em;
+	position:absolute;
+   	bottom:0;
+   	width:100%;
+}
+
+.main {
+    padding: 10px;
+}
+
+input[type=submit] {
+    width: 20%;
+    background-color: #005AB4;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.loginform {
+	text-align: center;
+}
+
+h1 img {
+	float: left;
+	margin-right: 1em;
+	/* margin-left: 1em; */
+}
+
+/*display data section*/
+
+.display {
+	position: absolute;
+	left: 20%;
+	width: 74%;
+	height: 100%;
+	border-left:1px solid #616161;
+	vertical-align: center;
+}
+
+.display a{
+	position: absolute;
+	left: 29%;
+	top: 13%;
+	text-align: center;
+	font-size: 36px;
+	font-weight: bold;
+	color: #444;
+}
+
+#download {
+	position: absolute;
+	left: 93%;
+	top: 11.5%;
+}
+#analyze {
+	position: absolute;
+	left: 82%;
+	top: 11.5%;
+}
+#showdata {
+	position: absolute;
+	left: 75%;
+	top: 11.5%;
+}
+
+#title{
+	top: 10px;
+	text-align: center;
+	color: #444;
+	font-size: 28px;
+}
+#datepick{
+	position: absolute;
+	top: 10%;
+}
+
+
+/*navigation menu*/
+.nav {
+	position: absolute;
+	margin-left: -43px;
+	margin-top: -19px;
+	width: 20%;
+	/*border:2px solid #8CAAD2;*/
+}
+.nav ul {
+ list-style: none;
+}
+.nav img {
+
+	padding: 15px;
+	width: 60px;
+	vertical-align:middle;
+}
+
+.nav ul li {
+	width: 118%;
+	height: 60px;
+	/*display: inline-block;
+	border:2px solid #8CAAD2;*/
+
+}
+
+.child{
+	vertical-align:middle;
+ /*border:2px solid #8CAAD2;*/
+}
+
+
+.nav ul li:hover {
+    color: #3f51b5;
+		background-color: #EEEEEF;
+
+}
+
+
+/*top bar format*/
+
+/*top bar user name format*/
+.bx-prev {
+position:absolute;
+top:10px;
+left: 5px;
+    height:10px;
+    width:100px;
+    background:#3f51b5;
+		/*background:#2056b5;*/
+		color: white;
+}
+/*top bar logout format*/
+.bx-next{
+	position:absolute;
+    top:10px;
+		right: 5px;
+ 		height:10px;
+		width:70px;
+    background:#3f51b5;
+		color: white;
+	/* font-size: 12pt; */
+
+}
+/*top bar format*/
+.content{
+	  /*overflow: hidden;*/
+		position:relative;
+    width:100%;
+    height:56px;
+    background:#3f51b5;
+}
+
+
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
