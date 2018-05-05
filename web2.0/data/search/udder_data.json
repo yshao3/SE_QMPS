@@ -1,20 +1,20 @@
 [
     {
-        "Staff": "Tom", "Milker": "Aphrodite", "Farm": "Cornell", "Date": "03-15-2018", "Clean": 15, "Slightly_Dirt": 10, "Moderate_Dirt": 3, "Cake_On_Dirt": 10	},
+        "staff": "Tom", "milker": "Aphrodite", "farm": "Cornell", "date": "03-15-2018", "clean": 15, "slightly_dirt": 10, "moderate_dirt": 3, "cake_on_dirt": 10	},
     {
-        "Staff": "Tom", "Milker": "Apollo","Farm": "Cornell", "Date": "03-15-2018","Clean": 11,"Slightly_Dirt": 10,"Moderate_Dirt": 8,"Cake_On_Dirt": 6},
+        "staff": "Tom", "milker": "Apollo","farm": "Cornell", "date": "03-15-2018","clean": 11,"slightly_dirt": 10,"moderate_dirt": 8,"cake_on_dirt": 6},
     {
-        "Staff": "Tom", "Milker": "Ares","Farm": "Cornell", "Date": "03-15-2018","Clean": 10,"Slightly_Dirt": 24,"Moderate_Dirt": 4,"Cake_On_Dirt": 2 },
+        "staff": "Tom", "milker": "Ares","farm": "Cornell", "date": "03-15-2018","clean": 10,"slightly_dirt": 24,"moderate_dirt": 4,"cake_on_dirt": 2 },
     {
-        "Staff": "Tom", "Milker": "Artemis","Farm": "Cornell", "Date": "03-15-2018","Clean": 15,"Slightly_Dirt": 18,"Moderate_Dirt": 5,"Cake_On_Dirt": 5},
+        "staff": "Tom", "milker": "Artemis","farm": "Cornell", "date": "03-15-2018","clean": 15,"slightly_dirt": 18,"moderate_dirt": 5,"cake_on_dirt": 5},
     {
-        "Staff": "Tom", "Milker": "Athena","Farm": "Cornell", "Date": "03-15-2018","Clean": 23,"Slightly_Dirt": 7,"Moderate_Dirt": 8,"Cake_On_Dirt": 3},
+        "staff": "Tom", "milker": "Athena","farm": "Cornell", "date": "03-15-2018","clean": 23,"slightly_dirt": 7,"moderate_dirt": 8,"cake_on_dirt": 3},
     {
-        "Staff": "Tom", "Milker": "Zeus","Farm": "Cornell", "Date": "03-15-2018","Clean": 19,"Slightly_Dirt": 12,"Moderate_Dirt": 1,"Cake_On_Dirt": 5},
+        "staff": "Tom", "milker": "Zeus","farm": "Cornell", "date": "03-15-2018","clean": 19,"slightly_dirt": 12,"moderate_dirt": 1,"cake_on_dirt": 5},
     {
-        "Staff": "Tom", "Milker": "Zeus","Farm": "Cornell", "Date": "03-16-2018","Clean": 19,"Slightly_Dirt": 12,"Moderate_Dirt": 1,"Cake_On_Dirt": 5},
+        "staff": "Tom", "milker": "Zeus","farm": "Cornell", "date": "03-16-2018","clean": 19,"slightly_dirt": 12,"moderate_dirt": 1,"cake_on_dirt": 5},
     {
-        "Staff": "Tom", "Milker": "Zeus","Farm": "Cornell", "Date": "03-16-2018","Clean": 19,"Slightly_Dirt": 12,"Moderate_Dirt": 1,"Cake_On_Dirt": 5}
+        "staff": "Tom", "milker": "Zeus","farm": "Cornell", "date": "03-16-2018","clean": 19,"slightly_dirt": 12,"moderate_dirt": 1,"cake_on_dirt": 5}
   ]
 
 
