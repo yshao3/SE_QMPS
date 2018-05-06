@@ -27,68 +27,68 @@ function convertToPercent(fraction) {
 return (fraction * 100) + '&#37;';
 }
 function udderFunction() {
-  var udder_data = [
-  		{
-  				Milker: "Pen1",Date: '2018-03-15',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  		{
-  				Milker: "Pen1",Date: '2018-03-15',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  		{
-  				Milker: "Pen2",Date: '2018-03-15',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
-  		{
-  				Milker: "Pen3",Date: '2018-03-15',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
-  		{
-  				Milker: "Pen4",Date: '2018-03-15',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
-  		{
-  				Milker: "Pen5",Date: '2018-03-15',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
-  		{
-  				Milker: "Pen1",Date: '2018-03-16',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  		{
-  				Milker: "Pen1",Date: '2018-03-16',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  		{
-  				Milker: "Pen2",Date: '2018-03-16',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
-  		{
-  				Milker: "Pen3",Date: '2018-03-16',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
-  		{
-  				Milker: "Pen4",Date: '2018-03-16',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
-  		{
-  				Milker: "Pen5",Date: '2018-03-16',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
-  						{
-  								Milker: "Pen1",Date: '2018-03-17',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  						{
-  								Milker: "Pen2",Date: '2018-03-17',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  						{
-  								Milker: "Pen3",Date: '2018-03-17',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
-  						{
-  								Milker: "Pen4",Date: '2018-03-17',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
-  						{
-  								Milker: "Pen5",Date: '2018-03-17',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
-  						{
-  								Milker: "Pen5",Date: '2018-03-18',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
-  								{
-  										Milker: "Pen1",Date: '2018-03-18',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  								{
-  										Milker: "Pen2",Date: '2018-03-18',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  								{
-  										Milker: "Pen3",Date: '2018-03-18',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
-  								{
-  										Milker: "Pen4",Date: '2018-03-18',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
-  								{
-  										Milker: "Pen5",Date: '2018-03-19',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
-  								{
-  										Milker: "Pen6",Date: '2018-03-19',Score1: 19,Score2: 12,Score3: 1,Score4: 5},
-  										{
-  												Milker: "Pen1",Date: '2018-03-22',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  										{
-  												Milker: "Pen2",Date: '2018-03-22',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
-  										{
-  												Milker: "Pen3",Date: '2018-03-26',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
-  										{
-  												Milker: "Pen4",Date: '2018-03-30',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
-  										{
-  												Milker: "Pen5",Date: '2018-04-05',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
-  										{
-  												Milker: "Pen2",Date: '2018-04-19',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
-  ];
+  // var udder_data = [
+  // 		{
+  // 				Milker: "Pen1",Date: '2018-03-15',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  // 		{
+  // 				Milker: "Pen1",Date: '2018-03-15',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  // 		{
+  // 				Milker: "Pen2",Date: '2018-03-15',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+  // 		{
+  // 				Milker: "Pen3",Date: '2018-03-15',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+  // 		{
+  // 				Milker: "Pen4",Date: '2018-03-15',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+  // 		{
+  // 				Milker: "Pen5",Date: '2018-03-15',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+  // 		{
+  // 				Milker: "Pen1",Date: '2018-03-16',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  // 		{
+  // 				Milker: "Pen1",Date: '2018-03-16',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  // 		{
+  // 				Milker: "Pen2",Date: '2018-03-16',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+  // 		{
+  // 				Milker: "Pen3",Date: '2018-03-16',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+  // 		{
+  // 				Milker: "Pen4",Date: '2018-03-16',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+  // 		{
+  // 				Milker: "Pen5",Date: '2018-03-16',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+  // 						{
+  // 								Milker: "Pen1",Date: '2018-03-17',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  // 						{
+  // 								Milker: "Pen2",Date: '2018-03-17',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  // 						{
+  // 								Milker: "Pen3",Date: '2018-03-17',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+  // 						{
+  // 								Milker: "Pen4",Date: '2018-03-17',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+  // 						{
+  // 								Milker: "Pen5",Date: '2018-03-17',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+  // 						{
+  // 								Milker: "Pen5",Date: '2018-03-18',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+  // 								{
+  // 										Milker: "Pen1",Date: '2018-03-18',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  // 								{
+  // 										Milker: "Pen2",Date: '2018-03-18',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  // 								{
+  // 										Milker: "Pen3",Date: '2018-03-18',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+  // 								{
+  // 										Milker: "Pen4",Date: '2018-03-18',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+  // 								{
+  // 										Milker: "Pen5",Date: '2018-03-19',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+  // 								{
+  // 										Milker: "Pen6",Date: '2018-03-19',Score1: 19,Score2: 12,Score3: 1,Score4: 5},
+  // 										{
+  // 												Milker: "Pen1",Date: '2018-03-22',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  // 										{
+  // 												Milker: "Pen2",Date: '2018-03-22',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
+  // 										{
+  // 												Milker: "Pen3",Date: '2018-03-26',Score1: 11,Score2: 10,Score3: 11,Score4: 6},
+  // 										{
+  // 												Milker: "Pen4",Date: '2018-03-30',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+  // 										{
+  // 												Milker: "Pen5",Date: '2018-04-05',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+  // 										{
+  // 												Milker: "Pen2",Date: '2018-04-19',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
+  // ];
   var formatComma = d3.format(",");
   var datanest = d3.nest()
   		.key(function (d){ return d.Date;})
@@ -240,61 +240,61 @@ function udderFunction() {
   		} );
 }
 function stripFunction() {
-  var strip_data = [
-  		{ Date: '2018-01-10', Stall_number: 1, Strip_Yields: 132, balance: "isbalanced", Majority: 0},
-  		{ Date: '2018-01-10', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
-  		{ Date: '2018-01-10', Stall_number: 3, Strip_Yields: 300, balance: "isbalanced", Majority: 0},
-  		{ Date: '2018-01-13', Stall_number: 4, Strip_Yields: 400, balance: "balanced",  Majority: 0},
-  		{ Date: '2018-01-13', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
-  		{ Date: '2018-01-13', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
-  		{ Date: '2018-01-13', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
-  		{ Date: '2018-01-28', Stall_number: 3, Strip_Yields: 100, balance: "balanced", Majority: 0},
-  		{ Date: '2018-01-28', Stall_number: 4, Strip_Yields: 200, balance: "balanced",  Majority: 0},
-  		{ Date: '2018-01-28', Stall_number: 5, Strip_Yields: 400, balance: "balanced", Majority: 0},
-  		{ Date: '2018-02-07', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
-  		{ Date: '2018-02-07', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
-  		{ Date: '2018-02-07', Stall_number: 3, Strip_Yields: 220, balance: "isbalanced", Majority: 0},
-  		{ Date: '2018-02-07', Stall_number: 4, Strip_Yields: 330, balance: "balanced",  Majority: 0},
-  		{ Date: '2018-02-07', Stall_number: 5, Strip_Yields: 600, balance: "balanced", Majority: 0},
-  		{ Date: '2018-02-20', Stall_number: 1, Strip_Yields: 102, balance: "balanced", Majority: 0},
-  		{ Date: '2018-02-20', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
-  		{ Date: '2018-02-20', Stall_number: 3, Strip_Yields: 240, balance: "isbalanced", Majority: 0},
-  		{ Date: '2018-02-20', Stall_number: 4, Strip_Yields: 190, balance: "balanced",  Majority: 0},
-  		{ Date: '2018-02-20', Stall_number: 5, Strip_Yields: 500, balance: "balanced", Majority: 0},
-  		{ Date: '2018-02-25', Stall_number: 1, Strip_Yields: 432, balance: "isbalanced", Majority: 0},
-  		{ Date: '2018-02-25', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
-  		{ Date: '2018-03-03', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
-  		{ Date: '2018-03-03', Stall_number: 4, Strip_Yields: 180, balance: "isbalanced",  Majority: 0},
-  		{ Date: '2018-03-03', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
-  		{ Date: '2018-03-03', Stall_number: 1, Strip_Yields: 152, balance: "balanced", Majority: 0},
-  		{ Date: '2018-03-03', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
-  		{ Date: '2018-03-03', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
-  		{ Date: '2018-03-03', Stall_number: 4, Strip_Yields: 400, balance: "balanced",  Majority: 0},
-  		{ Date: '2018-03-03', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
-  		{ Date: '2018-03-03', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
-  		{ Date: '2018-03-03', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
-  		{ Date: '2018-03-03', Stall_number: 3, Strip_Yields: 220, balance: "isbalanced", Majority: 0},
-  		{ Date: '2018-03-06', Stall_number: 5, Strip_Yields: 500, balance: "balanced", Majority: 0},
-  		{ Date: '2018-03-06', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
-  		{ Date: '2018-03-06', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
-  		{ Date: '2018-03-06', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
-  		{ Date: '2018-03-07', Stall_number: 4, Strip_Yields: 200, balance: "isbalanced",  Majority: 0},
-  		{ Date: '2018-03-07', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
-  		{ Date: '2018-03-07', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
-  		{ Date: '2018-03-07', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
-  		{ Date: '2018-03-07', Stall_number: 3, Strip_Yields: 300, balance: "isbalanced", Majority: 0},
-  		{ Date: '2018-04-01', Stall_number: 4, Strip_Yields: 400, balance: "isbalanced",  Majority: 0},
-  		{ Date: '2018-04-01', Stall_number: 5, Strip_Yields: 240, balance: "balanced", Majority: 0},
-  		{ Date: '2018-04-01', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
-  		{ Date: '2018-04-01', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
-  		{ Date: '2018-04-10', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
-  		{ Date: '2018-04-10', Stall_number: 4, Strip_Yields: 400, balance: "balanced",  Majority: 0},
-  		{ Date: '2018-04-10', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
-  		{ Date: '2018-04-15', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
-  		{ Date: '2018-04-15', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
-  		{ Date: '2018-04-15', Stall_number: 3, Strip_Yields: 200, balance: "isbalanced", Majority: 0},
-  		{ Date: '2018-04-15', Stall_number: 4, Strip_Yields: 210, balance: "isbalanced",  Majority: 0},
-  		{ Date: '2018-04-15', Stall_number: 5, Strip_Yields: 700, balance: "isbalanced", Majority: 0}];
+  // var strip_data = [
+  // 		{ Date: '2018-01-10', Stall_number: 1, Strip_Yields: 132, balance: "isbalanced", Majority: 0},
+  // 		{ Date: '2018-01-10', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-01-10', Stall_number: 3, Strip_Yields: 300, balance: "isbalanced", Majority: 0},
+  // 		{ Date: '2018-01-13', Stall_number: 4, Strip_Yields: 400, balance: "balanced",  Majority: 0},
+  // 		{ Date: '2018-01-13', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-01-13', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-01-13', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-01-28', Stall_number: 3, Strip_Yields: 100, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-01-28', Stall_number: 4, Strip_Yields: 200, balance: "balanced",  Majority: 0},
+  // 		{ Date: '2018-01-28', Stall_number: 5, Strip_Yields: 400, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-02-07', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-02-07', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-02-07', Stall_number: 3, Strip_Yields: 220, balance: "isbalanced", Majority: 0},
+  // 		{ Date: '2018-02-07', Stall_number: 4, Strip_Yields: 330, balance: "balanced",  Majority: 0},
+  // 		{ Date: '2018-02-07', Stall_number: 5, Strip_Yields: 600, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-02-20', Stall_number: 1, Strip_Yields: 102, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-02-20', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-02-20', Stall_number: 3, Strip_Yields: 240, balance: "isbalanced", Majority: 0},
+  // 		{ Date: '2018-02-20', Stall_number: 4, Strip_Yields: 190, balance: "balanced",  Majority: 0},
+  // 		{ Date: '2018-02-20', Stall_number: 5, Strip_Yields: 500, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-02-25', Stall_number: 1, Strip_Yields: 432, balance: "isbalanced", Majority: 0},
+  // 		{ Date: '2018-02-25', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-03-03', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
+  // 		{ Date: '2018-03-03', Stall_number: 4, Strip_Yields: 180, balance: "isbalanced",  Majority: 0},
+  // 		{ Date: '2018-03-03', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-03-03', Stall_number: 1, Strip_Yields: 152, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-03-03', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-03-03', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
+  // 		{ Date: '2018-03-03', Stall_number: 4, Strip_Yields: 400, balance: "balanced",  Majority: 0},
+  // 		{ Date: '2018-03-03', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-03-03', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-03-03', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-03-03', Stall_number: 3, Strip_Yields: 220, balance: "isbalanced", Majority: 0},
+  // 		{ Date: '2018-03-06', Stall_number: 5, Strip_Yields: 500, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-03-06', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-03-06', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-03-06', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
+  // 		{ Date: '2018-03-07', Stall_number: 4, Strip_Yields: 200, balance: "isbalanced",  Majority: 0},
+  // 		{ Date: '2018-03-07', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-03-07', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-03-07', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-03-07', Stall_number: 3, Strip_Yields: 300, balance: "isbalanced", Majority: 0},
+  // 		{ Date: '2018-04-01', Stall_number: 4, Strip_Yields: 400, balance: "isbalanced",  Majority: 0},
+  // 		{ Date: '2018-04-01', Stall_number: 5, Strip_Yields: 240, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-04-01', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-04-01', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-04-10', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
+  // 		{ Date: '2018-04-10', Stall_number: 4, Strip_Yields: 400, balance: "balanced",  Majority: 0},
+  // 		{ Date: '2018-04-10', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-04-15', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-04-15', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+  // 		{ Date: '2018-04-15', Stall_number: 3, Strip_Yields: 200, balance: "isbalanced", Majority: 0},
+  // 		{ Date: '2018-04-15', Stall_number: 4, Strip_Yields: 210, balance: "isbalanced",  Majority: 0},
+  // 		{ Date: '2018-04-15', Stall_number: 5, Strip_Yields: 700, balance: "isbalanced", Majority: 0}];
   var label_data = ["<150 ml", "150 ml-250 ml", ">250 ml"];
   var formatComma = d3.format(",");
   var datanest = d3.nest().key(function(d) { return d.Date; })
@@ -457,714 +457,714 @@ function stripFunction() {
 }
 
 function postFunction() {
-  var post_data = [
-      {
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-15-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          }
-      },{
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-15-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          }
-      },{
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-15-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          }
-      },{
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-15-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          }
-      },{
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-15-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          }
-      },
-      {
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-15-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-              LH: "F",
-              LF: "W",
-              RH: "F",
-              RF: "W"
-          },
-          TES: {
-              LH: "N",
-              LF: "S",
-              RH: "SR",
-              RF: "R"
-          }
-      },
-      {
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-17-2018',
-          TSC: {
-              LH: "D",
-              LF: "OL",
-              RH: "H",
-              RF: "D"
-          },
-          TC: {
-              LH: "R",
-              LF: "DS",
-              RH: "B",
-              RF: "R"
-          },
-          SNTB: {
-              LH: "VM",
-              LF: "SW",
-              RH: "VM",
-              RF: "SW"
-          },
-          HaTE: {
-              LH: "F",
-              LF: "W",
-              RH: "F",
-              RF: "W"
-          },
-          TES: {
-              LH: "N",
-              LF: "S",
-              RH: "SR",
-              RF: "R"
-          }
-      },{
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-17-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "F",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "SR",
-            RF: "N"
-          }
-      },{
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-17-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "F",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          }
-      },{
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-17-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          }
-      },{
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-17-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          }
-      },{
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-17-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          }
-      },{
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-17-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          }
-      },{
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-17-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          }
-      },{
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-17-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          }
-      },{
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-17-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          }
-      },
-      {
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-21-2018',
-          TSC: {
-              LH: "D",
-              LF: "OL",
-              RH: "H",
-              RF: "D"
-          },
-          TC: {
-              LH: "R",
-              LF: "DS",
-              RH: "B",
-              RF: "R"
-          },
-          SNTB: {
-              LH: "VM",
-              LF: "SW",
-              RH: "VM",
-              RF: "SW"
-          },
-          HaTE: {
-              LH: "F",
-              LF: "W",
-              RH: "F",
-              RF: "W"
-          },
-          TES: {
-              LH: "N",
-              LF: "S",
-              RH: "SR",
-              RF: "R"
-          }
-      },
-      {
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-25-2018',
-          TSC: {
-              LH: "D",
-              LF: "OL",
-              RH: "H",
-              RF: "D"
-          },
-          TC: {
-              LH: "R",
-              LF: "DS",
-              RH: "B",
-              RF: "R"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          }
-      },
-      {
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-28-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-              LH: "N",
-              LF: "S",
-              RH: "SR",
-              RF: "R"
-          }
-      },
-      {
-          Group: 1,
-          Line: 1,
-          Farm_Name: "Zeus",
-          Date: '03-30-2018',
-          TSC: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TC: {
-              LH: "R",
-              LF: "DS",
-              RH: "B",
-              RF: "R"
-          },
-          SNTB: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          HaTE: {
-            LH: "N",
-            LF: "N",
-            RH: "N",
-            RF: "N"
-          },
-          TES: {
-              LH: "N",
-              LF: "N",
-              RH: "N",
-              RF: "N"
-          }
-      }];
+  // var post_data = [
+  //     {
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-15-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-15-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-15-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-15-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-15-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },
+  //     {
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-15-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //             LH: "F",
+  //             LF: "W",
+  //             RH: "F",
+  //             RF: "W"
+  //         },
+  //         TES: {
+  //             LH: "N",
+  //             LF: "S",
+  //             RH: "SR",
+  //             RF: "R"
+  //         }
+  //     },
+  //     {
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-17-2018',
+  //         TSC: {
+  //             LH: "D",
+  //             LF: "OL",
+  //             RH: "H",
+  //             RF: "D"
+  //         },
+  //         TC: {
+  //             LH: "R",
+  //             LF: "DS",
+  //             RH: "B",
+  //             RF: "R"
+  //         },
+  //         SNTB: {
+  //             LH: "VM",
+  //             LF: "SW",
+  //             RH: "VM",
+  //             RF: "SW"
+  //         },
+  //         HaTE: {
+  //             LH: "F",
+  //             LF: "W",
+  //             RH: "F",
+  //             RF: "W"
+  //         },
+  //         TES: {
+  //             LH: "N",
+  //             LF: "S",
+  //             RH: "SR",
+  //             RF: "R"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-17-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "F",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "SR",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-17-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "F",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-17-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-17-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-17-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-17-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-17-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-17-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-17-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },
+  //     {
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-21-2018',
+  //         TSC: {
+  //             LH: "D",
+  //             LF: "OL",
+  //             RH: "H",
+  //             RF: "D"
+  //         },
+  //         TC: {
+  //             LH: "R",
+  //             LF: "DS",
+  //             RH: "B",
+  //             RF: "R"
+  //         },
+  //         SNTB: {
+  //             LH: "VM",
+  //             LF: "SW",
+  //             RH: "VM",
+  //             RF: "SW"
+  //         },
+  //         HaTE: {
+  //             LH: "F",
+  //             LF: "W",
+  //             RH: "F",
+  //             RF: "W"
+  //         },
+  //         TES: {
+  //             LH: "N",
+  //             LF: "S",
+  //             RH: "SR",
+  //             RF: "R"
+  //         }
+  //     },
+  //     {
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-25-2018',
+  //         TSC: {
+  //             LH: "D",
+  //             LF: "OL",
+  //             RH: "H",
+  //             RF: "D"
+  //         },
+  //         TC: {
+  //             LH: "R",
+  //             LF: "DS",
+  //             RH: "B",
+  //             RF: "R"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },
+  //     {
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-28-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //             LH: "N",
+  //             LF: "S",
+  //             RH: "SR",
+  //             RF: "R"
+  //         }
+  //     },
+  //     {
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-30-2018',
+  //         TSC: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TC: {
+  //             LH: "R",
+  //             LF: "DS",
+  //             RH: "B",
+  //             RF: "R"
+  //         },
+  //         SNTB: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //             LH: "N",
+  //             LF: "N",
+  //             RH: "N",
+  //             RF: "N"
+  //         }
+  //     }];
       var datanest = d3.nest()
                 .key(function (d){ return d.Date;})
                 .rollup(function(v){ return {
@@ -1406,411 +1406,411 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
 
 }
 var lacto_data = [
-    {
-        Farm: "Zeus",
-        Date: '03-15-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0456,
-        Stall: 1,
-        // Dip: "12:00:00 AM",
-        // Strip: "12:00:39 AM",
-        // Wipe: "12:01:05 AM",
-        // Attach: "12:01:52 AM",
-        // Remove: "12:03:00 AM",
-        Dip_Time: 29,
-        Lag_Time : 93,
-        Unit_Time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-15-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0110,
-        Stall: 1,
-        Dip_Time: 60,
-        Lag_Time : 54,
-        Unit_Time : 28,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-16-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 1026,
-        Stall: 1,
-        Dip_Time: 76,
-        Lag_Time : 84,
-        Unit_Time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-16-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0960,
-        Stall: 1,
-        Dip_Time: 49,
-        Lag_Time : 34,
-        Unit_Time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-16-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0126,
-        Stall: 1,
-        Dip_Time: 35,
-        Lag_Time : 34,
-        Unit_Time : 33,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-17-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 1230,
-        Stall: 2,
-        Dip_Time: 59,
-        Lag_Time : 85,
-        Unit_Time : 37,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-17-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 8821,
-        Stall: 2,
-        Dip_Time: 43,
-        Lag_Time : 23,
-        Unit_Time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-18-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 2024,
-        Stall: 2,
-        Dip_Time: 40,
-        Lag_Time : 89,
-        Unit_Time : 45,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-18-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0091,
-        Stall: 2,
-        Dip_Time: 35,
-        Lag_Time : 83,
-        Unit_Time : 47,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-18-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0330,
-        Stall: 2,
-        Dip_Time: 39,
-        Lag_Time : 44,
-        Unit_Time : 65,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-19-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0035,
-        Stall: 3,
-        Dip_Time: 30,
-        Lag_Time : 77,
-        Unit_Time : 41,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },{
-        Farm: "Zeus",
-        Date: '03-19-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0256,
-        Stall: 3,
-        Dip_Time: 64,
-        Lag_Time : 43,
-        Unit_Time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-19-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 1204,
-        Stall: 3,
-        Dip_Time: 32,
-        Lag_Time : 55,
-        Unit_Time : 28,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-20-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 5610,
-        Stall: 3,
-        Dip_Time: 69,
-        Lag_Time : 44,
-        Unit_Time : 38,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-20-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0604,
-        Stall: 4,
-        Dip_Time: 59,
-        Lag_Time : 34,
-        Unit_Time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-20-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 3456,
-        Stall: 4,
-        Dip_Time: 59,
-        Lag_Time : 34,
-        Unit_Time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-21-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 1256,
-        Stall: 4,
-        Dip_Time: 20,
-        Lag_Time : 46,
-        Unit_Time : 68,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-21-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 156,
-        Stall: 4,
-        Dip_Time: 49,
-        Lag_Time : 14,
-        Unit_Time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-21-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 996,
-        Stall: 5,
-        Dip_Time: 23,
-        Lag_Time : 34,
-        Unit_Time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-22-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 1216,
-        Stall: 5,
-        Dip_Time: 54,
-        Lag_Time : 54,
-        Unit_Time : 56,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        Date: '03-22-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Stall : 5,
-        Cow: 459,
-        Stall: 5,
-        Dip_Time: 45,
-        Lag_Time : 44,
-        Unit_Time : 98,
-        Total_Milk: 200,
-        Remark: "N/A"
-    }
-];
+//     {
+//         Farm: "Zeus",
+//         Date: '03-15-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0456,
+//         Stall: 1,
+//         // Dip: "12:00:00 AM",
+//         // Strip: "12:00:39 AM",
+//         // Wipe: "12:01:05 AM",
+//         // Attach: "12:01:52 AM",
+//         // Remove: "12:03:00 AM",
+//         Dip_Time: 29,
+//         Lag_Time : 93,
+//         Unit_Time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-15-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0110,
+//         Stall: 1,
+//         Dip_Time: 60,
+//         Lag_Time : 54,
+//         Unit_Time : 28,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-16-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 1026,
+//         Stall: 1,
+//         Dip_Time: 76,
+//         Lag_Time : 84,
+//         Unit_Time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-16-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0960,
+//         Stall: 1,
+//         Dip_Time: 49,
+//         Lag_Time : 34,
+//         Unit_Time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-16-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0126,
+//         Stall: 1,
+//         Dip_Time: 35,
+//         Lag_Time : 34,
+//         Unit_Time : 33,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-17-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 1230,
+//         Stall: 2,
+//         Dip_Time: 59,
+//         Lag_Time : 85,
+//         Unit_Time : 37,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-17-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 8821,
+//         Stall: 2,
+//         Dip_Time: 43,
+//         Lag_Time : 23,
+//         Unit_Time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-18-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 2024,
+//         Stall: 2,
+//         Dip_Time: 40,
+//         Lag_Time : 89,
+//         Unit_Time : 45,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-18-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0091,
+//         Stall: 2,
+//         Dip_Time: 35,
+//         Lag_Time : 83,
+//         Unit_Time : 47,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-18-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0330,
+//         Stall: 2,
+//         Dip_Time: 39,
+//         Lag_Time : 44,
+//         Unit_Time : 65,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-19-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0035,
+//         Stall: 3,
+//         Dip_Time: 30,
+//         Lag_Time : 77,
+//         Unit_Time : 41,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },{
+//         Farm: "Zeus",
+//         Date: '03-19-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0256,
+//         Stall: 3,
+//         Dip_Time: 64,
+//         Lag_Time : 43,
+//         Unit_Time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-19-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 1204,
+//         Stall: 3,
+//         Dip_Time: 32,
+//         Lag_Time : 55,
+//         Unit_Time : 28,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-20-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 5610,
+//         Stall: 3,
+//         Dip_Time: 69,
+//         Lag_Time : 44,
+//         Unit_Time : 38,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-20-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0604,
+//         Stall: 4,
+//         Dip_Time: 59,
+//         Lag_Time : 34,
+//         Unit_Time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-20-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 3456,
+//         Stall: 4,
+//         Dip_Time: 59,
+//         Lag_Time : 34,
+//         Unit_Time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-21-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 1256,
+//         Stall: 4,
+//         Dip_Time: 20,
+//         Lag_Time : 46,
+//         Unit_Time : 68,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-21-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 156,
+//         Stall: 4,
+//         Dip_Time: 49,
+//         Lag_Time : 14,
+//         Unit_Time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-21-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 996,
+//         Stall: 5,
+//         Dip_Time: 23,
+//         Lag_Time : 34,
+//         Unit_Time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-22-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 1216,
+//         Stall: 5,
+//         Dip_Time: 54,
+//         Lag_Time : 54,
+//         Unit_Time : 56,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         Date: '03-22-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Stall : 5,
+//         Cow: 459,
+//         Stall: 5,
+//         Dip_Time: 45,
+//         Lag_Time : 44,
+//         Unit_Time : 98,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     }
+// ];
 function lactoFunction() {
     var datanest = d3.nest()
         .key(function (d){ return d.Date;})
@@ -2066,238 +2066,238 @@ function lactoFunction() {
   } );
 }
 function unitFunction() {
-  var unit_data = [
-    {
-        Date: '2017-11-31',
-        Observer: 'Jone',
-        Farm: 'Glezon',
-        Good: 132,
-        Bad: 21
-    },
-    {
-        Date: '2017-12-04',
-        Observer: 'Alex',
-        Farm: 'Glezon',
-        Good: 99,
-        Bad: 31
-    },
-    {
-        Date: '2017-12-16',
-        Observer: 'Gina',
-        Farm: 'Glezon',
-        Good: 70,
-        Bad: 35
-    },
-      {
-          Date: '2017-12-22',
-          Observer: 'Jone',
-          Farm: 'Glezon',
-          Good: 132,
-          Bad: 21
-      },
-      {
-          Date: '2018-01-15',
-          Observer: 'Alex',
-          Farm: 'Glezon',
-          Good: 99,
-          Bad: 31
-      },
-      {
-          Date: '2018-02-02',
-          Observer: 'Gina',
-          Farm: 'Glezon',
-          Good: 70,
-          Bad: 35
-      },
-      {
-          Date: '2018-02-05',
-          Observer: 'Jone',
-          Farm: 'Glezon',
-          Good: 132,
-          Bad: 21
-      },
-      {
-          Date: '2018-02-06',
-          Observer: 'Gina',
-          Farm: 'Glezon',
-          Good: 70,
-          Bad: 35
-      },
-      {
-          Date: '2018-02-07',
-          Observer: 'Jone',
-          Farm: 'Glezon',
-          Good: 132,
-          Bad: 21
-      },
-      {
-          Date: '2018-02-08',
-          Observer: 'Gina',
-          Farm: 'Glezon',
-          Good: 70,
-          Bad: 35
-      },
-      {
-          Date: '2018-02-09',
-          Observer: 'Jone',
-          Farm: 'Glezon',
-          Good: 132,
-          Bad: 21
-      },
-      {
-          Date: '2018-02-10',
-          Observer: 'Gina',
-          Farm: 'Glezon',
-          Good: 70,
-          Bad: 35
-      },
-      {
-          Date: '2018-02-13',
-          Observer: 'Jone',
-          Farm: 'Glezon',
-          Good: 132,
-          Bad: 21
-      },
-      {
-          Date: '2018-02-15',
-          Observer: 'Gina',
-          Farm: 'Glezon',
-          Good: 70,
-          Bad: 35
-      },
-      {
-          Date: '2018-02-16',
-          Observer: 'Jone',
-          Farm: 'Glezon',
-          Good: 132,
-          Bad: 21
-      },
-      {
-          Date: '2018-02-19',
-          Observer: 'Gina',
-          Farm: 'Glezon',
-          Good: 70,
-          Bad: 35
-      },
-      {
-          Date: '2018-02-25',
-          Observer: 'Jone',
-          Farm: 'Glezon',
-          Good: 132,
-          Bad: 21
-      },
-      {
-          Date: '2018-03-01',
-          Observer: 'Alex',
-          Farm: 'Glezon',
-          Good: 99,
-          Bad: 31
-      },
-      {
-          Date: '2018-03-05',
-          Observer: 'Gina',
-          Farm: 'Glezon',
-          Good: 70,
-          Bad: 35
-      },
-      {
-          Date: '2018-03-06',
-          Observer: 'Jone',
-          Farm: 'Glezon',
-          Good: 132,
-          Bad: 21
-      },
-      {
-          Date: '2018-03-15',
-          Observer: 'Alex',
-          Farm: 'Glezon',
-          Good: 99,
-          Bad: 31
-      },
-      {
-          Date: '2018-03-16',
-          Observer: 'Gina',
-          Farm: 'Glezon',
-          Good: 70,
-          Bad: 35
-      },
-      {
-          Date: '2018-03-17',
-          Observer: 'Jone',
-          Farm: 'Glezon',
-          Good: 132,
-          Bad: 21
-      },
-      {
-          Date: '2018-04-10',
-          Observer: 'Alex',
-          Farm: 'Glezon',
-          Good: 99,
-          Bad: 31
-      },
-      {
-          Date: '2018-04-21',
-          Observer: 'Gina',
-          Farm: 'Glezon',
-          Good: 70,
-          Bad: 35
-      },
-      {
-          Date: '2018-04-22',
-          Observer: 'Jone',
-          Farm: 'Glezon',
-          Good: 132,
-          Bad: 21
-      },
-      {
-          Date: '2018-04-23',
-          Observer: 'Alex',
-          Farm: 'Glezon',
-          Good: 99,
-          Bad: 31
-      },
-      {
-          Date: '2018-04-24',
-          Observer: 'Gina',
-          Farm: 'Glezon',
-          Good: 70,
-          Bad: 35
-      },
-      {
-          Date: '2018-04-25',
-          Observer: 'Irine',
-          Farm: 'Glezon',
-          Good: 65,
-          Bad: 10
-      },
-      {
-          Date: '2018-04-26',
-          Observer: 'Jone',
-          Farm: 'Glezon',
-          Good: 132,
-          Bad: 21
-      },
-      {
-          Date: '2018-04-30',
-          Observer: 'Alex',
-          Farm: 'Glezon',
-          Good: 99,
-          Bad: 31
-      },
-      {
-          Date: '2018-04-30',
-          Observer: 'Gina',
-          Farm: 'Glezon',
-          Good: 70,
-          Bad: 35
-      },
-      {
-          Date: '2018-05-03',
-          Observer: 'Zeiger',
-          Farm: 'Glezon',
-          Good: 90,
-          Bad: 36
-      }];
+  // var unit_data = [
+  //   {
+  //       Date: '2017-11-31',
+  //       Observer: 'Jone',
+  //       Farm: 'Glezon',
+  //       Good: 132,
+  //       Bad: 21
+  //   },
+  //   {
+  //       Date: '2017-12-04',
+  //       Observer: 'Alex',
+  //       Farm: 'Glezon',
+  //       Good: 99,
+  //       Bad: 31
+  //   },
+  //   {
+  //       Date: '2017-12-16',
+  //       Observer: 'Gina',
+  //       Farm: 'Glezon',
+  //       Good: 70,
+  //       Bad: 35
+  //   },
+  //     {
+  //         Date: '2017-12-22',
+  //         Observer: 'Jone',
+  //         Farm: 'Glezon',
+  //         Good: 132,
+  //         Bad: 21
+  //     },
+  //     {
+  //         Date: '2018-01-15',
+  //         Observer: 'Alex',
+  //         Farm: 'Glezon',
+  //         Good: 99,
+  //         Bad: 31
+  //     },
+  //     {
+  //         Date: '2018-02-02',
+  //         Observer: 'Gina',
+  //         Farm: 'Glezon',
+  //         Good: 70,
+  //         Bad: 35
+  //     },
+  //     {
+  //         Date: '2018-02-05',
+  //         Observer: 'Jone',
+  //         Farm: 'Glezon',
+  //         Good: 132,
+  //         Bad: 21
+  //     },
+  //     {
+  //         Date: '2018-02-06',
+  //         Observer: 'Gina',
+  //         Farm: 'Glezon',
+  //         Good: 70,
+  //         Bad: 35
+  //     },
+  //     {
+  //         Date: '2018-02-07',
+  //         Observer: 'Jone',
+  //         Farm: 'Glezon',
+  //         Good: 132,
+  //         Bad: 21
+  //     },
+  //     {
+  //         Date: '2018-02-08',
+  //         Observer: 'Gina',
+  //         Farm: 'Glezon',
+  //         Good: 70,
+  //         Bad: 35
+  //     },
+  //     {
+  //         Date: '2018-02-09',
+  //         Observer: 'Jone',
+  //         Farm: 'Glezon',
+  //         Good: 132,
+  //         Bad: 21
+  //     },
+  //     {
+  //         Date: '2018-02-10',
+  //         Observer: 'Gina',
+  //         Farm: 'Glezon',
+  //         Good: 70,
+  //         Bad: 35
+  //     },
+  //     {
+  //         Date: '2018-02-13',
+  //         Observer: 'Jone',
+  //         Farm: 'Glezon',
+  //         Good: 132,
+  //         Bad: 21
+  //     },
+  //     {
+  //         Date: '2018-02-15',
+  //         Observer: 'Gina',
+  //         Farm: 'Glezon',
+  //         Good: 70,
+  //         Bad: 35
+  //     },
+  //     {
+  //         Date: '2018-02-16',
+  //         Observer: 'Jone',
+  //         Farm: 'Glezon',
+  //         Good: 132,
+  //         Bad: 21
+  //     },
+  //     {
+  //         Date: '2018-02-19',
+  //         Observer: 'Gina',
+  //         Farm: 'Glezon',
+  //         Good: 70,
+  //         Bad: 35
+  //     },
+  //     {
+  //         Date: '2018-02-25',
+  //         Observer: 'Jone',
+  //         Farm: 'Glezon',
+  //         Good: 132,
+  //         Bad: 21
+  //     },
+  //     {
+  //         Date: '2018-03-01',
+  //         Observer: 'Alex',
+  //         Farm: 'Glezon',
+  //         Good: 99,
+  //         Bad: 31
+  //     },
+  //     {
+  //         Date: '2018-03-05',
+  //         Observer: 'Gina',
+  //         Farm: 'Glezon',
+  //         Good: 70,
+  //         Bad: 35
+  //     },
+  //     {
+  //         Date: '2018-03-06',
+  //         Observer: 'Jone',
+  //         Farm: 'Glezon',
+  //         Good: 132,
+  //         Bad: 21
+  //     },
+  //     {
+  //         Date: '2018-03-15',
+  //         Observer: 'Alex',
+  //         Farm: 'Glezon',
+  //         Good: 99,
+  //         Bad: 31
+  //     },
+  //     {
+  //         Date: '2018-03-16',
+  //         Observer: 'Gina',
+  //         Farm: 'Glezon',
+  //         Good: 70,
+  //         Bad: 35
+  //     },
+  //     {
+  //         Date: '2018-03-17',
+  //         Observer: 'Jone',
+  //         Farm: 'Glezon',
+  //         Good: 132,
+  //         Bad: 21
+  //     },
+  //     {
+  //         Date: '2018-04-10',
+  //         Observer: 'Alex',
+  //         Farm: 'Glezon',
+  //         Good: 99,
+  //         Bad: 31
+  //     },
+  //     {
+  //         Date: '2018-04-21',
+  //         Observer: 'Gina',
+  //         Farm: 'Glezon',
+  //         Good: 70,
+  //         Bad: 35
+  //     },
+  //     {
+  //         Date: '2018-04-22',
+  //         Observer: 'Jone',
+  //         Farm: 'Glezon',
+  //         Good: 132,
+  //         Bad: 21
+  //     },
+  //     {
+  //         Date: '2018-04-23',
+  //         Observer: 'Alex',
+  //         Farm: 'Glezon',
+  //         Good: 99,
+  //         Bad: 31
+  //     },
+  //     {
+  //         Date: '2018-04-24',
+  //         Observer: 'Gina',
+  //         Farm: 'Glezon',
+  //         Good: 70,
+  //         Bad: 35
+  //     },
+  //     {
+  //         Date: '2018-04-25',
+  //         Observer: 'Irine',
+  //         Farm: 'Glezon',
+  //         Good: 65,
+  //         Bad: 10
+  //     },
+  //     {
+  //         Date: '2018-04-26',
+  //         Observer: 'Jone',
+  //         Farm: 'Glezon',
+  //         Good: 132,
+  //         Bad: 21
+  //     },
+  //     {
+  //         Date: '2018-04-30',
+  //         Observer: 'Alex',
+  //         Farm: 'Glezon',
+  //         Good: 99,
+  //         Bad: 31
+  //     },
+  //     {
+  //         Date: '2018-04-30',
+  //         Observer: 'Gina',
+  //         Farm: 'Glezon',
+  //         Good: 70,
+  //         Bad: 35
+  //     },
+  //     {
+  //         Date: '2018-05-03',
+  //         Observer: 'Zeiger',
+  //         Farm: 'Glezon',
+  //         Good: 90,
+  //         Bad: 36
+  //     }];
   var formatComma = d3.format(",");
   var datanest = d3.nest().key(function(d) { return d.Date; })
                           .rollup(function(v) { return {
@@ -2417,20 +2417,20 @@ function unitFunction() {
 function teatFunction() {
 
   var color = Chart.helpers.color;
-  	var teat_data = [
-      {
-          Milker: "Aphrodite",Date: '03-15-2018',Score1: 15,Score2: 10,Score3: 3,Score4: 10	},
-      {
-          Milker: "Chris",Date: '03-15-2018',Score1: 11,Score2: 10,Score3: 8,Score4: 6},
-      {
-          Milker: "Terry",Date: '03-15-2018',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
-      {
-          Milker: "Zack",Date: '03-15-2018',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
-      {
-          Milker: "Kyle",Date: '03-15-2018',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
-      {
-          Milker: "Zeus",Date: '03-15-2018',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
-  	];
+  	// var teat_data = [
+    //   {
+    //       Milker: "Aphrodite",Date: '03-15-2018',Score1: 15,Score2: 10,Score3: 3,Score4: 10	},
+    //   {
+    //       Milker: "Chris",Date: '03-15-2018',Score1: 11,Score2: 10,Score3: 8,Score4: 6},
+    //   {
+    //       Milker: "Terry",Date: '03-15-2018',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+    //   {
+    //       Milker: "Zack",Date: '03-15-2018',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+    //   {
+    //       Milker: "Kyle",Date: '03-15-2018',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+    //   {
+    //       Milker: "Zeus",Date: '03-15-2018',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
+  	// ];
 
     var datanest = d3.nest()
        .key(function (d){ return d.Milker;})
