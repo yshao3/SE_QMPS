@@ -82,13 +82,16 @@ $(document).ready(function() {
         var date_3 = document.getElementById("date_3").value;
                 // console.log(date_3);
 
+        var farm_name = document.getElementById("farm").value;
+        console.log(farm_name);
+
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
 
         var settings = {
             "async": false,
             "crossDomain": true,
-            "url": "http://localhost:3000/teat?date1="+date_3+"&date2="+date_3+"&farm=123",
+            "url": "http://localhost:3000/teat?date1="+date_3+"&date2="+date_3+"&farm="+farm_name,
             "method": "GET",
             "headers": {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -313,6 +316,8 @@ $(document).ready(function() {
         
         var date_3 = document.getElementById("date_3").value;
                     console.log(date_3);
+        var farm_name = document.getElementById("farm").value;
+        console.log(farm_name);
 
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
@@ -320,7 +325,7 @@ $(document).ready(function() {
         var settings = {
             "async": false,
             "crossDomain": true,
-            "url": "http://localhost:3000/udder?date1="+date_3+"&date2="+date_3+"&farm=Dd",
+            "url": "http://localhost:3000/udder?date1="+date_3+"&date2="+date_3+"&farm="+farm_name,
             "method": "GET",
             "headers": {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -536,13 +541,16 @@ $(document).ready(function() {
     
         var date_3 = document.getElementById("date_3").value;
 
+        var farm_name = document.getElementById("farm").value;
+        console.log(farm_name);
+
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
 
         var settings = {
             "async": false,
             "crossDomain": true,
-            "url": "http://localhost:3000/unit?date1="+date_3+"&date2="+date_3+"&farm=123",
+            "url": "http://localhost:3000/unit?date1="+date_3+"&date2="+date_3+"&farm="+farm_name,
             "method": "GET",
             "headers": {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -648,13 +656,16 @@ $(document).ready(function() {
     
         var date_3 = document.getElementById("date_3").value;
 
+        var farm_name = document.getElementById("farm").value;
+        console.log(farm_name);
+
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
 
         var settings = {
             "async": false,
             "crossDomain": true,
-            "url": "http://localhost:3000/strip?date1="+date_3+"&date2="+date_3+"&farm=123",
+            "url": "http://localhost:3000/strip?date1="+date_3+"&date2="+date_3+"&farm="+farm_name,
             "method": "GET",
             "headers": {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -788,13 +799,16 @@ $(document).ready(function() {
     
         var date_3 = document.getElementById("date_3").value;
 
+        var farm_name = document.getElementById("farm").value;
+        console.log(farm_name);
+
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
 
         var settings = {
             "async": false,
             "crossDomain": true,
-            "url": "http://localhost:3000/post?date1="+date_3+"&date2="+date_3+"&farm=123",
+            "url": "http://localhost:3000/post?date1="+date_3+"&date2="+date_3+"&farm="+farm_name,
             "method": "GET",
             "headers": {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -1067,13 +1081,16 @@ $(document).ready(function() {
     
         var date_3 = document.getElementById("date_3").value;
 
+        var farm_name = document.getElementById("farm").value;
+        console.log(farm_name);
+
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
 
         var settings = {
             "async": false,
             "crossDomain": true,
-            "url": "http://localhost:3000/lacto?date1="+date_3+"&date2="+date_3+"&farm=123",
+            "url": "http://localhost:3000/lacto?date1="+date_3+"&date2="+date_3+"&farm="+farm_name,
             "method": "GET",
             "headers": {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
