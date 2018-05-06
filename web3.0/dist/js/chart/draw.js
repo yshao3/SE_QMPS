@@ -13,7 +13,7 @@ window.onload = function() {
   //  var btn2 = document.getElementById("unitDraw")
     //btn2.onclick = unitFunction;
     document.getElementById("unitDraw").onclick=function(){
-            alert("Hello WOrld");
+            alert("Hello World");
         }
     document.getElementById("udderDraw").onclick = udderFunction;
     document.getElementById("stripDraw").onclick = stripFunction;
@@ -23,10 +23,16 @@ window.onload = function() {
 }
 */
 var formatComma = d3.format(",");
+
 function convertToPercent(fraction) {
 return (fraction * 100) + '&#37;';
 }
+
 function udderFunction() {
+  if (typeof teat_data == 'undefined') {
+    // the variable is defined
+    alert("Empty dataset. Please search data!");
+  }else{
   // var udder_data = [
   // 		{
   // 				Milker: "Pen1",Date: '2018-03-15',Score1: 15,Score2: 10,Score3: 3,Score4: 10},
@@ -91,7 +97,7 @@ function udderFunction() {
   // ];
   var formatComma = d3.format(",");
   var datanest = d3.nest()
-  		.key(function (d){ return d.Date;})
+  		.key(function (d){ return d.date;})
   		.rollup(function(v){ return {
   				total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
   				percent_3_4: formatComma( (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
@@ -238,8 +244,13 @@ function udderFunction() {
   		  }
 
   		} );
-}
+}}
+
 function stripFunction() {
+  if (typeof teat_data == 'undefined') {
+    // the variable is defined
+    alert("Empty dataset. Please search data!");
+  }else{
   // var strip_data = [
   // 		{ Date: '2018-01-10', Stall_number: 1, Strip_Yields: 132, balance: "isbalanced", Majority: 0},
   // 		{ Date: '2018-01-10', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
@@ -297,7 +308,7 @@ function stripFunction() {
   // 		{ Date: '2018-04-15', Stall_number: 5, Strip_Yields: 700, balance: "isbalanced", Majority: 0}];
   var label_data = ["<150 ml", "150 ml-250 ml", ">250 ml"];
   var formatComma = d3.format(",");
-  var datanest = d3.nest().key(function(d) { return d.Date; })
+  var datanest = d3.nest().key(function(d) { return d.date; })
   .rollup(function(v){ return {
   		total: d3.sum(v, function(d) {return d.Strip_Yields;}),
   		average: d3.mean(v, function(d) {return d.Strip_Yields;}),
@@ -454,9 +465,13 @@ function stripFunction() {
       chart.zoomToIndexes(chart.dataProvider.length - 20, chart.dataProvider.length - 1);
   }
 
-}
+}}
 
 function postFunction() {
+  if (typeof teat_data == 'undefined') {
+    // the variable is defined
+    alert("Empty dataset. Please search data!");
+  }else{
   // var post_data = [
   //     {
   //         Group: 1,
@@ -1166,7 +1181,7 @@ function postFunction() {
   //         }
   //     }];
       var datanest = d3.nest()
-                .key(function (d){ return d.Date;})
+                .key(function (d){ return d.date;})
                 .rollup(function(v){ return {
                     Total_Scored: d3.sum(v, function(d) {return d.Group;}),
                     Total_TSC_Abnormal: d3.sum(v, function(d){return d.TSC.LH != 'N' || d.TSC.LF != 'N' || d.TSC.RH != 'N' || d.TSC.RF != 'N'}),
@@ -1400,12 +1415,8 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                 function zoomChart(){
                     chart.zoomToIndexes(chart.dataProvider.length - 20, chart.dataProvider.length - 1);
                 }
-
-
-
-
-}
-var lacto_data = [
+}}
+// var lacto_data = [
 //     {
 //         Farm: "Zeus",
 //         Date: '03-15-2018',
@@ -1811,44 +1822,51 @@ var lacto_data = [
 //         Remark: "N/A"
 //     }
 // ];
+
 function lactoFunction() {
+  if (typeof teat_data == 'undefined') {
+    // the variable is defined
+    alert("Empty dataset. Please search data!");
+  }else{
     var datanest = d3.nest()
-        .key(function (d){ return d.Date;})
-        .rollup(function(v){ return {
-            average_lag: d3.mean(v, function(d) {return d.Lag_Time;}),
-            average_unit: d3.mean(v, function(d) {return d.Unit_Time;}),
+    .key(function (d){ return d.date;})
+    .rollup(function(v){ return {
+        average_lag: d3.mean(v, function(d) {return d.Lag_Time;}),
+        average_unit: d3.mean(v, function(d) {return d.Unit_Time;}),
 
-            average_dip: d3.mean(v, function(d) {return d.Dip_Time;}),
+        average_dip: d3.mean(v, function(d) {return d.Dip_Time;}),
 
-            min_dip: d3.min(v, function(d) {return d.Dip_Time;}),
-            min_lag: d3.min(v, function(d) {return d.Lag_Time;}),
-            min_unit: d3.min(v, function(d) {return d.Unit_Time;}),
+        min_dip: d3.min(v, function(d) {return d.Dip_Time;}),
+        min_lag: d3.min(v, function(d) {return d.Lag_Time;}),
+        min_unit: d3.min(v, function(d) {return d.Unit_Time;}),
 
-            max_dip: d3.max(v, function(d) {return d.Dip_Time;}),
-            max_lag: d3.max(v, function(d) {return d.Lag_Time;}),
-            max_unit: d3.max(v, function(d) {return d.Unit_Time;})
+        max_dip: d3.max(v, function(d) {return d.Dip_Time;}),
+        max_lag: d3.max(v, function(d) {return d.Lag_Time;}),
+        max_unit: d3.max(v, function(d) {return d.Unit_Time;})
+    };})
+    .entries(lacto_data);
 
-        };})
-        .entries(lacto_data);
-  console.log(datanest);
+    console.log(datanest);
+
     var lactoset = [];
     for(var i = 0; i < datanest.length; i ++){
       console.log(i);
-       var token = {};
-       token.date = datanest[i].key;
-      // console.log(datanest[i].value.average_dip);
-       token.adip = Math.round(datanest[i].value.average_dip);
-       token.alag = Math.round(datanest[i].value.average_lag);
-       token.aunit = Math.round(datanest[i].value.average_unit);
-       token.ldip = Math.round(datanest[i].value.min_dip);
-       token.llag = Math.round(datanest[i].value.min_lag);
-       token.lunit = Math.round(datanest[i].value.min_unit);
-       token.hdip = Math.round(datanest[i].value.max_dip);
-       token.hlag = Math.round(datanest[i].value.max_lag);
-       token.hunit = Math.round(datanest[i].value.max_unit);
-       lactoset.push(token);
-       console.log(token);
-     }
+      var token = {};
+      token.date = datanest[i].key;
+    // console.log(datanest[i].value.average_dip);
+      token.adip = Math.round(datanest[i].value.average_dip);
+      token.alag = Math.round(datanest[i].value.average_lag);
+      token.aunit = Math.round(datanest[i].value.average_unit);
+      token.ldip = Math.round(datanest[i].value.min_dip);
+      token.llag = Math.round(datanest[i].value.min_lag);
+      token.lunit = Math.round(datanest[i].value.min_unit);
+      token.hdip = Math.round(datanest[i].value.max_dip);
+      token.hlag = Math.round(datanest[i].value.max_lag);
+      token.hunit = Math.round(datanest[i].value.max_unit);
+      lactoset.push(token);
+      console.log(token);
+    }
+
   var chart = AmCharts.makeChart( "lactocanvas", {
     "type": "serial",
     "theme": "light",
@@ -2062,10 +2080,11 @@ function lactoFunction() {
     "export": {
       "enabled": true
     }
-
   } );
-}
+}}
+
 function unitFunction() {
+
   // var unit_data = [
   //   {
   //       Date: '2017-11-31',
@@ -2298,8 +2317,14 @@ function unitFunction() {
   //         Good: 90,
   //         Bad: 36
   //     }];
+
+  if (typeof teat_data == 'undefined') {
+    // the variable is defined
+    alert("Empty dataset. Please search data!");
+  }else{
+
   var formatComma = d3.format(",");
-  var datanest = d3.nest().key(function(d) { return d.Date; })
+  var datanest = d3.nest().key(function(d) { return d.date; })
                           .rollup(function(v) { return {
                               total: d3.sum(v, function(d) { return d.Good + d.Bad; }),
                               good: formatComma(d3.sum(v, function(d) { return d.Good; })/d3.sum(v, function(d) { return d.Good + d.Bad; }) * 100),
@@ -2412,9 +2437,14 @@ function unitFunction() {
      "dataProvider": unitset
   });
 }
-
+}
 
 function teatFunction() {
+
+  if (typeof teat_data == 'undefined') {
+    // the variable is defined
+    alert("Empty dataset. Please search data!");
+  }else{
 
   var color = Chart.helpers.color;
   	// var teat_data = [
@@ -2490,7 +2520,7 @@ function teatFunction() {
 
     } );
 
-
+  }
     //
     //
     //
