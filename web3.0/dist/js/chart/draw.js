@@ -185,16 +185,6 @@ function udderFunction() {
       // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
       chart.zoomToIndexes(udderset.length - 40, udderset.length - 1);
   }
-
-
-  		var dataset = [];
-  		var parseTime = d3.timeParse("%Y-%m-%d");
-
-  	    var d = parseTime('2018-03-14');
-
-  		// var parseDate = d3.timeFormat("%Y-%m-%d").parse;
-  		// var d = parseDate('2018-03-14');
-
   		var chart = AmCharts.makeChart( "uddercanvas2", {
   		  "type": "serial",
   		  "theme": "light",
@@ -1405,7 +1395,7 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
 
 
 }
-var lacto_data = [
+// var lacto_data = [
 //     {
 //         Farm: "Zeus",
 //         Date: '03-15-2018',
@@ -2065,239 +2055,240 @@ function lactoFunction() {
 
   } );
 }
-function unitFunction() {
-  // var unit_data = [
-  //   {
-  //       Date: '2017-11-31',
-  //       Observer: 'Jone',
-  //       Farm: 'Glezon',
-  //       Good: 132,
-  //       Bad: 21
-  //   },
-  //   {
-  //       Date: '2017-12-04',
-  //       Observer: 'Alex',
-  //       Farm: 'Glezon',
-  //       Good: 99,
-  //       Bad: 31
-  //   },
-  //   {
-  //       Date: '2017-12-16',
-  //       Observer: 'Gina',
-  //       Farm: 'Glezon',
-  //       Good: 70,
-  //       Bad: 35
-  //   },
-  //     {
-  //         Date: '2017-12-22',
-  //         Observer: 'Jone',
-  //         Farm: 'Glezon',
-  //         Good: 132,
-  //         Bad: 21
-  //     },
-  //     {
-  //         Date: '2018-01-15',
-  //         Observer: 'Alex',
-  //         Farm: 'Glezon',
-  //         Good: 99,
-  //         Bad: 31
-  //     },
-  //     {
-  //         Date: '2018-02-02',
-  //         Observer: 'Gina',
-  //         Farm: 'Glezon',
-  //         Good: 70,
-  //         Bad: 35
-  //     },
-  //     {
-  //         Date: '2018-02-05',
-  //         Observer: 'Jone',
-  //         Farm: 'Glezon',
-  //         Good: 132,
-  //         Bad: 21
-  //     },
-  //     {
-  //         Date: '2018-02-06',
-  //         Observer: 'Gina',
-  //         Farm: 'Glezon',
-  //         Good: 70,
-  //         Bad: 35
-  //     },
-  //     {
-  //         Date: '2018-02-07',
-  //         Observer: 'Jone',
-  //         Farm: 'Glezon',
-  //         Good: 132,
-  //         Bad: 21
-  //     },
-  //     {
-  //         Date: '2018-02-08',
-  //         Observer: 'Gina',
-  //         Farm: 'Glezon',
-  //         Good: 70,
-  //         Bad: 35
-  //     },
-  //     {
-  //         Date: '2018-02-09',
-  //         Observer: 'Jone',
-  //         Farm: 'Glezon',
-  //         Good: 132,
-  //         Bad: 21
-  //     },
-  //     {
-  //         Date: '2018-02-10',
-  //         Observer: 'Gina',
-  //         Farm: 'Glezon',
-  //         Good: 70,
-  //         Bad: 35
-  //     },
-  //     {
-  //         Date: '2018-02-13',
-  //         Observer: 'Jone',
-  //         Farm: 'Glezon',
-  //         Good: 132,
-  //         Bad: 21
-  //     },
-  //     {
-  //         Date: '2018-02-15',
-  //         Observer: 'Gina',
-  //         Farm: 'Glezon',
-  //         Good: 70,
-  //         Bad: 35
-  //     },
-  //     {
-  //         Date: '2018-02-16',
-  //         Observer: 'Jone',
-  //         Farm: 'Glezon',
-  //         Good: 132,
-  //         Bad: 21
-  //     },
-  //     {
-  //         Date: '2018-02-19',
-  //         Observer: 'Gina',
-  //         Farm: 'Glezon',
-  //         Good: 70,
-  //         Bad: 35
-  //     },
-  //     {
-  //         Date: '2018-02-25',
-  //         Observer: 'Jone',
-  //         Farm: 'Glezon',
-  //         Good: 132,
-  //         Bad: 21
-  //     },
-  //     {
-  //         Date: '2018-03-01',
-  //         Observer: 'Alex',
-  //         Farm: 'Glezon',
-  //         Good: 99,
-  //         Bad: 31
-  //     },
-  //     {
-  //         Date: '2018-03-05',
-  //         Observer: 'Gina',
-  //         Farm: 'Glezon',
-  //         Good: 70,
-  //         Bad: 35
-  //     },
-  //     {
-  //         Date: '2018-03-06',
-  //         Observer: 'Jone',
-  //         Farm: 'Glezon',
-  //         Good: 132,
-  //         Bad: 21
-  //     },
-  //     {
-  //         Date: '2018-03-15',
-  //         Observer: 'Alex',
-  //         Farm: 'Glezon',
-  //         Good: 99,
-  //         Bad: 31
-  //     },
-  //     {
-  //         Date: '2018-03-16',
-  //         Observer: 'Gina',
-  //         Farm: 'Glezon',
-  //         Good: 70,
-  //         Bad: 35
-  //     },
-  //     {
-  //         Date: '2018-03-17',
-  //         Observer: 'Jone',
-  //         Farm: 'Glezon',
-  //         Good: 132,
-  //         Bad: 21
-  //     },
-  //     {
-  //         Date: '2018-04-10',
-  //         Observer: 'Alex',
-  //         Farm: 'Glezon',
-  //         Good: 99,
-  //         Bad: 31
-  //     },
-  //     {
-  //         Date: '2018-04-21',
-  //         Observer: 'Gina',
-  //         Farm: 'Glezon',
-  //         Good: 70,
-  //         Bad: 35
-  //     },
-  //     {
-  //         Date: '2018-04-22',
-  //         Observer: 'Jone',
-  //         Farm: 'Glezon',
-  //         Good: 132,
-  //         Bad: 21
-  //     },
-  //     {
-  //         Date: '2018-04-23',
-  //         Observer: 'Alex',
-  //         Farm: 'Glezon',
-  //         Good: 99,
-  //         Bad: 31
-  //     },
-  //     {
-  //         Date: '2018-04-24',
-  //         Observer: 'Gina',
-  //         Farm: 'Glezon',
-  //         Good: 70,
-  //         Bad: 35
-  //     },
-  //     {
-  //         Date: '2018-04-25',
-  //         Observer: 'Irine',
-  //         Farm: 'Glezon',
-  //         Good: 65,
-  //         Bad: 10
-  //     },
-  //     {
-  //         Date: '2018-04-26',
-  //         Observer: 'Jone',
-  //         Farm: 'Glezon',
-  //         Good: 132,
-  //         Bad: 21
-  //     },
-  //     {
-  //         Date: '2018-04-30',
-  //         Observer: 'Alex',
-  //         Farm: 'Glezon',
-  //         Good: 99,
-  //         Bad: 31
-  //     },
-  //     {
-  //         Date: '2018-04-30',
-  //         Observer: 'Gina',
-  //         Farm: 'Glezon',
-  //         Good: 70,
-  //         Bad: 35
-  //     },
-  //     {
-  //         Date: '2018-05-03',
-  //         Observer: 'Zeiger',
-  //         Farm: 'Glezon',
-  //         Good: 90,
-  //         Bad: 36
-  //     }];
+
+  function unitFunction(){
+  var unit_data = [
+    {
+        Date: '2017-11-31',
+        Observer: 'Jone',
+        Farm: 'Glezon',
+        Good: 132,
+        Bad: 21
+    },
+    {
+        Date: '2017-12-04',
+        Observer: 'Alex',
+        Farm: 'Glezon',
+        Good: 99,
+        Bad: 31
+    },
+    {
+        Date: '2017-12-16',
+        Observer: 'Gina',
+        Farm: 'Glezon',
+        Good: 70,
+        Bad: 35
+    },
+      {
+          Date: '2017-12-22',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-01-15',
+          Observer: 'Alex',
+          Farm: 'Glezon',
+          Good: 99,
+          Bad: 31
+      },
+      {
+          Date: '2018-02-02',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-02-05',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-02-06',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-02-07',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-02-08',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-02-09',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-02-10',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-02-13',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-02-15',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-02-16',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-02-19',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-02-25',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-03-01',
+          Observer: 'Alex',
+          Farm: 'Glezon',
+          Good: 99,
+          Bad: 31
+      },
+      {
+          Date: '2018-03-05',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-03-06',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-03-15',
+          Observer: 'Alex',
+          Farm: 'Glezon',
+          Good: 99,
+          Bad: 31
+      },
+      {
+          Date: '2018-03-16',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-03-17',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-04-10',
+          Observer: 'Alex',
+          Farm: 'Glezon',
+          Good: 99,
+          Bad: 31
+      },
+      {
+          Date: '2018-04-21',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-04-22',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-04-23',
+          Observer: 'Alex',
+          Farm: 'Glezon',
+          Good: 99,
+          Bad: 31
+      },
+      {
+          Date: '2018-04-24',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-04-25',
+          Observer: 'Irine',
+          Farm: 'Glezon',
+          Good: 65,
+          Bad: 10
+      },
+      {
+          Date: '2018-04-26',
+          Observer: 'Jone',
+          Farm: 'Glezon',
+          Good: 132,
+          Bad: 21
+      },
+      {
+          Date: '2018-04-30',
+          Observer: 'Alex',
+          Farm: 'Glezon',
+          Good: 99,
+          Bad: 31
+      },
+      {
+          Date: '2018-04-30',
+          Observer: 'Gina',
+          Farm: 'Glezon',
+          Good: 70,
+          Bad: 35
+      },
+      {
+          Date: '2018-05-03',
+          Observer: 'Zeiger',
+          Farm: 'Glezon',
+          Good: 90,
+          Bad: 36
+      }];
   var formatComma = d3.format(",");
   var datanest = d3.nest().key(function(d) { return d.date; })
                           .rollup(function(v) { return {
@@ -2411,12 +2402,19 @@ function unitFunction() {
     },
      "dataProvider": unitset
   });
+
 }
 
 
 function teatFunction() {
 
-  var color = Chart.helpers.color;
+  if(searchcheck == false) {
+     alert("Empty dataset! Please search first!");
+  }
+  else{
+console.log(teat_data);
+//console.log(res);
+//  var color = Chart.helpers.color;
   	// var teat_data = [
     //   {
     //       Milker: "Aphrodite",Date: '03-15-2018',Score1: 15,Score2: 10,Score3: 3,Score4: 10	},
@@ -2489,7 +2487,7 @@ function teatFunction() {
       }
 
     } );
-
+}
 
     //
     //

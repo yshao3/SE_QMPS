@@ -17,7 +17,7 @@
     <title>Teat Cleaniness</title>
 
     <script src="../vendor/jquery/jquery.min.js"></script>
-    
+
     <!-- D3-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -229,13 +229,13 @@
                         <div class="form-group">
                             Farm:
                         <select id="farm" class="form-control">
-                            <option>a</option>
-                            <option>b</option>
-                            <option>c</option>
-                            <option>d</option>
-                            <option>e</option>
-                            <option>f</option>
-                            <option>g</option>
+                            <option>A</option>
+                                <option>B</option>
+                                <option>C</option>
+                                <option>D</option>
+                                <option>E</option>
+                                <option>F</option>
+                                <option>G</option>
                         </select>
                         </div>
                     </div>
@@ -286,29 +286,30 @@
             localStorage.setItem("password","");
             window.location = "index.html";
         }
-
+        var searchcheck = false;
         var teat_data;
         var columns = ['Date', 'Total', 'Percent 3 & 4'];
-        
+
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
         // console.log(username);
 
         $("#createbutton").click(function createTable() {
-
+            searchcheck = true;
             var date_1 = document.getElementById("date_1").value;
             console.log(date_1);
 
             var date_2 = document.getElementById("date_2").value;
-            console.log(date_2);
-            
+            var farm = document.getElementById("farm").value;
+            console.log(farm);
+
             var username = localStorage.getItem("username");
             var password = localStorage.getItem("password");
 
             var settings = {
                 "async": false,
                 "crossDomain": true,
-                "url": "http://localhost:3000/teat?date1="+date_1+"&date2="+date_2+"&farm=123",
+                "url": "http://localhost:3000/teat?date1="+date_1+"&date2="+date_2+"&farm="+farm,
                 "method": "GET",
                 "headers": {
                     'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -323,7 +324,7 @@
                 res = response;
             });
             console.log(res);
-        
+
 
             if (res[0] == false){
                 window.location = "index.html";
@@ -339,15 +340,15 @@
                 teat_data = res[1];
 
                 var teat_data_summary = d3.nest()
-                    .key(function (d){ return d.Date;})
+                    .key(function (d){ return d.date;})
                     .rollup(function(v){ return {
                         total: d3.sum(v, function(d) {return d.clean + d.dip_present + d.small_dirt + d.large_dirt;}),
                         percent_3_4: d3.sum(v, function (d){ return d.small_dirt + d.large_dirt;}) / d3.sum(v, function(d) {return d.clean + d.dip_present + d.small_dirt + d.large_dirt;})
                         //percent_4: d3.sum(v, function (d){ return d.Large_Dirt;}) / d3.sum(v, function(d) {return d.Clean + d.Dirt_Present + d.Small_Dirt + d.Large_Dirt;}),
                     };})
                     .entries(teat_data);
-                
-                
+
+
                 console.log(teat_data_summary);
 
                 var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
@@ -366,7 +367,7 @@
                     .enter()
                     .append('tr')
 
-                
+
                 var teat_data_length = teat_data_summary.length;
                 console.log(teat_data_length);
 
@@ -380,13 +381,28 @@
                     .text(teat_data_summary[i].value.total);
                     var td = tr.append('td')
                     .text(teat_data_summary[i].value.percent_3_4);
-                    
-                    
+
+
                 }
 
-            }); 
-            
+            });
+
         });
+
+       teat_data = [
+          {
+              Milker: "Aphrodite",Date: '03-15-2018',Score1: 15,Score2: 10,Score3: 3,Score4: 10	},
+          {
+              Milker: "Chris",Date: '03-15-2018',Score1: 11,Score2: 10,Score3: 8,Score4: 6},
+          {
+              Milker: "Terry",Date: '03-15-2018',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+          {
+              Milker: "Zack",Date: '03-15-2018',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+          {
+              Milker: "Kyle",Date: '03-15-2018',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+          {
+              Milker: "Zeus",Date: '03-15-2018',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
+      	];
     </script>
 
     <!-- jQuery -->
