@@ -1405,716 +1405,665 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
 
 
 }
+var lacto_data = [
+    {
+        Farm: "Zeus",
+        Date: '03-15-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 0456,
+        Stall: 1,
+        // Dip: "12:00:00 AM",
+        // Strip: "12:00:39 AM",
+        // Wipe: "12:01:05 AM",
+        // Attach: "12:01:52 AM",
+        // Remove: "12:03:00 AM",
+        Dip_Time: 29,
+        Lag_Time : 93,
+        Unit_Time : 78,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-15-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 0110,
+        Stall: 1,
+        Dip_Time: 60,
+        Lag_Time : 54,
+        Unit_Time : 28,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-16-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 1026,
+        Stall: 1,
+        Dip_Time: 76,
+        Lag_Time : 84,
+        Unit_Time : 78,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-16-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 0960,
+        Stall: 1,
+        Dip_Time: 49,
+        Lag_Time : 34,
+        Unit_Time : 78,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-16-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 0126,
+        Stall: 1,
+        Dip_Time: 35,
+        Lag_Time : 34,
+        Unit_Time : 33,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-17-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 1230,
+        Stall: 2,
+        Dip_Time: 59,
+        Lag_Time : 85,
+        Unit_Time : 37,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-17-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 8821,
+        Stall: 2,
+        Dip_Time: 43,
+        Lag_Time : 23,
+        Unit_Time : 78,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-18-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 2024,
+        Stall: 2,
+        Dip_Time: 40,
+        Lag_Time : 89,
+        Unit_Time : 45,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-18-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 0091,
+        Stall: 2,
+        Dip_Time: 35,
+        Lag_Time : 83,
+        Unit_Time : 47,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-18-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 0330,
+        Stall: 2,
+        Dip_Time: 39,
+        Lag_Time : 44,
+        Unit_Time : 65,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-19-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 0035,
+        Stall: 3,
+        Dip_Time: 30,
+        Lag_Time : 77,
+        Unit_Time : 41,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },{
+        Farm: "Zeus",
+        Date: '03-19-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 0256,
+        Stall: 3,
+        Dip_Time: 64,
+        Lag_Time : 43,
+        Unit_Time : 78,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-19-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 1204,
+        Stall: 3,
+        Dip_Time: 32,
+        Lag_Time : 55,
+        Unit_Time : 28,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-20-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 5610,
+        Stall: 3,
+        Dip_Time: 69,
+        Lag_Time : 44,
+        Unit_Time : 38,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-20-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 0604,
+        Stall: 4,
+        Dip_Time: 59,
+        Lag_Time : 34,
+        Unit_Time : 78,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-20-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 3456,
+        Stall: 4,
+        Dip_Time: 59,
+        Lag_Time : 34,
+        Unit_Time : 78,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-21-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 1256,
+        Stall: 4,
+        Dip_Time: 20,
+        Lag_Time : 46,
+        Unit_Time : 68,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-21-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 156,
+        Stall: 4,
+        Dip_Time: 49,
+        Lag_Time : 14,
+        Unit_Time : 78,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-21-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 996,
+        Stall: 5,
+        Dip_Time: 23,
+        Lag_Time : 34,
+        Unit_Time : 78,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-22-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Cow: 1216,
+        Stall: 5,
+        Dip_Time: 54,
+        Lag_Time : 54,
+        Unit_Time : 56,
+        Total_Milk: 200,
+        Remark: "N/A"
+    },
+    {
+        Farm: "Zeus",
+        Date: '03-22-2018',
+        Parlor_Type: "Mega",
+        Pre_milking: "True",
+        Herd_Size: 10,
+        Size: 5,
+        Procedures: "Normal",
+        Milking_Frequency: "2X",
+        No_Operations: 20,
+        Prep: "False",
+        Stall : 5,
+        Cow: 459,
+        Stall: 5,
+        Dip_Time: 45,
+        Lag_Time : 44,
+        Unit_Time : 98,
+        Total_Milk: 200,
+        Remark: "N/A"
+    }
+];
 function lactoFunction() {
-  var color = Chart.helpers.color;
-	var lacto_data = [
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 0456,
-          Stall: 1,
-					Dip: "12:00:00 AM",
-					Strip: "12:00:39 AM",
-					Wipe: "12:01:05 AM",
-					Attach: "12:01:52 AM",
-					Remove: "12:03:00 AM",
-          lt1: 29,
-          lt2 : 93,
-          lt3 : 78,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 0110,
-          Stall: 1,
-					Dip: "12:00:10 AM",
-					Strip: "12:01:50 AM",
-					Wipe: "12:02:46 AM",
-					Attach: "12:04:02 AM",
-					Remove: "12:06:17 AM",
-          lt1: 60,
-          lt2 : 54,
-          lt3 : 28,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 1026,
-          Stall: 1,
-					Dip: "12:01:30 AM",
-					Strip: "12:03:15 AM",
-					Wipe: "12:04:33 AM",
-					Attach: "12:06:40 AM",
-					Remove: "12:08:15 AM",
-          lt1: 76,
-          lt2 : 84,
-          lt3 : 78,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 0960,
-          Stall: 1,
-					Dip: "12:01:30 AM",
-					Strip: "12:03:15 AM",
-					Wipe: "12:04:33 AM",
-					Attach: "12:06:40 AM",
-					Remove: "12:08:15 AM",
-          lt1: 49,
-          lt2 : 34,
-          lt3 : 78,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 0126,
-          Stall: 1,
-					Dip: "12:00:00 AM",
-					Strip: "12:00:39 AM",
-					Wipe: "12:01:05 AM",
-					Attach: "12:01:52 AM",
-					Remove: "12:03:00 AM",
-          lt1: 35,
-          lt2 : 34,
-          lt3 : 33,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 1230,
-          Stall: 2,
-					Dip: "12:01:30 AM",
-					Strip: "12:03:15 AM",
-					Wipe: "12:04:33 AM",
-					Attach: "12:06:40 AM",
-					Remove: "12:08:15 AM",
-          lt1: 59,
-          lt2 : 85,
-          lt3 : 37,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 8821,
-          Stall: 2,
-					Dip: "12:01:30 AM",
-					Strip: "12:03:15 AM",
-					Wipe: "12:04:33 AM",
-					Attach: "12:06:40 AM",
-					Remove: "12:08:15 AM",
-          lt1: 43,
-          lt2 : 23,
-          lt3 : 78,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 2024,
-          Stall: 2,
-					Dip: "12:00:00 AM",
-					Strip: "12:00:39 AM",
-					Wipe: "12:01:05 AM",
-					Attach: "12:01:52 AM",
-					Remove: "12:03:00 AM",
-          lt1: 40,
-          lt2 : 89,
-          lt3 : 45,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 0091,
-          Stall: 2,
-					Dip: "12:00:00 AM",
-					Strip: "12:00:39 AM",
-					Wipe: "12:01:05 AM",
-					Attach: "12:01:52 AM",
-					Remove: "12:03:00 AM",
-          lt1: 35,
-          lt2 : 83,
-          lt3 : 47,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 0330,
-          Stall: 2,
-					Dip: "12:00:10 AM",
-					Strip: "12:01:50 AM",
-					Wipe: "12:02:46 AM",
-					Attach: "12:04:02 AM",
-					Remove: "12:06:17 AM",
-          lt1: 39,
-          lt2 : 44,
-          lt3 : 65,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 0035,
-          Stall: 3,
-					Dip: "12:00:00 AM",
-					Strip: "12:00:39 AM",
-					Wipe: "12:01:05 AM",
-					Attach: "12:01:52 AM",
-					Remove: "12:03:00 AM",
-          lt1: 30,
-          lt2 : 77,
-          lt3 : 41,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 0256,
-          Stall: 3,
-					Dip: "12:00:10 AM",
-					Strip: "12:01:50 AM",
-					Wipe: "12:02:46 AM",
-					Attach: "12:04:02 AM",
-					Remove: "12:06:17 AM",
-          lt1: 64,
-          lt2 : 43,
-          lt3 : 78,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 1204,
-          Stall: 3,
-					Dip: "12:00:00 AM",
-					Strip: "12:00:39 AM",
-					Wipe: "12:01:05 AM",
-					Attach: "12:01:52 AM",
-					Remove: "12:03:00 AM",
-          lt1: 32,
-          lt2 : 55,
-          lt3 : 28,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 5610,
-          Stall: 3,
-					Dip: "12:00:00 AM",
-					Strip: "12:00:39 AM",
-					Wipe: "12:01:05 AM",
-					Attach: "12:01:52 AM",
-					Remove: "12:03:00 AM",
-          lt1: 69,
-          lt2 : 44,
-          lt3 : 38,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 0604,
-          Stall: 4,
-					Dip: "12:00:10 AM",
-					Strip: "12:01:50 AM",
-					Wipe: "12:02:46 AM",
-					Attach: "12:04:02 AM",
-					Remove: "12:06:17 AM",
-          lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 3456,
-          Stall: 4,
-					Dip: "12:00:10 AM",
-					Strip: "12:01:50 AM",
-					Wipe: "12:03:46 AM",
-					Attach: "12:05:02 AM",
-					Remove: "12:08:17 AM",
-          lt1: 59,
-          lt2 : 34,
-          lt3 : 78,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 1256,
-          Stall: 4,
-					Dip: "12:00:10 AM",
-					Strip: "12:03:50 AM",
-					Wipe: "12:04:46 AM",
-					Attach: "12:05:02 AM",
-					Remove: "12:06:17 AM",
-          lt1: 20,
-          lt2 : 46,
-          lt3 : 68,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 156,
-          Stall: 4,
-					Dip: "12:02:10 AM",
-					Strip: "12:05:50 AM",
-					Wipe: "12:06:46 AM",
-					Attach: "12:08:02 AM",
-					Remove: "12:10:17 AM",
-          lt1: 49,
-          lt2 : 14,
-          lt3 : 78,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 996,
-          Stall: 5,
-					Dip: "12:00:10 AM",
-					Strip: "12:01:50 AM",
-					Wipe: "12:02:46 AM",
-					Attach: "12:04:02 AM",
-					Remove: "12:06:17 AM",
-          lt1: 23,
-          lt2 : 34,
-          lt3 : 78,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-					Cow: 1216,
-          Stall: 5,
-					Dip: "12:00:10 AM",
-					Strip: "12:01:50 AM",
-					Wipe: "12:02:46 AM",
-					Attach: "12:04:02 AM",
-					Remove: "12:06:17 AM",
-          lt1: 50,
-          lt2 : 54,
-          lt3 : 56,
-					Total_Milk: 200,
-					Remark: "N/A"
-			},
-			{
-					Farm: "Zeus",
-					Date: '03-15-2018',
-					Parlor_Type: "Mega",
-					Pre_milking: "True",
-					Herd_Size: 10,
-					Size: 5,
-					Procedures: "Normal",
-					Milking_Frequency: "2X",
-					No_Operations: 20,
-					Prep: "False",
-          Stall : 5,
-					Cow: 459,
-          Stall: 5,
-					Dip: "12:00:00 AM",
-					Strip: "12:00:39 AM",
-					Wipe: "12:01:05 AM",
-					Attach: "12:01:52 AM",
-					Remove: "12:03:00 AM",
-          lt1: 45,
-          lt2 : 44,
-          lt3 : 98,
-					Total_Milk: 200,
-					Remark: "N/A"
-			}
-	];
-//  dip_contact_time time,
-//lag_contact_stimulate time,
-//unit_on_time integer,
+    var datanest = d3.nest()
+        .key(function (d){ return d.Date;})
+        .rollup(function(v){ return {
+            average_lag: d3.mean(v, function(d) {return d.Lag_Time;}),
+            average_unit: d3.mean(v, function(d) {return d.Unit_Time;}),
 
-	function caldiff(ary1, ary2){
-		var minsdiff=parseInt(ary2[0],10)*60+parseInt(ary2[1],10)*60+parseInt(ary2[2],10)-parseInt(ary1[0],10)*60-parseInt(ary1[1],10)*60-parseInt(ary1[2],10);
-		return minsdiff;
-	}
-  var stallset = [];
+            average_dip: d3.mean(v, function(d) {return d.Dip_Time;}),
 
-  function isExist(st){
-    var stallExists = -1;
-    for (var i = 0; i < stallset.length;) {
-      if (stallset[i].stl == st) {
-          stallExists = i;
+            min_dip: d3.min(v, function(d) {return d.Dip_Time;}),
+            min_lag: d3.min(v, function(d) {return d.Lag_Time;}),
+            min_unit: d3.min(v, function(d) {return d.Unit_Time;}),
 
-        }
-        i++;
+            max_dip: d3.max(v, function(d) {return d.Dip_Time;}),
+            max_lag: d3.max(v, function(d) {return d.Lag_Time;}),
+            max_unit: d3.max(v, function(d) {return d.Unit_Time;})
+
+        };})
+        .entries(lacto_data);
+  console.log(datanest);
+    var lactoset = [];
+    for(var i = 0; i < datanest.length; i ++){
+      console.log(i);
+       var token = {};
+       token.date = datanest[i].key;
+      // console.log(datanest[i].value.average_dip);
+       token.adip = Math.round(datanest[i].value.average_dip);
+       token.alag = Math.round(datanest[i].value.average_lag);
+       token.aunit = Math.round(datanest[i].value.average_unit);
+       token.ldip = Math.round(datanest[i].value.min_dip);
+       token.llag = Math.round(datanest[i].value.min_lag);
+       token.lunit = Math.round(datanest[i].value.min_unit);
+       token.hdip = Math.round(datanest[i].value.max_dip);
+       token.hlag = Math.round(datanest[i].value.max_lag);
+       token.hunit = Math.round(datanest[i].value.max_unit);
+       lactoset.push(token);
+       console.log(token);
+     }
+  var chart = AmCharts.makeChart( "lactocanvas", {
+    "type": "serial",
+    "theme": "light",
+    "titles": [{
+        "text": "LactoCoder Record Summary",
+        "size": 15
+    }],
+    "dataDateFormat": "MM-DD-YYYY",
+    //set up 3d angle - 20
+    "depth3D": 0,
+    "angle": 30,
+    "legend": {
+      "horizontalGap": 10,
+      "useGraphSettings": true,
+      "markerSize": 10
+    },
+    "dataProvider": lactoset,
+    "valueAxes": [ {
+      "id": "v1",
+      "title": "Time duration",
+      "position": "left",
+      "stackType": "regular",
+      //设置坐标轴宽度
+      "axisAlpha": 1,
+      "gridAlpha": 0,
+      "labelFunction": function(value) {
+        return value + "s";
+      }
+    }, {
+    "id": "v2",
+    "title": "Date",
+    //ALPHA宽度设定
+    "gridAlpha": 0,
+
+    "position": "bottom",
+    "autoGridCount": false
+  }],
+    "graphs": [ {
+      "balloonText": "[[title]]" + " " + "[[value]]"+"s",
+      "fillAlphas": 1,
+      "labelText": "[[value]]",
+      "lineAlpha": 0.3,
+      "title": "Dip Contact-Min",
+      "type": "column",
+      "lineColor": "#ffffb3",
+      "fillColors": "#ffffb3",
+      //"color": "#ffffb3",
+      "valueField": "ldip"
+    }, {
+      "balloonText": "[[title]]" + " " + "[[value]]"+"s",
+      "fillAlphas": 1,
+      "labelText": "[[value]]",
+      "lineAlpha": 0.3,
+      "title": "Lag Time-Min",
+      "type": "column",
+      //平铺legend
+      "newStack": true,
+      "lineColor": "#c3fdff",
+      "fillColors": "#c3fdff",
+      //"color": "#c3fdff",
+      "valueField": "llag"
+    }, {
+      "balloonText": "[[title]]" + " " + "[[value]]"+"s",
+      "fillAlphas": 1,
+      "labelText": "[[value]]",
+      "lineAlpha": 0.3,
+      "title": "Unit on Time-Min",
+      "type": "column",
+      "newStack": true,
+      "lineColor": "#ffddc1",
+      "fillColors": "#ffddc1",
+      //"color": "#ffddc1",
+      "valueField": "lunit"
+    }, {
+      "balloonText": "[[title]]" + " " + "[[value]]"+"s",
+      "fillAlphas": 0.8,
+      "labelText": "[[value]]",
+      "lineAlpha": 0.3,
+      "title": "Dip Contact-Max",
+      "type": "column",
+      "newStack": true,
+      "lineColor": "#caae53",
+      "fillColors": "#caae53",
+      //"color": "#caae53",
+      "valueField": "hdip"
+    }, {
+      "balloonText": "[[title]]" + " " + "[[value]]"+"s",
+      "fillAlphas": 0.8,
+      "labelText": "[[value]]",
+      "lineAlpha": 0.3,
+      "title": "Lag Time-Max",
+      "type": "column",
+      "newStack": true,
+      "lineColor": "#5d99c6",
+      "fillColors": "#5d99c6",
+      //"color": "#5d99c6",
+      "valueField": "hlag"
+    }, {
+      "balloonText": "[[title]]" + " " + "[[value]]"+"s",
+      "fillAlphas": 0.8,
+      "labelText": "[[value]]",
+      "lineAlpha": 0.3,
+      "title": "Unit on Time-Max",
+      "type": "column",
+      "newStack": true,
+      "lineColor": "#c97b63",
+      "fillColors": "#c97b63",
+      //"color": "#000000",
+      "valueField": "hunit"
+    },{
+    "id": "avgdip",
+    "valueAxis": "v1",
+    "bullet": "round",
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "bulletSize": 5,
+    "hideBulletsCount": 50,
+    "lineThickness": 2,
+    "lineColor": "#ffe082",
+    "type": "smoothedLine",
+    "title": "Dip Contact-Average",
+    "useLineColorForBulletBorder": true,
+    "valueField": "adip",
+    "balloonText": "[[title]]" + " " + "[[value]]"+"s"
+  },{
+  "id": "avglag",
+  "valueAxis": "v1",
+  "bullet": "round",
+  "bulletBorderAlpha": 1,
+  "bulletColor": "#FFFFFF",
+  "bulletSize": 5,
+  "hideBulletsCount": 50,
+  "lineThickness": 2,
+  "lineColor": "#90caf9",
+  "type": "smoothedLine",
+  "title": "Lag Time-Average",
+  "useLineColorForBulletBorder": true,
+  "valueField": "alag",
+  "balloonText": "[[title]]" + " " + "[[value]]"+"s"
+},{
+    "id": "avgunit",
+    "valueAxis": "v1",
+    "bullet": "round",
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "bulletSize": 5,
+    "hideBulletsCount": 50,
+    "lineThickness": 2,
+    "lineColor": "#ffab91",
+    "type": "smoothedLine",
+    "title": "Unit on Time-Average",
+    "useLineColorForBulletBorder": true,
+    "valueField": "aunit",
+    "balloonText": "[[title]]" + " " + "[[value]]"+"s"
+    }],
+    "chartScrollbar": {
+       "autoGridCount": false,
+       "graph": "g1",
+       "scrollbarHeight": 40
+   },
+    "chartScrollbar": {
+          "graph": "g1",
+          "oppositeAxis": false,
+          "offset": 30,
+          "scrollbarHeight": 40,
+          "backgroundAlpha": 0,
+          "selectedBackgroundAlpha": 0.1,
+          "selectedBackgroundColor": "#888888",
+          "graphFillAlpha": 0.5,
+          "graphLineAlpha": 0.5,
+          "selectedGraphFillAlpha": 0,
+          "selectedGraphLineAlpha": 1,
+          "autoGridCount": true,
+          "color": "#AAAAAA"
+        },
+      // "chartCursor": {
+      //   "pan": true,
+      //   //是否显示游标线对齐
+      //   "valueLineEnabled": true,
+      //   //左侧坐标轴balloon显示
+      //   "valueLineBalloonEnabled": false,
+      //   "cursorAlpha": 0,
+      //   "valueLineAlpha": 0.2
+      // },
+  //横坐标轴
+
+  /*  "categoryField": "date",
+  "categoryAxis": {
+    "parseDates": true,
+    "dashLength": 1,
+    "minorGridEnabled": true
+  }, */
+
+   "chartCursor": {
+    "pan": false,
+    "valueLineEnabled": false,
+    "valueLineBalloonEnabled": false,
+    "cursorAlpha": 0,
+    "valueLineAlpha": 0.2
+  },
+    "categoryField": "date",
+    "categoryAxis": {
+      "gridPosition": "start",
+      "axisAlpha": 1,
+      "gridAlpha": 0,
+      "position": "left",
+      "parseDates": true,
+      "dashLength": 1,
+      "minorGridEnabled": true
+    },
+    "export": {
+      "enabled": true
     }
-    console.log(stallExists);
-    return stallExists;
-  }
-  for(var i = 0; i < lacto_data.length; i++) {
-    var newindex = 0;
-    var obj = lacto_data[i];
-    console.log(obj.Stall);
-    var findindex = isExist(obj.Stall);
-    console.log(findindex)
-    if(findindex >= 0){
-        var token = obj[findindex];
 
-        stallset[findindex].total1 += obj.lt1;
-        stallset[findindex].total2 += obj.lt2;
-        stallset[findindex].total3 += obj.lt3;
-        stallset[findindex].count += 1;
-        stallset[findindex].min1 = Math.min(obj.lt1,stallset[findindex].min1);
-        stallset[findindex].min2 = Math.min(obj.lt2,stallset[findindex].min2);
-        stallset[findindex].min3 = Math.min(obj.lt3,stallset[findindex].min2);
-        stallset[findindex].max1 = Math.max(obj.lt1,stallset[findindex].max1);
-        stallset[findindex].max2 = Math.max(obj.lt2,stallset[findindex].max2);
-        stallset[findindex].max3 = Math.max(obj.lt3,stallset[findindex].max3);
-
-
-    }
-    else{
-      var make = {};
-      make.stl = obj.Stall;
-      make.total1 = obj.lt1;
-      make.total2 = obj.lt2;
-      make.total3 = obj.lt3;
-      make.min1 = obj.lt1;
-      make.min2 = obj.lt2;
-      make.min3 = obj.lt3;
-      make.max1 = obj.lt1;
-      make.max2 = obj.lt2;
-      make.max3 = obj.lt3;
-      make.count = 1;
-      stallset.push(make);
-      console.log(stallset);
-      /*
-      stallset[newindex].stl = obj.stall;
-      stallset[newindex].total1 = obj.lt1;
-      stallset[newindex].total2 = obj.lt2;
-      stallset[newindex].total3 = obj.lt3;
-      stallset[newindex].min1 = obj.lt1;
-      stallset[newindex].min2 = obj.lt2;
-      stallset[newindex].min3 = obj.lt3;
-      stallset[newindex].max1 = obj.lt1;
-      stallset[newindex].max2 = obj.lt2;
-      stallset[newindex].max3 = obj.lt3;
-      stallset[newindex].count = 1;
-      */
-      newindex ++;
-    }
-  }
-  console.log(stallset);
-    var sort1 = [];
-/*
-		var label_data = ["Dip contact time - Min","Dip contact time - Avg","Dip contact time - Max",
-  "Lag time - Min", "Lag time - Avg","Lag time - Max", "Unit on time - Min",
-"Unit on time - Avg","Unit on time - Max"];
-*/
-var label_data = [];
-    //min dataset
-		var set11 = [];
-    var set12 = [];
-    var set13 = [];
-    //average
-		var set21 = [];
-    var set22 = [];
-    var set23 = [];
-    //max
-		var set31 = [];
-    var set32 = [];
-    var set33 = [];
-		//var set4 = [];
-		//var score1set = [];
-
-		for(var i = 0; i < stallset.length; i++) {
-	    var obj = stallset[i];
-      console.log(obj);
-      console.log(obj.stl);
-      var stallname = "stall" + obj.stl;
-			label_data.push(stallname);
-      set11.push(obj.min1);
-      set12.push(obj.min2);
-      set13.push(obj.min3);
-
-      set21.push(obj.total1/obj.count);
-      set22.push(obj.total2/obj.count);
-      set23.push(obj.total2/obj.count);
-
-      set31.push(obj.max1);
-      set32.push(obj.max2);
-      set33.push(obj.max3);
-
-		}
-
-for(var i = 0; i < lacto_data.length; i++) {
-  var obj = lacto_data[i];
-
-}
-			console.log(label_data);
-		var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-		var color = Chart.helpers.color;
-		var barChartData = {
-			labels: label_data,
-			datasets: [{
-				label: 'Dip contact time - Min',
-				backgroundColor: "#ffffb3",
-				borderColor: window.chartColors.white,
-				borderWidth: 0,
-				data: set11
-			}, {
-				label: 'Dip contact time - Avg',
-			backgroundColor: "#ffe082",
-				borderColor: window.chartColors.white,
-				borderWidth: 0,
-				data: set21
-			}, {
-				label: 'Dip contact time - Max',
-				backgroundColor: "#caae53",
-				borderColor: window.chartColors.yellow,
-				borderWidth: 0,
-				data: set31
-			}, {
-				label: 'Lag time - Min',
-				backgroundColor: "#c3fdff",
-				borderColor: window.chartColors.purple,
-				borderWidth: 0,
-				data: set12
-			}, {
-				label: 'Lag time - Avg',
-			backgroundColor: "#90caf9",
-				borderColor: window.chartColors.white,
-				borderWidth: 0,
-				data: set22
-			}, {
-				label: 'Lag time - Max',
-				backgroundColor: "#5d99c6",
-				borderColor: window.chartColors.yellow,
-				borderWidth: 0,
-				data: set32
-			}, {
-				label: 'Unit on time - Min',
-				backgroundColor: "#ffddc1",
-				borderColor: window.chartColors.purple,
-				borderWidth: 0,
-				data: set13
-			}, {
-				label: 'Unit on time - Avg',
-			backgroundColor: "#ffab91",
-				borderColor: window.chartColors.white,
-				borderWidth: 0,
-				data: set23
-			}, {
-				label: 'Unit on time - Max',
-				backgroundColor: "#c97b63",
-				borderColor: window.chartColors.purple,
-				borderWidth: 0,
-				data: set33
-			}
-		]
-
-		};
-
-			var ctx = document.getElementById('canvas').getContext('2d');
-			window.myBar = new Chart(ctx, {
-				type: 'bar',
-				data: barChartData,
-				options: {
-					responsive: true,
-					legend: {
-						position: 'top',
-					},
-					title: {
-						display: true,
-						text: 'Chart.js Bar Chart'
-					}
-				}
-			});
-
+  } );
 }
 function unitFunction() {
   var unit_data = [

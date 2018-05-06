@@ -151,7 +151,7 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                    <a href="index.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <a class="fa fa-sign-out fa-fw" onclick="logout()"> Logout</a>
                 </li>
             </ul>
             <!-- /.navbar-top-links -->
@@ -281,6 +281,11 @@
     <!-- /#wrapper -->
 
     <script>
+        function logout(){
+            localStorage.setItem("username","");
+            localStorage.setItem("password","");
+            window.location = "index.html";
+        }
 
         var teat_data;
         var columns = ['Date', 'Total', 'Percent 3 & 4'];
@@ -289,18 +294,21 @@
         var password = localStorage.getItem("password");
         // console.log(username);
 
-        $("#createbutton").one("click",function createTable() {
+        $("#createbutton").click(function createTable() {
 
             var date_1 = document.getElementById("date_1").value;
             console.log(date_1);
 
             var date_2 = document.getElementById("date_2").value;
             console.log(date_2);
-            console.log(username);
+            
+            var username = localStorage.getItem("username");
+            var password = localStorage.getItem("password");
+
             var settings = {
                 "async": false,
                 "crossDomain": true,
-                "url": "http://localhost:3000/latco?date1="+date_1+"&date2="+date_2+"&farm=Null",
+                "url": "http://localhost:3000/teat?date1="+date_1+"&date2="+date_2+"&farm=123",
                 "method": "GET",
                 "headers": {
                     'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -314,13 +322,16 @@
             $.ajax(settings).done(function (response) {
                 res = response;
             });
+            console.log(res);
         
 
             if (res[0] == false){
-
+                window.location = "index.html";
             }
 
             d3.json('../data/search/teat_data.json', function (error,data) {
+
+                document.getElementById("divTable").innerHTML = ""
 
                 // $("#createbutton").one("click",function createTable() {
                 // Create table.
@@ -330,8 +341,8 @@
                 var teat_data_summary = d3.nest()
                     .key(function (d){ return d.Date;})
                     .rollup(function(v){ return {
-                        total: d3.sum(v, function(d) {return d.Clean + d.Dip_Present + d.Small_Dirt + d.Large_Dirt;}),
-                        percent_3_4: d3.sum(v, function (d){ return d.Small_Dirt + d.Large_Dirt;}) / d3.sum(v, function(d) {return d.Clean + d.Dip_Present + d.Small_Dirt + d.Large_Dirt;})
+                        total: d3.sum(v, function(d) {return d.clean + d.dip_present + d.small_dirt + d.large_dirt;}),
+                        percent_3_4: d3.sum(v, function (d){ return d.small_dirt + d.large_dirt;}) / d3.sum(v, function(d) {return d.clean + d.dip_present + d.small_dirt + d.large_dirt;})
                         //percent_4: d3.sum(v, function (d){ return d.Large_Dirt;}) / d3.sum(v, function(d) {return d.Clean + d.Dirt_Present + d.Small_Dirt + d.Large_Dirt;}),
                     };})
                     .entries(teat_data);

@@ -149,7 +149,7 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                    <a href="index.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <a class="fa fa-sign-out fa-fw" onclick="logout()"> Logout</a>
                 </li>
             </ul>
             <!-- /.navbar-top-links -->
@@ -281,11 +281,16 @@
     <!-- /#wrapper -->
 
     <script>
+        function logout(){
+            localStorage.setItem("username","");
+            localStorage.setItem("password","");
+            window.location = "index.html";
+        }
 
         var udder_data;
         var columns = ['Date', 'Total', 'Percent 3 & 4'];
 
-        $("#createbutton").one("click",function createTable() {
+        $("#createbutton").click(function createTable() {
 
             var date_1 = document.getElementById("date_1").value;
             console.log(date_1);
@@ -293,33 +298,45 @@
             var date_2 = document.getElementById("date_2").value;
             console.log(date_2);
 
+            var username = localStorage.getItem("username");
+            var password = localStorage.getItem("password");
+
             var settings = {
-                "async": true,
+                "async": false,
                 "crossDomain": true,
-                "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
+                "url": "http://localhost:3000/udder?date1="+date_1+"&date2="+date_2+"&farm=123",
                 "method": "GET",
                 "headers": {
                     'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
-                    
+                    "username": username,
+                    "password": password
+
                 }
-            }
+            };
 
+            var res=[];
             $.ajax(settings).done(function (response) {
-            console.log(response);
+                res = response;
             });
+            console.log(res);
+        
 
+            if (res[0] == false){
+                window.location = "index.html";
+            }
             
             d3.json('../data/search/udder_data.json', function (error,data) {
 
-                
+                document.getElementById("divTable").innerHTML = ""
+
                 // Create table.
-                udder_data = data;
+                udder_data = res[1];
 
                 var udder_data_summary = d3.nest()
-                    .key(function (d){ return d.Date;})
+                    .key(function (d){ return d.date;})
                     .rollup(function(v){ return {
-                        total: d3.sum(v, function(d) {return d.Clean + d.Slightly_Dirt + d.Moderate_Dirt + d.Cake_On_Dirt;}),
-                        percent_3_4: d3.sum(v, function (d){ return d.Moderate_Dirt + d.Cake_On_Dirt;}) / d3.sum(v, function(d) {return d.Clean + d.Slightly_Dirt + d.Moderate_Dirt + d.Cake_On_Dirt;})
+                        total: d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;}),
+                        percent_3_4: d3.sum(v, function (d){ return d.moderate_dirt + d.cake_on_dirt;}) / d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;})
                         //percent_4: d3.sum(v, function (d){ return d.Cake_On_Dirt;}) / d3.sum(v, function(d) {return d.Clean + d.Slightly_Dirt + d.Moderate_Dirt + d.Cake_On_Dirt;}),
                     };})
                     .entries(udder_data);
@@ -366,7 +383,6 @@
 
         });
     </script>
-
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>

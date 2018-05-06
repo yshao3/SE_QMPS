@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<style>
+#lactocanvas {
+  width: 100%;
+  height: 500px;
+}
+</style>
 <head>
 
     <meta charset="utf-8">
@@ -50,6 +55,12 @@
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+  <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+  <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+  <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+  <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
 
     <style>
 
@@ -111,7 +122,7 @@
         padding: 2px 8px;
         border-radius: 5px;
         }
-    
+
     </style>
 
 
@@ -136,7 +147,7 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                    <a href="index.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <a class="fa fa-sign-out fa-fw" onclick="logout()"> Logout</a>
                 </li>
             </ul>
             <!-- /.navbar-top-links -->
@@ -254,7 +265,7 @@
                     </div>
 
                     <div class='col-sm-10'>
-                      <canvas id="canvas"></canvas>
+                      <div id="lactocanvas"></div>
                     </div>
                 </div>
             </div>
@@ -264,12 +275,17 @@
     <!-- /#wrapper -->
 
     <script>
+        function logout(){
+            localStorage.setItem("username","");
+            localStorage.setItem("password","");
+            window.location = "index.html";
+        }
 
         var lacto_data;
         var columns = ['Date', 'Stats', 'Dip Contact', 'Lag Time', 'Unit on Time'];
 
 
-        $("#createbutton").one("click",function createTable() {
+        $("#createbutton").click(function createTable() {
 
             var date_1 = document.getElementById("date_1").value;
             console.log(date_1);
@@ -277,44 +293,56 @@
             var date_2 = document.getElementById("date_2").value;
             console.log(date_2);
 
+            var username = localStorage.getItem("username");
+            var password = localStorage.getItem("password");
+
             var settings = {
-                "async": true,
+                "async": false,
                 "crossDomain": true,
-                "url": "http://localhost:3000/latco?date1=2012-1-1&date2=2013-1-1",
+                "url": "http://localhost:3000/lacto?date1="+date_1+"&date2="+date_2+"&farm=123",
                 "method": "GET",
                 "headers": {
                     'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
-                    
-                }
-            }
+                    "username": username,
+                    "password": password
 
+                }
+            };
+
+            var res=[];
             $.ajax(settings).done(function (response) {
-            console.log(response);
+                res = response;
             });
+            console.log(res);
         
+
+            if (res[0] == false){
+                window.location = "index.html";
+            }
 
             d3.json('../data/search/lacto_data.json', function (error,data) {
 
-                
+                document.getElementById("divTable").innerHTML = ""
+
                 // Create table.
-                lacto_data = data;
+                lacto_data = res[1];
                 console.log(lacto_data);
                 //console.log(Math.abs(lacto_data[0].Wipe) - Math.abs(lacto_data[0].Dip));
                 var lacto_data_summary = d3.nest()
-                    .key(function (d){ return d.Date;})
+                    .key(function (d){ return d.date;})
                     .rollup(function(v){ return {
                         //total: d3.sum(v, function(d) {return d.lacto_Yields;}),
-                        average_dip: d3.mean(v, function(d) {return d.Dip_Time;}),
-                        average_lag: d3.mean(v, function(d) {return d.Lag_Time;}),
-                        average_unit: d3.mean(v, function(d) {return d.Unit_Time;}),
+                        average_dip: d3.mean(v, function(d) {return d.dip_contact_time;}),
+                        average_lag: d3.mean(v, function(d) {return d.lag_contact_stimulate;}),
+                        average_unit: d3.mean(v, function(d) {return d.unit_on_time;}),
 
-                        min_dip: d3.min(v, function(d) {return d.Dip_Time;}),
-                        min_lag: d3.min(v, function(d) {return d.Lag_Time;}),
-                        min_unit: d3.min(v, function(d) {return d.Unit_Time;}),
+                        min_dip: d3.min(v, function(d) {return d.dip_contact_time;}),
+                        min_lag: d3.min(v, function(d) {return d.lag_contact_stimulate;}),
+                        min_unit: d3.min(v, function(d) {return d.unit_on_time;}),
 
-                        max_dip: d3.max(v, function(d) {return d.Dip_Time;}),
-                        max_lag: d3.max(v, function(d) {return d.Lag_Time;}),
-                        max_unit: d3.max(v, function(d) {return d.Unit_Time;})
+                        max_dip: d3.max(v, function(d) {return d.dip_contact_time;}),
+                        max_lag: d3.max(v, function(d) {return d.lag_contact_stimulate;}),
+                        max_unit: d3.max(v, function(d) {return d.unit_on_time;})
 
                     };})
                     .entries(lacto_data);
@@ -389,7 +417,6 @@
             
         });
     </script>
-
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
 

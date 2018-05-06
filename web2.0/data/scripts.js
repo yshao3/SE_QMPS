@@ -82,13 +82,39 @@ $(document).ready(function() {
         var date_3 = document.getElementById("date_3").value;
                 // console.log(date_3);
 
+        var username = localStorage.getItem("username");
+        var password = localStorage.getItem("password");
+
+        var settings = {
+            "async": false,
+            "crossDomain": true,
+            "url": "http://localhost:3000/teat?date1="+date_3+"&date2="+date_3+"&farm=123",
+            "method": "GET",
+            "headers": {
+                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                "username": username,
+                "password": password
+
+            }
+        };
+
+        var res=[];
+        $.ajax(settings).done(function (response) {
+            res = response;
+        });
+        console.log(res);
+    
+
+        if (res[0] == false){
+            window.location = "index.html";
+        }
+    
+
         d3.json('../data/search/teat_data.json', function (error,data) {
 
-            milker_data = data;
+            milker_data = res[1];
             // console.log(milker_data);
             
-            
-
             var cell_style = {
                 fg_color: 'green',
                 bg_color: 'green'
@@ -182,17 +208,17 @@ $(document).ready(function() {
 
 
             // Assigning values to cells
-            ws1['B2'] = { t: 'd', v: milker_data[0].Date, fill: cell_style};
-            ws1['J2'] = { t: 'd', v: milker_data[0].Date, s: cell_style};
+            ws1['B2'] = { t: 'd', v: milker_data[0].date, fill: cell_style};
+            ws1['J2'] = { t: 'd', v: milker_data[0].date, s: cell_style};
             var score1_sum = 0;
             var score2_sum = 0;
             var score3_sum = 0;
             var score4_sum = 0;
             for (j = 0; j < milker_data.length; j++){
-                score1_sum += milker_data[j].Clean;
-                score2_sum += milker_data[j].Dip_Present;
-                score3_sum += milker_data[j].Small_Dirt;
-                score4_sum += milker_data[j].Large_Dirt;
+                score1_sum += milker_data[j].clean;
+                score2_sum += milker_data[j].dip_present;
+                score3_sum += milker_data[j].small_dirt;
+                score4_sum += milker_data[j].large_dirt;
             }
             ws1['B12'] = { t: 'n', v: score1_sum};
             ws1['C12'] = { t: 'n', v: score2_sum};
@@ -201,10 +227,10 @@ $(document).ready(function() {
 
             for (k = 0; k < milker_data.length; k++){
                 var row_number = 12 + k * 3;
-                ws1['J' + row_number] = { t: 'n', v: milker_data[k].Clean};
-                ws1['K' + row_number] = { t: 'n', v: milker_data[k].Dip_Present};
-                ws1['L' + row_number] = { t: 'n', v: milker_data[k].Small_Dirt};
-                ws1['M' + row_number] = { t: 'n', v: milker_data[k].Large_Dirt};
+                ws1['J' + row_number] = { t: 'n', v: milker_data[k].clean};
+                ws1['K' + row_number] = { t: 'n', v: milker_data[k].dip_present};
+                ws1['L' + row_number] = { t: 'n', v: milker_data[k].small_dirt};
+                ws1['M' + row_number] = { t: 'n', v: milker_data[k].large_dirt};
             }
 
             
@@ -288,9 +314,36 @@ $(document).ready(function() {
         var date_3 = document.getElementById("date_3").value;
                     console.log(date_3);
 
+        var username = localStorage.getItem("username");
+        var password = localStorage.getItem("password");
+
+        var settings = {
+            "async": false,
+            "crossDomain": true,
+            "url": "http://localhost:3000/udder?date1="+date_3+"&date2="+date_3+"&farm=Dd",
+            "method": "GET",
+            "headers": {
+                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                "username": username,
+                "password": password
+
+            }
+        };
+
+        var res=[];
+        $.ajax(settings).done(function (response) {
+            res = response;
+        });
+        console.log(res);
+    
+
+        if (res[0] == false){
+            window.location = "index.html";
+        }
+
         d3.json('../data/search/udder_data.json', function (error,data) {
 
-            milker_data = data;
+            milker_data = res[1];
             console.log(milker_data);
         
 
@@ -382,17 +435,17 @@ $(document).ready(function() {
 
 
             // Assigning values to cells
-            ws2['B2'] = { t: 'd', v: milker_data[0].Date};
-            ws2['J2'] = { t: 'd', v: milker_data[0].Date};
+            ws2['B2'] = { t: 'd', v: milker_data[0].date};
+            ws2['J2'] = { t: 'd', v: milker_data[0].date};
             var score1_sum = 0;
             var score2_sum = 0;
             var score3_sum = 0;
             var score4_sum = 0;
             for (j = 0; j < milker_data.length; j++){
-                score1_sum += milker_data[j].Clean;
-                score2_sum += milker_data[j].Slightly_Dirt;
-                score3_sum += milker_data[j].Moderate_Dirt;
-                score4_sum += milker_data[j].Cake_On_Dirt;
+                score1_sum += milker_data[j].clean;
+                score2_sum += milker_data[j].slightly_dirt;
+                score3_sum += milker_data[j].moderate_dirt;
+                score4_sum += milker_data[j].cake_on_dirt;
             }
             ws2['B12'] = { t: 'n', v: score1_sum};
             ws2['C12'] = { t: 'n', v: score2_sum};
@@ -401,10 +454,10 @@ $(document).ready(function() {
 
             for (k = 0; k < milker_data.length; k++){
                 var row_number = 12 + k * 3;
-                ws2['J' + row_number] = { t: 'n', v: milker_data[k].Clean};
-                ws2['K' + row_number] = { t: 'n', v: milker_data[k].Slightly_Dirt};
-                ws2['L' + row_number] = { t: 'n', v: milker_data[k].Moderate_Dirt};
-                ws2['M' + row_number] = { t: 'n', v: milker_data[k].Cake_On_Dirt};
+                ws2['J' + row_number] = { t: 'n', v: milker_data[k].clean};
+                ws2['K' + row_number] = { t: 'n', v: milker_data[k].slightly_dirt};
+                ws2['L' + row_number] = { t: 'n', v: milker_data[k].moderate_dirt};
+                ws2['M' + row_number] = { t: 'n', v: milker_data[k].cake_on_dirt};
             }
 
             
@@ -483,9 +536,36 @@ $(document).ready(function() {
     
         var date_3 = document.getElementById("date_3").value;
 
+        var username = localStorage.getItem("username");
+        var password = localStorage.getItem("password");
+
+        var settings = {
+            "async": false,
+            "crossDomain": true,
+            "url": "http://localhost:3000/unit?date1="+date_3+"&date2="+date_3+"&farm=123",
+            "method": "GET",
+            "headers": {
+                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                "username": username,
+                "password": password
+
+            }
+        };
+
+        var res=[];
+        $.ajax(settings).done(function (response) {
+            res = response;
+        });
+        console.log(res);
+    
+
+        if (res[0] == false){
+            window.location = "index.html";
+        }
+
         d3.json('../data/search/unit_data.json', function (error,data) {
 
-            goodbad_data = data;
+            goodbad_data = res[1];
                     
             var goodbad_number = goodbad_data.length;
             
@@ -504,7 +584,7 @@ $(document).ready(function() {
 
             
             for (i = 0; i < goodbad_number; i++){
-                var new_boolean = new Array(null,goodbad_data[i].Good, goodbad_data[i].Bad);
+                var new_boolean = new Array(null,goodbad_data[i].good, goodbad_data[i].bad);
                 data3.push(new_boolean);
                 
             }
@@ -534,7 +614,7 @@ $(document).ready(function() {
             var end_number = 11 + goodbad_number - 1;
 
             // Assigning values to cells
-            ws3['B2'] = { t: 'd', v: goodbad_data[0].Date};
+            ws3['B2'] = { t: 'd', v: goodbad_data[0].date};
             ws3['B6'] = { t: 'n', f: 'SUM(B11:B' + end_number + ')'};
             ws3['C6'] = { t: 'n', f: 'SUM(C11:C' + end_number + ')'};
             ws3['B7'] = { t: 'n', f: 'B6/B4'};
@@ -568,9 +648,37 @@ $(document).ready(function() {
     
         var date_3 = document.getElementById("date_3").value;
 
+        var username = localStorage.getItem("username");
+        var password = localStorage.getItem("password");
+
+        var settings = {
+            "async": false,
+            "crossDomain": true,
+            "url": "http://localhost:3000/strip?date1="+date_3+"&date2="+date_3+"&farm=123",
+            "method": "GET",
+            "headers": {
+                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                "username": username,
+                "password": password
+
+            }
+        };
+
+        var res=[];
+        $.ajax(settings).done(function (response) {
+            res = response;
+        });
+        console.log(res);
+    
+
+        if (res[0] == false){
+            window.location = "index.html";
+        }
+
+
         d3.json('../data/search/strip_data.json', function (error,data) {
 
-            strip_data = data;
+            strip_data = res[1];
 
             var strip_number = strip_data.length;
             
@@ -586,7 +694,7 @@ $(document).ready(function() {
             ];
 
             for (i = 0; i < strip_number; i++){
-                var new_strip = new Array(null, strip_data[i].Stall_NO, strip_data[i].ML, strip_data[i].IsBalanced, 0, 0, 0);
+                var new_strip = new Array(null, strip_data[i].Stall_no, strip_data[i].ML, strip_data[i].IsBalanced, 0, 0, 0);
                 data4.push(new_strip);
             }
             
@@ -620,7 +728,7 @@ $(document).ready(function() {
 
 
             // Assigning values to cells
-            ws4['C2'] = { t: 'd', v: strip_data[0].Date};
+            ws4['C2'] = { t: 'd', v: strip_data[0].date};
             
             
 
@@ -680,18 +788,45 @@ $(document).ready(function() {
     
         var date_3 = document.getElementById("date_3").value;
 
+        var username = localStorage.getItem("username");
+        var password = localStorage.getItem("password");
+
+        var settings = {
+            "async": false,
+            "crossDomain": true,
+            "url": "http://localhost:3000/post?date1="+date_3+"&date2="+date_3+"&farm=123",
+            "method": "GET",
+            "headers": {
+                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                "username": username,
+                "password": password
+
+            }
+        };
+
+        var res=[];
+        $.ajax(settings).done(function (response) {
+            res = response;
+        });
+        console.log(res);
+    
+
+        if (res[0] == false){
+            window.location = "index.html";
+        }
+
         d3.json('../data/search/post_data.json', function (error,data) {
 
-            post_data = data;
+            post_data = res[1];
         //console.log(teat_data[0].TES.LH);
 
             var group_number = post_data.length;
             
             var data5 = [
-                ["Farm Name", null, "Fill in", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "Total scored", null, null],
+                ["farm Name", null, "Fill in", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "Total scored", null, null],
                 ["Date", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "Percent", null, null, null, 0, "Percent", null, null, null, 0, "Percent", null, null, null, 0, "Percent", null, null, null, 0, "Percent", null, null, null, 0, "Percent", null, null, null, 0, "Percent", null, null, null,0],
                 [null, null, null, "D,OL,H", null, null, null, "R,B,DS", null, null, null, "VM,SW", null, null, null, "F,W", null, null, null, "N,S,SR,R,VR", null, null, null, null, "Total cows", null, null, null, 0, "Total cows", null, null, null, 0, "Total cows", null, null, null, 0, "Total cows", null, null, null, 0, "Total cows", null, null, null, 0, "Total cows", null, null, null, 0, "Total cows", null, null, null,0],
-                ["Page #", "Group #", "Line #", "Teat Skin Condition", null, null, null, "Teat Color", null, null, null, "Swelling Near Teat Base", null, null, null, "Hardness at Teat End", null, null, null, "Teat End Score", null, null, null, null, "Teat skin condition", null, null, null, null, "Teat Color", null, null, null, null, "Swelling Near Teat Base", null, null, null, null, "Hardness at Teat End", null, null, null, null, "Teat End Score", null, null, null, null, "Open lesion", null, null, null, null, "Hemorrhage", null, null, null,null],
+                ["Page #", "Group #", "Line #", "Teat Skin Condition", null, null, null, "Teat color", null, null, null, "swelling Near Teat Base", null, null, null, "hardness at Teat End", null, null, null, "Teat End Score", null, null, null, null, "Teat skin condition", null, null, null, null, "Teat color", null, null, null, null, "swelling Near Teat Base", null, null, null, null, "hardness at Teat End", null, null, null, null, "Teat End Score", null, null, null, null, "Open lesion", null, null, null, null, "Hemorrhage", null, null, null,null],
                 [null, null, null, "LH", "LF", "RH", "RF", "LH", "LF", "RH", "RF", "LH", "LF", "RH", "RF", "LH", "LF", "RH", "RF", "LH", "LF", "RH", "RF", null, "LH", "LF", "RH", "RF", null, "LH", "LF", "RH", "RF", null, "LH", "LF", "RH", "RF", null, "LH", "LF", "RH", "RF", null, "LH", "LF", "RH", "RF", null, "LH", "LF", "RH", "RF", null, "LH", "LF", "RH", "RF",null]
                 
             ];
@@ -700,11 +835,11 @@ $(document).ready(function() {
                 var page_check = i % 20;
                 var page_number = i / 20 + 1;
                 if (page_check == 0){
-                    var new_group = new Array(page_number, post_data[i].Group_ID, post_data[i].Line, post_data[i].Skin_Condition.LH, post_data[i].Skin_Condition.LF, post_data[i].Skin_Condition.RH, post_data[i].Skin_Condition.RF, post_data[i].Color.LH, post_data[i].Color.LF, post_data[i].Color.RH, post_data[i].Color.RF, post_data[i].Swelling.LH, post_data[i].Swelling.LF, post_data[i].Swelling.RH, post_data[i].Swelling.RF, post_data[i].End_Score.LH, post_data[i].End_Score.LF, post_data[i].End_Score.RH, post_data[i].End_Score.RF, post_data[i].Hardness.LH, post_data[i].Hardness.LF, post_data[i].Hardness.RH, post_data[i].Hardness.RF, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                    var new_group = new Array(page_number, post_data[i].group_id, post_data[i].line, post_data[i].skin_condition.LH, post_data[i].skin_condition.LF, post_data[i].skin_condition.RH, post_data[i].skin_condition.RF, post_data[i].color.LH, post_data[i].color.LF, post_data[i].color.RH, post_data[i].color.RF, post_data[i].swelling.LH, post_data[i].swelling.LF, post_data[i].swelling.RH, post_data[i].swelling.RF, post_data[i].end_score.LH, post_data[i].end_score.LF, post_data[i].end_score.RH, post_data[i].end_score.RF, post_data[i].hardness.LH, post_data[i].hardness.LF, post_data[i].hardness.RH, post_data[i].hardness.RF, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
                     data5.push(new_group);
                 }
                 else{
-                    var new_group = new Array(null, post_data[i].Group_ID, post_data[i].Line, post_data[i].Skin_Condition.LH, post_data[i].Skin_Condition.LF, post_data[i].Skin_Condition.RH, post_data[i].Skin_Condition.RF, post_data[i].Color.LH, post_data[i].Color.LF, post_data[i].Color.RH, post_data[i].Color.RF, post_data[i].Swelling.LH, post_data[i].Swelling.LF, post_data[i].Swelling.RH, post_data[i].Swelling.RF, post_data[i].End_Score.LH, post_data[i].End_Score.LF, post_data[i].End_Score.RH, post_data[i].End_Score.RF, post_data[i].Hardness.LH, post_data[i].Hardness.LF, post_data[i].Hardness.RH, post_data[i].Hardness.RF, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                    var new_group = new Array(null, post_data[i].group_id, post_data[i].line, post_data[i].skin_condition.LH, post_data[i].skin_condition.LF, post_data[i].skin_condition.RH, post_data[i].skin_condition.RF, post_data[i].color.LH, post_data[i].color.LF, post_data[i].color.RH, post_data[i].color.RF, post_data[i].swelling.LH, post_data[i].swelling.LF, post_data[i].swelling.RH, post_data[i].swelling.RF, post_data[i].end_score.LH, post_data[i].end_score.LF, post_data[i].end_score.RH, post_data[i].end_score.RF, post_data[i].hardness.LH, post_data[i].hardness.LF, post_data[i].hardness.RH, post_data[i].hardness.RF, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
                     data5.push(new_group);
                 }
             }
@@ -743,8 +878,8 @@ $(document).ready(function() {
 
 
 
-            ws5['B1'] = { t: 's', v: post_data[0].Farm};
-            ws5['B2'] = { t: 'd', v: post_data[0].Date};
+            ws5['B1'] = { t: 's', v: post_data[0].farm};
+            ws5['B2'] = { t: 'd', v: post_data[0].date};
 
             
 
@@ -932,14 +1067,42 @@ $(document).ready(function() {
     
         var date_3 = document.getElementById("date_3").value;
 
+        var username = localStorage.getItem("username");
+        var password = localStorage.getItem("password");
+
+        var settings = {
+            "async": false,
+            "crossDomain": true,
+            "url": "http://localhost:3000/lacto?date1="+date_3+"&date2="+date_3+"&farm=123",
+            "method": "GET",
+            "headers": {
+                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                "username": username,
+                "password": password
+
+            }
+        };
+
+        var res=[];
+        $.ajax(settings).done(function (response) {
+            res = response;
+        });
+        console.log(res);
+    
+
+        if (res[0] == false){
+            window.location = "index.html";
+        }
+
+
         d3.json('../data/search/lacto_data.json', function (error,data) {
 
-            lacto_data = data;
+            lacto_data = res[1];
 
             var lacto_number = lacto_data.length;
             
             var data6 = [
-                ["Date:", null, null, null, "Farm:", null, null, null, null, null, null],
+                ["Date:", null, null, null, "farm:", null, null, null, null, null, null],
                 ["Milking Routine Evaluation: LactoCorder Analysis", null, null, null, null, null, null, null, null, null, null, null, null, null],
                 [null],
                 ["Parlor Type:", null, null, "Pre-milking:", null, null, null, "Herd Size:", null, null],
@@ -952,8 +1115,8 @@ $(document).ready(function() {
             ];
 
             for (i = 0; i < lacto_number; i++){
-                var new_lacto = new Array(lacto_data[i].Cow, lacto_data[i].Dip, lacto_data[i].Strip, lacto_data[i].Wipe, lacto_data[i].Attach,
-                lacto_data[i].Remove, null, null, null, lacto_data[i].Total_Milk, lacto_data[i].Remark);
+                var new_lacto = new Array(lacto_data[i].cow_name, "N/A", "N/A", "N/A", "N/A","N/A", 
+                lacto_data[i].dip_contact_time, lacto_data[i].lag_contact_stimulate, lacto_data[i].unit_on_time, lacto_data[i].total_milk, lacto_data[i].remark);
                 data6.push(new_lacto);
             }
             
@@ -985,8 +1148,8 @@ $(document).ready(function() {
 
 
 
-            ws6['B1'] = { t: 'd', v: lacto_data[0].Date};
-            ws6['E1'] = { t: 's', v: lacto_data[0].Farm};
+            ws6['B1'] = { t: 'd', v: lacto_data[0].date};
+            ws6['E1'] = { t: 's', v: lacto_data[0].farm};
             
 
             for (k = 0; k < lacto_data.length; k++){
@@ -997,9 +1160,9 @@ $(document).ready(function() {
                 var cc = 'C' + row_number;
                 var ff = 'F' + row_number;
 
-                ws6['G' + row_number] = { t: 'n', f: dd + '-' + bb};
-                ws6['H' + row_number] = { t: 'n', f: ee + '-' + cc};
-                ws6['I' + row_number] = { t: 'n', f: ff + '-' + ee};
+                // ws6['G' + row_number] = { t: 'n', f: dd + '-' + bb};
+                // ws6['H' + row_number] = { t: 'n', f: ee + '-' + cc};
+                // ws6['I' + row_number] = { t: 'n', f: ff + '-' + ee};
             
             }
             var lacto_last = lacto_number + 10;

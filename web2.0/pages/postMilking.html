@@ -147,7 +147,7 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                    <a href="index.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <a class="fa fa-sign-out fa-fw" onclick="logout()"> Logout</a>
                 </li>
             </ul>
             <!-- /.navbar-top-links -->
@@ -275,21 +275,28 @@
     <!-- /#wrapper -->
 
     <script>
+        function logout(){
+            localStorage.setItem("username","");
+            localStorage.setItem("password","");
+            window.location = "index.html";
+        }
 
         var post_data;
         var columns = ['Date', 'Total Scored', 'Teat Skin Condition (Abnormal %)', 'Teat Color (Abnormal %)', 'Swelling Near Teat Base (Abnormal %)',
         'Hardness at Teat End (Abnormal %)', 'Teat End Score (Abnormal %)', 'Open Lesion (Abnormal %)', 'Hemorrhage (Abnormal %)'];
 
 
-        $("#createbutton").one("click",function createTable() {
+        $("#createbutton").click(function createTable() {
             
             var date_1 = document.getElementById("date_1").value;
             console.log(date_1);
 
             var date_2 = document.getElementById("date_2").value;
             console.log(date_2);
-             var username = localStorage.getItem("username");
+            
+            var username = localStorage.getItem("username");
             var password = localStorage.getItem("password");
+            console.log(username+" "+password);
 
             var settings = {
                 "async": false,
@@ -312,19 +319,21 @@
         
 
             if (res[0] == false){
-
+                window.location = "index.html";
             }
         
 
             d3.json('../data/search/post_data.json', function (error,data) {
 
                 
+                document.getElementById("divTable").innerHTML = ""
+
                 // Create table.
                 console.log(res[1]);
                 post_data = res[1];
                 
                 var post_data_summary = d3.nest()
-                    .key(function (d){ return d.Date;})
+                    .key(function (d){ return d.date;})
                     .rollup(function(v){ return {
                         Total_Scored: d3.sum(v, function(d) {return d.group_id;}),
                         Total_Skin_Condition_Abnormal: d3.sum(v, function(d){return d.skin_condition.LH != 'N' || d.skin_condition.LF != 'N' || d.skin_condition.RH != 'N' || d.skin_condition.RF != 'N'}),
@@ -334,8 +343,8 @@
                         Total_Hardness_Abnormal: d3.sum(v, function(d){return d.hardness.LH != 'N' || d.hardness.LF != 'N' || d.hardness.RH != 'N' || d.hardness.RF != 'N'}),
                         Total_Open_Leison: d3.sum(v, function(d){return d.skin_condition.LH == 'OL' || d.skin_condition.LF == 'OL' || d.skin_condition.RH == 'OL' || d.skin_condition.RF == 'OL'}),
                         Total_Hemorrhage: d3.sum(v, function(d){return d.skin_condition.LH == 'H' || d.skin_condition.LF == 'H' || d.skin_condition.RH == 'H' || d.skin_condition.RF == 'H'}),
-                        Percent_Skin_Condition_Abnormal: d3.sum(v, function(d){return (d.skin_condition.LH != 'N' || d.skin_condition.LF != 'N' || d.skin_condition.RH != 'N' || d.skin_condition.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
-                        Percent_Color_Abnormal: d3.sum(v, function(d){return (d.color.LH != 'N' || d.color.LF != 'N' || d.color.RH != 'N' || d.color.RF != 'N') / d3.sum(v, function(d) {return d.Group_ID;}) }),
+                        Percent_Skin_Condition_Abnormal: d3.sum(v, function(d){return (d.skin_condition.LH != 'N' || d.skin_condition.LF != 'N' || d.skin_condition.RH != 'N' || d.skin_condition.RF != 'N') / d3.sum(v, function(d) {return d.group_id;}) }),
+                        Percent_Color_Abnormal: d3.sum(v, function(d){return (d.color.LH != 'N' || d.color.LF != 'N' || d.color.RH != 'N' || d.color.RF != 'N') / d3.sum(v, function(d) {return d.group_id;}) }),
                         Percent_Swelling_Abnormal: d3.sum(v, function(d){return (d.swelling.LH != 'N' || d.swelling.LF != 'N' || d.swelling.RH != 'N' || d.swelling.RF != 'N') / d3.sum(v, function(d) {return d.group_id;}) }),
                         Percent_End_Score_Abnormal: d3.sum(v, function(d){return (d.end_score.LH != 'N' || d.end_score.LF != 'N' || d.end_score.RH != 'N' || d.end_score.RF != 'N') / d3.sum(v, function(d) {return d.group_id;}) }),
                         Percent_Hardness_Abnormal: d3.sum(v, function(d){return (d.hardness.LH != 'N' || d.hardness.LF != 'N' || d.hardness.RH != 'N' || d.hardness.RF != 'N') / d3.sum(v, function(d) {return d.group_id;}) }),
