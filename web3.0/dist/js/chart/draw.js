@@ -91,7 +91,7 @@ function udderFunction() {
   // ];
   var formatComma = d3.format(",");
   var datanest = d3.nest()
-  		.key(function (d){ return d.Date;})
+  		.key(function (d){ return d.date;})
   		.rollup(function(v){ return {
   				total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
   				percent_3_4: formatComma( (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
@@ -297,7 +297,7 @@ function stripFunction() {
   // 		{ Date: '2018-04-15', Stall_number: 5, Strip_Yields: 700, balance: "isbalanced", Majority: 0}];
   var label_data = ["<150 ml", "150 ml-250 ml", ">250 ml"];
   var formatComma = d3.format(",");
-  var datanest = d3.nest().key(function(d) { return d.Date; })
+  var datanest = d3.nest().key(function(d) { return d.date; })
   .rollup(function(v){ return {
   		total: d3.sum(v, function(d) {return d.Strip_Yields;}),
   		average: d3.mean(v, function(d) {return d.Strip_Yields;}),
@@ -1166,7 +1166,7 @@ function postFunction() {
   //         }
   //     }];
       var datanest = d3.nest()
-                .key(function (d){ return d.Date;})
+                .key(function (d){ return d.date;})
                 .rollup(function(v){ return {
                     Total_Scored: d3.sum(v, function(d) {return d.Group;}),
                     Total_TSC_Abnormal: d3.sum(v, function(d){return d.TSC.LH != 'N' || d.TSC.LF != 'N' || d.TSC.RH != 'N' || d.TSC.RF != 'N'}),
@@ -1813,7 +1813,7 @@ var lacto_data = [
 // ];
 function lactoFunction() {
     var datanest = d3.nest()
-        .key(function (d){ return d.Date;})
+        .key(function (d){ return d.date;})
         .rollup(function(v){ return {
             average_lag: d3.mean(v, function(d) {return d.Lag_Time;}),
             average_unit: d3.mean(v, function(d) {return d.Unit_Time;}),
@@ -2299,7 +2299,7 @@ function unitFunction() {
   //         Bad: 36
   //     }];
   var formatComma = d3.format(",");
-  var datanest = d3.nest().key(function(d) { return d.Date; })
+  var datanest = d3.nest().key(function(d) { return d.date; })
                           .rollup(function(v) { return {
                               total: d3.sum(v, function(d) { return d.Good + d.Bad; }),
                               good: formatComma(d3.sum(v, function(d) { return d.Good; })/d3.sum(v, function(d) { return d.Good + d.Bad; }) * 100),
