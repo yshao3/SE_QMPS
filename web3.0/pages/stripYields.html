@@ -206,7 +206,7 @@
                 <div class="row">
                     <div class='col-sm-3'>
                         <div class="form-group">
-                                Date From
+                                date From
                             <div class='input-group date' id='datetimepicker1'>
                                 <input id="date_1" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
@@ -288,7 +288,7 @@
     }
 
     var strip_data;
-    var columns = ['Date', 'Total', 'Average', 'Yield < 150', '150 <= Yield <= 250', 'Yield > 250'];
+    var columns = ['date', 'Total', 'Average', 'Yield < 150', '150 <= Yield <= 250', 'Yield > 250'];
 
 
     $("#createbutton").click(function createTable() {
@@ -335,6 +335,63 @@
 
             // Create table.
             strip_data = res[1];
+  strip_data = [
+         { date: '2018-01-10', Stall_number: 1, ML: 132, balance: "isbalanced", Majority: 0},
+         { date: '2018-01-10', Stall_number: 2, ML: 234, balance: "balanced", Majority: 0},
+         { date: '2018-01-10', Stall_number: 3, ML: 300, balance: "isbalanced", Majority: 0},
+         { date: '2018-01-13', Stall_number: 4, ML: 400, balance: "balanced",  Majority: 0},
+         { date: '2018-01-13', Stall_number: 5, ML: 700, balance: "balanced", Majority: 0},
+         { date: '2018-01-13', Stall_number: 1, ML: 132, balance: "balanced", Majority: 0},
+         { date: '2018-01-13', Stall_number: 2, ML: 234, balance: "balanced", Majority: 0},
+         { date: '2018-01-28', Stall_number: 3, ML: 100, balance: "balanced", Majority: 0},
+         { date: '2018-01-28', Stall_number: 4, ML: 200, balance: "balanced",  Majority: 0},
+         { date: '2018-01-28', Stall_number: 5, ML: 400, balance: "balanced", Majority: 0},
+         { date: '2018-02-07', Stall_number: 1, ML: 132, balance: "balanced", Majority: 0},
+         { date: '2018-02-07', Stall_number: 2, ML: 234, balance: "balanced", Majority: 0},
+         { date: '2018-02-07', Stall_number: 3, ML: 220, balance: "isbalanced", Majority: 0},
+         { date: '2018-02-07', Stall_number: 4, ML: 330, balance: "balanced",  Majority: 0},
+         { date: '2018-02-07', Stall_number: 5, ML: 600, balance: "balanced", Majority: 0},
+         { date: '2018-02-20', Stall_number: 1, ML: 102, balance: "balanced", Majority: 0},
+         { date: '2018-02-20', Stall_number: 2, ML: 234, balance: "balanced", Majority: 0},
+         { date: '2018-02-20', Stall_number: 3, ML: 240, balance: "isbalanced", Majority: 0},
+         { date: '2018-02-20', Stall_number: 4, ML: 190, balance: "balanced",  Majority: 0},
+         { date: '2018-02-20', Stall_number: 5, ML: 500, balance: "balanced", Majority: 0},
+         { date: '2018-02-25', Stall_number: 1, ML: 432, balance: "isbalanced", Majority: 0},
+         { date: '2018-02-25', Stall_number: 2, ML: 234, balance: "balanced", Majority: 0},
+         { date: '2018-03-03', Stall_number: 3, ML: 100, balance: "isbalanced", Majority: 0},
+         { date: '2018-03-03', Stall_number: 4, ML: 180, balance: "isbalanced",  Majority: 0},
+         { date: '2018-03-03', Stall_number: 5, ML: 700, balance: "balanced", Majority: 0},
+         { date: '2018-03-03', Stall_number: 1, ML: 152, balance: "balanced", Majority: 0},
+         { date: '2018-03-03', Stall_number: 2, ML: 234, balance: "balanced", Majority: 0},
+         { date: '2018-03-03', Stall_number: 3, ML: 100, balance: "isbalanced", Majority: 0},
+         { date: '2018-03-03', Stall_number: 4, ML: 400, balance: "balanced",  Majority: 0},
+         { date: '2018-03-03', Stall_number: 5, ML: 700, balance: "balanced", Majority: 0},
+         { date: '2018-03-03', Stall_number: 1, ML: 132, balance: "balanced", Majority: 0},
+         { date: '2018-03-03', Stall_number: 2, ML: 234, balance: "balanced", Majority: 0},
+         { date: '2018-03-03', Stall_number: 3, ML: 220, balance: "isbalanced", Majority: 0},
+         { date: '2018-03-06', Stall_number: 5, ML: 500, balance: "balanced", Majority: 0},
+         { date: '2018-03-06', Stall_number: 1, ML: 132, balance: "balanced", Majority: 0},
+         { date: '2018-03-06', Stall_number: 2, ML: 234, balance: "balanced", Majority: 0},
+         { date: '2018-03-06', Stall_number: 3, ML: 100, balance: "isbalanced", Majority: 0},
+         { date: '2018-03-07', Stall_number: 4, ML: 200, balance: "isbalanced",  Majority: 0},
+         { date: '2018-03-07', Stall_number: 5, ML: 700, balance: "balanced", Majority: 0},
+         { date: '2018-03-07', Stall_number: 1, ML: 132, balance: "balanced", Majority: 0},
+         { date: '2018-03-07', Stall_number: 2, ML: 234, balance: "balanced", Majority: 0},
+         { date: '2018-03-07', Stall_number: 3, ML: 300, balance: "isbalanced", Majority: 0},
+         { date: '2018-04-01', Stall_number: 4, ML: 400, balance: "isbalanced",  Majority: 0},
+         { date: '2018-04-01', Stall_number: 5, ML: 240, balance: "balanced", Majority: 0},
+         { date: '2018-04-01', Stall_number: 1, ML: 132, balance: "balanced", Majority: 0},
+         { date: '2018-04-01', Stall_number: 2, ML: 234, balance: "balanced", Majority: 0},
+         { date: '2018-04-10', Stall_number: 3, ML: 100, balance: "isbalanced", Majority: 0},
+         { date: '2018-04-10', Stall_number: 4, ML: 400, balance: "balanced",  Majority: 0},
+         { date: '2018-04-10', Stall_number: 5, ML: 700, balance: "balanced", Majority: 0},
+         { date: '2018-04-15', Stall_number: 1, ML: 132, balance: "balanced", Majority: 0},
+         { date: '2018-04-15', Stall_number: 2, ML: 234, balance: "balanced", Majority: 0},
+         { date: '2018-04-15', Stall_number: 3, ML: 200, balance: "isbalanced", Majority: 0},
+         { date: '2018-04-15', Stall_number: 4, ML: 210, balance: "isbalanced",  Majority: 0},
+         { date: '2018-04-15', Stall_number: 5, ML: 700, balance: "isbalanced", Majority: 0}];
+
+
             //console.log(strip_data);
             var strip_data_summary = d3.nest()
                 .key(function (d){ return d.date;})
