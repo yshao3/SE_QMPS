@@ -299,13 +299,15 @@
         var date_2 = document.getElementById("date_2").value;
         console.log(date_2);
 
+        var farm = document.getElementById("farm").value;  
+
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
 
         var settings = {
             "async": false,
             "crossDomain": true,
-            "url": "http://localhost:3000/strip?date1="+date_1+"&date2="+date_2+"&farm=123",
+            "url": "http://localhost:3000/strip?date1="+date_1+"&date2="+date_2+"&farm="+farm,
             "method": "GET",
             "headers": {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',

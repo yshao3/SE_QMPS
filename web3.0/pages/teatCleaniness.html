@@ -230,12 +230,12 @@
                             Farm:
                         <select id="farm" class="form-control">
                             <option>A</option>
-                                <option>B</option>
-                                <option>C</option>
-                                <option>D</option>
-                                <option>E</option>
-                                <option>F</option>
-                                <option>G</option>
+                            <option>B</option>
+                            <option>C</option>
+                            <option>D</option>
+                            <option>E</option>
+                            <option>F</option>
+                            <option>G</option>
                         </select>
                         </div>
                     </div>
@@ -286,7 +286,12 @@
             localStorage.setItem("password","");
             window.location = "index.html";
         }
+<<<<<<< HEAD
         var searchcheck = false;
+=======
+        
+
+>>>>>>> c0667dc4e2f42f63da1114668d8fb303fefa0360
         var teat_data;
         var columns = ['Date', 'Total', 'Percent 3 & 4'];
 
@@ -324,20 +329,38 @@
                 res = response;
             });
             console.log(res);
+<<<<<<< HEAD
 
 
+=======
+        
+>>>>>>> c0667dc4e2f42f63da1114668d8fb303fefa0360
             if (res[0] == false){
                 window.location = "index.html";
             }
 
             d3.json('../data/search/teat_data.json', function (error,data) {
-
                 document.getElementById("divTable").innerHTML = ""
 
                 // $("#createbutton").one("click",function createTable() {
                 // Create table.
                 console.log(res[1]);
                 teat_data = res[1];
+
+                teat_data = [
+              {
+                  Milker: "Aphrodite",Date: '03-15-2018',Score1: 15,Score2: 10,Score3: 3,Score4: 10	},
+              {
+                  Milker: "Chris",Date: '03-15-2018',Score1: 11,Score2: 10,Score3: 8,Score4: 6},
+              {
+                  Milker: "Terry",Date: '03-15-2018',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+              {
+                  Milker: "Zack",Date: '03-15-2018',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+              {
+                  Milker: "Kyle",Date: '03-15-2018',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+              {
+                  Milker: "Zeus",Date: '03-15-2018',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
+            ];
 
                 var teat_data_summary = d3.nest()
                     .key(function (d){ return d.date;})
@@ -347,8 +370,12 @@
                         //percent_4: d3.sum(v, function (d){ return d.Large_Dirt;}) / d3.sum(v, function(d) {return d.Clean + d.Dirt_Present + d.Small_Dirt + d.Large_Dirt;}),
                     };})
                     .entries(teat_data);
+<<<<<<< HEAD
 
 
+=======
+                
+>>>>>>> c0667dc4e2f42f63da1114668d8fb303fefa0360
                 console.log(teat_data_summary);
 
                 var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);

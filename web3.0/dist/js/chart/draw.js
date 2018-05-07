@@ -2408,13 +2408,8 @@ function lactoFunction() {
 
 function teatFunction() {
 
-  if(searchcheck == false) {
-     alert("Empty dataset! Please search first!");
-  }
-  else{
-console.log(teat_data);
-//console.log(res);
-//  var color = Chart.helpers.color;
+
+
   	// var teat_data = [
     //   {
     //       Milker: "Aphrodite",Date: '03-15-2018',Score1: 15,Score2: 10,Score3: 3,Score4: 10	},
@@ -2446,129 +2441,48 @@ console.log(teat_data);
           //token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
           teatset.push(token);
         }
-    var chart = AmCharts.makeChart( "teatcanvas", {
-      "type": "serial",
-      "theme": "light",
-      "dataProvider": teatset,
-      "valueAxes": [ {
-        "gridColor": "#FFFFFF",
-        "gridAlpha": 0.2,
-        "dashLength": 0,
-        "labelFunction": function(value) {
-          return value + "%";
-        }
-      } ],
-      "gridAboveGraphs": true,
-      "startDuration": 1,
-      "graphs": [ {
-        "balloonText": "[[title]]: <b>[[value]]</b>",
-        "fillAlphas": 0.8,
-        "lineAlpha": 0.2,
-        "fillColors": "#4176C1",
-        "type": "column",
-        "title": "3&4 Percent",
-        "valueField": "visits",
-        "balloonText": "[[title]]<br />[[category]]<br /><b style='font-size: 130%'>[[value]]%</b>"
-      } ],
-      "chartCursor": {
-        "categoryBalloonEnabled": false,
-        "cursorAlpha": 0,
-        "zoomable": false
-      },
-      "categoryField": "country",
-      "categoryAxis": {
-        "gridPosition": "start",
-        "gridAlpha": 0,
-        "tickPosition": "start",
-        "tickLength": 20
-      },
-      "export": {
-        "enabled": true
-      }
+              var chart = AmCharts.makeChart( "teatcanvas", {
+                "type": "serial",
+                "theme": "light",
+                "dataProvider": teatset,
+                "valueAxes": [ {
+                  "gridColor": "#FFFFFF",
+                  "gridAlpha": 0.2,
+                  "dashLength": 0,
+                  "labelFunction": function(value) {
+                    return value + "%";
+                  }
+                } ],
+                "gridAboveGraphs": true,
+                "startDuration": 1,
+                "graphs": [ {
+                  "balloonText": "[[title]]: <b>[[value]]</b>",
+                  "fillAlphas": 0.8,
+                  "lineAlpha": 0.2,
+                  "fillColors": "#4176C1",
+                  "type": "column",
+                  "title": "3&4 Percent",
+                  "valueField": "visits",
+                  "balloonText": "[[title]]<br />[[category]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+                } ],
+                "chartCursor": {
+                  "categoryBalloonEnabled": false,
+                  "cursorAlpha": 0,
+                  "zoomable": false
+                },
+                "categoryField": "country",
+                "categoryAxis": {
+                  "gridPosition": "start",
+                  "gridAlpha": 0,
+                  "tickPosition": "start",
+                  "tickLength": 20
+                },
+                "export": {
+                  "enabled": true
+                }
 
-    } );
-}
+              } );
 
-    //
-    //
-    //
-  	// var label_data = [];
-  	// var score4set = [];
-  	// var score3set = [];
-  	// var score21set = [];
-  	// //var score1set = [];
-  	// for(var i = 0; i < teat_data.length; i++) {
-    //   var obj = teat_data[i];
-  	// 	label_data.push(obj.Milker);
-    //   console.log(obj);
-  	// 	var total = obj.Score1 + obj.Score2 +obj.Score3 +obj.Score4;
-    //   score4set.push(((obj.Score4 + obj.Score3)/total).toFixed(2));
-  	// 	//score4set.push((obj.Score4/total).toFixed(2));
-  	// 	score3set.push((obj.Score3/total).toFixed(2));
-  	// 	score21set.push(((obj.Score2 + obj.Score1)/total).toFixed(2));
-  	// 	console.log(obj.Socre4/total);
-  	// }
-  	// 	console.log(label_data);
-  	// 	console.log(score4set);
-  	// 		console.log(score3set);
-  	// 			console.log(score21set);
-    //
-  	// 	var barChartData = {
-  	// 		//labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  	// 		labels: label_data,
-  	// 		datasets: [{
-  	// 			//show label of dataset1
-  	// 			label: 'Score4 percent',
-    //       backgroundColor: "#4176C1",
-    //       //backgroundColor: "rgb(255, 189, 89)",
-  	// 			//backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
-  	// 			borderColor: window.chartColors.white,
-  	// 			borderWidth: 0,
-  	// 			//append data of dataset1 a json as a array
-  	// 			data: score4set
-  	// 		}
-    //
-    //     /*, {
-  	// 			label: 'Score3 percent',
-  	// 			backgroundColor: "rgb(216, 105, 192)",
-  	// 			borderColor: "rgb(216, 105, 192)",
-  	// 			borderWidth: 1,
-  	// 			data: score3set
-  	// 		}, {
-  	// 			label: 'Score2 & 1 percent',
-  	// 			backgroundColor: "rgb(220, 218, 218)",
-  	// 			borderColor: window.chartColors.white,
-  	// 			borderWidth: 1,
-  	// 			data: score21set
-  	// 		}*/
-    //   ]
-    //
-  	// 	};
-  	// //	console.log(barChartData);
-    //
-  	// var ctx = document.getElementById('canvas').getContext('2d');
-  	// window.myBar = new Chart(ctx, {
-  	// 	type: 'bar',
-  	// 	data: barChartData,
-  	// 	options: {
-  	// 		title: {
-  	// 			display: true,
-  	// 			text: 'Date: YY-MM-DD Score percent by observer'
-  	// 		},
-  	// 		tooltips: {
-  	// 			mode: 'index',
-  	// 			intersect: false
-  	// 		},
-  	// 		responsive: true,
-  	// 		scales: {
-  	// 			xAxes: [{
-  	// 				stacked: true,
-  	// 			}],
-  	// 			yAxes: [{
-  	// 				stacked: true
-  	// 			}]
-  	// 		}
-  	// 	}
-  	// });
+
 
 }
