@@ -203,7 +203,7 @@
                     <div class="row">
                         <div class='col-sm-3'>
                             <div class="form-group">
-                                    Date From
+                                    date From
                                 <div class='input-group date' id='datetimepicker1'>
                                     <input id="date_1" type='text' class="form-control" />
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
@@ -288,7 +288,7 @@
         }
 
         var udder_data;
-        var columns = ['Date', 'Total', 'Percent 3 & 4'];
+        var columns = ['date', 'Total', 'Percent 3 & 4'];
 
         $("#createbutton").click(function createTable() {
 
@@ -334,6 +334,69 @@
 
                 // Create table.
                 udder_data = res[1];
+
+                udder_data = [
+         {
+                 Milker: "Pen1",date: '2018-03-15', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+         {
+                 Milker: "Pen1",date: '2018-03-15', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+         {
+                 Milker: "Pen2",date: '2018-03-15', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
+         {
+                 Milker: "Pen3",date: '2018-03-15', clean: 10, slightly_dirt: 24,moderate_dirt: 4,cake_on_dirt: 2 },
+         {
+                 Milker: "Pen4",date: '2018-03-15', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
+         {
+                 Milker: "Pen5",date: '2018-03-15', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
+         {
+                 Milker: "Pen1",date: '2018-03-16', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+         {
+                 Milker: "Pen1",date: '2018-03-16', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+         {
+                 Milker: "Pen2",date: '2018-03-16', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
+         {
+                 Milker: "Pen3",date: '2018-03-16', clean: 10, slightly_dirt: 24,moderate_dirt: 4,cake_on_dirt: 2 },
+         {
+                 Milker: "Pen4",date: '2018-03-16', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
+         {
+                 Milker: "Pen5",date: '2018-03-16', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
+         {
+                 Milker: "Pen1",date: '2018-03-17', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+         {
+                 Milker: "Pen2",date: '2018-03-17', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+         {
+                 Milker: "Pen3",date: '2018-03-17', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
+         {
+                 Milker: "Pen4",date: '2018-03-17', clean: 10, slightly_dirt: 24,moderate_dirt: 4,cake_on_dirt: 2 },
+         {
+                 Milker: "Pen5",date: '2018-03-17', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
+         {
+                 Milker: "Pen5",date: '2018-03-18', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
+         {
+                 Milker: "Pen1",date: '2018-03-18', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+         {
+                 Milker: "Pen2",date: '2018-03-18', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+         {
+                 Milker: "Pen3",date: '2018-03-18', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
+         {
+                 Milker: "Pen4",date: '2018-03-18', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
+         {
+                 Milker: "Pen5",date: '2018-03-19', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
+         {
+                Milker: "Pen6",date: '2018-03-19', clean: 19, slightly_dirt: 12,moderate_dirt: 1,cake_on_dirt: 5},
+         {
+                 Milker: "Pen1",date: '2018-03-22', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+         {
+                 Milker: "Pen2",date: '2018-03-22', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+         {
+                 Milker: "Pen3",date: '2018-03-26', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
+         {
+                 Milker: "Pen4",date: '2018-03-30', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
+         {
+                 Milker: "Pen5",date: '2018-04-05', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
+         {
+                 Milker: "Pen2",date: '2018-04-19',clean: 19,slightly_dirt: 12,moderate_dirt: 1,cake_on_dirt: 5}
+        ];
 
                 var udder_data_summary = d3.nest()
                     .key(function (d){ return d.date;})
@@ -385,6 +448,7 @@
             });
 
         });
+       
     </script>
 
     <!-- jQuery -->

@@ -22,14 +22,14 @@ window.onload = function() {
 
 }
 */
-var formatComma = d3.format(",");
+var formacoloromma = d3.format(",");
 
 function convertToPercent(fraction) {
 return (fraction * 100) + '&#37;';
 }
 
 function udderFunction() {
-  if (typeof teat_data == 'undefined') {
+  if (typeof udder_data == 'undefined') {
     // the variable is defined
     alert("Empty dataset. Please search data!");
   }else{
@@ -95,12 +95,12 @@ function udderFunction() {
   // 										{
   // 												Milker: "Pen2",Date: '2018-04-19',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
   // ];
-  var formatComma = d3.format(",");
+  var formacoloromma = d3.format(",");
   var datanest = d3.nest()
   		.key(function (d){ return d.date;})
   		.rollup(function(v){ return {
-  				total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-  				percent_3_4: formatComma( (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
+  				total: d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;}),
+  				percent_3_4: formacoloromma( (d3.sum(v, function (d){ return d.moderate_dirt + d.cake_on_dirt;}) / d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;}))*100)
   				//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
   		};})
   		.entries(udder_data);
@@ -117,8 +117,8 @@ function udderFunction() {
   		 var datanest2 = d3.nest()
   		 		.key(function (d){ return d.Milker;})
   		 		.rollup(function(v){ return {
-  		 				total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-  		 				percent_3_4: formatComma( (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
+  		 				total: d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;}),
+  		 				percent_3_4: formacoloromma( (d3.sum(v, function (d){ return d.moderate_dirt + d.cake_on_dirt;}) / d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;}))*100)
   		 				//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
   		 		};})
   		 		.entries(udder_data);
@@ -152,8 +152,8 @@ function udderFunction() {
           "balloonText": "[[value]]",
           "bullet": "round",
           "bulletBorderAlpha": 1,
-          "bulletColor": "#FFFFFF",
-          "hideBulletsCount": 50,
+          "bullecolorolor": "#FFFFFF",
+          "hideBulleskin_conditionount": 50,
           "title": "3&4 Percent",
           "valueField": "visits",
           "useLineColorForBulletBorder": true,
@@ -163,12 +163,12 @@ function udderFunction() {
   				  "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
 
       }],
-      "chartScrollbar": {
+      "charskin_conditionrollbar": {
           "autoGridCount": true,
           "graph": "g1",
           "scrollbarHeight": 40
       },
-      "chartCursor": {
+      "charcolorursor": {
          "limitToGraph":"g1"
       },
       "categoryField": "date",
@@ -227,7 +227,7 @@ function udderFunction() {
           //construct balloontext
   				"balloonText": "[[title]]<br />[[category]]<br /><b style='font-size: 130%'>[[value]]%</b>"
   		  } ],
-  		  "chartCursor": {
+  		  "charcolorursor": {
   		    "categoryBalloonEnabled": false,
   		    "cursorAlpha": 0,
   		    "zoomable": false
@@ -247,7 +247,7 @@ function udderFunction() {
 }}
 
 function stripFunction() {
-  if (typeof teat_data == 'undefined') {
+  if (typeof strip_data == 'undefined') {
     // the variable is defined
     alert("Empty dataset. Please search data!");
   }else{
@@ -307,15 +307,15 @@ function stripFunction() {
   // 		{ Date: '2018-04-15', Stall_number: 4, Strip_Yields: 210, balance: "isbalanced",  Majority: 0},
   // 		{ Date: '2018-04-15', Stall_number: 5, Strip_Yields: 700, balance: "isbalanced", Majority: 0}];
   var label_data = ["<150 ml", "150 ml-250 ml", ">250 ml"];
-  var formatComma = d3.format(",");
+  var formacoloromma = d3.format(",");
   var datanest = d3.nest().key(function(d) { return d.date; })
   .rollup(function(v){ return {
-  		total: d3.sum(v, function(d) {return d.Strip_Yields;}),
-  		average: d3.mean(v, function(d) {return d.Strip_Yields;}),
+  		total: d3.sum(v, function(d) {return d.ML;}),
+  		average: d3.mean(v, function(d) {return d.ML;}),
   		//smaller_150: d3.sum(v, function (d){ return (d.Strip_Yields < 150);}),
-  		smaller_150: d3.sum(v, function (d){ return (d.Strip_Yields < 150);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
-  		between: d3.sum(v, function (d){ return (d.Strip_Yields >= 150 & d.Strip_Yields <= 250);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
-  		larger_250: d3.sum(v, function (d){ return (d.Strip_Yields > 250);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
+  		smaller_150: d3.sum(v, function (d){ return (d.ML < 150);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
+  		between: d3.sum(v, function (d){ return (d.ML >= 150 & d.ML <= 250);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
+  		larger_250: d3.sum(v, function (d){ return (d.ML > 250);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
   		//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
   };})
   .entries(strip_data);
@@ -377,7 +377,7 @@ function stripFunction() {
           "lineColor": "#FF6600",
           "bullet": "round",
           "bulletBorderThickness": 1,
-          "hideBulletsCount": 30,
+          "hideBulleskin_conditionount": 30,
           "title": "<150 ml",
           "valueField": "visits",
   		"fillAlphas": 0,
@@ -389,7 +389,7 @@ function stripFunction() {
           "lineColor": "#FCD202",
           "bullet": "square",
           "bulletBorderThickness": 1,
-          "hideBulletsCount": 30,
+          "hideBulleskin_conditionount": 30,
           "title": "150 ml-250 ml",
           "valueField": "hits",
   		"fillAlphas": 0,
@@ -401,7 +401,7 @@ function stripFunction() {
           "lineColor": "#B0DE09",
           "bullet": "triangleUp",
           "bulletBorderThickness": 1,
-          "hideBulletsCount": 30,
+          "hideBulleskin_conditionount": 30,
           "title": ">250 ml",
           "valueField": "views",
   		"fillAlphas": 0,
@@ -409,8 +409,8 @@ function stripFunction() {
   		//浮标label
   		"balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
       }],
-      "chartScrollbar": {},
-      "chartCursor": {
+      "charskin_conditionrollbar": {},
+      "charcolorursor": {
           "cursorPosition": "mouse"
       },
       "categoryField": "date",
@@ -468,7 +468,7 @@ function stripFunction() {
 }}
 
 function postFunction() {
-  if (typeof teat_data == 'undefined') {
+  if (typeof post_data == 'undefined') {
     // the variable is defined
     alert("Empty dataset. Please search data!");
   }else{
@@ -478,54 +478,19 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-15-2018',
-  //         TSC: {
+  //         skin_condition: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         TC: {
+  //         color: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         SNTB: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         HaTE: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         TES: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         }
-  //     },{
-  //         Group: 1,
-  //         Line: 1,
-  //         Farm_Name: "Zeus",
-  //         Date: '03-15-2018',
-  //         TSC: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         TC: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         SNTB: {
+  //         swelling: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
@@ -548,54 +513,19 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-15-2018',
-  //         TSC: {
+  //         skin_condition: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         TC: {
+  //         color: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         SNTB: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         HaTE: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         TES: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         }
-  //     },{
-  //         Group: 1,
-  //         Line: 1,
-  //         Farm_Name: "Zeus",
-  //         Date: '03-15-2018',
-  //         TSC: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         TC: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         SNTB: {
+  //         swelling: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
@@ -618,19 +548,89 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-15-2018',
-  //         TSC: {
+  //         skin_condition: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         TC: {
+  //         color: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         SNTB: {
+  //         swelling: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-15-2018',
+  //         skin_condition: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         color: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         swelling: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-15-2018',
+  //         skin_condition: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         color: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         swelling: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
@@ -654,19 +654,19 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-15-2018',
-  //         TSC: {
+  //         skin_condition: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         TC: {
+  //         color: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         SNTB: {
+  //         swelling: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
@@ -690,19 +690,19 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-17-2018',
-  //         TSC: {
+  //         skin_condition: {
   //             LH: "D",
   //             LF: "OL",
   //             RH: "H",
   //             RF: "D"
   //         },
-  //         TC: {
+  //         color: {
   //             LH: "R",
   //             LF: "DS",
   //             RH: "B",
   //             RF: "R"
   //         },
-  //         SNTB: {
+  //         swelling: {
   //             LH: "VM",
   //             LF: "SW",
   //             RH: "VM",
@@ -725,19 +725,19 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-17-2018',
-  //         TSC: {
+  //         skin_condition: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         TC: {
+  //         color: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         SNTB: {
+  //         swelling: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
@@ -760,19 +760,19 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-17-2018',
-  //         TSC: {
+  //         skin_condition: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         TC: {
+  //         color: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         SNTB: {
+  //         swelling: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
@@ -795,54 +795,19 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-17-2018',
-  //         TSC: {
+  //         skin_condition: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         TC: {
+  //         color: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         SNTB: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         HaTE: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         TES: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         }
-  //     },{
-  //         Group: 1,
-  //         Line: 1,
-  //         Farm_Name: "Zeus",
-  //         Date: '03-17-2018',
-  //         TSC: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         TC: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         SNTB: {
+  //         swelling: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
@@ -865,54 +830,19 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-17-2018',
-  //         TSC: {
+  //         skin_condition: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         TC: {
+  //         color: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         SNTB: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         HaTE: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         TES: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         }
-  //     },{
-  //         Group: 1,
-  //         Line: 1,
-  //         Farm_Name: "Zeus",
-  //         Date: '03-17-2018',
-  //         TSC: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         TC: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         SNTB: {
+  //         swelling: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
@@ -935,54 +865,19 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-17-2018',
-  //         TSC: {
+  //         skin_condition: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         TC: {
+  //         color: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         SNTB: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         HaTE: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         TES: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         }
-  //     },{
-  //         Group: 1,
-  //         Line: 1,
-  //         Farm_Name: "Zeus",
-  //         Date: '03-17-2018',
-  //         TSC: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         TC: {
-  //           LH: "N",
-  //           LF: "N",
-  //           RH: "N",
-  //           RF: "N"
-  //         },
-  //         SNTB: {
+  //         swelling: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
@@ -1005,19 +900,124 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-17-2018',
-  //         TSC: {
+  //         skin_condition: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         TC: {
+  //         color: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         SNTB: {
+  //         swelling: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-17-2018',
+  //         skin_condition: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         color: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         swelling: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-17-2018',
+  //         skin_condition: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         color: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         swelling: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         HaTE: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         TES: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         }
+  //     },{
+  //         Group: 1,
+  //         Line: 1,
+  //         Farm_Name: "Zeus",
+  //         Date: '03-17-2018',
+  //         skin_condition: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         color: {
+  //           LH: "N",
+  //           LF: "N",
+  //           RH: "N",
+  //           RF: "N"
+  //         },
+  //         swelling: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
@@ -1041,19 +1041,19 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-21-2018',
-  //         TSC: {
+  //         skin_condition: {
   //             LH: "D",
   //             LF: "OL",
   //             RH: "H",
   //             RF: "D"
   //         },
-  //         TC: {
+  //         color: {
   //             LH: "R",
   //             LF: "DS",
   //             RH: "B",
   //             RF: "R"
   //         },
-  //         SNTB: {
+  //         swelling: {
   //             LH: "VM",
   //             LF: "SW",
   //             RH: "VM",
@@ -1077,19 +1077,19 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-25-2018',
-  //         TSC: {
+  //         skin_condition: {
   //             LH: "D",
   //             LF: "OL",
   //             RH: "H",
   //             RF: "D"
   //         },
-  //         TC: {
+  //         color: {
   //             LH: "R",
   //             LF: "DS",
   //             RH: "B",
   //             RF: "R"
   //         },
-  //         SNTB: {
+  //         swelling: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
@@ -1113,19 +1113,19 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-28-2018',
-  //         TSC: {
+  //         skin_condition: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         TC: {
+  //         color: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         SNTB: {
+  //         swelling: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
@@ -1149,19 +1149,19 @@ function postFunction() {
   //         Line: 1,
   //         Farm_Name: "Zeus",
   //         Date: '03-30-2018',
-  //         TSC: {
+  //         skin_condition: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
   //           RF: "N"
   //         },
-  //         TC: {
+  //         color: {
   //             LH: "R",
   //             LF: "DS",
   //             RH: "B",
   //             RF: "R"
   //         },
-  //         SNTB: {
+  //         swelling: {
   //           LH: "N",
   //           LF: "N",
   //           RH: "N",
@@ -1184,20 +1184,20 @@ function postFunction() {
                 .key(function (d){ return d.date;})
                 .rollup(function(v){ return {
                     Total_Scored: d3.sum(v, function(d) {return d.Group;}),
-                    Total_TSC_Abnormal: d3.sum(v, function(d){return d.TSC.LH != 'N' || d.TSC.LF != 'N' || d.TSC.RH != 'N' || d.TSC.RF != 'N'}),
-                    Total_TC_Abnormal: d3.sum(v, function(d){return d.TC.LH != 'N' || d.TC.LF != 'N' || d.TC.RH != 'N' || d.TC.RF != 'N'}),
-                    Total_SNTB_Abnormal: d3.sum(v, function(d){return d.SNTB.LH != 'N' || d.SNTB.LF != 'N' || d.SNTB.RH != 'N' || d.SNTB.RF != 'N'}),
+                    Total_skin_condition_Abnormal: d3.sum(v, function(d){return d.skin_condition.LH != 'N' || d.skin_condition.LF != 'N' || d.skin_condition.RH != 'N' || d.skin_condition.RF != 'N'}),
+                    Total_color_Abnormal: d3.sum(v, function(d){return d.color.LH != 'N' || d.color.LF != 'N' || d.color.RH != 'N' || d.color.RF != 'N'}),
+                    Total_swelling_Abnormal: d3.sum(v, function(d){return d.swelling.LH != 'N' || d.swelling.LF != 'N' || d.swelling.RH != 'N' || d.swelling.RF != 'N'}),
                     Total_HaTE_Abnormal: d3.sum(v, function(d){return d.HaTE.LH != 'N' || d.HaTE.LF != 'N' || d.HaTE.RH != 'N' || d.HaTE.RF != 'N'}),
                     Total_TES_Abnormal: d3.sum(v, function(d){return d.TES.LH != 'N' || d.TES.LF != 'N' || d.TES.RH != 'N' || d.TES.RF != 'N'}),
-                    Total_Open_Leison: d3.sum(v, function(d){return d.TSC.LH == 'OL' || d.TSC.LF == 'OL' || d.TSC.RH == 'OL' || d.TSC.RF == 'OL'}),
-                    Total_Hemorrhage: d3.sum(v, function(d){return d.TSC.LH == 'H' || d.TSC.LF == 'H' || d.TSC.RH == 'H' || d.TSC.RF == 'H'}),
-                    Percent_TSC_Abnormal: d3.sum(v, function(d){return (d.TSC.LH != 'N' || d.TSC.LF != 'N' || d.TSC.RH != 'N' || d.TSC.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
-                    Percent_TC_Abnormal: d3.sum(v, function(d){return (d.TC.LH != 'N' || d.TC.LF != 'N' || d.TC.RH != 'N' || d.TC.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
-                    Percent_SNTB_Abnormal: d3.sum(v, function(d){return (d.SNTB.LH != 'N' || d.SNTB.LF != 'N' || d.SNTB.RH != 'N' || d.SNTB.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Total_Open_Leison: d3.sum(v, function(d){return d.skin_condition.LH == 'OL' || d.skin_condition.LF == 'OL' || d.skin_condition.RH == 'OL' || d.skin_condition.RF == 'OL'}),
+                    Total_Hemorrhage: d3.sum(v, function(d){return d.skin_condition.LH == 'H' || d.skin_condition.LF == 'H' || d.skin_condition.RH == 'H' || d.skin_condition.RF == 'H'}),
+                    Percent_skin_condition_Abnormal: d3.sum(v, function(d){return (d.skin_condition.LH != 'N' || d.skin_condition.LF != 'N' || d.skin_condition.RH != 'N' || d.skin_condition.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_color_Abnormal: d3.sum(v, function(d){return (d.color.LH != 'N' || d.color.LF != 'N' || d.color.RH != 'N' || d.color.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_swelling_Abnormal: d3.sum(v, function(d){return (d.swelling.LH != 'N' || d.swelling.LF != 'N' || d.swelling.RH != 'N' || d.swelling.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
                     Percent_HaTE_Abnormal: d3.sum(v, function(d){return (d.HaTE.LH != 'N' || d.HaTE.LF != 'N' || d.HaTE.RH != 'N' || d.HaTE.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
                     Percent_TES_Abnormal: d3.sum(v, function(d){return (d.TES.LH != 'N' || d.TES.LF != 'N' || d.TES.RH != 'N' || d.TES.RF != 'N') / d3.sum(v, function(d) {return d.Group;}) }),
-                    Percent_Open_Leison: d3.sum(v, function(d){return (d.TSC.LH == 'OL' || d.TSC.LF == 'OL' || d.TSC.RH == 'OL' || d.TSC.RF == 'OL') / d3.sum(v, function(d) {return d.Group;}) }),
-                    Percent_Hemorrhage: d3.sum(v, function(d){return (d.TSC.LH == 'H' || d.TSC.LF == 'H' || d.TSC.RH == 'H' || d.TSC.RF == 'H') / d3.sum(v, function(d) {return d.Group;})})
+                    Percent_Open_Leison: d3.sum(v, function(d){return (d.skin_condition.LH == 'OL' || d.skin_condition.LF == 'OL' || d.skin_condition.RH == 'OL' || d.skin_condition.RF == 'OL') / d3.sum(v, function(d) {return d.Group;}) }),
+                    Percent_Hemorrhage: d3.sum(v, function(d){return (d.skin_condition.LH == 'H' || d.skin_condition.LF == 'H' || d.skin_condition.RH == 'H' || d.skin_condition.RF == 'H') / d3.sum(v, function(d) {return d.Group;})})
                     // percent_good: d3.sum(v, function (d){ return d.Good;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
                     // percent_bad: d3.sum(v, function (d){ return d.Bad;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
                 };})
@@ -1207,9 +1207,9 @@ function postFunction() {
               console.log(i);
                var token = {};
                token.date = datanest[i].key;
-               token.tsc = Math.round((datanest[i].value.Percent_TSC_Abnormal)* 100);
-               token.tc = Math.round((datanest[i].value.Percent_TC_Abnormal)* 100);
-               token.sntb = Math.round((datanest[i].value.Percent_SNTB_Abnormal)* 100);
+               token.skin_condition = Math.round((datanest[i].value.Percent_skin_condition_Abnormal)* 100);
+               token.color = Math.round((datanest[i].value.Percent_color_Abnormal)* 100);
+               token.swelling = Math.round((datanest[i].value.Percent_swelling_Abnormal)* 100);
                token.hate = Math.round((datanest[i].value.Percent_HaTE_Abnormal)* 100);
                token.tes = Math.round((datanest[i].value.Percent_TES_Abnormal)* 100);
                token.ol = Math.round((datanest[i].value.Percent_Open_Leison)* 100);
@@ -1223,7 +1223,7 @@ function postFunction() {
 //predefined bullets (our charts support round, square, triangle, bubble, diamond bullet shapes)
 //var cc = [#6F6456, #CDDC49, #CB7E94, #E94B30, #FEE659, #A1CFDD, #7F3B9B, #3ea900];
 var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#6237B2", "#30A300"];
-                var chart = AmCharts.makeChart("postcanvas", {
+                var chart = AmCharts.makeChart("poscoloranvas", {
                     "type": "serial",
                     "theme": "light",
                     "legend": {
@@ -1262,43 +1262,43 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                         }
                     }],
                     "graphs": [{
-                      //变量1 TSC
+                      //变量1 skin_condition
                         "valueAxis": "v1",
                         //"lineColor": "#FF6600",
                         "lineColor": cc[0],
                         "bullet": "round",
                         "bulletBorderThickness": 1,
-                        "hideBulletsCount": 30,
+                        "hideBulleskin_conditionount": 30,
                         "title": "Teat Skin Condition",
-                        "valueField": "tsc",
+                        "valueField": "skin_condition",
                     "fillAlphas": 0,
                     "legendValueText": "[[value]]%",
                     //浮标label
                     "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
                     }, {
-                      //TC
+                      //color
                         "valueAxis": "v1",
                         //"lineColor": "#FCD202",
                         "lineColor": cc[1],
                         "bullet": "round",
                         "bulletBorderThickness": 1,
-                        "hideBulletsCount": 30,
+                        "hideBulleskin_conditionount": 30,
                         "title": "Teat Color",
-                        "valueField": "tc",
+                        "valueField": "color",
                     "fillAlphas": 0,
                     "legendValueText": "[[value]]%",
                     //浮标label
                     "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
                     }, {
-                      //SNTB3
+                      //swelling3
                         "valueAxis": "v1",
                         //"lineColor": "#B0DE09",
                         "lineColor": cc[2],
                         "bullet": "round",
                         "bulletBorderThickness": 1,
-                        "hideBulletsCount": 30,
+                        "hideBulleskin_conditionount": 30,
                         "title": "Swelling Near Teat Base",
-                        "valueField": "sntb",
+                        "valueField": "swelling",
                     "fillAlphas": 0,
                     "legendValueText": "[[value]]%",
                     //浮标label
@@ -1310,7 +1310,7 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                         "lineColor": cc[3],
                         "bullet": "round",
                         "bulletBorderThickness": 1,
-                        "hideBulletsCount": 30,
+                        "hideBulleskin_conditionount": 30,
                         "title": "Hardness at Teat End",
                         "valueField": "hate",
                     "fillAlphas": 0,
@@ -1324,7 +1324,7 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                         "lineColor": cc[4],
                         "bullet": "round",
                         "bulletBorderThickness": 1,
-                        "hideBulletsCount": 30,
+                        "hideBulleskin_conditionount": 30,
                         "title": "Teat End Score",
                         "valueField": "tes",
                     "fillAlphas": 0,
@@ -1338,7 +1338,7 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                         "lineColor": cc[5],
                         "bullet": "square",
                         "bulletBorderThickness": 1,
-                        "hideBulletsCount": 30,
+                        "hideBulleskin_conditionount": 30,
                         "title": "Open Lesion",
                         "valueField": "ol",
                     "fillAlphas": 0,
@@ -1352,7 +1352,7 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                         "lineColor": cc[6],
                         "bullet": "triangleUp",
                         "bulletBorderThickness": 1,
-                        "hideBulletsCount": 30,
+                        "hideBulleskin_conditionount": 30,
                         "title": "Hemorrhage",
                         "valueField": "h",
                     "fillAlphas": 0,
@@ -1360,8 +1360,8 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                     //浮标label
                     "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
                     }],
-                    "chartScrollbar": {},
-                    "chartCursor": {
+                    "charskin_conditionrollbar": {},
+                    "charcolorursor": {
                         "cursorPosition": "mouse"
                     },
                     "categoryField": "date",
@@ -1824,7 +1824,7 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
 // ];
 
 function lactoFunction() {
-  if (typeof teat_data == 'undefined') {
+  if (typeof lacto_data == 'undefined') {
     // the variable is defined
     alert("Empty dataset. Please search data!");
   }else{
@@ -1981,9 +1981,9 @@ function lactoFunction() {
     "valueAxis": "v1",
     "bullet": "round",
     "bulletBorderAlpha": 1,
-    "bulletColor": "#FFFFFF",
+    "bullecolorolor": "#FFFFFF",
     "bulletSize": 5,
-    "hideBulletsCount": 50,
+    "hideBulleskin_conditionount": 50,
     "lineThickness": 2,
     "lineColor": "#ffe082",
     "type": "smoothedLine",
@@ -1996,9 +1996,9 @@ function lactoFunction() {
   "valueAxis": "v1",
   "bullet": "round",
   "bulletBorderAlpha": 1,
-  "bulletColor": "#FFFFFF",
+  "bullecolorolor": "#FFFFFF",
   "bulletSize": 5,
-  "hideBulletsCount": 50,
+  "hideBulleskin_conditionount": 50,
   "lineThickness": 2,
   "lineColor": "#90caf9",
   "type": "smoothedLine",
@@ -2011,9 +2011,9 @@ function lactoFunction() {
     "valueAxis": "v1",
     "bullet": "round",
     "bulletBorderAlpha": 1,
-    "bulletColor": "#FFFFFF",
+    "bullecolorolor": "#FFFFFF",
     "bulletSize": 5,
-    "hideBulletsCount": 50,
+    "hideBulleskin_conditionount": 50,
     "lineThickness": 2,
     "lineColor": "#ffab91",
     "type": "smoothedLine",
@@ -2022,12 +2022,12 @@ function lactoFunction() {
     "valueField": "aunit",
     "balloonText": "[[title]]" + " " + "[[value]]"+"s"
     }],
-    "chartScrollbar": {
+    "charskin_conditionrollbar": {
        "autoGridCount": false,
        "graph": "g1",
        "scrollbarHeight": 40
    },
-    "chartScrollbar": {
+    "charskin_conditionrollbar": {
           "graph": "g1",
           "oppositeAxis": false,
           "offset": 30,
@@ -2042,7 +2042,7 @@ function lactoFunction() {
           "autoGridCount": true,
           "color": "#AAAAAA"
         },
-      // "chartCursor": {
+      // "charcolorursor": {
       //   "pan": true,
       //   //是否显示游标线对齐
       //   "valueLineEnabled": true,
@@ -2060,7 +2060,7 @@ function lactoFunction() {
     "minorGridEnabled": true
   }, */
 
-   "chartCursor": {
+   "charcolorursor": {
     "pan": false,
     "valueLineEnabled": false,
     "valueLineBalloonEnabled": false,
@@ -2318,17 +2318,17 @@ function unitFunction() {
   //         Bad: 36
   //     }];
 
-  if (typeof teat_data == 'undefined') {
+  if (typeof unit_data == 'undefined') {
     // the variable is defined
     alert("Empty dataset. Please search data!");
   }else{
-
-  var formatComma = d3.format(",");
+    console.log(unit_data);
+  var formacoloromma = d3.format(",");
   var datanest = d3.nest().key(function(d) { return d.date; })
                           .rollup(function(v) { return {
-                              total: d3.sum(v, function(d) { return d.Good + d.Bad; }),
-                              good: formatComma(d3.sum(v, function(d) { return d.Good; })/d3.sum(v, function(d) { return d.Good + d.Bad; }) * 100),
-                              bad: d3.sum(v, function(d) { return d.Bad; })/d3.sum(v, function(d) { return d.Good + d.Bad; })
+                              total: d3.sum(v, function(d) { return d.good + d.bad; }),
+                              good: formacoloromma(d3.sum(v, function(d) { return d.good; })/d3.sum(v, function(d) { return d.good + d.bad; }) * 100),
+                              bad: d3.sum(v, function(d) { return d.bad; })/d3.sum(v, function(d) { return d.good + d.bad; })
                             }; })
                           .entries(unit_data);
   console.log(datanest);
@@ -2346,7 +2346,7 @@ function unitFunction() {
    }
 
 
-  var chart = AmCharts.makeChart("unitcanvas", {
+  var chart = AmCharts.makeChart("unicoloranvas", {
     "type": "serial",
     "theme": "light",
     "dataDateFormat": "YYYY-MM-DD",
@@ -2393,7 +2393,7 @@ function unitFunction() {
       "legendValueText": "[[value]]%",
       "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
     }],
-    "chartScrollbar": {
+    "charskin_conditionrollbar": {
       "graph": "g1",
       "oppositeAxis": false,
       "offset": 30,
@@ -2408,7 +2408,7 @@ function unitFunction() {
       "autoGridCount": true,
       "color": "#AAAAAA"
     },
-    "chartCursor": {
+    "charcolorursor": {
       "pan": true,
       //是否显示游标线对齐
       "valueLineEnabled": false,
@@ -2466,7 +2466,7 @@ function teatFunction() {
        .key(function (d){ return d.Milker;})
        .rollup(function(v){ return {
            total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-           percent_3_4: formatComma( (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
+           percent_3_4: formacoloromma( (d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}))*100)
            //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
        };})
        .entries(teat_data);
@@ -2478,7 +2478,7 @@ function teatFunction() {
           //token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
           teatset.push(token);
         }
-    var chart = AmCharts.makeChart( "teatcanvas", {
+    var chart = AmCharts.makeChart( "teacoloranvas", {
       "type": "serial",
       "theme": "light",
       "dataProvider": teatset,
@@ -2502,7 +2502,7 @@ function teatFunction() {
         "valueField": "visits",
         "balloonText": "[[title]]<br />[[category]]<br /><b style='font-size: 130%'>[[value]]%</b>"
       } ],
-      "chartCursor": {
+      "charcolorursor": {
         "categoryBalloonEnabled": false,
         "cursorAlpha": 0,
         "zoomable": false
@@ -2553,8 +2553,8 @@ function teatFunction() {
   	// 			label: 'Score4 percent',
     //       backgroundColor: "#4176C1",
     //       //backgroundColor: "rgb(255, 189, 89)",
-  	// 			//backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
-  	// 			borderColor: window.chartColors.white,
+  	// 			//backgroundColor: color(window.charcolorolors.blue).alpha(0.5).rgbString(),
+  	// 			borderColor: window.charcolorolors.white,
   	// 			borderWidth: 0,
   	// 			//append data of dataset1 a json as a array
   	// 			data: score4set
@@ -2569,7 +2569,7 @@ function teatFunction() {
   	// 		}, {
   	// 			label: 'Score2 & 1 percent',
   	// 			backgroundColor: "rgb(220, 218, 218)",
-  	// 			borderColor: window.chartColors.white,
+  	// 			borderColor: window.charcolorolors.white,
   	// 			borderWidth: 1,
   	// 			data: score21set
   	// 		}*/
@@ -2578,13 +2578,12 @@ function teatFunction() {
   	// 	};
   	// //	console.log(barChartData);
     //
-  	// var ctx = document.getElementById('canvas').getContext('2d');
+  	// var ctx = document.getElementById('canvas').gecolorontext('2d');
   	// window.myBar = new Chart(ctx, {
   	// 	type: 'bar',
   	// 	data: barChartData,
   	// 	options: {
   	// 		title: {
-  	// 			display: true,
   	// 			text: 'Date: YY-MM-DD Score percent by observer'
   	// 		},
   	// 		tooltips: {
