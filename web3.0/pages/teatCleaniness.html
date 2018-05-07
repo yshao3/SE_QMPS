@@ -286,14 +286,9 @@
             localStorage.setItem("password","");
             window.location = "index.html";
         }
-<<<<<<< HEAD
-        var searchcheck = false;
-=======
-        
-
->>>>>>> c0667dc4e2f42f63da1114668d8fb303fefa0360
+        var formacoloromma = d3.format(",");
         var teat_data;
-        var columns = ['Date', 'Total', 'Percent 3 & 4'];
+        var columns = ['Date', 'Total', 'Percent 3 & 4 (%)'];
 
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
@@ -329,12 +324,7 @@
                 res = response;
             });
             console.log(res);
-<<<<<<< HEAD
 
-
-=======
-        
->>>>>>> c0667dc4e2f42f63da1114668d8fb303fefa0360
             if (res[0] == false){
                 window.location = "index.html";
             }
@@ -346,36 +336,31 @@
                 // Create table.
                 console.log(res[1]);
                 teat_data = res[1];
-
+            //
             //     teat_data = [
             //   {
-            //       Milker: "Aphrodite",Date: '03-15-2018',Score1: 15,Score2: 10,Score3: 3,Score4: 10	},
+            //       Milker: "Aphrodite",date: '03-15-2018',clean: 15,dip_present: 10,small_dirt: 3,large_dirt: 10	},
             //   {
-            //       Milker: "Chris",Date: '03-15-2018',Score1: 11,Score2: 10,Score3: 8,Score4: 6},
+            //       Milker: "Chris",date: '03-15-2018',clean: 11,dip_present: 10,small_dirt: 8,large_dirt: 6},
             //   {
-            //       Milker: "Terry",Date: '03-15-2018',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
+            //       Milker: "Terry",date: '03-16-2018',clean: 10,dip_present: 24,small_dirt: 4,large_dirt: 2 },
             //   {
-            //       Milker: "Zack",Date: '03-15-2018',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
+            //       Milker: "Zack",date: '03-16-2018',clean: 15,dip_present: 18,small_dirt: 5,large_dirt: 5},
             //   {
-            //       Milker: "Kyle",Date: '03-15-2018',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
+            //       Milker: "Kyle",date: '03-17-2018',clean: 23,dip_present: 7,small_dirt: 8,large_dirt: 3},
             //   {
-            //       Milker: "Zeus",Date: '03-15-2018',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
+            //       Milker: "Zeus",date: '03-17-2018',clean: 19,dip_present: 12,small_dirt: 1,large_dirt: 5}
             // ];
 
                 var teat_data_summary = d3.nest()
                     .key(function (d){ return d.date;})
                     .rollup(function(v){ return {
                         total: d3.sum(v, function(d) {return d.clean + d.dip_present + d.small_dirt + d.large_dirt;}),
-                        percent_3_4: d3.sum(v, function (d){ return d.small_dirt + d.large_dirt;}) / d3.sum(v, function(d) {return d.clean + d.dip_present + d.small_dirt + d.large_dirt;})
+                        percent_3_4: Math.round(d3.sum(v, function (d){ return d.small_dirt + d.large_dirt;}) / d3.sum(v, function(d) {return d.clean + d.dip_present + d.small_dirt + d.large_dirt;}) * 100)
                         //percent_4: d3.sum(v, function (d){ return d.Large_Dirt;}) / d3.sum(v, function(d) {return d.Clean + d.Dirt_Present + d.Small_Dirt + d.Large_Dirt;}),
                     };})
                     .entries(teat_data);
-<<<<<<< HEAD
 
-
-=======
-                
->>>>>>> c0667dc4e2f42f63da1114668d8fb303fefa0360
                 console.log(teat_data_summary);
 
                 var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
@@ -416,20 +401,7 @@
 
         });
 
-       teat_data = [
-          {
-              Milker: "Aphrodite",Date: '03-15-2018',Score1: 15,Score2: 10,Score3: 3,Score4: 10	},
-          {
-              Milker: "Chris",Date: '03-15-2018',Score1: 11,Score2: 10,Score3: 8,Score4: 6},
-          {
-              Milker: "Terry",Date: '03-15-2018',Score1: 10,Score2: 24,Score3: 4,Score4: 2 },
-          {
-              Milker: "Zack",Date: '03-15-2018',Score1: 15,Score2: 18,Score3: 5,Score4: 5},
-          {
-              Milker: "Kyle",Date: '03-15-2018',Score1: 23,Score2: 7,Score3: 8,Score4: 3},
-          {
-              Milker: "Zeus",Date: '03-15-2018',Score1: 19,Score2: 12,Score3: 1,Score4: 5}
-      	];
+      
     </script>
 
     <!-- jQuery -->

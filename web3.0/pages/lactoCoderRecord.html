@@ -201,7 +201,7 @@
                 <div class="row">
                     <div class='col-sm-3'>
                         <div class="form-group">
-                                Date From
+                                date From
                             <div class='input-group date' id='datetimepicker1'>
                                 <input id="date_1" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
@@ -282,7 +282,7 @@
         }
 
         var lacto_data;
-        var columns = ['Date', 'Stats', 'Dip Contact', 'Lag Time', 'Unit on Time'];
+        var columns = ['date', 'Stats', 'Dip Contact (s)', 'Lag Time (s)', 'Unit on Time (s)'];
 
 
         $("#createbutton").click(function createTable() {
@@ -316,7 +316,7 @@
                 res = response;
             });
             console.log(res);
-        
+
 
             if (res[0] == false){
                 window.location = "index.html";
@@ -328,28 +328,30 @@
 
                 // Create table.
                 lacto_data = res[1];
+
+              
                 console.log(lacto_data);
                 //console.log(Math.abs(lacto_data[0].Wipe) - Math.abs(lacto_data[0].Dip));
                 var lacto_data_summary = d3.nest()
                     .key(function (d){ return d.date;})
                     .rollup(function(v){ return {
                         //total: d3.sum(v, function(d) {return d.lacto_Yields;}),
-                        average_dip: d3.mean(v, function(d) {return d.dip_contact_time;}),
-                        average_lag: d3.mean(v, function(d) {return d.lag_contact_stimulate;}),
-                        average_unit: d3.mean(v, function(d) {return d.unit_on_time;}),
+                        average_dip: Math.round(d3.mean(v, function(d) {return d.dip_contact_time;})),
+                        average_lag: Math.round(d3.mean(v, function(d) {return d.lag_contact_stimulate;})),
+                        average_unit: Math.round(d3.mean(v, function(d) {return d.unit_on_time;})),
 
-                        min_dip: d3.min(v, function(d) {return d.dip_contact_time;}),
-                        min_lag: d3.min(v, function(d) {return d.lag_contact_stimulate;}),
-                        min_unit: d3.min(v, function(d) {return d.unit_on_time;}),
+                        min_dip: Math.round(d3.min(v, function(d) {return d.dip_contact_time;})),
+                        min_lag: Math.round(d3.min(v, function(d) {return d.lag_contact_stimulate;})),
+                        min_unit: Math.round(d3.min(v, function(d) {return d.unit_on_time;})),
 
-                        max_dip: d3.max(v, function(d) {return d.dip_contact_time;}),
-                        max_lag: d3.max(v, function(d) {return d.lag_contact_stimulate;}),
-                        max_unit: d3.max(v, function(d) {return d.unit_on_time;})
+                        max_dip: Math.round(d3.max(v, function(d) {return d.dip_contact_time;})),
+                        max_lag: Math.round(d3.max(v, function(d) {return d.lag_contact_stimulate;})),
+                        max_unit: Math.round(d3.max(v, function(d) {return d.unit_on_time;}))
 
                     };})
                     .entries(lacto_data);
-                
-                
+
+
                 console.log(lacto_data_summary);
 
                 var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
@@ -368,7 +370,7 @@
                     .enter()
                     .append('tr')
 
-                
+
                 var lacto_data_length = lacto_data_summary.length;
                 //console.log(lacto_data_length);
 
@@ -401,7 +403,7 @@
                     .text(lacto_data_summary[i].value.min_lag);
 
 
-                    var tr = tbody.append('tr')               
+                    var tr = tbody.append('tr')
                     var td = tr.append('td')
                     .text('Max');
                     var td = tr.append('td')
@@ -411,12 +413,12 @@
                     var td = tr.append('td')
                     .text(lacto_data_summary[i].value.max_lag);
 
-                    
-                    
+
+
                 }
 
-            }); 
-            
+            });
+
         });
     </script>
     <!-- jQuery -->

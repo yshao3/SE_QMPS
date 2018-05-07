@@ -21,7 +21,7 @@
     <title>Udder Hygiene</title>
 
     <script src="../vendor/jquery/jquery.min.js"></script>
-    
+
     <!-- D3-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -286,9 +286,9 @@
             localStorage.setItem("password","");
             window.location = "index.html";
         }
-
+var formacoloromma = d3.format(",");
         var udder_data;
-        var columns = ['date', 'Total', 'Percent 3 & 4'];
+        var columns = ['date', 'Total', 'Percent 3 & 4 (%)'];
 
         $("#createbutton").click(function createTable() {
 
@@ -322,92 +322,29 @@
                 res = response;
             });
             console.log(res);
-        
+
 
             if (res[0] == false){
                 window.location = "index.html";
             }
-            
+
             d3.json('../data/search/udder_data.json', function (error,data) {
 
                 document.getElementById("divTable").innerHTML = ""
 
                 // Create table.
                 udder_data = res[1];
-
-                udder_data = [
-         {
-                 Milker: "Pen1",date: '2018-03-15', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-         {
-                 Milker: "Pen1",date: '2018-03-15', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-         {
-                 Milker: "Pen2",date: '2018-03-15', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
-         {
-                 Milker: "Pen3",date: '2018-03-15', clean: 10, slightly_dirt: 24,moderate_dirt: 4,cake_on_dirt: 2 },
-         {
-                 Milker: "Pen4",date: '2018-03-15', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
-         {
-                 Milker: "Pen5",date: '2018-03-15', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
-         {
-                 Milker: "Pen1",date: '2018-03-16', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-         {
-                 Milker: "Pen1",date: '2018-03-16', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-         {
-                 Milker: "Pen2",date: '2018-03-16', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
-         {
-                 Milker: "Pen3",date: '2018-03-16', clean: 10, slightly_dirt: 24,moderate_dirt: 4,cake_on_dirt: 2 },
-         {
-                 Milker: "Pen4",date: '2018-03-16', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
-         {
-                 Milker: "Pen5",date: '2018-03-16', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
-         {
-                 Milker: "Pen1",date: '2018-03-17', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-         {
-                 Milker: "Pen2",date: '2018-03-17', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-         {
-                 Milker: "Pen3",date: '2018-03-17', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
-         {
-                 Milker: "Pen4",date: '2018-03-17', clean: 10, slightly_dirt: 24,moderate_dirt: 4,cake_on_dirt: 2 },
-         {
-                 Milker: "Pen5",date: '2018-03-17', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
-         {
-                 Milker: "Pen5",date: '2018-03-18', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
-         {
-                 Milker: "Pen1",date: '2018-03-18', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-         {
-                 Milker: "Pen2",date: '2018-03-18', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-         {
-                 Milker: "Pen3",date: '2018-03-18', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
-         {
-                 Milker: "Pen4",date: '2018-03-18', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
-         {
-                 Milker: "Pen5",date: '2018-03-19', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
-         {
-                Milker: "Pen6",date: '2018-03-19', clean: 19, slightly_dirt: 12,moderate_dirt: 1,cake_on_dirt: 5},
-         {
-                 Milker: "Pen1",date: '2018-03-22', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-         {
-                 Milker: "Pen2",date: '2018-03-22', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-         {
-                 Milker: "Pen3",date: '2018-03-26', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
-         {
-                 Milker: "Pen4",date: '2018-03-30', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
-         {
-                 Milker: "Pen5",date: '2018-04-05', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
-         {
-                 Milker: "Pen2",date: '2018-04-19',clean: 19,slightly_dirt: 12,moderate_dirt: 1,cake_on_dirt: 5}
-        ];
-
+          
                 var udder_data_summary = d3.nest()
                     .key(function (d){ return d.date;})
                     .rollup(function(v){ return {
                         total: d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;}),
-                        percent_3_4: d3.sum(v, function (d){ return d.moderate_dirt + d.cake_on_dirt;}) / d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;})
+                        percent_3_4: Math.round(d3.sum(v, function (d){ return d.moderate_dirt + d.cake_on_dirt;}) / d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;}) * 100)
                         //percent_4: d3.sum(v, function (d){ return d.Cake_On_Dirt;}) / d3.sum(v, function(d) {return d.Clean + d.Slightly_Dirt + d.Moderate_Dirt + d.Cake_On_Dirt;}),
                     };})
                     .entries(udder_data);
-                
-                
+
+
                 console.log(udder_data_summary);
 
                 var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
@@ -426,7 +363,7 @@
                     .enter()
                     .append('tr')
 
-                
+
                 var udder_data_length = udder_data_summary.length;
                 console.log(udder_data_length);
 
@@ -440,15 +377,15 @@
                     .text(udder_data_summary[i].value.total);
                     var td = tr.append('td')
                     .text(udder_data_summary[i].value.percent_3_4);
-                    
-                    
+
+
                 }
 
 
             });
 
         });
-       
+
     </script>
 
     <!-- jQuery -->
