@@ -1,25 +1,31 @@
 $(document).ready(function() {
     $('#button-teatCleaniness').click(function () {
+        // this is the function that create the teat end form
         createExcel_teat();
     });
 
     $('#button-udderHygiene').click(function () {
+        // this is the function that create the udder hygiene form
         createExcel_udder();
     });
 
     $('#button-unitAlignment').click(function () {
+        // this is the function that create the unit alignment form
         createExcel_unit();
     });
 
     $('#button-stripYields').click(function () {
+        // this is the function that create the strip yield form
         createExcel_strip();
     });
 
     $('#button-postMilking').click(function () {
+        // this is the function that create the post milking form
         createExcel_post()
     });
 
     $('#button-lactoCoder').click(function () {
+        // this is the function that create the lactocorder form
         createExcel_lacto() 
     });
 
@@ -73,21 +79,18 @@ $(document).ready(function() {
 
 
 
-    // teat end  /////////////////////////////////////////////////////////
+    /////////////////////////////////////////teat end  excel creation function /////////////////////////////////////////////////////////
 
     function createExcel_teat() {
 
         var milker_data
     
         var date_3 = document.getElementById("date_3").value;
-                // console.log(date_3);
-
         var farm_name = document.getElementById("farm").value;
-        console.log(farm_name);
-
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
 
+        // API to get the required form based on selected dates and farm name with user name and password
         var settings = {
             "async": false,
             "crossDomain": true,
@@ -105,18 +108,19 @@ $(document).ready(function() {
         $.ajax(settings).done(function (response) {
             res = response;
         });
-        console.log(res);
     
 
+        // if the user has not logged in yet, direct the user to log in page
         if (res[0] == false){
             window.location = "index.html";
         }
     
 
-        d3.json('../data/search/teat_data.json', function (error,data) {
+        
+        
 
+        // these are the steps to generate workbook in a certain format
             milker_data = res[1];
-            // console.log(milker_data);
             
             var cell_style = {
                 fg_color: 'green',
@@ -179,38 +183,25 @@ $(document).ready(function() {
             parsed_formula_l += ")";
             parsed_formula_m += ")";
 
-            // console.log(parsed_formula_j);
 
 
-            
-
+            // add the generated workbook to a excel spreadsheet 
             var wb1 = XLSX.utils.book_new();
             wb1.Props = {
                 Title: "Teat End Cleanliness",
                 Subject: "Test File",
                 Author: "Zhili Huang",
-                CreatedDate: new Date(2018, 3, 13)
+                CreatedDate: new Date(2018, 1, 30)
             };
             var ws_name = "Teat End Cleanliness";
-            //wb.SheetNames.push(ws_name);
-            //var ws = XLSX.utils.json_to_sheet(data);
             var ws1 = XLSX.utils.aoa_to_sheet(data1);
 
 
             XLSX.utils.book_append_sheet(wb1, ws1, ws_name);
 
 
-            // Loop for alphabets
-            /*
-            for(var letter=65;letter<91;letter++)
-            {
-            var _char = String.fromCharCode(letter);
-            console.log(_char);
-            }
-            */
-
-
-            // Assigning values to cells
+        
+            // Assigning values to cells dynamically
             ws1['B2'] = { t: 'd', v: milker_data[0].date, fill: cell_style};
             ws1['J2'] = { t: 'd', v: milker_data[0].date, s: cell_style};
             var score1_sum = 0;
@@ -293,11 +284,10 @@ $(document).ready(function() {
             };
 
 
-
+            // save the excel file and name it
             saveAs(new Blob([s2ab(wbout1)], { type: "application/octet-stream" }), 'Teat End Cleanliness.xlsx');
 
-        });
-
+       
     }
 
 
@@ -307,7 +297,7 @@ $(document).ready(function() {
 
 
 
-    // udder hygiene  /////////////////////////////////////////////////////////
+    /////////////////////////////////////////////// udder hygiene  /////////////////////////////////////////////////////////
 
 
     function createExcel_udder() {
@@ -315,13 +305,11 @@ $(document).ready(function() {
         var milker_data
         
         var date_3 = document.getElementById("date_3").value;
-                    console.log(date_3);
         var farm_name = document.getElementById("farm").value;
-        console.log(farm_name);
-
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
 
+        // API to get the required form based on selected dates and farm name with user name and password
         var settings = {
             "async": false,
             "crossDomain": true,
@@ -341,13 +329,13 @@ $(document).ready(function() {
         });
         console.log(res);
     
-
+        // if the user has not logged in yet, direct the user to log in page
         if (res[0] == false){
             window.location = "index.html";
         }
 
-        d3.json('../data/search/udder_data.json', function (error,data) {
-
+        
+            // these are the steps to generate workbook in a certain format
             milker_data = res[1];
             console.log(milker_data);
         
@@ -408,11 +396,10 @@ $(document).ready(function() {
             parsed_formula_l += ")";
             parsed_formula_m += ")";
 
-            console.log(parsed_formula_j);
             
 
             
-
+            // add the generated workbook to a excel spreadsheet 
             var wb2 = XLSX.utils.book_new();
             wb2.Props = {
                 Title: "Udder Hygiene",
@@ -421,25 +408,13 @@ $(document).ready(function() {
                 CreatedDate: new Date(2018, 3, 13)
             };
             var ws_name = "Udder Hygiene";
-            //wb.SheetNames.push(ws_name);
-            //var ws = XLSX.utils.json_to_sheet(data);
             var ws2 = XLSX.utils.aoa_to_sheet(data2);
 
 
             XLSX.utils.book_append_sheet(wb2, ws2, ws_name);
 
 
-            // Loop for alphabets
-            /*
-            for(var letter=65;letter<91;letter++)
-            {
-            var _char = String.fromCharCode(letter);
-            console.log(_char);
-            }
-            */
-
-
-            // Assigning values to cells
+            // Assigning values to cells dynamically
             ws2['B2'] = { t: 'd', v: milker_data[0].date};
             ws2['J2'] = { t: 'd', v: milker_data[0].date};
             var score1_sum = 0;
@@ -523,16 +498,17 @@ $(document).ready(function() {
                 return buf;
             };
 
+            // save the excel file and name it
             saveAs(new Blob([s2ab(wbout2)], { type: "application/octet-stream" }), 'Udder Hygiene.xlsx');
 
-        });
+        
 
     };
 
 
 
 
-    // unit alignment /////////////////////////////////////////////////////////
+    /////////////////////////////////////////////// unit alignment /////////////////////////////////////////////////////////
 
 
     function createExcel_unit() {
@@ -540,13 +516,11 @@ $(document).ready(function() {
         var goodbad_data
     
         var date_3 = document.getElementById("date_3").value;
-
         var farm_name = document.getElementById("farm").value;
-        console.log(farm_name);
-
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
 
+        // API to get the required form based on selected dates and farm name with user name and password
         var settings = {
             "async": false,
             "crossDomain": true,
@@ -566,13 +540,14 @@ $(document).ready(function() {
         });
         console.log(res);
     
-
+        // if the user has not logged in yet, direct the user to log in page
         if (res[0] == false){
             window.location = "index.html";
         }
 
-        d3.json('../data/search/unit_data.json', function (error,data) {
+       
 
+            // these are the steps to generate workbook in a certain format
             goodbad_data = res[1];
                     
             var goodbad_number = goodbad_data.length;
@@ -599,7 +574,7 @@ $(document).ready(function() {
             
 
             
-
+            // add the generated workbook to a excel spreadsheet 
             var wb3 = XLSX.utils.book_new();
             wb3.Props = {
                 Title: "Unit Alignment",
@@ -608,8 +583,6 @@ $(document).ready(function() {
                 CreatedDate: new Date(2018, 3, 13)
             };
             var ws_name = "Unit Alignment";
-            //wb.SheetNames.push(ws_name);
-            //var ws = XLSX.utils.json_to_sheet(data);
             var ws3 = XLSX.utils.aoa_to_sheet(data3);
 
 
@@ -617,11 +590,9 @@ $(document).ready(function() {
 
 
         
-
-
             var end_number = 11 + goodbad_number - 1;
 
-            // Assigning values to cells
+            // Assigning values to cells dynamically
             ws3['B2'] = { t: 'd', v: goodbad_data[0].date};
             ws3['B6'] = { t: 'n', f: 'SUM(B11:B' + end_number + ')'};
             ws3['C6'] = { t: 'n', f: 'SUM(C11:C' + end_number + ')'};
@@ -641,13 +612,14 @@ $(document).ready(function() {
                 return buf;
             };
 
+            // save the excel file and name it
             saveAs(new Blob([s2ab(wbout3)], { type: "application/octet-stream" }), 'Unit Alignment.xlsx');
-        });
+       
     }
 
 
      
-    // strip yields/////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////// strip yields/////////////////////////////////////////////////////////
             
 
     function createExcel_strip() {
@@ -655,13 +627,11 @@ $(document).ready(function() {
         var strip_data
     
         var date_3 = document.getElementById("date_3").value;
-
         var farm_name = document.getElementById("farm").value;
-        console.log(farm_name);
-
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
 
+        // API to get the required form based on selected dates and farm name with user name and password
         var settings = {
             "async": false,
             "crossDomain": true,
@@ -679,16 +649,15 @@ $(document).ready(function() {
         $.ajax(settings).done(function (response) {
             res = response;
         });
-        console.log(res);
     
-
+        // if the user has not logged in yet, direct the user to log in page
         if (res[0] == false){
             window.location = "index.html";
         }
 
 
-        d3.json('../data/search/strip_data.json', function (error,data) {
 
+            // these are the steps to generate workbook in a certain format
             strip_data = res[1];
 
             var strip_number = strip_data.length;
@@ -711,7 +680,7 @@ $(document).ready(function() {
             
 
             
-
+            // add the generated workbook to a excel spreadsheet 
             var wb4 = XLSX.utils.book_new();
             wb4.Props = {
                 Title: "Strip Yields",
@@ -720,25 +689,14 @@ $(document).ready(function() {
                 CreatedDate: new Date(2018, 3, 13)
             };
             var ws_name = "Strip Yields";
-            //wb.SheetNames.push(ws_name);
-            //var ws = XLSX.utils.json_to_sheet(data);
             var ws4 = XLSX.utils.aoa_to_sheet(data4);
 
 
             XLSX.utils.book_append_sheet(wb4, ws4, ws_name);
 
 
-            // Loop for alphabets
-            /*
-            for(var letter=65;letter<91;letter++)
-            {
-            var _char = String.fromCharCode(letter);
-            console.log(_char);
-            }
-            */
-
-
-            // Assigning values to cells
+  
+            // Assigning values to cells dynamically
             ws4['C2'] = { t: 'd', v: strip_data[0].date};
             
             
@@ -783,14 +741,14 @@ $(document).ready(function() {
                 return buf;
             };
 
+            // save the excel file and name it
             saveAs(new Blob([s2ab(wbout4)], { type: "application/octet-stream" }), 'Strip Yields.xlsx');
 
-        });
     }
 
 
 
-    // post milking /////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////// post milking /////////////////////////////////////////////////////////
 
 
     function createExcel_post() {
@@ -798,13 +756,11 @@ $(document).ready(function() {
         var post_data
     
         var date_3 = document.getElementById("date_3").value;
-
         var farm_name = document.getElementById("farm").value;
-        console.log(farm_name);
-
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
 
+        // API to get the required form based on selected dates and farm name with user name and password
         var settings = {
             "async": false,
             "crossDomain": true,
@@ -822,18 +778,15 @@ $(document).ready(function() {
         $.ajax(settings).done(function (response) {
             res = response;
         });
-        console.log(res);
     
-
+        // if the user has not logged in yet, direct the user to log in page
         if (res[0] == false){
             window.location = "index.html";
         }
 
-        d3.json('../data/search/post_data.json', function (error,data) {
 
+            // these are the steps to generate workbook in a certain format
             post_data = res[1];
-        //console.log(teat_data[0].TES.LH);
-
             var group_number = post_data.length;
             
             var data5 = [
@@ -860,7 +813,7 @@ $(document).ready(function() {
             
 
             
-
+            // add the generated workbook to a excel spreadsheet 
             var wb5 = XLSX.utils.book_new();
             wb5.Props = {
                 Title: "Post Milking Teat Assessment",
@@ -869,29 +822,14 @@ $(document).ready(function() {
                 CreatedDate: new Date(2018, 3, 13)
             };
             var ws_name = "Post Milking Teat Assessment";
-            //wb.SheetNames.push(ws_name);
-            //var ws = XLSX.utils.json_to_sheet(data);
             var ws5 = XLSX.utils.aoa_to_sheet(data5);
 
 
             XLSX.utils.book_append_sheet(wb5, ws5, ws_name);
 
 
-            // Loop for alphabets
-            /*
-            for(var letter=65;letter<91;letter++)
-            {
-            var _char = String.fromCharCode(letter);
-            console.log(_char);
-            }
-            */
 
-
-            // Assigning values to cells
-            
-
-
-
+            // Assigning values to cells dynamically
             ws5['B1'] = { t: 's', v: post_data[0].farm};
             ws5['B2'] = { t: 'd', v: post_data[0].date};
 
@@ -1063,16 +1001,17 @@ $(document).ready(function() {
                 return buf;
             };
 
+            // save the excel file and name it
             saveAs(new Blob([s2ab(wbout5)], { type: "application/octet-stream" }), 'Post Milking Teat Assessment.xlsx');
 
         
-        });
+
 
     }
 
     
     
-    //lactocorder /////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////lactocorder /////////////////////////////////////////////////////////
 
         
     function createExcel_lacto() {
@@ -1080,13 +1019,11 @@ $(document).ready(function() {
         var lacto_data
     
         var date_3 = document.getElementById("date_3").value;
-
         var farm_name = document.getElementById("farm").value;
-        console.log(farm_name);
-
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
 
+        // API to get the required form based on selected dates and farm name with user name and password
         var settings = {
             "async": false,
             "crossDomain": true,
@@ -1104,16 +1041,14 @@ $(document).ready(function() {
         $.ajax(settings).done(function (response) {
             res = response;
         });
-        console.log(res);
     
-
+        // if the user has not logged in yet, direct the user to log in page
         if (res[0] == false){
             window.location = "index.html";
         }
 
 
-        d3.json('../data/search/lacto_data.json', function (error,data) {
-
+            // these are the steps to generate workbook in a certain format
             lacto_data = res[1];
 
             var lacto_number = lacto_data.length;
@@ -1147,7 +1082,7 @@ $(document).ready(function() {
         
 
 
-
+            // add the generated workbook to a excel spreadsheet 
             var wb6 = XLSX.utils.book_new();
             wb6.Props = {
                 Title: "Lactocorder Evaluation",
@@ -1156,15 +1091,13 @@ $(document).ready(function() {
                 CreatedDate: new Date(2018, 3, 13)
             };
             var ws_name = "Lactocorder Evaluation";
-            //wb.SheetNames.push(ws_name);
-            //var ws = XLSX.utils.json_to_sheet(data);
             var ws6 = XLSX.utils.aoa_to_sheet(data6);
 
 
             XLSX.utils.book_append_sheet(wb6, ws6, ws_name);
 
 
-
+            // Assigning values to cells dynamically
             ws6['B1'] = { t: 'd', v: lacto_data[0].date};
             ws6['E1'] = { t: 's', v: lacto_data[0].farm};
             
@@ -1176,12 +1109,8 @@ $(document).ready(function() {
                 var ee = 'E' + row_number;
                 var cc = 'C' + row_number;
                 var ff = 'F' + row_number;
-
-                // ws6['G' + row_number] = { t: 'n', f: dd + '-' + bb};
-                // ws6['H' + row_number] = { t: 'n', f: ee + '-' + cc};
-                // ws6['I' + row_number] = { t: 'n', f: ff + '-' + ee};
-            
             }
+
             var lacto_last = lacto_number + 10;
             var lacto_last1 = lacto_number + 12;
             var lacto_last2 = lacto_number + 13;
@@ -1234,12 +1163,10 @@ $(document).ready(function() {
                 return buf;
             };
 
-
+            // save the excel file and name it
             saveAs(new Blob([s2ab(wbout6)], { type: "application/octet-stream" }), 'Lactocorder Evaluation.xlsx');
 
-
-
-        });
+        
 
     }
 
