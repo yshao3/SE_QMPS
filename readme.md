@@ -2,35 +2,35 @@
 ## Development Environment
 Per the request of the client, we use Ionic 3 framework to develop the hybrid mobile app. 
 
-	## Running locally
-	* ionic cordova plugin add cordova-sqlite-plugin
-        ```
-	npm install --save @ionic-native/sqlite
+## Running locally
+* ionic cordova plugin add cordova-sqlite-plugin
+```
+npm install --save @ionic-native/sqlite
         
-	```
-	* npm install
-        
-	```
-	npm install
-        
-	```
-	* add new platform
-        
-	```
-	cordova platform add ios
-        
-	```
+```
+* npm install
 
-	## Run project in ios simulator
-	```
-	ionic cordova emulate ios -c --emulator
-	```
-	```
-	ionic cordova emulate ios --livereload
-	```
-	```
-	ionic emulate ios -l -c
-	```
+```
+npm install
+
+```
+* add new platform
+
+```
+cordova platform add ios
+
+```
+
+## Run project in ios simulator
+```
+ionic cordova emulate ios -c --emulator
+```
+```
+ionic cordova emulate ios --livereload
+```
+```
+ionic emulate ios -l -c
+```
 
 	Structure
 		1.Plugins installed:
