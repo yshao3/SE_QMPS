@@ -7,7 +7,6 @@
 }
 </style>
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,16 +15,8 @@
 
     <title>Teat Cleaniness</title>
 
-<<<<<<< HEAD:web3.0/pages/teatCleaniness.html
-<<<<<<< HEAD:web2.0/pages/teatCleaniness.html
-=======
     <script src="../vendor/jquery/jquery.min.js"></script>
 
->>>>>>> d831eb168f6a4b7e7f8140fb9fa64f14d08ad028:web3.0/pages/teatCleaniness.html
-=======
-    <script src="../vendor/jquery/jquery.min.js"></script>
-
->>>>>>> d831eb168f6a4b7e7f8140fb9fa64f14d08ad028:web3.0/pages/teatCleaniness.html
     <!-- D3-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -75,7 +66,6 @@
     <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
 
     <style>
-
         table.blueTable {
         border: 1px solid #1C6EA4;
         background-color: #EEEEEE;
@@ -134,14 +124,10 @@
         padding: 2px 8px;
         border-radius: 5px;
         }
-
     </style>
-
-
 </head>
 
 <body>
-
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -196,9 +182,7 @@
                         </li>
                     </ul>
                 </div>
-                <!-- /.sidebar-collapse -->
             </div>
-            <!-- /.navbar-static-side -->
         </nav>
 
         <div id="page-wrapper">
@@ -206,10 +190,42 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">Teat Cleaniness Data Retrieve</h1>
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
             <div class="container">
+                <div class="row">
+                    <div class='col-sm-3'>
+                        <div class="form-group">
+                            Select a farm you want to search on:
+                        <select id="farm" class="form-control">
+                            <option>A</option>
+                                <option>B</option>
+                                <option>C</option>
+                                <option>D</option>
+                                <option>E</option>
+                                <option>F</option>
+                                <option>G</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class='col-sm-2'>
+                        <div class="form-group">
+                            Download Data on
+                            <div class='input-group date' id='datetimepicker1'>
+                                    <input id="date_3" type='text' class="form-control" />
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                            </div>
+                        </div>     
+                    </div>
+
+                    <div class='col-sm-3'><br/>
+                        <button type="button" class="btn btn-danger" id="button-stripYields">Download</button>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class='col-sm-3'>
                         <div class="form-group">
@@ -234,21 +250,6 @@
                     </div>
 
                     <div class='col-sm-3'>
-                        <div class="form-group">
-                            Farm:
-                        <select id="farm" class="form-control">
-                            <option>A</option>
-                            <option>B</option>
-                            <option>C</option>
-                            <option>D</option>
-                            <option>E</option>
-                            <option>F</option>
-                            <option>G</option>
-                        </select>
-                        </div>
-                    </div>
-
-                    <div class='col-sm-3'>
                         <div class="form-group"><br/>
                             <div>
                                 <button type="button" class="btn btn-warning" id="createbutton">Search</button>
@@ -259,36 +260,19 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class='col-sm-2'>
-                            Download Data on
-                        <div class='input-group date' id='datetimepicker1'>
-                                <input id="date_3" type='text' class="form-control" />
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                        </div>
-                    </div>
+                <div id="divTable" class="container"></div>
 
-                    <div class='col-sm-3'><br/>
-                        <button type="button" class="btn btn-danger" id="button-teatCleaniness">Download</button>
-                    </div>
-                </div>
-
-                <div id="divTable" class="container">
-                </div>
                 <div class='col-sm-10'>
                   <div id="teatcanvas"></div>
                 </div>
-
-
             </div>
         </div>
-        <!-- /#page-wrapper -->
-
     </div>
     <!-- /#wrapper -->
 
     <script>
+        // clean up the local storage information of username and password
+        // redirect to the login page
         function logout(){
             localStorage.setItem("username","");
             localStorage.setItem("password","");
@@ -296,82 +280,25 @@
         }
         var formacoloromma = d3.format(",");
         var teat_data;
-<<<<<<< HEAD:web3.0/pages/teatCleaniness.html
-<<<<<<< HEAD:web2.0/pages/teatCleaniness.html
-        var columns = ['Date', 'Total', 'Percent 3 & 4'];
 
-
-        d3.json('../data/search/teat_data.json', function (error,data) {
-
-            $("#createbutton").one("click",function createTable() {
-            // Create table.
-            teat_data = data;
-
-            var teat_data_summary = d3.nest()
-                .key(function (d){ return d.Date;})
-                .rollup(function(v){ return {
-                    total: d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-                    percent_3_4: d3.sum(v, function (d){ return d.Score3 + d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;})
-                    //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-                };})
-                .entries(teat_data);
-            
-            
-            console.log(teat_data_summary);
-
-            var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
-            var thead = table.append('thead');
-            var tbody = table.append('tbody');
-
-            thead
-                .selectAll('th')
-                .data(columns)
-                .enter()
-                .append('th')
-                .text(function (column) { return column; });
-
-            var rows = tbody.selectAll('tr')
-                .data(teat_data_summary)
-                .enter()
-                .append('tr')
-
-            
-            var teat_data_length = teat_data_summary.length;
-            console.log(teat_data_length);
-
-
-            for (var i = 0; i < teat_data_length; i++){
-                var tr = tbody.append('tr');
-
-                var td = tr.append('td')
-                .text(teat_data_summary[i].key);
-                var td = tr.append('td')
-                .text(teat_data_summary[i].value.total);
-                var td = tr.append('td')
-                .text(teat_data_summary[i].value.percent_3_4);
-                
-                
-=======
-=======
->>>>>>> d831eb168f6a4b7e7f8140fb9fa64f14d08ad028:web3.0/pages/teatCleaniness.html
         var columns = ['Date', 'Total', 'Percent 3 & 4 (%)'];
+
 
         var username = localStorage.getItem("username");
         var password = localStorage.getItem("password");
-        // console.log(username);
 
         $("#createbutton").click(function createTable() {
             searchcheck = true;
             var date_1 = document.getElementById("date_1").value;
-            console.log(date_1);
 
             var date_2 = document.getElementById("date_2").value;
             var farm = document.getElementById("farm").value;
-            console.log(farm);
 
+            // get username and password saved in the local stotage
             var username = localStorage.getItem("username");
             var password = localStorage.getItem("password");
-
+            
+            // send username and password to the backend server
             var settings = {
                 "async": false,
                 "crossDomain": true,
@@ -381,7 +308,6 @@
                     'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
                     "username": username,
                     "password": password
-
                 }
             };
 
@@ -389,14 +315,11 @@
             $.ajax(settings).done(function (response) {
                 res = response;
             });
-            console.log(res);
-
+            
+            // check if the user has been logged in
+            // redirect to the login page if not
             if (res[0] == false){
                 window.location = "index.html";
-<<<<<<< HEAD:web3.0/pages/teatCleaniness.html
->>>>>>> d831eb168f6a4b7e7f8140fb9fa64f14d08ad028:web3.0/pages/teatCleaniness.html
-=======
->>>>>>> d831eb168f6a4b7e7f8140fb9fa64f14d08ad028:web3.0/pages/teatCleaniness.html
             }
 
             d3.json('../data/search/teat_data.json', function (error,data) {
@@ -404,23 +327,22 @@
 
                 // $("#createbutton").one("click",function createTable() {
                 // Create table.
-                console.log(res[1]);
                 teat_data = res[1];
-            //
-            //     teat_data = [
-            //   {
-            //       Milker: "Aphrodite",date: '03-15-2018',clean: 15,dip_present: 10,small_dirt: 3,large_dirt: 10	},
-            //   {
-            //       Milker: "Chris",date: '03-15-2018',clean: 11,dip_present: 10,small_dirt: 8,large_dirt: 6},
-            //   {
-            //       Milker: "Terry",date: '03-16-2018',clean: 10,dip_present: 24,small_dirt: 4,large_dirt: 2 },
-            //   {
-            //       Milker: "Zack",date: '03-16-2018',clean: 15,dip_present: 18,small_dirt: 5,large_dirt: 5},
-            //   {
-            //       Milker: "Kyle",date: '03-17-2018',clean: 23,dip_present: 7,small_dirt: 8,large_dirt: 3},
-            //   {
-            //       Milker: "Zeus",date: '03-17-2018',clean: 19,dip_present: 12,small_dirt: 1,large_dirt: 5}
-            // ];
+            
+                teat_data = [
+              {
+                  Milker: "Aphrodite",date: '03-15-2018',clean: 15,dip_present: 10,small_dirt: 3,large_dirt: 10	},
+              {
+                  Milker: "Chris",date: '03-15-2018',clean: 11,dip_present: 10,small_dirt: 8,large_dirt: 6},
+              {
+                  Milker: "Terry",date: '03-16-2018',clean: 10,dip_present: 24,small_dirt: 4,large_dirt: 2 },
+              {
+                  Milker: "Zack",date: '03-16-2018',clean: 15,dip_present: 18,small_dirt: 5,large_dirt: 5},
+              {
+                  Milker: "Kyle",date: '03-17-2018',clean: 23,dip_present: 7,small_dirt: 8,large_dirt: 3},
+              {
+                  Milker: "Zeus",date: '03-17-2018',clean: 19,dip_present: 12,small_dirt: 1,large_dirt: 5}
+            ];
 
                 var teat_data_summary = d3.nest()
                     .key(function (d){ return d.date;})
@@ -430,8 +352,6 @@
                         //percent_4: d3.sum(v, function (d){ return d.Large_Dirt;}) / d3.sum(v, function(d) {return d.Clean + d.Dirt_Present + d.Small_Dirt + d.Large_Dirt;}),
                     };})
                     .entries(teat_data);
-
-                console.log(teat_data_summary);
 
                 var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
                 var thead = table.append('thead');
@@ -449,10 +369,7 @@
                     .enter()
                     .append('tr')
 
-
                 var teat_data_length = teat_data_summary.length;
-                console.log(teat_data_length);
-
 
                 for (var i = 0; i < teat_data_length; i++){
                     var tr = tbody.append('tr');
@@ -463,12 +380,8 @@
                     .text(teat_data_summary[i].value.total);
                     var td = tr.append('td')
                     .text(teat_data_summary[i].value.percent_3_4);
-
-
                 }
-
             });
-
         });
 
       

@@ -200,56 +200,26 @@
             </div>
             <!-- /.row -->
             <div class="container">
-                    <div class="row">
-                        <div class='col-sm-3'>
-                            <div class="form-group">
-                                    date From
-                                <div class='input-group date' id='datetimepicker1'>
-                                    <input id="date_1" type='text' class="form-control" />
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class='col-sm-3'>
-                            <div class="form-group">
-                                To:
-                                <div class='input-group date' id='datetimepicker1'>
-                                    <input  id="date_2" type='text' class="form-control" />
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class='col-sm-3'>
-                            <div class="form-group">
-                                Farm:
-                            <select id="farm" class="form-control">
-                                <option>A</option>
+                <div class="row">
+                    <div class='col-sm-3'>
+                        <div class="form-group">
+                            Select a farm you want to search on:
+                        <select id="farm" class="form-control">
+                            <option>A</option>
                                 <option>B</option>
                                 <option>C</option>
                                 <option>D</option>
                                 <option>E</option>
                                 <option>F</option>
                                 <option>G</option>
-                            </select>
-                            </div>
-                        </div>
-
-                        <div class='col-sm-3'>
-                            <div class="form-group"><br/>
-                                <div>
-                                    <button type="button" class="btn btn-warning" id="createbutton">Search</button>
-                                    <button type="button" class="btn btn-success" id="udderDraw">Analytics</button>
-                                </div>
-                            </div>
+                        </select>
                         </div>
                     </div>
+                </div>
 
-                    <div class="row">
-                        <div class='col-sm-2'>
+                <div class="row">
+                    <div class='col-sm-2'>
+                        <div class="form-group">
                                 Download Data on
                             <div class='input-group date' id='datetimepicker1'>
                                     <input id="date_3" type='text' class="form-control" />
@@ -257,9 +227,45 @@
                                     </span>
                             </div>
                         </div>
+                    </div>
 
                     <div class='col-sm-3'><br/>
-                        <button type="button" class="btn btn-danger" id="button-udderHygiene">Download</button>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-danger" id="button-udderHygiene">Download</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class='col-sm-3'>
+                        <div class="form-group">
+                                Date From
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input id="date_1" type='text' class="form-control" />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='col-sm-3'>
+                        <div class="form-group">
+                            To:
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input  id="date_2" type='text' class="form-control" />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='col-sm-3'>
+                        <div class="form-group"><br/>
+                            <div>
+                                <button type="button" class="btn btn-warning" id="createbutton">Search</button>
+                                <button type="button" class="btn btn-success" id="udderDraw">Analytics</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -281,25 +287,22 @@
     <!-- /#wrapper -->
 
     <script>
+        // clean up the local storage information of username and password
+        // redirect to the login page
         function logout(){
             localStorage.setItem("username","");
             localStorage.setItem("password","");
             window.location = "index.html";
         }
-var formacoloromma = d3.format(",");
+        var formacoloromma = d3.format(",");
         var udder_data;
         var columns = ['date', 'Total', 'Percent 3 & 4 (%)'];
 
         $("#createbutton").click(function createTable() {
 
             var date_1 = document.getElementById("date_1").value;
-            console.log(date_1);
-
             var date_2 = document.getElementById("date_2").value;
-            console.log(date_2);
-
             var farm = document.getElementById("farm").value;
-            console.log("farm: "+farm)
 
             var username = localStorage.getItem("username");
             var password = localStorage.getItem("password");
@@ -313,7 +316,6 @@ var formacoloromma = d3.format(",");
                     'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
                     "username": username,
                     "password": password
-
                 }
             };
 
@@ -321,15 +323,14 @@ var formacoloromma = d3.format(",");
             $.ajax(settings).done(function (response) {
                 res = response;
             });
-            console.log(res);
 
-
+            // check if the user has been logged in
+            // redirect to the login page if not
             if (res[0] == false){
                 window.location = "index.html";
             }
 
             d3.json('../data/search/udder_data.json', function (error,data) {
-
                 document.getElementById("divTable").innerHTML = ""
 
                 // Create table.
@@ -343,9 +344,6 @@ var formacoloromma = d3.format(",");
                         //percent_4: d3.sum(v, function (d){ return d.Cake_On_Dirt;}) / d3.sum(v, function(d) {return d.Clean + d.Slightly_Dirt + d.Moderate_Dirt + d.Cake_On_Dirt;}),
                     };})
                     .entries(udder_data);
-
-
-                console.log(udder_data_summary);
 
                 var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
                 var thead = table.append('thead');
@@ -363,29 +361,19 @@ var formacoloromma = d3.format(",");
                     .enter()
                     .append('tr')
 
-
                 var udder_data_length = udder_data_summary.length;
-                console.log(udder_data_length);
-
-
+ 
                 for (var i = 0; i < udder_data_length; i++){
                     var tr = tbody.append('tr');
-
                     var td = tr.append('td')
                     .text(udder_data_summary[i].key);
                     var td = tr.append('td')
                     .text(udder_data_summary[i].value.total);
                     var td = tr.append('td')
                     .text(udder_data_summary[i].value.percent_3_4);
-
-
                 }
-
-
             });
-
         });
-
     </script>
 
     <!-- jQuery -->

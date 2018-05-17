@@ -6,305 +6,310 @@ $(document).ready(function() {
       $('#postDraw').click(postFunction);
       $('#lactoDraw').click(lactoFunction);
 });
-//sample dataset
-//unit_set
-var unit_data = [
-{
-date: '2017-11-31',
-Observer: 'Jone',
-Farm: 'Glezon',
-good: 132,
-bad: 21
-},
-{
-date: '2017-12-04',
-Observer: 'Alex',
-Farm: 'Glezon',
-good: 99,
-bad: 31
-},
-{
-date: '2017-12-16',
-Observer: 'Gina',
-Farm: 'Glezon',
-good: 70,
-bad: 35
-},
-{
- date: '2017-12-22',
- Observer: 'Jone',
- Farm: 'Glezon',
- good: 132,
- bad: 21
-},
-{
- date: '2018-01-15',
- Observer: 'Alex',
- Farm: 'Glezon',
- good: 99,
- bad: 31
-},
-{
- date: '2018-02-02',
- Observer: 'Gina',
- Farm: 'Glezon',
- good: 70,
- bad: 35
-},
-{
- date: '2018-02-05',
- Observer: 'Jone',
- Farm: 'Glezon',
- good: 132,
- bad: 21
-},
-{
- date: '2018-02-06',
- Observer: 'Gina',
- Farm: 'Glezon',
- good: 70,
- bad: 35
-},
-{
- date: '2018-02-07',
- Observer: 'Jone',
- Farm: 'Glezon',
- good: 132,
- bad: 21
-},
-{
- date: '2018-02-08',
- Observer: 'Gina',
- Farm: 'Glezon',
- good: 70,
- bad: 35
-},
-{
- date: '2018-02-09',
- Observer: 'Jone',
- Farm: 'Glezon',
- good: 132,
- bad: 21
-},
-{
- date: '2018-02-10',
- Observer: 'Gina',
- Farm: 'Glezon',
- good: 70,
- bad: 35
-},
-{
- date: '2018-02-13',
- Observer: 'Jone',
- Farm: 'Glezon',
- good: 132,
- bad: 21
-},
-{
- date: '2018-02-15',
- Observer: 'Gina',
- Farm: 'Glezon',
- good: 70,
- bad: 35
-},
-{
- date: '2018-02-16',
- Observer: 'Jone',
- Farm: 'Glezon',
- good: 132,
- bad: 21
-},
-{
- date: '2018-02-19',
- Observer: 'Gina',
- Farm: 'Glezon',
- good: 70,
- bad: 35
-},
-{
- date: '2018-02-25',
- Observer: 'Jone',
- Farm: 'Glezon',
- good: 132,
- bad: 21
-},
-{
- date: '2018-03-01',
- Observer: 'Alex',
- Farm: 'Glezon',
- good: 99,
- bad: 31
-},
-{
- date: '2018-03-05',
- Observer: 'Gina',
- Farm: 'Glezon',
- good: 70,
- bad: 35
-},
-{
- date: '2018-03-06',
- Observer: 'Jone',
- Farm: 'Glezon',
- good: 132,
- bad: 21
-},
-{
- date: '2018-03-15',
- Observer: 'Alex',
- Farm: 'Glezon',
- good: 99,
- bad: 31
-},
-{
- date: '2018-03-16',
- Observer: 'Gina',
- Farm: 'Glezon',
- good: 70,
- bad: 35
-},
-{
- date: '2018-03-17',
- Observer: 'Jone',
- Farm: 'Glezon',
- good: 132,
- bad: 21
-},
-{
- date: '2018-04-10',
- Observer: 'Alex',
- Farm: 'Glezon',
- good: 99,
- bad: 31
-},
-{
- date: '2018-04-21',
- Observer: 'Gina',
- Farm: 'Glezon',
- good: 70,
- bad: 35
-},
-{
- date: '2018-04-22',
- Observer: 'Jone',
- Farm: 'Glezon',
- good: 132,
- bad: 21
-},
-{
- date: '2018-04-23',
- Observer: 'Alex',
- Farm: 'Glezon',
- good: 99,
- bad: 31
-},
-{
- date: '2018-04-24',
- Observer: 'Gina',
- Farm: 'Glezon',
- good: 70,
- bad: 35
-},
-{
- date: '2018-04-25',
- Observer: 'Irine',
- Farm: 'Glezon',
- good: 65,
- bad: 10
-},
-{
- date: '2018-04-26',
- Observer: 'Jone',
- Farm: 'Glezon',
- good: 132,
- bad: 21
-},
-{
- date: '2018-04-30',
- Observer: 'Alex',
- Farm: 'Glezon',
- good: 99,
- bad: 31
-},
-{
- date: '2018-04-30',
- Observer: 'Gina',
- Farm: 'Glezon',
- good: 70,
- bad: 35
-},
-{
- date: '2018-05-03',
- Observer: 'Zeiger',
- Farm: 'Glezon',
- good: 90,
- bad: 36
-}];
 
-//udder_set
-udder_data = [
-{
- Milker: "Pen1",date: '2018-03-15', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-{
- Milker: "Pen1",date: '2018-03-15', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-{
- Milker: "Pen2",date: '2018-03-15', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
-{
- Milker: "Pen3",date: '2018-03-15', clean: 10, slightly_dirt: 24,moderate_dirt: 4,cake_on_dirt: 2 },
-{
- Milker: "Pen4",date: '2018-03-15', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
-{
- Milker: "Pen5",date: '2018-03-15', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
-{
- Milker: "Pen1",date: '2018-03-16', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-{
- Milker: "Pen1",date: '2018-03-16', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-{
- Milker: "Pen2",date: '2018-03-16', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
-{
- Milker: "Pen3",date: '2018-03-16', clean: 10, slightly_dirt: 24,moderate_dirt: 4,cake_on_dirt: 2 },
-{
- Milker: "Pen4",date: '2018-03-16', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
-{
- Milker: "Pen5",date: '2018-03-16', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
-{
- Milker: "Pen1",date: '2018-03-17', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-{
- Milker: "Pen2",date: '2018-03-17', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-{
- Milker: "Pen3",date: '2018-03-17', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
-{
- Milker: "Pen4",date: '2018-03-17', clean: 10, slightly_dirt: 24,moderate_dirt: 4,cake_on_dirt: 2 },
-{
- Milker: "Pen5",date: '2018-03-17', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
-{
- Milker: "Pen5",date: '2018-03-18', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
-{
- Milker: "Pen1",date: '2018-03-18', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-{
- Milker: "Pen2",date: '2018-03-18', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-{
- Milker: "Pen3",date: '2018-03-18', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
-{
- Milker: "Pen4",date: '2018-03-18', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
-{
- Milker: "Pen5",date: '2018-03-19', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
-{
-Milker: "Pen6",date: '2018-03-19', clean: 19, slightly_dirt: 12,moderate_dirt: 1,cake_on_dirt: 5},
-{
- Milker: "Pen1",date: '2018-03-22', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-{
- Milker: "Pen2",date: '2018-03-22', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
-{
- Milker: "Pen3",date: '2018-03-26', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
-{
- Milker: "Pen4",date: '2018-03-30', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
-{
- Milker: "Pen5",date: '2018-04-05', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
-{
- Milker: "Pen2",date: '2018-04-19',clean: 19,slightly_dirt: 12,moderate_dirt: 1,cake_on_dirt: 5}
-];
-//strip_data
+
+//sample dataset can be used to test for further development
+//sample dataset has consistent data type and structure of return data from backend API 
+
+
+//unit_set
+// var unit_data = [
+// {
+// date: '2017-11-31',
+// Observer: 'Jone',
+// Farm: 'Glezon',
+// good: 132,
+// bad: 21
+// },
+// {
+// date: '2017-12-04',
+// Observer: 'Alex',
+// Farm: 'Glezon',
+// good: 99,
+// bad: 31
+// },
+// {
+// date: '2017-12-16',
+// Observer: 'Gina',
+// Farm: 'Glezon',
+// good: 70,
+// bad: 35
+// },
+// {
+//  date: '2017-12-22',
+//  Observer: 'Jone',
+//  Farm: 'Glezon',
+//  good: 132,
+//  bad: 21
+// },
+// {
+//  date: '2018-01-15',
+//  Observer: 'Alex',
+//  Farm: 'Glezon',
+//  good: 99,
+//  bad: 31
+// },
+// {
+//  date: '2018-02-02',
+//  Observer: 'Gina',
+//  Farm: 'Glezon',
+//  good: 70,
+//  bad: 35
+// },
+// {
+//  date: '2018-02-05',
+//  Observer: 'Jone',
+//  Farm: 'Glezon',
+//  good: 132,
+//  bad: 21
+// },
+// {
+//  date: '2018-02-06',
+//  Observer: 'Gina',
+//  Farm: 'Glezon',
+//  good: 70,
+//  bad: 35
+// },
+// {
+//  date: '2018-02-07',
+//  Observer: 'Jone',
+//  Farm: 'Glezon',
+//  good: 132,
+//  bad: 21
+// },
+// {
+//  date: '2018-02-08',
+//  Observer: 'Gina',
+//  Farm: 'Glezon',
+//  good: 70,
+//  bad: 35
+// },
+// {
+//  date: '2018-02-09',
+//  Observer: 'Jone',
+//  Farm: 'Glezon',
+//  good: 132,
+//  bad: 21
+// },
+// {
+//  date: '2018-02-10',
+//  Observer: 'Gina',
+//  Farm: 'Glezon',
+//  good: 70,
+//  bad: 35
+// },
+// {
+//  date: '2018-02-13',
+//  Observer: 'Jone',
+//  Farm: 'Glezon',
+//  good: 132,
+//  bad: 21
+// },
+// {
+//  date: '2018-02-15',
+//  Observer: 'Gina',
+//  Farm: 'Glezon',
+//  good: 70,
+//  bad: 35
+// },
+// {
+//  date: '2018-02-16',
+//  Observer: 'Jone',
+//  Farm: 'Glezon',
+//  good: 132,
+//  bad: 21
+// },
+// {
+//  date: '2018-02-19',
+//  Observer: 'Gina',
+//  Farm: 'Glezon',
+//  good: 70,
+//  bad: 35
+// },
+// {
+//  date: '2018-02-25',
+//  Observer: 'Jone',
+//  Farm: 'Glezon',
+//  good: 132,
+//  bad: 21
+// },
+// {
+//  date: '2018-03-01',
+//  Observer: 'Alex',
+//  Farm: 'Glezon',
+//  good: 99,
+//  bad: 31
+// },
+// {
+//  date: '2018-03-05',
+//  Observer: 'Gina',
+//  Farm: 'Glezon',
+//  good: 70,
+//  bad: 35
+// },
+// {
+//  date: '2018-03-06',
+//  Observer: 'Jone',
+//  Farm: 'Glezon',
+//  good: 132,
+//  bad: 21
+// },
+// {
+//  date: '2018-03-15',
+//  Observer: 'Alex',
+//  Farm: 'Glezon',
+//  good: 99,
+//  bad: 31
+// },
+// {
+//  date: '2018-03-16',
+//  Observer: 'Gina',
+//  Farm: 'Glezon',
+//  good: 70,
+//  bad: 35
+// },
+// {
+//  date: '2018-03-17',
+//  Observer: 'Jone',
+//  Farm: 'Glezon',
+//  good: 132,
+//  bad: 21
+// },
+// {
+//  date: '2018-04-10',
+//  Observer: 'Alex',
+//  Farm: 'Glezon',
+//  good: 99,
+//  bad: 31
+// },
+// {
+//  date: '2018-04-21',
+//  Observer: 'Gina',
+//  Farm: 'Glezon',
+//  good: 70,
+//  bad: 35
+// },
+// {
+//  date: '2018-04-22',
+//  Observer: 'Jone',
+//  Farm: 'Glezon',
+//  good: 132,
+//  bad: 21
+// },
+// {
+//  date: '2018-04-23',
+//  Observer: 'Alex',
+//  Farm: 'Glezon',
+//  good: 99,
+//  bad: 31
+// },
+// {
+//  date: '2018-04-24',
+//  Observer: 'Gina',
+//  Farm: 'Glezon',
+//  good: 70,
+//  bad: 35
+// },
+// {
+//  date: '2018-04-25',
+//  Observer: 'Irine',
+//  Farm: 'Glezon',
+//  good: 65,
+//  bad: 10
+// },
+// {
+//  date: '2018-04-26',
+//  Observer: 'Jone',
+//  Farm: 'Glezon',
+//  good: 132,
+//  bad: 21
+// },
+// {
+//  date: '2018-04-30',
+//  Observer: 'Alex',
+//  Farm: 'Glezon',
+//  good: 99,
+//  bad: 31
+// },
+// {
+//  date: '2018-04-30',
+//  Observer: 'Gina',
+//  Farm: 'Glezon',
+//  good: 70,
+//  bad: 35
+// },
+// {
+//  date: '2018-05-03',
+//  Observer: 'Zeiger',
+//  Farm: 'Glezon',
+//  good: 90,
+//  bad: 36
+// }];
+
+// //udder_set
+// udder_data = [
+// {
+//  Milker: "Pen1",date: '2018-03-15', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+// {
+//  Milker: "Pen1",date: '2018-03-15', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+// {
+//  Milker: "Pen2",date: '2018-03-15', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
+// {
+//  Milker: "Pen3",date: '2018-03-15', clean: 10, slightly_dirt: 24,moderate_dirt: 4,cake_on_dirt: 2 },
+// {
+//  Milker: "Pen4",date: '2018-03-15', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
+// {
+//  Milker: "Pen5",date: '2018-03-15', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
+// {
+//  Milker: "Pen1",date: '2018-03-16', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+// {
+//  Milker: "Pen1",date: '2018-03-16', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+// {
+//  Milker: "Pen2",date: '2018-03-16', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
+// {
+//  Milker: "Pen3",date: '2018-03-16', clean: 10, slightly_dirt: 24,moderate_dirt: 4,cake_on_dirt: 2 },
+// {
+//  Milker: "Pen4",date: '2018-03-16', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
+// {
+//  Milker: "Pen5",date: '2018-03-16', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
+// {
+//  Milker: "Pen1",date: '2018-03-17', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+// {
+//  Milker: "Pen2",date: '2018-03-17', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+// {
+//  Milker: "Pen3",date: '2018-03-17', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
+// {
+//  Milker: "Pen4",date: '2018-03-17', clean: 10, slightly_dirt: 24,moderate_dirt: 4,cake_on_dirt: 2 },
+// {
+//  Milker: "Pen5",date: '2018-03-17', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
+// {
+//  Milker: "Pen5",date: '2018-03-18', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
+// {
+//  Milker: "Pen1",date: '2018-03-18', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+// {
+//  Milker: "Pen2",date: '2018-03-18', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+// {
+//  Milker: "Pen3",date: '2018-03-18', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
+// {
+//  Milker: "Pen4",date: '2018-03-18', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
+// {
+//  Milker: "Pen5",date: '2018-03-19', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
+// {
+// Milker: "Pen6",date: '2018-03-19', clean: 19, slightly_dirt: 12,moderate_dirt: 1,cake_on_dirt: 5},
+// {
+//  Milker: "Pen1",date: '2018-03-22', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+// {
+//  Milker: "Pen2",date: '2018-03-22', clean: 15, slightly_dirt: 10,moderate_dirt: 3,cake_on_dirt: 10},
+// {
+//  Milker: "Pen3",date: '2018-03-26', clean: 11, slightly_dirt: 10,moderate_dirt: 11,cake_on_dirt: 6},
+// {
+//  Milker: "Pen4",date: '2018-03-30', clean: 15, slightly_dirt: 18,moderate_dirt: 5,cake_on_dirt: 5},
+// {
+//  Milker: "Pen5",date: '2018-04-05', clean: 23, slightly_dirt: 7,moderate_dirt: 8,cake_on_dirt: 3},
+// {
+//  Milker: "Pen2",date: '2018-04-19',clean: 19,slightly_dirt: 12,moderate_dirt: 1,cake_on_dirt: 5}
+// ];
+// //strip_data
 var strip_data = [
        { date: '2018-01-10', Stall_number: 1, ML: 132, balance: "isbalanced", Majority: 0},
        { date: '2018-01-10', Stall_number: 2, ML: 234, balance: "balanced", Majority: 0},
@@ -360,1151 +365,1152 @@ var strip_data = [
        { date: '2018-04-15', Stall_number: 3, ML: 200, balance: "isbalanced", Majority: 0},
        { date: '2018-04-15', Stall_number: 4, ML: 210, balance: "isbalanced",  Majority: 0},
        { date: '2018-04-15', Stall_number: 5, ML: 700, balance: "isbalanced", Majority: 0}];
-//post_data
-var post_data = [
-     {
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-15-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         }
-     },{
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-15-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         }
-     },{
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-15-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         }
-     },{
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-15-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         }
-     },{
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-15-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         }
-     },
-     {
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-15-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-             LH: "F",
-             LF: "W",
-             RH: "F",
-             RF: "W"
-         },
-         end_score: {
-             LH: "N",
-             LF: "S",
-             RH: "SR",
-             RF: "R"
-         }
-     },
-     {
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-17-2018',
-         skin_condition: {
-             LH: "D",
-             LF: "OL",
-             RH: "H",
-             RF: "D"
-         },
-         color: {
-             LH: "R",
-             LF: "DS",
-             RH: "B",
-             RF: "R"
-         },
-         swelling: {
-             LH: "VM",
-             LF: "SW",
-             RH: "VM",
-             RF: "SW"
-         },
-         hardness: {
-             LH: "F",
-             LF: "W",
-             RH: "F",
-             RF: "W"
-         },
-         end_score: {
-             LH: "N",
-             LF: "S",
-             RH: "SR",
-             RF: "R"
-         }
-     },{
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-17-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "F",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "SR",
-           RF: "N"
-         }
-     },{
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-17-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "F",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         }
-     },{
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-17-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         }
-     },{
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-17-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         }
-     },{
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-17-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         }
-     },{
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-17-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         }
-     },{
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-17-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         }
-     },{
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-17-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         }
-     },{
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-17-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         }
-     },
-     {
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-21-2018',
-         skin_condition: {
-             LH: "D",
-             LF: "OL",
-             RH: "H",
-             RF: "D"
-         },
-         color: {
-             LH: "R",
-             LF: "DS",
-             RH: "B",
-             RF: "R"
-         },
-         swelling: {
-             LH: "VM",
-             LF: "SW",
-             RH: "VM",
-             RF: "SW"
-         },
-         hardness: {
-             LH: "F",
-             LF: "W",
-             RH: "F",
-             RF: "W"
-         },
-         end_score: {
-             LH: "N",
-             LF: "S",
-             RH: "SR",
-             RF: "R"
-         }
-     },
-     {
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-25-2018',
-         skin_condition: {
-             LH: "D",
-             LF: "OL",
-             RH: "H",
-             RF: "D"
-         },
-         color: {
-             LH: "R",
-             LF: "DS",
-             RH: "B",
-             RF: "R"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         }
-     },
-     {
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-28-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-             LH: "N",
-             LF: "S",
-             RH: "SR",
-             RF: "R"
-         }
-     },
-     {
-         group_id: 1,
-         Line: 1,
-         Farm_Name: "Zeus",
-         date: '03-30-2018',
-         skin_condition: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         color: {
-             LH: "R",
-             LF: "DS",
-             RH: "B",
-             RF: "R"
-         },
-         swelling: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         hardness: {
-           LH: "N",
-           LF: "N",
-           RH: "N",
-           RF: "N"
-         },
-         end_score: {
-             LH: "N",
-             LF: "N",
-             RH: "N",
-             RF: "N"
-         }
-     }];
-//lacto_data
-var lacto_data = [
-    {
-        Farm: "Zeus",
-        date: '03-15-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0456,
-        Stall: 1,
-        dip_contact_time: 29,
-        lag_contact_stimulate : 93,
-        unit_on_time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-15-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0110,
-        Stall: 1,
-        dip_contact_time: 60,
-        lag_contact_stimulate : 54,
-        unit_on_time : 28,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-16-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 1026,
-        Stall: 1,
-        dip_contact_time: 76,
-        lag_contact_stimulate : 84,
-        unit_on_time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-16-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0960,
-        Stall: 1,
-        dip_contact_time: 49,
-        lag_contact_stimulate : 34,
-        unit_on_time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-16-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0126,
-        Stall: 1,
-        dip_contact_time: 35,
-        lag_contact_stimulate : 34,
-        unit_on_time : 33,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-17-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 1230,
-        Stall: 2,
-        dip_contact_time: 59,
-        lag_contact_stimulate : 85,
-        unit_on_time : 37,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-17-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 8821,
-        Stall: 2,
-        dip_contact_time: 43,
-        lag_contact_stimulate : 23,
-        unit_on_time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-18-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 2024,
-        Stall: 2,
-        dip_contact_time: 40,
-        lag_contact_stimulate : 89,
-        unit_on_time : 45,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-18-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0091,
-        Stall: 2,
-        dip_contact_time: 35,
-        lag_contact_stimulate : 83,
-        unit_on_time : 47,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-18-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0330,
-        Stall: 2,
-        dip_contact_time: 39,
-        lag_contact_stimulate : 44,
-        unit_on_time : 65,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-19-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0035,
-        Stall: 3,
-        dip_contact_time: 30,
-        lag_contact_stimulate : 77,
-        unit_on_time : 41,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },{
-        Farm: "Zeus",
-        date: '03-19-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0256,
-        Stall: 3,
-        dip_contact_time: 64,
-        lag_contact_stimulate : 43,
-        unit_on_time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-19-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 1204,
-        Stall: 3,
-        dip_contact_time: 32,
-        lag_contact_stimulate : 55,
-        unit_on_time : 28,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-20-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 5610,
-        Stall: 3,
-        dip_contact_time: 69,
-        lag_contact_stimulate : 44,
-        unit_on_time : 38,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-20-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 0604,
-        Stall: 4,
-        dip_contact_time: 59,
-        lag_contact_stimulate : 34,
-        unit_on_time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-20-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 3456,
-        Stall: 4,
-        dip_contact_time: 59,
-        lag_contact_stimulate : 34,
-        unit_on_time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-21-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 1256,
-        Stall: 4,
-        dip_contact_time: 20,
-        lag_contact_stimulate : 46,
-        unit_on_time : 68,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-21-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 156,
-        Stall: 4,
-        dip_contact_time: 49,
-        lag_contact_stimulate : 14,
-        unit_on_time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-21-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 996,
-        Stall: 5,
-        dip_contact_time: 23,
-        lag_contact_stimulate : 34,
-        unit_on_time : 78,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-22-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Cow: 1216,
-        Stall: 5,
-        dip_contact_time: 54,
-        lag_contact_stimulate : 54,
-        unit_on_time : 56,
-        Total_Milk: 200,
-        Remark: "N/A"
-    },
-    {
-        Farm: "Zeus",
-        date: '03-22-2018',
-        Parlor_Type: "Mega",
-        Pre_milking: "True",
-        Herd_Size: 10,
-        Size: 5,
-        Procedures: "Normal",
-        Milking_Frequency: "2X",
-        No_Operations: 20,
-        Prep: "False",
-        Stall : 5,
-        Cow: 459,
-        Stall: 5,
-        dip_contact_time: 45,
-        lag_contact_stimulate : 44,
-        unit_on_time : 98,
-        Total_Milk: 200,
-        Remark: "N/A"
-    }
-];
+// //post_data
+// var post_data = [
+//      {
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-15-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          }
+//      },{
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-15-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          }
+//      },{
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-15-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          }
+//      },{
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-15-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          }
+//      },{
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-15-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          }
+//      },
+//      {
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-15-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//              LH: "F",
+//              LF: "W",
+//              RH: "F",
+//              RF: "W"
+//          },
+//          end_score: {
+//              LH: "N",
+//              LF: "S",
+//              RH: "SR",
+//              RF: "R"
+//          }
+//      },
+//      {
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-17-2018',
+//          skin_condition: {
+//              LH: "D",
+//              LF: "OL",
+//              RH: "H",
+//              RF: "D"
+//          },
+//          color: {
+//              LH: "R",
+//              LF: "DS",
+//              RH: "B",
+//              RF: "R"
+//          },
+//          swelling: {
+//              LH: "VM",
+//              LF: "SW",
+//              RH: "VM",
+//              RF: "SW"
+//          },
+//          hardness: {
+//              LH: "F",
+//              LF: "W",
+//              RH: "F",
+//              RF: "W"
+//          },
+//          end_score: {
+//              LH: "N",
+//              LF: "S",
+//              RH: "SR",
+//              RF: "R"
+//          }
+//      },{
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-17-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "F",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "SR",
+//            RF: "N"
+//          }
+//      },{
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-17-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "F",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          }
+//      },{
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-17-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          }
+//      },{
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-17-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          }
+//      },{
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-17-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          }
+//      },{
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-17-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          }
+//      },{
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-17-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          }
+//      },{
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-17-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          }
+//      },{
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-17-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          }
+//      },
+//      {
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-21-2018',
+//          skin_condition: {
+//              LH: "D",
+//              LF: "OL",
+//              RH: "H",
+//              RF: "D"
+//          },
+//          color: {
+//              LH: "R",
+//              LF: "DS",
+//              RH: "B",
+//              RF: "R"
+//          },
+//          swelling: {
+//              LH: "VM",
+//              LF: "SW",
+//              RH: "VM",
+//              RF: "SW"
+//          },
+//          hardness: {
+//              LH: "F",
+//              LF: "W",
+//              RH: "F",
+//              RF: "W"
+//          },
+//          end_score: {
+//              LH: "N",
+//              LF: "S",
+//              RH: "SR",
+//              RF: "R"
+//          }
+//      },
+//      {
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-25-2018',
+//          skin_condition: {
+//              LH: "D",
+//              LF: "OL",
+//              RH: "H",
+//              RF: "D"
+//          },
+//          color: {
+//              LH: "R",
+//              LF: "DS",
+//              RH: "B",
+//              RF: "R"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          }
+//      },
+//      {
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-28-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//              LH: "N",
+//              LF: "S",
+//              RH: "SR",
+//              RF: "R"
+//          }
+//      },
+//      {
+//          group_id: 1,
+//          Line: 1,
+//          Farm_Name: "Zeus",
+//          date: '03-30-2018',
+//          skin_condition: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          color: {
+//              LH: "R",
+//              LF: "DS",
+//              RH: "B",
+//              RF: "R"
+//          },
+//          swelling: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          hardness: {
+//            LH: "N",
+//            LF: "N",
+//            RH: "N",
+//            RF: "N"
+//          },
+//          end_score: {
+//              LH: "N",
+//              LF: "N",
+//              RH: "N",
+//              RF: "N"
+//          }
+//      }];
+// //lacto_data
+// var lacto_data = [
+//     {
+//         Farm: "Zeus",
+//         date: '03-15-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0456,
+//         Stall: 1,
+//         dip_contact_time: 29,
+//         lag_contact_stimulate : 93,
+//         unit_on_time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-15-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0110,
+//         Stall: 1,
+//         dip_contact_time: 60,
+//         lag_contact_stimulate : 54,
+//         unit_on_time : 28,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-16-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 1026,
+//         Stall: 1,
+//         dip_contact_time: 76,
+//         lag_contact_stimulate : 84,
+//         unit_on_time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-16-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0960,
+//         Stall: 1,
+//         dip_contact_time: 49,
+//         lag_contact_stimulate : 34,
+//         unit_on_time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-16-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0126,
+//         Stall: 1,
+//         dip_contact_time: 35,
+//         lag_contact_stimulate : 34,
+//         unit_on_time : 33,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-17-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 1230,
+//         Stall: 2,
+//         dip_contact_time: 59,
+//         lag_contact_stimulate : 85,
+//         unit_on_time : 37,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-17-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 8821,
+//         Stall: 2,
+//         dip_contact_time: 43,
+//         lag_contact_stimulate : 23,
+//         unit_on_time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-18-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 2024,
+//         Stall: 2,
+//         dip_contact_time: 40,
+//         lag_contact_stimulate : 89,
+//         unit_on_time : 45,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-18-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0091,
+//         Stall: 2,
+//         dip_contact_time: 35,
+//         lag_contact_stimulate : 83,
+//         unit_on_time : 47,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-18-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0330,
+//         Stall: 2,
+//         dip_contact_time: 39,
+//         lag_contact_stimulate : 44,
+//         unit_on_time : 65,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-19-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0035,
+//         Stall: 3,
+//         dip_contact_time: 30,
+//         lag_contact_stimulate : 77,
+//         unit_on_time : 41,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },{
+//         Farm: "Zeus",
+//         date: '03-19-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0256,
+//         Stall: 3,
+//         dip_contact_time: 64,
+//         lag_contact_stimulate : 43,
+//         unit_on_time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-19-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 1204,
+//         Stall: 3,
+//         dip_contact_time: 32,
+//         lag_contact_stimulate : 55,
+//         unit_on_time : 28,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-20-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 5610,
+//         Stall: 3,
+//         dip_contact_time: 69,
+//         lag_contact_stimulate : 44,
+//         unit_on_time : 38,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-20-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 0604,
+//         Stall: 4,
+//         dip_contact_time: 59,
+//         lag_contact_stimulate : 34,
+//         unit_on_time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-20-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 3456,
+//         Stall: 4,
+//         dip_contact_time: 59,
+//         lag_contact_stimulate : 34,
+//         unit_on_time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-21-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 1256,
+//         Stall: 4,
+//         dip_contact_time: 20,
+//         lag_contact_stimulate : 46,
+//         unit_on_time : 68,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-21-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 156,
+//         Stall: 4,
+//         dip_contact_time: 49,
+//         lag_contact_stimulate : 14,
+//         unit_on_time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-21-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 996,
+//         Stall: 5,
+//         dip_contact_time: 23,
+//         lag_contact_stimulate : 34,
+//         unit_on_time : 78,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-22-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Cow: 1216,
+//         Stall: 5,
+//         dip_contact_time: 54,
+//         lag_contact_stimulate : 54,
+//         unit_on_time : 56,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     },
+//     {
+//         Farm: "Zeus",
+//         date: '03-22-2018',
+//         Parlor_Type: "Mega",
+//         Pre_milking: "True",
+//         Herd_Size: 10,
+//         Size: 5,
+//         Procedures: "Normal",
+//         Milking_Frequency: "2X",
+//         No_Operations: 20,
+//         Prep: "False",
+//         Stall : 5,
+//         Cow: 459,
+//         Stall: 5,
+//         dip_contact_time: 45,
+//         lag_contact_stimulate : 44,
+//         unit_on_time : 98,
+//         Total_Milk: 200,
+//         Remark: "N/A"
+//     }
+// ];
 
+//help var to trim decimal nubmer to integer
 var formacoloromma = d3.format(",");
 
-
+//draw data vis chart for search result on udder hygiene form
 function udderFunction() {
   if (typeof udder_data == 'undefined') {
-    // the variable is defined
+    //the variable is defined
+    //check if udder hyginen result is null or defined, throw error to user if search is not finished  
     alert("Empty dataset. Please search data!");
   }else{
-
+//use d3 nest method to prepare and summarize search result 
   var datanest = d3.nest()
   		.key(function (d){ return d.date;})
   		.rollup(function(v){ return {
   				total: d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;}),
   				percent_3_4: formacoloromma( (d3.sum(v, function (d){ return d.moderate_dirt + d.cake_on_dirt;}) / d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;}))*100)
-  				//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+  			
   		};})
   		.entries(udder_data);
   var udderset = [];
   		for(var i = 0; i < datanest.length; i ++){
-  		  console.log(i);
+  		
   		   var token = {};
   		   token.date = datanest[i].key;
   		   token.visits = Math.round(datanest[i].value.percent_3_4);
-  		   //token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
   		   udderset.push(token);
-  		   console.log(token);
+  		  
   		 }
   		 var datanest2 = d3.nest()
   		 		.key(function (d){ return d.Milker;})
   		 		.rollup(function(v){ return {
   		 				total: d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;}),
   		 				percent_3_4: formacoloromma( (d3.sum(v, function (d){ return d.moderate_dirt + d.cake_on_dirt;}) / d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;}))*100)
-  		 				//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+  		 				
   		 		};})
   		 		.entries(udder_data);
   		 var udderset2 = [];
@@ -1512,10 +1518,8 @@ function udderFunction() {
   		 			 var token = {};
   		 			 token.country = datanest2[i].key;
   		 			 token.visits = Math.round(datanest2[i].value.percent_3_4);
-  		 			 //token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
   		 			 udderset2.push(token);
   		 		 }
-  //var chartData = generateChartData();
   var chart = AmCharts.makeChart("uddercanvas1", {
       "type": "serial",
       "theme": "light",
@@ -1567,7 +1571,7 @@ function udderFunction() {
           "enabled": true
       }
   });
-
+ //enable zoom function based on the range of data
   chart.addListener("rendered", zoomChart);
   zoomChart();
 
@@ -1581,10 +1585,7 @@ function udderFunction() {
   		var dataset = [];
   		var parseTime = d3.timeParse("%Y-%m-%d");
 
-  	    var d = parseTime('2018-03-14');
-
-  		// var parseDate = d3.timeFormat("%Y-%m-%d").parse;
-  		// var d = parseDate('2018-03-14');
+  	  var d = parseTime('2018-03-14');
 
   		var chart = AmCharts.makeChart( "uddercanvas2", {
   		  "type": "serial",
@@ -1631,38 +1632,36 @@ function udderFunction() {
   		} );
 }}
 
+//draw data vis chart for search result on strip yields
 function stripFunction() {
   if (typeof strip_data == 'undefined') {
-    // the variable is defined
+    //the variable is defined
+    //check if udder hyginen result is null or defined, throw error to user if search is not finished  
     alert("Empty dataset. Please search data!");
   }else{
 
   var label_data = ["<150 ml", "150 ml-250 ml", ">250 ml"];
   var formacoloromma = d3.format(",");
+  //use d3 nest method to prepare and summarize search result 
   var datanest = d3.nest().key(function(d) { return d.date; })
   .rollup(function(v){ return {
   		total: d3.sum(v, function(d) {return d.ML;}),
   		average: d3.mean(v, function(d) {return d.ML;}),
-  		//smaller_150: d3.sum(v, function (d){ return (d.Strip_Yields < 150);}),
   		smaller_150: d3.sum(v, function (d){ return (d.ML < 150);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
   		between: d3.sum(v, function (d){ return (d.ML >= 150 & d.ML <= 250);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
   		larger_250: d3.sum(v, function (d){ return (d.ML > 250);}) / d3.sum(v, function(d) {return (d.ML >= 0);}),
-  		//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+  	
   };})
   .entries(strip_data);
-  console.log(datanest);
   var stripset = [];
   for(var i = 0; i < datanest.length; i ++){
-    console.log(i);
      var token = {};
      token.date = datanest[i].key;
      token.visits = Math.round((datanest[i].value.smaller_150)* 100);
   	 token.hits = Math.round((datanest[i].value.between)* 100);
      token.views = Math.round((datanest[i].value.larger_250)*100);
      stripset.push(token);
-     console.log(token);
    }
-   console.log(stripset);
 
 
   var chart = AmCharts.makeChart("stripcanvas", {
@@ -1713,7 +1712,7 @@ function stripFunction() {
           "valueField": "visits",
   		"fillAlphas": 0,
   		"legendValueText": "[[value]]%",
-  		//浮标label
+  		//format data label
   		"balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
       }, {
           "valueAxis": "v1",
@@ -1725,7 +1724,7 @@ function stripFunction() {
           "valueField": "hits",
   		"fillAlphas": 0,
   		"legendValueText": "[[value]]%",
-  		//浮标label
+  		//format data label
   		"balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
       }, {
           "valueAxis": "v1",
@@ -1737,7 +1736,7 @@ function stripFunction() {
           "valueField": "views",
   		"fillAlphas": 0,
   		"legendValueText": "[[value]]%",
-  		//浮标label
+  		//format data label
   		"balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
       }],
       "chartScrollbar": {},
@@ -1759,21 +1758,22 @@ function stripFunction() {
   chart.addListener("dataUpdated", zoomChart);
   zoomChart();
 
-
-
-
-  function zoomChart(){
+ // this method is called when chart is first inited as we listen for "rendered" event
+ function zoomChart() {
+  // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
       chart.zoomToIndexes(chart.dataProvider.length - 20, chart.dataProvider.length - 1);
   }
 
 }}
 
+//draw data vis chart for search result on post milking form
 function postFunction() {
   if (typeof post_data == 'undefined') {
-    // the variable is defined
+    //the variable is defined
+    //check if post milking result is null or defined, throw error to user if search is not finished  
     alert("Empty dataset. Please search data!");
   }else{
-
+//use d3 nest method to prepare and summarize search result 
       var datanest = d3.nest()
                 .key(function (d){ return d.date;})
                 .rollup(function(v){ return {
@@ -1792,14 +1792,11 @@ function postFunction() {
                   Percent_Hardness_Abnormal: d3.sum(v, function(d){return (d.hardness.LH != 'N' || d.hardness.LF != 'N' || d.hardness.RH != 'N' || d.hardness.RF != 'N') / d3.sum(v, function(d) {return d.group_id;}) }),
                   Percent_Open_Leison: d3.sum(v, function(d){return (d.skin_condition.LH == 'OL' || d.skin_condition.LF == 'OL' || d.skin_condition.RH == 'OL' || d.skin_condition.RF == 'OL') / d3.sum(v, function(d) {return d.group_id;}) }),
                   Percent_Hemorrhage: d3.sum(v, function(d){return (d.skin_condition.LH == 'H' || d.skin_condition.LF == 'H' || d.skin_condition.RH == 'H' || d.skin_condition.RF == 'H') / d3.sum(v, function(d) {return d.group_id;})})
-                  // percent_good: d3.sum(v, function (d){ return d.Good;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
-                    // percent_bad: d3.sum(v, function (d){ return d.Bad;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
-                };})
+                  };})
                 .entries(post_data);
-                console.log(datanest);
+               
             var postset = [];
             for(var i = 0; i < datanest.length; i ++){
-              //console.log(i);
                var token = {};
                token.date = datanest[i].key;
                token.skin_condition = Math.round((datanest[i].value.Percent_Skin_Condition_Abnormal)* 100);
@@ -1812,11 +1809,9 @@ function postFunction() {
                token.h = Math.round((datanest[i].value.Percent_Hemorrhage)* 100);
 
                postset.push(token);
-               //console.log(token);
+              
              }
-             console.log(postset);
-//predefined bullets (our charts support round, square, triangle, bubble, diamond bullet shapes)
-//var cc = [#6F6456, #CDDC49, #CB7E94, #E94B30, #FEE659, #A1CFDD, #7F3B9B, #3ea900];
+//array to provide color palette for elements in data vis chart
 var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#6237B2", "#30A300"];
                 var chart = AmCharts.makeChart("postcanvas", {
                     "type": "serial",
@@ -1839,32 +1834,10 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                           return value + "%";
                         }
                       },
-                    //   {
-                    //     "id":"v2",
-                    //     "axisColor": "#FCD202",
-                    //     "axisThickness": 2,
-                    //     "axisAlpha": 1,
-                    //     "position": "right",
-                    //     "labelFunction": function(value) {
-                    //       return value + "%";
-                    //     }
-                    // }, {
-                    //     "id":"v3",
-                    //     "axisColor": "#B0DE09",
-                    //     "axisThickness": 2,
-                    //     "gridAlpha": 0,
-                    //     "offset": 50,
-                    //     "axisAlpha": 1,
-                    //     "position": "left",
-                    //     "labelFunction": function(value) {
-                    //       return value + "%";
-                    //     }
-                    // }
                   ],
                     "graphs": [{
-                      //变量1 skin_condition
+                      //draw parameter of teat skin_condition
                         "valueAxis": "v1",
-                        //"lineColor": "#FF6600",
                         "lineColor": cc[0],
                         "bullet": "round",
                         "bulletBorderThickness": 1,
@@ -1873,12 +1846,11 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                         "valueField": "skin_condition",
                     "fillAlphas": 0,
                     "legendValueText": "[[value]]%",
-                    //浮标label
+                    //format label
                     "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
                     }, {
-                      //color
+                      //draw parameter of teat color
                         "valueAxis": "v1",
-                        //"lineColor": "#FCD202",
                         "lineColor": cc[1],
                         "bullet": "round",
                         "bulletBorderThickness": 1,
@@ -1887,12 +1859,12 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                         "valueField": "color",
                     "fillAlphas": 0,
                     "legendValueText": "[[value]]%",
-                    //浮标label
+                   //format label
                     "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
                     }, {
-                      //swelling3
+                      //swelling parameter
                         "valueAxis": "v1",
-                        //"lineColor": "#B0DE09",
+                        
                         "lineColor": cc[2],
                         "bullet": "round",
                         "bulletBorderThickness": 1,
@@ -1901,12 +1873,11 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                         "valueField": "swelling",
                     "fillAlphas": 0,
                     "legendValueText": "[[value]]%",
-                    //浮标label
+                   //format label
                     "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
                     },{
-                      //HATE4
+                      //hardness at teat end parameter
                         "valueAxis": "v1",
-                        //"lineColor": "#6F6456",
                         "lineColor": cc[3],
                         "bullet": "round",
                         "bulletBorderThickness": 1,
@@ -1915,12 +1886,11 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                         "valueField": "hate",
                     "fillAlphas": 0,
                     "legendValueText": "[[value]]%",
-                    //浮标label
+                   //format label
                     "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
                     },{
-                      //TES5
+                      //teat end score parameter
                         "valueAxis": "v1",
-                        //"lineColor": "#CB7E94",
                         "lineColor": cc[4],
                         "bullet": "round",
                         "bulletBorderThickness": 1,
@@ -1929,12 +1899,11 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                         "valueField": "tes",
                     "fillAlphas": 0,
                     "legendValueText": "[[value]]%",
-                    //浮标label
+                  //format label
                     "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
                     },{
-                      //OL
+                      //Open lesions
                         "valueAxis": "v1",
-                        //"lineColor": "#A1CFDD",
                         "lineColor": cc[5],
                         "bullet": "square",
                         "bulletBorderThickness": 1,
@@ -1943,12 +1912,11 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                         "valueField": "ol",
                     "fillAlphas": 0,
                     "legendValueText": "[[value]]%",
-                    //浮标label
+                    //format label
                     "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
                     },{
-                      //H
+                      //Hemorrhages
                         "valueAxis": "v1",
-                        //"lineColor": "#3ea900",
                         "lineColor": cc[6],
                         "bullet": "triangleUp",
                         "bulletBorderThickness": 1,
@@ -1957,9 +1925,10 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                         "valueField": "h",
                     "fillAlphas": 0,
                     "legendValueText": "[[value]]%",
-                    //浮标label
+                  //format label
                     "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
                     }],
+                    //set up scrollar to adjust the data display range
                     "chartScrollbar": {},
                     "chartCursor": {
                         "cursorPosition": "mouse"
@@ -1980,22 +1949,22 @@ var cc = ["#555E7B", "#B7D968", "#B576AD", "#E04644", "#FDE47F", "#7CCCE5", "#62
                 zoomChart();
 
 
-                // generate some random data, quite different range
-
-
-                function zoomChart(){
+                // this method is called when chart is first inited as we listen for "rendered" event
+                function zoomChart() {
+                // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
                     chart.zoomToIndexes(chart.dataProvider.length - 20, chart.dataProvider.length - 1);
                 }
 }}
 
-
+//draw data vis chart for search result on lacto coder analysis form
 function lactoFunction() {
-  console.log(lacto_data);
-  // if (typeof lacto_data == 'undefined') {
-  //   // the variable is defined
-  //   alert("Empty dataset. Please search data!");
-  // }
-  // else{
+ 
+  if (typeof lacto_data == 'undefined') {
+    // the variable is defined
+    alert("Empty dataset. Please search data!");
+  }
+  else{
+    //use d3 nest method to prepare and summarize search result 
     var datanest = d3.nest()
     .key(function (d){ return d.date;})
     .rollup(function(v){ return {
@@ -2013,14 +1982,12 @@ function lactoFunction() {
   };})
     .entries(lacto_data);
 
-    console.log(datanest);
 
     var lactoset = [];
     for(var i = 0; i < datanest.length; i ++){
-      console.log(i);
+   
       var token = {};
       token.date = datanest[i].key;
-    // console.log(datanest[i].value.average_dip);
       token.adip = Math.round(datanest[i].value.average_dip);
       token.alag = Math.round(datanest[i].value.average_lag);
       token.aunit = Math.round(datanest[i].value.average_unit);
@@ -2031,7 +1998,7 @@ function lactoFunction() {
       token.hlag = Math.round(datanest[i].value.max_lag);
       token.hunit = Math.round(datanest[i].value.max_unit);
       lactoset.push(token);
-      console.log(token);
+     
     }
 
   var chart = AmCharts.makeChart( "lactocanvas", {
@@ -2056,7 +2023,8 @@ function lactoFunction() {
       "title": "Time duration",
       "position": "left",
       "stackType": "regular",
-      //设置坐标轴宽度
+      //alpha is used to set up width
+      //set up draw width of axis
       "axisAlpha": 1,
       "gridAlpha": 0,
       "labelFunction": function(value) {
@@ -2065,7 +2033,6 @@ function lactoFunction() {
     }, {
     "id": "v2",
     "title": "Date",
-    //ALPHA宽度设定
     "gridAlpha": 0,
 
     "position": "bottom",
@@ -2080,7 +2047,6 @@ function lactoFunction() {
       "type": "column",
       "lineColor": "#ffe082",
       "fillColors": "#ffe082",
-      //"color": "#ffffb3",
       "valueField": "ldip"
     }, {
       "balloonText": "[[title]]" + " " + "[[value]]"+"s",
@@ -2089,11 +2055,10 @@ function lactoFunction() {
       "lineAlpha": 0.3,
       "title": "Lag Time-Min",
       "type": "column",
-      //平铺legend
+      //if true, creat new legend on parallel position
       "newStack": true,
       "lineColor": "#c3eeff",
       "fillColors": "#c3eeff",
-      //"color": "#c3fdff",
       "valueField": "llag"
     }, {
       "balloonText": "[[title]]" + " " + "[[value]]"+"s",
@@ -2105,7 +2070,7 @@ function lactoFunction() {
       "newStack": true,
       "lineColor": "#ffddc1",
       "fillColors": "#ffddc1",
-      //"color": "#ffddc1",
+     
       "valueField": "lunit"
     }, {
       "balloonText": "[[title]]" + " " + "[[value]]"+"s",
@@ -2117,7 +2082,6 @@ function lactoFunction() {
       "newStack": true,
       "lineColor": "#caae53",
       "fillColors": "#caae53",
-      //"color": "#caae53",
       "valueField": "hdip"
     }, {
       "balloonText": "[[title]]" + " " + "[[value]]"+"s",
@@ -2129,7 +2093,6 @@ function lactoFunction() {
       "newStack": true,
       "lineColor": "#5d99c6",
       "fillColors": "#5d99c6",
-      //"color": "#5d99c6",
       "valueField": "hlag"
     }, {
       "balloonText": "[[title]]" + " " + "[[value]]"+"s",
@@ -2141,7 +2104,6 @@ function lactoFunction() {
       "newStack": true,
       "lineColor": "#c97b63",
       "fillColors": "#c97b63",
-      //"color": "#000000",
       "valueField": "hunit"
     },{
     "id": "avgdip",
@@ -2209,23 +2171,7 @@ function lactoFunction() {
           "autoGridCount": true,
           "color": "#AAAAAA"
         },
-      // "charcolorursor": {
-      //   "pan": true,
-      //   //是否显示游标线对齐
-      //   "valueLineEnabled": true,
-      //   //左侧坐标轴balloon显示
-      //   "valueLineBalloonEnabled": false,
-      //   "cursorAlpha": 0,
-      //   "valueLineAlpha": 0.2
-      // },
-  //横坐标轴
-
-  /*  "categoryField": "date",
-  "categoryAxis": {
-    "parseDates": true,
-    "dashLength": 1,
-    "minorGridEnabled": true
-  }, */
+     
 
    "chartCursor": {
     "pan": false,
@@ -2248,17 +2194,21 @@ function lactoFunction() {
       "enabled": true
     }
   } );
-//}
+
+}
 }
 
+//draw data vis chart for search result on unit alignment form
 function unitFunction() {
-
-  // if (typeof unit_data == 'undefined') {
-  //   // the variable is defined
-  //   alert("Empty dataset. Please search data!");
-  // }else{
+//the variable is defined
+    //check if udder hyginen result is null or defined, throw error to user if search is not finished  
+  if (typeof unit_data == 'undefined') {
+   
+    alert("Empty dataset. Please search data!");
+  }else{
 
   var formacoloromma = d3.format(",");
+  //use d3 nest method to prepare and summarize search result 
   var datanest = d3.nest().key(function(d) { return d.date; })
                           .rollup(function(v) { return {
                               total: d3.sum(v, function(d) { return d.good + d.bad; }),
@@ -2266,18 +2216,18 @@ function unitFunction() {
                               bad: d3.sum(v, function(d) { return d.bad; })/d3.sum(v, function(d) { return d.good + d.bad; })
                             }; })
                           .entries(unit_data);
-  console.log(datanest);
+ 
 
 
   var unitset = [];
   for(var i = 0; i < datanest.length; i ++){
-    console.log(i);
+ 
      var token = {};
      token.date = datanest[i].key;
      token.sales1 = Math.round(datanest[i].value.good);
      token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
      unitset.push(token);
-     console.log(token);
+  
    }
 
 
@@ -2301,8 +2251,6 @@ function unitFunction() {
       //bad unit data display
       "lineColor": "#FA4659",
       "fillColors": "#FA4659",
-      // "lineColor": "#e1ede9",
-      // "fillColors": "#e1ede9",
       "fillAlphas": 1,
       "type": "column",
       "title": "Improper Unit Alignment",
@@ -2310,15 +2258,13 @@ function unitFunction() {
       "clustered": false,
       "columnWidth": 0.5,
       "legendValueText": "[[value]]%",
-      //浮标label
+     //format data label
       "balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
     }, {
       "id": "g4",
       "valueAxis": "v1",
-      // "lineColor": "#62cf73",
       "lineColor": "#7CDFFF",
       "fillColors": "#7CDFFF",
-      // "fillColors": "#62cf73",
       "fillAlphas": 1,
       "type": "column",
       "title": "Proper Unit Alignment",
@@ -2345,9 +2291,8 @@ function unitFunction() {
     },
     "chartCursor": {
       "pan": true,
-      //是否显示游标线对齐
+      //if true, make display cursor alignment
       "valueLineEnabled": false,
-      //左侧坐标轴balloon显示
       "valueLineBalloonEnabled": false,
       "cursorAlpha": 0,
       "valueLineAlpha": 0.2
@@ -2371,79 +2316,79 @@ function unitFunction() {
     },
      "dataProvider": unitset
   });
-  console.log("finsh draw");
-//}
+
+
+  }
 }
 
+//draw data vis chart for search result on teat cleaniness form
 function teatFunction() {
 
   if (typeof teat_data == 'undefined') {
-    // the variable is defined
+    //the variable is defined
+    //check if teat cleaniness result is null or defined, throw error to user if search is not finished  
     alert("Empty dataset. Please search data!");
   }else{
 
-  var color = Chart.helpers.color;
+        var color = Chart.helpers.color;
 
+      //use d3 nest method to prepare and summarize search result 
+        var datanest = d3.nest()
+          .key(function (d){ return d.Milker;})
+          .rollup(function(v){ return {
+            total: d3.sum(v, function(d) {return d.clean + d.dip_present + d.small_dirt + d.large_dirt;}),
+            percent_3_4: Math.round(d3.sum(v, function (d){ return d.small_dirt + d.large_dirt;}) / d3.sum(v, function(d) {return d.clean + d.dip_present + d.small_dirt + d.large_dirt;}) * 100)
+        
+          };})
+          .entries(teat_data);
+        var teatset = [];
+          for(var i = 0; i < datanest.length; i ++){
+              var token = {};
+              token.country = datanest[i].key;
+              token.visits = Math.round(datanest[i].value.percent_3_4);
+              teatset.push(token);
+            }
+        var chart = AmCharts.makeChart( "teatcanvas", {
+          "type": "serial",
+          "theme": "light",
+          "dataProvider": teatset,
+          "valueAxes": [ {
+            "gridColor": "#FFFFFF",
+            "gridAlpha": 0.2,
+            "dashLength": 0,
+            "labelFunction": function(value) {
+              return value + "%";
+            }
+          } ],
+          "gridAboveGraphs": true,
+          "startDuration": 1,
+          "graphs": [ {
+            "balloonText": "[[title]]: <b>[[value]]</b>",
+            "fillAlphas": 0.8,
+            "lineAlpha": 0.2,
+            "fillColors": "#4176C1",
+            "type": "column",
+            "title": "3&4 Percent",
+            "valueField": "visits",
+            "balloonText": "[[title]]<br />[[category]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+          } ],
+          "chartCursor": {
+            "categoryBalloonEnabled": false,
+            "cursorAlpha": 0,
+            "zoomable": false
+          },
+          "categoryField": "country",
+          "categoryAxis": {
+            "gridPosition": "start",
+            "gridAlpha": 0,
+            "tickPosition": "start",
+            "tickLength": 20
+          },
+          "export": {
+            "enabled": true
+          }
 
-    var datanest = d3.nest()
-       .key(function (d){ return d.Milker;})
-       .rollup(function(v){ return {
-         total: d3.sum(v, function(d) {return d.clean + d.dip_present + d.small_dirt + d.large_dirt;}),
-         percent_3_4: Math.round(d3.sum(v, function (d){ return d.small_dirt + d.large_dirt;}) / d3.sum(v, function(d) {return d.clean + d.dip_present + d.small_dirt + d.large_dirt;}) * 100)
-        //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-       };})
-       .entries(teat_data);
-    var teatset = [];
-       for(var i = 0; i < datanest.length; i ++){
-          var token = {};
-          token.country = datanest[i].key;
-          token.visits = Math.round(datanest[i].value.percent_3_4);
-          //token.sales2 = Math.round(datanest[i].value.bad.toFixed(2)*100);
-          teatset.push(token);
-        }
-    var chart = AmCharts.makeChart( "teatcanvas", {
-      "type": "serial",
-      "theme": "light",
-      "dataProvider": teatset,
-      "valueAxes": [ {
-        "gridColor": "#FFFFFF",
-        "gridAlpha": 0.2,
-        "dashLength": 0,
-        "labelFunction": function(value) {
-          return value + "%";
-        }
-      } ],
-      "gridAboveGraphs": true,
-      "startDuration": 1,
-      "graphs": [ {
-        "balloonText": "[[title]]: <b>[[value]]</b>",
-        "fillAlphas": 0.8,
-        "lineAlpha": 0.2,
-        "fillColors": "#4176C1",
-        "type": "column",
-        "title": "3&4 Percent",
-        "valueField": "visits",
-        "balloonText": "[[title]]<br />[[category]]<br /><b style='font-size: 130%'>[[value]]%</b>"
-      } ],
-      "chartCursor": {
-        "categoryBalloonEnabled": false,
-        "cursorAlpha": 0,
-        "zoomable": false
-      },
-      "categoryField": "country",
-      "categoryAxis": {
-        "gridPosition": "start",
-        "gridAlpha": 0,
-        "tickPosition": "start",
-        "tickLength": 20
-      },
-      "export": {
-        "enabled": true
-      }
+        } );
 
-    } );
-
-  }
-
-
-}
+    }
+  } 

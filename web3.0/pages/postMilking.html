@@ -16,20 +16,11 @@
 
     <title>Post Milking Teat</title>
 
-<<<<<<< HEAD
-<<<<<<< HEAD:web2.0/pages/postMilking.html
-=======
-=======
->>>>>>> d831eb168f6a4b7e7f8140fb9fa64f14d08ad028
     <script src="../vendor/jquery/jquery.min.js"></script>
 
     <!-- D3-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
-<<<<<<< HEAD
->>>>>>> d831eb168f6a4b7e7f8140fb9fa64f14d08ad028:web3.0/pages/postMilking.html
-=======
->>>>>>> d831eb168f6a4b7e7f8140fb9fa64f14d08ad028
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -65,11 +56,6 @@
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
-<<<<<<< HEAD
-<<<<<<< HEAD:web2.0/pages/postMilking.html
-=======
-=======
->>>>>>> d831eb168f6a4b7e7f8140fb9fa64f14d08ad028
     <!-- Resources -->
     <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
     <script src="https://www.amcharts.com/lib/3/serial.js"></script>
@@ -140,10 +126,6 @@
 
     </style>
 
-<<<<<<< HEAD
->>>>>>> d831eb168f6a4b7e7f8140fb9fa64f14d08ad028:web3.0/pages/postMilking.html
-=======
->>>>>>> d831eb168f6a4b7e7f8140fb9fa64f14d08ad028
 </head>
 
 <body>
@@ -202,9 +184,7 @@
                         </li>
                     </ul>
                 </div>
-                <!-- /.sidebar-collapse -->
             </div>
-            <!-- /.navbar-static-side -->
         </nav>
 
         <div id="page-wrapper">
@@ -212,87 +192,89 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">Post Milking Teat Data Retrieve</h1>
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
             <div class="container">
-                    <div class="row">
-                        <div class='col-sm-3'>
-                            <div class="form-group">
-                                    date From
-                                <div class='input-group date' id='datetimepicker1'>
-                                    <input id="date_1" type='text' class="form-control" />
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class='col-sm-3'>
-                            <div class="form-group">
-                                To:
-                                <div class='input-group date' id='datetimepicker1'>
-                                    <input  id="date_2" type='text' class="form-control" />
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class='col-sm-3'>
-                            <div class="form-group">
-                                Farm:
-                            <select id="farm" class="form-control">
-                                <option>A</option>
+                <div class="row">
+                    <div class='col-sm-3'>
+                        <div class="form-group">
+                            Select a farm you want to search on:
+                        <select id="farm" class="form-control">
+                            <option>A</option>
                                 <option>B</option>
                                 <option>C</option>
                                 <option>D</option>
                                 <option>E</option>
                                 <option>F</option>
                                 <option>G</option>
-                            </select>
-                            </div>
-                        </div>
-
-                        <div class='col-sm-3'>
-                            <div class="form-group"><br/>
-                                <div>
-                                    <button type="button" class="btn btn-warning" id="createbutton">Search</button>
-                                    <button type="button" class="btn btn-success" id="postDraw">Analytics</button>
-                                </div>
-                            </div>
+                        </select>
                         </div>
                     </div>
+                </div>
 
-                    <div class="row">
-                        <div class='col-sm-2'>
-                                Download Data on
+                <div class="row">
+                    <div class='col-sm-2'>
+                        <div class="form-group">
+                            Download Data on
                             <div class='input-group date' id='datetimepicker1'>
                                     <input id="date_3" type='text' class="form-control" />
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                             </div>
-                        </div>
-
-                        <div class='col-sm-3'><br/>
-                            <button type="button" class="btn btn-danger" id="button-postMilking">Download</button>
-                        </div>
+                        </div>     
                     </div>
 
-                    <div id="divTable" class="container">
-                    </div>
-
-                    <div class='col-sm-10'>
-                      <div id="postcanvas"></div>
+                    <div class='col-sm-3'><br/>
+                        <button type="button" class="btn btn-danger" id="button-stripYields">Download</button>
                     </div>
                 </div>
-            </div>
-            <!-- /#page-wrapper -->
 
+                <div class="row">
+                    <div class='col-sm-3'>
+                        <div class="form-group">
+                            Date From
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input id="date_1" type='text' class="form-control" />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='col-sm-3'>
+                        <div class="form-group">
+                            To:
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input  id="date_2" type='text' class="form-control" />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='col-sm-3'>
+                        <div class="form-group"><br/>
+                            <div>
+                                <button type="button" class="btn btn-warning" id="createbutton">Search</button>
+                                <button type="button" class="btn btn-success" id="postDraw">Analytics</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="divTable" class="container">
+                </div>
+
+                <div class='col-sm-10'>
+                    <div id="postcanvas"></div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /#wrapper -->
 
     <script>
+        // clean up the local storage information of username and password
+        // redirect to the login page
         function logout(){
             localStorage.setItem("username","");
             localStorage.setItem("password","");
@@ -303,20 +285,13 @@
         var columns = ['date', 'Total Scored', 'Teat Skin Condition (Abnormal %)', 'Teat Color (Abnormal %)', 'Swelling Near Teat Base (Abnormal %)',
         'Hardness at Teat End (Abnormal %)', 'Teat End Score (Abnormal %)', 'Open Lesion (Abnormal %)', 'Hemorrhage (Abnormal %)'];
 
-
         $("#createbutton").click(function createTable() {
-
             var date_1 = document.getElementById("date_1").value;
-            console.log(date_1);
-
             var date_2 = document.getElementById("date_2").value;
-            console.log(date_2);
-
             var farm = document.getElementById("farm").value;
 
             var username = localStorage.getItem("username");
             var password = localStorage.getItem("password");
-            console.log(username+" "+password);
 
             var settings = {
                 "async": false,
@@ -327,7 +302,6 @@
                     'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
                     "username": username,
                     "password": password
-
                 }
             };
 
@@ -335,27 +309,19 @@
             $.ajax(settings).done(function (response) {
                 res = response;
             });
-            console.log(res);
 
-
+            // check if the user has been logged in
+            // redirect to the login page if not
             if (res[0] == false){
                 window.location = "index.html";
             }
 
-
             d3.json('../data/search/post_data.json', function (error,data) {
-
 
                 document.getElementById("divTable").innerHTML = ""
 
                 // Create table.
-                console.log(res[1]);
                 post_data = res[1];
-
-
-
-
-
 
                 var post_data_summary = d3.nest()
                     .key(function (d){ return d.date;})
@@ -380,9 +346,6 @@
                     };})
                     .entries(post_data);
 
-
-                console.log(post_data_summary);
-
                 var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
                 var thead = table.append('thead');
                 var tbody = table.append('tbody');
@@ -399,14 +362,10 @@
                     .enter()
                     .append('tr')
 
-
                 var post_data_length = post_data_summary.length;
-                console.log(post_data_length);
-
 
                 for (var i = 0; i < post_data_length; i++){
                     var tr = tbody.append('tr');
-
                     var td = tr.append('td')
                     .text(post_data_summary[i].key);
                     var td = tr.append('td')
@@ -425,13 +384,8 @@
                     .text(post_data_summary[i].value.Percent_Open_Leison);
                     var td = tr.append('td')
                     .text(post_data_summary[i].value.Percent_Hemorrhage);
-
-
                 }
-
-
             });
-
         });
     </script>
 
