@@ -189,9 +189,7 @@
                         </li>
                     </ul>
                 </div>
-                <!-- /.sidebar-collapse -->
             </div>
-            <!-- /.navbar-static-side -->
         </nav>
 
         <div id="page-wrapper">
@@ -199,14 +197,46 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">Strip Yields Data Retrieve</h1>
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
             <div class="container">
                 <div class="row">
                     <div class='col-sm-3'>
                         <div class="form-group">
-                                date From
+                            Select a farm you want to search on:
+                        <select id="farm" class="form-control">
+                            <option>A</option>
+                                <option>B</option>
+                                <option>C</option>
+                                <option>D</option>
+                                <option>E</option>
+                                <option>F</option>
+                                <option>G</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class='col-sm-2'>
+                        <div class="form-group">
+                            Download Data on
+                            <div class='input-group date' id='datetimepicker1'>
+                                    <input id="date_3" type='text' class="form-control" />
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                            </div>
+                        </div>     
+                    </div>
+
+                    <div class='col-sm-3'><br/>
+                        <button type="button" class="btn btn-danger" id="button-stripYields">Download</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class='col-sm-3'>
+                        <div class="form-group">
+                                Date From
                             <div class='input-group date' id='datetimepicker1'>
                                 <input id="date_1" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
@@ -227,21 +257,6 @@
                     </div>
 
                     <div class='col-sm-3'>
-                        <div class="form-group">
-                            Farm:
-                        <select id="farm" class="form-control">
-                            <option>A</option>
-                                <option>B</option>
-                                <option>C</option>
-                                <option>D</option>
-                                <option>E</option>
-                                <option>F</option>
-                                <option>G</option>
-                        </select>
-                        </div>
-                    </div>
-
-                    <div class='col-sm-3'>
                         <div class="form-group"><br/>
                             <div>
                                 <button type="button" class="btn btn-warning" id="createbutton">Search</button>
@@ -251,159 +266,121 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class='col-sm-2'>
-                            Download Data on
-                        <div class='input-group date' id='datetimepicker1'>
-                                <input id="date_3" type='text' class="form-control" />
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                        </div>
-                    </div>
+                <div id="divTable" class="container"></div> 
 
-                    <div class='col-sm-3'><br/>
-                        <button type="button" class="btn btn-danger" id="button-stripYields">Download</button>
-                    </div>
-                </div>
-
-                <div id="divTable" class="container">
-                </div>
                 <div class='col-sm-10'>
                   <div id="stripcanvas"></div>
                 </div>
-
-
             </div>
         </div>
-        <!-- /#page-wrapper -->
 
     </div>
-    <!-- /#wrapper -->
 
     <script>
-    function logout(){
+        // clean up the local storage information of username and password
+        // redirect to the login page
+        function logout(){
             localStorage.setItem("username","");
             localStorage.setItem("password","");
             window.location = "index.html";
-    }
-    var formacoloromma = d3.format(",");
-    var strip_data;
-    var columns = ['date', 'Total', 'Average', 'Yield < 150ml (%)', '150ml <= Yield <= 250ml (%)', 'Yield > 250ml (%)'];
-
-
-    $("#createbutton").click(function createTable() {
-
-        var date_1 = document.getElementById("date_1").value;
-        console.log(date_1);
-
-        var date_2 = document.getElementById("date_2").value;
-        console.log(date_2);
-
-        var farm = document.getElementById("farm").value;
-
-        var username = localStorage.getItem("username");
-        var password = localStorage.getItem("password");
-
-        var settings = {
-            "async": false,
-            "crossDomain": true,
-            "url": "http://localhost:3000/strip?date1="+date_1+"&date2="+date_2+"&farm="+farm,
-            "method": "GET",
-            "headers": {
-                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
-                "username": username,
-                "password": password
-
-            }
-        };
-
-        var res=[];
-        $.ajax(settings).done(function (response) {
-            res = response;
-        });
-        console.log(res);
-
-
-        if (res[0] == false){
-            window.location = "index.html";
         }
 
+        var formacoloromma = d3.format(",");
+        var strip_data;
+        var columns = ['date', 'Total', 'Average', 'Yield < 150ml (%)', '150ml <= Yield <= 250ml (%)', 'Yield > 250ml (%)'];
 
-        d3.json('../data/search/strip_data.json', function (error,data) {
+        $("#createbutton").click(function createTable() {
+            var date_1 = document.getElementById("date_1").value;
+            var date_2 = document.getElementById("date_2").value;
 
-            document.getElementById("divTable").innerHTML = ""
+            var farm = document.getElementById("farm").value;
 
-            // Create table.
-            strip_data = res[1];
+            var username = localStorage.getItem("username");
+            var password = localStorage.getItem("password");
 
-        
-            //console.log(strip_data);
-            var strip_data_summary = d3.nest()
-                .key(function (d){ return d.date;})
-                .rollup(function(v){ return {
-                    total: d3.sum(v, function(d) {return d.ML;}),
-                    average: formacoloromma(d3.mean(v, function(d) {return d.ML;})),
-                    //smaller_150: d3.sum(v, function (d){ return (d.ML < 150);}),
-                    smaller_150: Math.round(d3.sum(v, function (d){ return (d.ML < 150);}) / d3.sum(v, function(d) {return (d.ML >= 0);})*100),
-                    between: Math.round(d3.sum(v, function (d){ return (d.ML >= 150 & d.ML <= 250);}) / d3.sum(v, function(d) {return (d.ML >= 0);})*100),
-                    larger_250: Math.round(d3.sum(v, function (d){ return (d.ML > 250);}) / d3.sum(v, function(d) {return (d.ML >= 0);})*100),
-                    //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
-                };})
-                .entries(strip_data);
+            var settings = {
+                "async": false,
+                "crossDomain": true,
+                "url": "http://localhost:3000/strip?date1="+date_1+"&date2="+date_2+"&farm="+farm,
+                "method": "GET",
+                "headers": {
+                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                    "username": username,
+                    "password": password
+                }
+            };
 
+            var res=[];
+            $.ajax(settings).done(function (response) {
+                res = response;
+            });
 
-            console.log(strip_data_summary);
-
-            var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
-            var thead = table.append('thead');
-            var tbody = table.append('tbody');
-
-            thead
-                .selectAll('th')
-                .data(columns)
-                .enter()
-                .append('th')
-                .text(function (column) { return column; });
-
-            var rows = tbody.selectAll('tr')
-                .data(strip_data_summary)
-                .enter()
-                .append('tr')
-
-
-            var strip_data_length = strip_data_summary.length;
-            console.log(strip_data_length);
-
-
-            for (var i = 0; i < strip_data_length; i++){
-                var tr = tbody.append('tr');
-
-                var td = tr.append('td')
-                .text(strip_data_summary[i].key);
-                var td = tr.append('td')
-                .text(strip_data_summary[i].value.total);
-                var td = tr.append('td')
-                .text(strip_data_summary[i].value.average);
-                var td = tr.append('td')
-                .text(strip_data_summary[i].value.smaller_150);
-                var td = tr.append('td')
-                .text(strip_data_summary[i].value.between);
-                var td = tr.append('td')
-                .text(strip_data_summary[i].value.larger_250);
-
-
+            // check if the user has been logged in
+            // redirect to the login page if not
+            if (res[0] == false){
+                window.location = "index.html";
             }
 
-        });
+            d3.json('../data/search/strip_data.json', function (error,data) {
 
-    });
+                document.getElementById("divTable").innerHTML = ""
+
+                // Create table.
+                strip_data = res[1];
+
+                //console.log(strip_data);
+                var strip_data_summary = d3.nest()
+                    .key(function (d){ return d.date;})
+                    .rollup(function(v){ return {
+                        total: d3.sum(v, function(d) {return d.ML;}),
+                        average: formacoloromma(d3.mean(v, function(d) {return d.ML;})),
+                        //smaller_150: d3.sum(v, function (d){ return (d.ML < 150);}),
+                        smaller_150: Math.round(d3.sum(v, function (d){ return (d.ML < 150);}) / d3.sum(v, function(d) {return (d.ML >= 0);})*100),
+                        between: Math.round(d3.sum(v, function (d){ return (d.ML >= 150 & d.ML <= 250);}) / d3.sum(v, function(d) {return (d.ML >= 0);})*100),
+                        larger_250: Math.round(d3.sum(v, function (d){ return (d.ML > 250);}) / d3.sum(v, function(d) {return (d.ML >= 0);})*100),
+                        //percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+                    };})
+                    .entries(strip_data);
+
+                var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
+                var thead = table.append('thead');
+                var tbody = table.append('tbody');
+
+                thead
+                    .selectAll('th')
+                    .data(columns)
+                    .enter()
+                    .append('th')
+                    .text(function (column) { return column; });
+
+                var rows = tbody.selectAll('tr')
+                    .data(strip_data_summary)
+                    .enter()
+                    .append('tr')
+
+                var strip_data_length = strip_data_summary.length;
+
+                for (var i = 0; i < strip_data_length; i++){
+                    var tr = tbody.append('tr');
+                    var td = tr.append('td')
+                    .text(strip_data_summary[i].key);
+                    var td = tr.append('td')
+                    .text(strip_data_summary[i].value.total);
+                    var td = tr.append('td')
+                    .text(strip_data_summary[i].value.average);
+                    var td = tr.append('td')
+                    .text(strip_data_summary[i].value.smaller_150);
+                    var td = tr.append('td')
+                    .text(strip_data_summary[i].value.between);
+                    var td = tr.append('td')
+                    .text(strip_data_summary[i].value.larger_250);
+                }
+            });
+        });
     </script>
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
-
-
-
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>

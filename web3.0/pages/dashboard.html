@@ -90,9 +90,7 @@
                         </li>
                     </ul>
                 </div>
-                <!-- /.sidebar-collapse -->
             </div>
-            <!-- /.navbar-static-side -->
         </nav>
 
         <div id="page-wrapper">
@@ -116,6 +114,8 @@
     <!-- /#wrapper -->
 
     <script>
+        // clean up the local storage information of username and password
+        // redirect to the login page
         function logout(){
             localStorage.setItem("username","");
             localStorage.setItem("password","");
