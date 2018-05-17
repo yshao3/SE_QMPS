@@ -129,7 +129,6 @@
 </head>
 
 <body>
-
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -184,24 +183,57 @@
                         </li>
                     </ul>
                 </div>
-                <!-- /.sidebar-collapse -->
             </div>
-            <!-- /.navbar-static-side -->
         </nav>
+        <!-- /.Navigation --> 
 
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">LactoCoder Record Data Retrieve</h1>
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
             <div class="container">
                 <div class="row">
                     <div class='col-sm-3'>
                         <div class="form-group">
-                                date From
+                            Select a farm you want to search on
+                            <select  id="farm" class="form-control" style="display: inline-block;">
+                                <option>A</option>
+                                <option>B</option>
+                                <option>C</option>
+                                <option>D</option>
+                                <option>E</option>
+                                <option>F</option>
+                                <option>G</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>  
+             
+                <div class="row">
+                    <div class='col-sm-2'>
+                        <div class="form-group">
+                            Download Data on
+                            <div class='input-group date' id='datetimepicker1'>
+                                    <input id="date_3" type='text' class="form-control" />
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='col-sm-3'><br/>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-danger" id="button-lactoCoder">Download</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class='col-sm-3'>
+                        <div class="form-group">
+                                Date From
                             <div class='input-group date' id='datetimepicker1'>
                                 <input id="date_1" type='text' class="form-control" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
@@ -221,60 +253,32 @@
                         </div>
                     </div>
 
+
                     <div class='col-sm-3'>
-                            <div class="form-group">
-                                Farm:
-                            <select  id="farm" class="form-control">
-                                <option>A</option>
-                                <option>B</option>
-                                <option>C</option>
-                                <option>D</option>
-                                <option>E</option>
-                                <option>F</option>
-                                <option>G</option>
-                            </select>
+                        <div class="form-group"><br/>
+                            <div>
+                                <button type="button" class="btn btn-warning" id="createbutton">Search</button>
+                                <button type="button" class="btn btn-success" id="lactoDraw">Analytics</button>
                             </div>
                         </div>
-
-                        <div class='col-sm-3'>
-                            <div class="form-group"><br/>
-                                <div>
-                                    <button type="button" class="btn btn-warning" id="createbutton">Search</button>
-                                    <button type="button" class="btn btn-success" id="lactoDraw">Analytics</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class='col-sm-2'>
-                                Download Data on
-                            <div class='input-group date' id='datetimepicker1'>
-                                    <input id="date_3" type='text' class="form-control" />
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
-                            </div>
-                        </div>
-
-                        <div class='col-sm-3'><br/>
-                            <button type="button" class="btn btn-danger" id="button-lactoCoder">Download</button>
-                        </div>
-                    </div>
-
-                    <div id="divTable" class="container">
-                    </div>
-
-                    <div class='col-sm-10'>
-                      <div id="lactocanvas"></div>
                     </div>
                 </div>
+
+                <div id="divTable" class="container"></div>
+
+                <div class='col-sm-10'>
+                    <div id="lactocanvas"></div>
+                </div>
             </div>
+        </div>
         <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
 
     <script>
+        // clean up the local storage information of username and password
+        // redirect to the login page
         function logout(){
             localStorage.setItem("username","");
             localStorage.setItem("password","");
@@ -286,13 +290,8 @@
 
 
         $("#createbutton").click(function createTable() {
-
             var date_1 = document.getElementById("date_1").value;
-            console.log(date_1);
-
             var date_2 = document.getElementById("date_2").value;
-            console.log(date_2);
-
             var farm = document.getElementById("farm").value;
 
             var username = localStorage.getItem("username");
@@ -307,7 +306,6 @@
                     'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
                     "username": username,
                     "password": password
-
                 }
             };
 
@@ -315,22 +313,19 @@
             $.ajax(settings).done(function (response) {
                 res = response;
             });
-            console.log(res);
 
-
+            // check if the user has been logged in
+            // redirect to the login page if not
             if (res[0] == false){
                 window.location = "index.html";
             }
 
             d3.json('../data/search/lacto_data.json', function (error,data) {
-
                 document.getElementById("divTable").innerHTML = ""
 
                 // Create table.
                 lacto_data = res[1];
 
-              
-                console.log(lacto_data);
                 //console.log(Math.abs(lacto_data[0].Wipe) - Math.abs(lacto_data[0].Dip));
                 var lacto_data_summary = d3.nest()
                     .key(function (d){ return d.date;})
@@ -351,9 +346,6 @@
                     };})
                     .entries(lacto_data);
 
-
-                console.log(lacto_data_summary);
-
                 var table = d3.select('#divTable').append('table').attr('class', 'blueTable').attr('border', 1);
                 var thead = table.append('thead');
                 var tbody = table.append('tbody');
@@ -370,14 +362,10 @@
                     .enter()
                     .append('tr')
 
-
                 var lacto_data_length = lacto_data_summary.length;
-                //console.log(lacto_data_length);
-
 
                 for (var i = 0; i < lacto_data_length; i++){
                     var tr = tbody.append('tr')
-
                     var td_date = tr.append('td')
                     .attr('id', 'date_1')
                     .attr('rowspan', 3)
@@ -391,7 +379,6 @@
                     var td = tr.append('td')
                     .text(lacto_data_summary[i].value.average_lag);
 
-
                     var tr = tbody.append('tr')
                     var td = tr.append('td')
                     .text('Min');
@@ -402,7 +389,6 @@
                     var td = tr.append('td')
                     .text(lacto_data_summary[i].value.min_lag);
 
-
                     var tr = tbody.append('tr')
                     var td = tr.append('td')
                     .text('Max');
@@ -412,14 +398,10 @@
                     .text(lacto_data_summary[i].value.max_lag);
                     var td = tr.append('td')
                     .text(lacto_data_summary[i].value.max_lag);
-
-
-
                 }
-
             });
-
         });
+
     </script>
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
