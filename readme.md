@@ -4,16 +4,21 @@
 
 	## Running locally
 	* ionic cordova plugin add cordova-sqlite-plugin
-	```
+        ```
 	npm install --save @ionic-native/sqlite
+        
 	```
 	* npm install
+        
 	```
 	npm install
+        
 	```
 	* add new platform
+        
 	```
 	cordova platform add ios
+        
 	```
 
 	## Run project in ios simulator
