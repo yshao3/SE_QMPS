@@ -1,6 +1,6 @@
-1.Mobile App
-	Development Environment
-	Per the request of the client, we use Ionic 3 framework to develop the hybrid mobile app. 
+# Mobile App
+## Development Environment
+Per the request of the client, we use Ionic 3 framework to develop the hybrid mobile app. 
 
 	## Running locally
 	* ionic cordova plugin add cordova-sqlite-plugin
