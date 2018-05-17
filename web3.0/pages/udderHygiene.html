@@ -341,7 +341,6 @@
                     .rollup(function(v){ return {
                         total: d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;}),
                         percent_3_4: Math.round(d3.sum(v, function (d){ return d.moderate_dirt + d.cake_on_dirt;}) / d3.sum(v, function(d) {return d.clean + d.slightly_dirt + d.moderate_dirt + d.cake_on_dirt;}) * 100)
-                        //percent_4: d3.sum(v, function (d){ return d.Cake_On_Dirt;}) / d3.sum(v, function(d) {return d.Clean + d.Slightly_Dirt + d.Moderate_Dirt + d.Cake_On_Dirt;}),
                     };})
                     .entries(udder_data);
 

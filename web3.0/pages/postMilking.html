@@ -316,7 +316,6 @@
                 window.location = "index.html";
             }
 
-            d3.json('../data/search/post_data.json', function (error,data) {
 
                 document.getElementById("divTable").innerHTML = ""
 
@@ -341,8 +340,6 @@
                         Percent_Hardness_Abnormal: Math.round(d3.sum(v, function(d){return (d.hardness.LH != 'N' || d.hardness.LF != 'N' || d.hardness.RH != 'N' || d.hardness.RF != 'N') / d3.sum(v, function(d) {return d.group_id;}) }) *100),
                         Percent_Open_Leison: Math.round(d3.sum(v, function(d){return (d.skin_condition.LH == 'OL' || d.skin_condition.LF == 'OL' || d.skin_condition.RH == 'OL' || d.skin_condition.RF == 'OL') / d3.sum(v, function(d) {return d.group_id;}) }) *100),
                         Percent_Hemorrhage: Math.round(d3.sum(v, function(d){return (d.skin_condition.LH == 'H' || d.skin_condition.LF == 'H' || d.skin_condition.RH == 'H' || d.skin_condition.RF == 'H') / d3.sum(v, function(d) {return d.group_id;})}) *100)
-                        // percent_good: d3.sum(v, function (d){ return d.Good;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
-                        // percent_bad: d3.sum(v, function (d){ return d.Bad;}) / d3.sum(v, function(d) {return d.Good + d.Bad;}),
                     };})
                     .entries(post_data);
 
@@ -385,7 +382,7 @@
                     var td = tr.append('td')
                     .text(post_data_summary[i].value.Percent_Hemorrhage);
                 }
-            });
+           
         });
     </script>
 
