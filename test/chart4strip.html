@@ -1,0 +1,235 @@
+<!-- Styles -->
+<style>
+#chartdiv {
+	width	: 100%;
+	height	: 500px;
+}
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<!-- Chart code -->
+<script>
+var strip_data = [
+		{ Date: '2018-01-10', Stall_number: 1, Strip_Yields: 132, balance: "isbalanced", Majority: 0},
+		{ Date: '2018-01-10', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+		{ Date: '2018-01-10', Stall_number: 3, Strip_Yields: 300, balance: "isbalanced", Majority: 0},
+		{ Date: '2018-01-13', Stall_number: 4, Strip_Yields: 400, balance: "balanced",  Majority: 0},
+		{ Date: '2018-01-13', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+		{ Date: '2018-01-13', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+		{ Date: '2018-01-13', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+		{ Date: '2018-01-28', Stall_number: 3, Strip_Yields: 100, balance: "balanced", Majority: 0},
+		{ Date: '2018-01-28', Stall_number: 4, Strip_Yields: 200, balance: "balanced",  Majority: 0},
+		{ Date: '2018-01-28', Stall_number: 5, Strip_Yields: 400, balance: "balanced", Majority: 0},
+		{ Date: '2018-02-07', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+		{ Date: '2018-02-07', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+		{ Date: '2018-02-07', Stall_number: 3, Strip_Yields: 220, balance: "isbalanced", Majority: 0},
+		{ Date: '2018-02-07', Stall_number: 4, Strip_Yields: 330, balance: "balanced",  Majority: 0},
+		{ Date: '2018-02-07', Stall_number: 5, Strip_Yields: 600, balance: "balanced", Majority: 0},
+		{ Date: '2018-02-20', Stall_number: 1, Strip_Yields: 102, balance: "balanced", Majority: 0},
+		{ Date: '2018-02-20', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+		{ Date: '2018-02-20', Stall_number: 3, Strip_Yields: 240, balance: "isbalanced", Majority: 0},
+		{ Date: '2018-02-20', Stall_number: 4, Strip_Yields: 190, balance: "balanced",  Majority: 0},
+		{ Date: '2018-02-20', Stall_number: 5, Strip_Yields: 500, balance: "balanced", Majority: 0},
+		{ Date: '2018-02-25', Stall_number: 1, Strip_Yields: 432, balance: "isbalanced", Majority: 0},
+		{ Date: '2018-02-25', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+		{ Date: '2018-03-03', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
+		{ Date: '2018-03-03', Stall_number: 4, Strip_Yields: 180, balance: "isbalanced",  Majority: 0},
+		{ Date: '2018-03-03', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+		{ Date: '2018-03-03', Stall_number: 1, Strip_Yields: 152, balance: "balanced", Majority: 0},
+		{ Date: '2018-03-03', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+		{ Date: '2018-03-03', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
+		{ Date: '2018-03-03', Stall_number: 4, Strip_Yields: 400, balance: "balanced",  Majority: 0},
+		{ Date: '2018-03-03', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+		{ Date: '2018-03-03', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+		{ Date: '2018-03-03', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+		{ Date: '2018-03-03', Stall_number: 3, Strip_Yields: 220, balance: "isbalanced", Majority: 0},
+		{ Date: '2018-03-06', Stall_number: 5, Strip_Yields: 500, balance: "balanced", Majority: 0},
+		{ Date: '2018-03-06', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+		{ Date: '2018-03-06', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+		{ Date: '2018-03-06', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
+		{ Date: '2018-03-07', Stall_number: 4, Strip_Yields: 200, balance: "isbalanced",  Majority: 0},
+		{ Date: '2018-03-07', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+		{ Date: '2018-03-07', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+		{ Date: '2018-03-07', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+		{ Date: '2018-03-07', Stall_number: 3, Strip_Yields: 300, balance: "isbalanced", Majority: 0},
+		{ Date: '2018-04-01', Stall_number: 4, Strip_Yields: 400, balance: "isbalanced",  Majority: 0},
+		{ Date: '2018-04-01', Stall_number: 5, Strip_Yields: 240, balance: "balanced", Majority: 0},
+		{ Date: '2018-04-01', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+		{ Date: '2018-04-01', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+		{ Date: '2018-04-10', Stall_number: 3, Strip_Yields: 100, balance: "isbalanced", Majority: 0},
+		{ Date: '2018-04-10', Stall_number: 4, Strip_Yields: 400, balance: "balanced",  Majority: 0},
+		{ Date: '2018-04-10', Stall_number: 5, Strip_Yields: 700, balance: "balanced", Majority: 0},
+		{ Date: '2018-04-15', Stall_number: 1, Strip_Yields: 132, balance: "balanced", Majority: 0},
+		{ Date: '2018-04-15', Stall_number: 2, Strip_Yields: 234, balance: "balanced", Majority: 0},
+		{ Date: '2018-04-15', Stall_number: 3, Strip_Yields: 200, balance: "isbalanced", Majority: 0},
+		{ Date: '2018-04-15', Stall_number: 4, Strip_Yields: 210, balance: "isbalanced",  Majority: 0},
+		{ Date: '2018-04-15', Stall_number: 5, Strip_Yields: 700, balance: "isbalanced", Majority: 0}];
+var label_data = ["<150 ml", "150 ml-250 ml", ">250 ml"];
+var formatComma = d3.format(",");
+var datanest = d3.nest().key(function(d) { return d.Date; })
+.rollup(function(v){ return {
+		total: d3.sum(v, function(d) {return d.Strip_Yields;}),
+		average: d3.mean(v, function(d) {return d.Strip_Yields;}),
+		//smaller_150: d3.sum(v, function (d){ return (d.Strip_Yields < 150);}),
+		smaller_150: d3.sum(v, function (d){ return (d.Strip_Yields < 150);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
+		between: d3.sum(v, function (d){ return (d.Strip_Yields >= 150 & d.Strip_Yields <= 250);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
+		larger_250: d3.sum(v, function (d){ return (d.Strip_Yields > 250);}) / d3.sum(v, function(d) {return (d.Strip_Yields >= 0);}),
+		//percent_4: d3.sum(v, function (d){ return d.Score4;}) / d3.sum(v, function(d) {return d.Score1 + d.Score2 + d.Score3 + d.Score4;}),
+};})
+.entries(strip_data);
+console.log(datanest);
+var stripset = [];
+for(var i = 0; i < datanest.length; i ++){
+  console.log(i);
+   var token = {};
+   token.date = datanest[i].key;
+   token.visits = Math.round((datanest[i].value.smaller_150)* 100);
+	 token.hits = Math.round((datanest[i].value.between)* 100);
+   token.views = Math.round((datanest[i].value.larger_250)*100);
+   stripset.push(token);
+   console.log(token);
+ }
+ console.log(stripset);
+var chartData = generateChartData();
+
+var chart = AmCharts.makeChart("chartdiv", {
+    "type": "serial",
+    "theme": "light",
+    "legend": {
+        "useGraphSettings": true
+    },
+    "dataProvider": stripset,
+    "synchronizeGrid":true,
+    "valueAxes": [{
+        "id":"v1",
+        "axisColor": "#444",
+        "axisThickness": 2,
+        "axisAlpha": 1,
+        "position": "left",
+				"labelFunction": function(value) {
+		      return value + "%";
+		    }
+		  }, {
+        "id":"v2",
+        "axisColor": "#FCD202",
+        "axisThickness": 2,
+        "axisAlpha": 1,
+        "position": "right",
+				"labelFunction": function(value) {
+		      return value + "%";
+		    }
+    }, {
+        "id":"v3",
+        "axisColor": "#B0DE09",
+        "axisThickness": 2,
+        "gridAlpha": 0,
+        "offset": 50,
+        "axisAlpha": 1,
+        "position": "left",
+				"labelFunction": function(value) {
+		      return value + "%";
+		    }
+    }],
+    "graphs": [{
+        "valueAxis": "v1",
+        "lineColor": "#FF6600",
+        "bullet": "round",
+        "bulletBorderThickness": 1,
+        "hideBulletsCount": 30,
+        "title": "<150 ml",
+        "valueField": "visits",
+		"fillAlphas": 0,
+		"legendValueText": "[[value]]%",
+		//浮标label
+		"balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+    }, {
+        "valueAxis": "v1",
+        "lineColor": "#FCD202",
+        "bullet": "square",
+        "bulletBorderThickness": 1,
+        "hideBulletsCount": 30,
+        "title": "150 ml-250 ml",
+        "valueField": "hits",
+		"fillAlphas": 0,
+		"legendValueText": "[[value]]%",
+		//浮标label
+		"balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+    }, {
+        "valueAxis": "v1",
+        "lineColor": "#B0DE09",
+        "bullet": "triangleUp",
+        "bulletBorderThickness": 1,
+        "hideBulletsCount": 30,
+        "title": ">250 ml",
+        "valueField": "views",
+		"fillAlphas": 0,
+		"legendValueText": "[[value]]%",
+		//浮标label
+		"balloonText": "[[title]]<br /><b style='font-size: 130%'>[[value]]%</b>"
+    }],
+    "chartScrollbar": {},
+    "chartCursor": {
+        "cursorPosition": "mouse"
+    },
+    "categoryField": "date",
+    "categoryAxis": {
+        "parseDates": true,
+        "axisColor": "#DADADA",
+        "minorGridEnabled": true
+    },
+    "export": {
+    	"enabled": true,
+        "position": "bottom-right"
+     }
+});
+
+chart.addListener("dataUpdated", zoomChart);
+zoomChart();
+
+
+// generate some random data, quite different range
+function generateChartData() {
+    var chartData = [];
+    var firstDate = new Date();
+    firstDate.setDate(firstDate.getDate() - 100);
+
+        var visits = 1600;
+        var hits = 2900;
+        var views = 8700;
+
+
+    for (var i = 0; i < 100; i++) {
+        // we create date objects here. In your data, you can have date strings
+        // and then set format of your dates using chart.dataDateFormat property,
+        // however when possible, use date objects, as this will speed up chart rendering.
+        var newDate = new Date(firstDate);
+        newDate.setDate(newDate.getDate() + i);
+
+        visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+        hits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+        views += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
+
+        chartData.push({
+            date: newDate,
+            visits: visits,
+            hits: hits,
+            views: views
+        });
+    }
+    return chartData;
+}
+
+function zoomChart(){
+    chart.zoomToIndexes(chart.dataProvider.length - 20, chart.dataProvider.length - 1);
+}
+
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>

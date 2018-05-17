@@ -9,22 +9,22 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item [navPush]="teatPage">
+    <button ion-item (click)="goTeat()">
       Teat Cleanliness
     </button>
-    <button ion-item [navPush]="hygienePage">
+    <button ion-item (click)="goHygiene()">
       Udder Hgyiene
     </button>
-    <button ion-item [navPush]="alignmentPage">
+    <button ion-item (click)="goAlignment()">
       Unit Alignment
     </button>
-    <button ion-item [navPush]="stripPage">
+    <button ion-item (click)="goStrip()">
       Strip Yields
     </button>
-    <button ion-item [navPush]="postmilkPage">
+    <button ion-item (click)="goPostmilk()">
       Post Milking Teat
     </button>
-    <button ion-item [navPush]="lactocoderPage">
+    <button ion-item (click)="goLactocoder()">
       LactoCoder Analysis
     </button>
     </ion-list>

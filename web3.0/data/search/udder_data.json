@@ -1,0 +1,21 @@
+[
+    {
+        "staff": "Tom", "milker": "Aphrodite", "farm": "Cornell", "date": "03-15-2018", "clean": 15, "slightly_dirt": 10, "moderate_dirt": 3, "cake_on_dirt": 10	},
+    {
+        "staff": "Tom", "milker": "Apollo","farm": "Cornell", "date": "03-15-2018","clean": 11,"slightly_dirt": 10,"moderate_dirt": 8,"cake_on_dirt": 6},
+    {
+        "staff": "Tom", "milker": "Ares","farm": "Cornell", "date": "03-15-2018","clean": 10,"slightly_dirt": 24,"moderate_dirt": 4,"cake_on_dirt": 2 },
+    {
+        "staff": "Tom", "milker": "Artemis","farm": "Cornell", "date": "03-15-2018","clean": 15,"slightly_dirt": 18,"moderate_dirt": 5,"cake_on_dirt": 5},
+    {
+        "staff": "Tom", "milker": "Athena","farm": "Cornell", "date": "03-15-2018","clean": 23,"slightly_dirt": 7,"moderate_dirt": 8,"cake_on_dirt": 3},
+    {
+        "staff": "Tom", "milker": "Zeus","farm": "Cornell", "date": "03-15-2018","clean": 19,"slightly_dirt": 12,"moderate_dirt": 1,"cake_on_dirt": 5},
+    {
+        "staff": "Tom", "milker": "Zeus","farm": "Cornell", "date": "03-16-2018","clean": 19,"slightly_dirt": 12,"moderate_dirt": 1,"cake_on_dirt": 5},
+    {
+        "staff": "Tom", "milker": "Zeus","farm": "Cornell", "date": "03-16-2018","clean": 19,"slightly_dirt": 12,"moderate_dirt": 1,"cake_on_dirt": 5}
+  ]
+
+
+  

@@ -1,10 +1,10 @@
 export class Item {
     constructor(
-        farm: string,
-        date: string,
-        observer: string,
-        stall_no: string,
-        volume: string,
-        balance: string
+        public farm: string,
+        public date: string,
+        public observer: string,
+        public stall_no: string,
+        public volume: string,
+        public balance: string
     ){};
 }

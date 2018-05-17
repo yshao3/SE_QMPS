@@ -1,0 +1,195 @@
+[
+    {
+        "staff": "Tom",
+        "date": "03-15-2018",
+        "farm": "Cornell",
+        "Stall_no": 1,
+        "ML": 132,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-15-2018",
+        "farm": "Cornell",
+        "Stall_no": 2,
+        "ML": 234,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-15-2018",
+        "farm": "Cornell",
+        "Stall_no": 3,
+        "ML": 100,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-16-2018",
+        "farm": "Cornell",
+        "Stall_no": 4,
+        "ML": 400,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-16-2018",
+        "farm": "Cornell",
+        "Stall_no": 5,
+        "ML": 700,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-17-2018",
+        "farm": "Cornell",
+        "Stall_no": 6,
+        "ML": 200,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-17-2018",
+        "farm": "Cornell",
+        "Stall_no": 7,
+        "ML": 364,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-18-2018",
+        "farm": "Cornell",
+        "Stall_no": 8,
+        "ML": 112,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-19-2018",
+        "farm": "Cornell",
+        "Stall_no": 9,
+        "ML": 154,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-19-2018",
+        "farm": "Cornell",
+        "Stall_no": 10,
+        "ML": 90,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-19-2018",
+        "farm": "Cornell",
+        "Stall_no": 11,
+        "ML": 375,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-19-2018",
+        "farm": "Cornell",
+        "Stall_no": 12,
+        "ML": 545,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-20-2018",
+        "farm": "Cornell",
+        "Stall_no": 13,
+        "ML": 600,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-20-2018",
+        "farm": "Cornell",
+        "Stall_no": 14,
+        "ML": 290,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-20-2018",
+        "farm": "Cornell",
+        "Stall_no": 15,
+        "ML": 310,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-21-2018",
+        "farm": "Cornell",
+        "Stall_no": 16,
+        "ML": 230,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-21-2018",
+        "farm": "Cornell",
+        "Stall_no": 17,
+        "ML": 187,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-21-2018",
+        "farm": "Cornell",
+        "Stall_no": 18,
+        "ML": 412,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-21-2018",
+        "farm": "Cornell",
+        "Stall_no": 19,
+        "ML": 231,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-21-2018",
+        "farm": "Cornell",
+        "Stall_no": 20,
+        "ML": 245,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-21-2018",
+        "farm": "Cornell",
+        "Stall_no": 21,
+        "ML": 184,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-21-2018",
+        "farm": "Cornell",
+        "Stall_no": 22,
+        "ML": 398,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-22-2018",
+        "farm": "Cornell",
+        "Stall_no": 23,
+        "ML": 405,
+        "IsBalanced": 0
+    },
+    {
+        "staff": "Tom",
+        "date": "03-23-2018",
+        "farm": "Cornell",
+        "Stall_no": 24,
+        "ML": 120,
+        "IsBalanced": 0
+    }
+
+]

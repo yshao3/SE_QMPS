@@ -6,54 +6,61 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Alignment</ion-title>
+  <ion-navbar hideBackButton *navbar>
   </ion-navbar>
-
+  <ion-title>Alignment</ion-title>
 </ion-header>
 
 
 <ion-content padding>
-<ion-list>
+  <ion-list>
+    <ion-item *ngFor="let item of ListUser">
+      <p>Farm: {{item.farm_id}}</p>
+      <p>Date: {{item.date}}</p>
+      <p>Observer: {{item.staff_id}}</p>
+      <p>Good: {{item.good}} </p>
+      <p>Bad: {{item.bad}}</p>
+    </ion-item>
+  </ion-list>
 
-  <ion-item>
-    <ion-label fixed>Farm</ion-label>
-    <ion-input text-right type="text" [(ngModel)]="farm"></ion-input>
-  </ion-item>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Farm</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="farm"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Date</ion-label>
-    <ion-datetime displayFormat="YYYY MMM DD" [(ngModel)]="myDate"></ion-datetime>
-  </ion-item>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="YYYY MMM DD" [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
 
-  <ion-item>
-    <ion-label fixed>Observer</ion-label>
-    <ion-input text-right type="text" [(ngModel)]="observer"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label fixed>Observer</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="observer"></ion-input>
+    </ion-item>
 
 
-</ion-list>
+  </ion-list>
 
-<ion-content padding>
   <Button ion-button (tap)="tapDecrease($event,1)"> - </Button>
-  <Button>Good: {{good}}</Button>
+  <Button style="font-size: 15px">Good: {{good}}</Button>
   <Button ion-button (tap)="tapIncrease($event,1)"> + </Button>
 
   <hr>
 
   <Button ion-button (tap)="tapDecrease($event,2)"> - </Button>
-  <Button>Bad: {{bad}}</Button>
+  <Button style="font-size: 15px">Bad: {{bad}}</Button>
   <Button ion-button (tap)="tapIncrease($event,2)"> + </Button>
 
 
   <hr>
 
-  <Button ion-button (click)="saveData()"> Save </Button>
-  <Button ion-button (click)="submitData()"> Submit </Button>
-  <Button ion-button navPop> Back </Button>
-
-</ion-content>
-
+  <ion-item>
+    <ion-row>
+        <button class="btn" ion-button (click)="saveData()">Save</button>
+        <button class="btn" ion-button (click)="back()"> Back </button>
+    </ion-row>
+  </ion-item>
 
 
 </ion-content>

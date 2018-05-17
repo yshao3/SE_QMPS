@@ -7,11 +7,17 @@ import { LoadingController, AlertController } from "ionic-angular";
   selector: 'page-signin',
   templateUrl: 'signin.html',
 })
+
+/*
+* The signin page required the email and password of user to log in
+*/
 export class SigninPage {
     constructor(private authService: AuthService,
       private loadingCtrl: LoadingController,
-      private alertCtrl: AlertController) {}
+      private alertCtrl: AlertController) {
+      }
     onSignin(form: NgForm) {
+      alert("Welcome " + form.value.email + " , happy milking!");
       const loading = this.loadingCtrl.create({
         content: 'Signing you in...'
       });
@@ -31,5 +37,4 @@ export class SigninPage {
 	  		alert.present();
 	  	});
     }
-
 }

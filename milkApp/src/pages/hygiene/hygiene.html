@@ -6,14 +6,26 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Udder Hygiene</ion-title>
+  <ion-navbar hideBackButton *navbar>
   </ion-navbar>
-
+  <ion-title>Udder Hygiene</ion-title>
 </ion-header>
 
 
 <ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let item of ListUser">
+      <p>Farm: {{item.farm_id}}</p>
+      <p>Date: {{item.date}}</p>
+      <p>Observer: {{item.staff_id}}</p>
+      <p>Group: {{item.group_id}} </p>
+      <p>Clean: {{item.clean}}</p>
+      <p>Slightly Dirt: {{item.slightly_dirt}}</p>
+      <p>Moderately Dirt: {{item.moderately_dirt}}</p>
+      <p>Caked on Dirt: {{item.caked_on_dirt}}</p>
+    </ion-item>
+  </ion-list>
+
   <ion-list>
     <ion-item>
       <ion-label fixed>Farm</ion-label>
@@ -37,78 +49,71 @@
   </ion-list>
 
 
-  <ion-card class="card" margin="0px">
-    <img src="assets/imgs/clean2.png"/>
-    <ion-card-content>
-      <ion-card-title>
-        <p>Clean: {{clean}}</p>
-      </ion-card-title>
-      <Button ion-button (tap)="tapDecrease($event,1)"> - </Button>
-      <Button ion-button (tap)="tapIncrease($event,1)"> + </Button>
-    </ion-card-content>
-  </ion-card>
+  <ion-row>
+      <ion-card class="card1" margin="0px">
+          <img src="assets/imgs/clean2.png"/>
+          <ion-card-content>
+            <ion-card-title>
+              <p>Clean: {{clean}}</p>
+            </ion-card-title>
+            <ion-row>
+                    <Button class="btn" ion-button (tap)="tapDecrease($event,1)"> - </Button>
+                    <Button class="btn" ion-button (tap)="tapIncrease($event,1)"> + </Button>
+              </ion-row>
+          </ion-card-content>
+        </ion-card>
+      
+        <ion-card class="card2" margin="0px">
+          <img src="assets/imgs/slightlyDirt2.png"/>
+          <ion-card-content>
+            <ion-card-title>
+              <p>Slightly Dirt: {{slightlyDirt}}</p>
+            </ion-card-title>
+            <ion-row>
+                    <Button class="btn" ion-button (tap)="tapDecrease($event,2)"> - </Button>
+                    <Button class="btn" ion-button (tap)="tapIncrease($event,2)"> + </Button>
+              </ion-row>
+          </ion-card-content>
+        </ion-card>
+  </ion-row>
 
-  <ion-card class="card" margin="0px">
-    <img src="assets/imgs/slightlyDirt2.png"/>
-    <ion-card-content>
-      <ion-card-title>
-        <p>Slightly Dirt: {{slightlyDirt}}</p>
-      </ion-card-title>
-      <Button ion-button (tap)="tapDecrease($event,2)"> - </Button>
-      <Button ion-button (tap)="tapIncrease($event,2)"> + </Button>
-    </ion-card-content>
-  </ion-card>
+  <ion-row>
+      <ion-card class="card3" margin="0px">
+          <img src="assets/imgs/moderatelyDirt2.png"/>
+          <ion-card-content>
+            <ion-card-title>
+              <p>Moderately Dirt: {{moderatelyDirt}}</p>
+            </ion-card-title>
+            <ion-row>
+                  <Button class="btn" ion-button (tap)="tapDecrease($event,3)"> - </Button>
+                  <Button class="btn" ion-button (tap)="tapIncrease($event,3)"> + </Button>
+              </ion-row>
+          </ion-card-content>
+        </ion-card>
+      
+        <ion-card class="card4" margin="0px">
+          <img src="assets/imgs/cakedOnDirt2.png"/>
+          <ion-card-content>
+            <ion-card-title>
+              <p>Caked On Dirt: {{cakedOnDirt}}</p>
+            </ion-card-title>
+            <ion-row>
+                    <Button class="btn" ion-button (tap)="tapDecrease($event,4)"> - </Button>
+                    <Button class="btn" ion-button (tap)="tapIncrease($event,4)"> + </Button>
+              </ion-row>
+          </ion-card-content>
+        </ion-card>
+  </ion-row>
 
-  <ion-card class="card" margin="0px">
-    <img src="assets/imgs/moderatelyDirt2.png"/>
-    <ion-card-content>
-      <ion-card-title>
-        <p>Moderately Dirt: {{moderatelyDirt}}</p>
-      </ion-card-title>
-      <Button ion-button (tap)="tapDecrease($event,3)"> - </Button>
-      <Button ion-button (tap)="tapIncrease($event,3)"> + </Button>
-    </ion-card-content>
-  </ion-card>
+ 
+<ion-item>
+    <ion-row>
+        <button class="btn" ion-button (click)="saveData()">Save</button>
+        <button class="btn" ion-button (click)="back()"> Back </button>
+  </ion-row>
+</ion-item>
 
-  <ion-card class="card" margin="0px">
-    <img src="assets/imgs/cakedOnDirt2.png"/>
-    <ion-card-content>
-      <ion-card-title>
-        <p>Caked On Dirt: {{cakedOnDirt}}</p>
-      </ion-card-title>
-      <Button ion-button (tap)="tapDecrease($event,4)"> - </Button>
-      <Button ion-button (tap)="tapIncrease($event,4)"> + </Button>
-    </ion-card-content>
-  </ion-card>
 
-  <!--
-  <Button ion-button (tap)="tapDecrease($event,1)"> - </Button>
-  <Button>Clean: {{clean}}</Button>
-  <Button ion-button (tap)="tapIncrease($event,1)"> + </Button>
 
-  <hr>
-
-  <Button ion-button (tap)="tapDecrease($event,2)"> - </Button>
-  <Button>Slightly Dirt: {{slightlyDirt}}</Button>
-  <Button ion-button (tap)="tapIncrease($event,2)"> + </Button>
-
-  <hr>
-
-  <Button ion-button (tap)="tapDecrease($event,3)"> - </Button>
-  <Button>Moderately Dirt: {{moderatelyDirt}}</Button>
-  <Button ion-button (tap)="tapIncrease($event,3)"> + </Button>
-
-  <hr>
-
-  <Button ion-button (tap)="tapDecrease($event,4)"> - </Button>
-  <Button>Caked On Dirt: {{cakedOnDirt}}</Button>
-  <Button ion-button (tap)="tapIncrease($event,4)"> + </Button>
--->
-
-  <hr>
-  <hr>
-  <Button class="btn" ion-button (click)="saveData()"> Save </Button>
-  <Button class="btn" ion-button (click)="submitData()"> Submit </Button>
-  <Button class="btn" ion-button navPop> Back </Button>
 
 </ion-content>

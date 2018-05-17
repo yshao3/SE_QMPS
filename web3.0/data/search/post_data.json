@@ -1,0 +1,300 @@
+[
+    {
+        "staff": "Tom",
+        "group_id": 1,
+        "line": 1,
+        "farm": "Zeus",
+        "date": "03-15-2018",
+        "skin_condition": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        },
+        "color": {
+            "LH": "R",
+            "LF": "DS",
+            "RH": "B",
+            "RF": "R"
+        },
+        "swelling": {
+            "LH": "VM",
+            "LF": "SW",
+            "RH": "VM",
+            "RF": "SW"
+        },
+        "end_score": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        },
+        "hardness": {
+            "LH": "N",
+            "LF": "S",
+            "RH": "SR",
+            "RF": "R"
+        }
+    },
+    {
+        "staff": "Tom",
+        "group_id": 1,
+        "line": 1,
+        "farm": "Zeus",
+        "date": "03-16-2018",
+        "skin_condition": {
+            "LH": "D",
+            "LF": "OL",
+            "RH": "H",
+            "RF": "D"
+        },
+        "color": {
+            "LH": "R",
+            "LF": "DS",
+            "RH": "B",
+            "RF": "R"
+        },
+        "swelling": {
+            "LH": "VM",
+            "LF": "SW",
+            "RH": "VM",
+            "RF": "SW"
+        },
+        "end_score": {
+            "LH": "F",
+            "LF": "W",
+            "RH": "F",
+            "RF": "W"
+        },
+        "hardness": {
+            "LH": "N",
+            "LF": "S",
+            "RH": "SR",
+            "RF": "R"
+        }
+    },
+    {
+        "staff": "Tom",
+        "group_id": 1,
+        "line": 1,
+        "farm": "Zeus",
+        "date": "03-20-2018",
+        "skin_condition": {
+            "LH": "D",
+            "LF": "OL",
+            "RH": "H",
+            "RF": "D"
+        },
+        "color": {
+            "LH": "R",
+            "LF": "DS",
+            "RH": "B",
+            "RF": "R"
+        },
+        "swelling": {
+            "LH": "VM",
+            "LF": "SW",
+            "RH": "VM",
+            "RF": "SW"
+        },
+        "end_score": {
+            "LH": "F",
+            "LF": "W",
+            "RH": "F",
+            "RF": "W"
+        },
+        "hardness": {
+            "LH": "N",
+            "LF": "S",
+            "RH": "SR",
+            "RF": "R"
+        }
+    },
+    {
+        "staff": "Tom",
+        "group_id": 1,
+        "line": 1,
+        "farm": "Zeus",
+        "date": "03-27-2018",
+        "skin_condition": {
+            "LH": "D",
+            "LF": "OL",
+            "RH": "H",
+            "RF": "D"
+        },
+        "color": {
+            "LH": "R",
+            "LF": "DS",
+            "RH": "B",
+            "RF": "R"
+        },
+        "swelling": {
+            "LH": "VM",
+            "LF": "SW",
+            "RH": "VM",
+            "RF": "SW"
+        },
+        "end_score": {
+            "LH": "F",
+            "LF": "W",
+            "RH": "F",
+            "RF": "W"
+        },
+        "hardness": {
+            "LH": "N",
+            "LF": "S",
+            "RH": "SR",
+            "RF": "R"
+        }
+    },
+    {
+        "staff": "Tom",
+        "group_id": 1,
+        "line": 1,
+        "farm": "Zeus",
+        "date": "03-29-2018",
+        "skin_condition": {
+            "LH": "D",
+            "LF": "OL",
+            "RH": "H",
+            "RF": "D"
+        },
+        "color": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        },
+        "swelling": {
+            "LH": "VM",
+            "LF": "SW",
+            "RH": "VM",
+            "RF": "SW"
+        },
+        "end_score": {
+            "LH": "F",
+            "LF": "W",
+            "RH": "F",
+            "RF": "W"
+        },
+        "hardness": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        }
+    },
+    {
+        "staff": "Tom",
+        "group_id": 1,
+        "line": 1,
+        "farm": "Zeus",
+        "date": "03-29-2018",
+        "skin_condition": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "H",
+            "RF": "D"
+        },
+        "color": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        },
+        "swelling": {
+            "LH": "VM",
+            "LF": "SW",
+            "RH": "VM",
+            "RF": "SW"
+        },
+        "end_score": {
+            "LH": "F",
+            "LF": "W",
+            "RH": "F",
+            "RF": "W"
+        },
+        "hardness": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        }
+    },
+    {
+        "staff": "Tom",
+        "group_id": 1,
+        "line": 1,
+        "farm": "Zeus",
+        "date": "03-29-2018",
+        "skin_condition": {
+            "LH": "N",
+            "LF": "OL",
+            "RH": "H",
+            "RF": "N"
+        },
+        "color": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        },
+        "swelling": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        },
+        "end_score": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        },
+        "hardness": {
+            "LH": "N",
+            "LF": "S",
+            "RH": "SR",
+            "RF": "R"
+        }
+    },
+    {
+        "staff": "Tom",
+        "group_id": 1,
+        "line": 1,
+        "farm": "Zeus",
+        "date": "03-29-2018",
+        "skin_condition": {
+            "LH": "N",
+            "LF": "OL",
+            "RH": "H",
+            "RF": "N"
+        },
+        "color": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        },
+        "swelling": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        },
+        "end_score": {
+            "LH": "N",
+            "LF": "N",
+            "RH": "N",
+            "RF": "N"
+        },
+        "hardness": {
+            "LH": "N",
+            "LF": "S",
+            "RH": "SR",
+            "RF": "R"
+        }
+    }
+
+
+]

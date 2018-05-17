@@ -5,13 +5,28 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>Teat End Cleanliness</ion-title>
+  <ion-navbar hideBackButton *navbar>
+    <!-- <ion-navbar hideBackButton *navbar></ion-navbar> -->
   </ion-navbar>
+  <ion-title>Teat End Cleanliness</ion-title>
 </ion-header>
 
 
 <ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let item of ListUser">
+      <p>Farm: {{item.farm_id}}</p>
+      <p>Date: {{item.date}}</p>
+      <p>Observer: {{item.staff_id}}</p>
+      <p>Milker: {{item.milker_id}}</p>
+      <p>Clean: {{item.clean}}</p>
+      <p>Deep present: {{item.dip_present}}</p>
+      <p>Small dirt: {{item.small_dirt}}</p>
+      <p>Large dirt: {{item.large_dirt}}</p>
+      <p>Before or after: {{item.before_after}}</p>
+    </ion-item>
+  </ion-list>
+
   <ion-list>
     <ion-item>
       <ion-label fixed>Farm</ion-label>
@@ -20,7 +35,7 @@
 
     <ion-item>
       <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="YYYY MMM DD" [(ngModel)]="myDate"></ion-datetime>
+      <ion-datetime [(ngModel)]="myDate"></ion-datetime>
     </ion-item>
 
     <ion-item>
@@ -37,66 +52,73 @@
   <ion-item>
     <ion-label>Before or After Milking</ion-label>
     <ion-select [(ngModel)]="beforeAfter" interface="popover">
-      <ion-option value="beforeAfter1">Before</ion-option>
-      <ion-option value="beforeAfter2">After</ion-option>
+      <ion-option value="b">Before</ion-option>
+      <ion-option value="a">After</ion-option>
     </ion-select>
   </ion-item>
 
-  <ion-card class="card" margin="0px">
-    <img src="assets/imgs/clean.png"/>
-    <ion-card-content>
-      <ion-card-title>
-        <p>Clean: {{clean}}</p>
-      </ion-card-title>
-      <Button ion-button (tap)="tapDecrease($event,1)"> - </Button>
-      <Button ion-button (tap)="tapIncrease($event,1)"> + </Button>
-    </ion-card-content>
-  </ion-card>
+  <ion-row>
+      <ion-card class="card1" margin="0px">
+          <img src="assets/imgs/clean.png"/>
+          <ion-card-content>
+            <ion-card-title>
+              <p style="font-size: 12px">Clean: {{clean}}</p>
+            </ion-card-title>
+            <ion-row>
+                  <Button class="btn" ion-button (tap)="tapDecrease($event,1)"> - </Button>
+                  <Button class="btn" ion-button (tap)="tapIncrease($event,1)"> + </Button>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      
+        <ion-card class="card2" margin="0px">
+          <img src="assets/imgs/dipPresent.png"/>
+          <ion-card-content>
+            <ion-card-title>
+              <p style="font-size: 12px">Dip Present: {{dipPresent}}</p>
+            </ion-card-title>
+            <ion-row>
+                  <Button class="btn" ion-button (tap)="tapDecrease($event,2)"> - </Button>
+                  <Button class="btn" ion-button (tap)="tapIncrease($event,2)"> + </Button>
+              </ion-row>
+          </ion-card-content>
+        </ion-card>
+  </ion-row>
 
-  <ion-card class="card" margin="0px">
-    <img src="assets/imgs/dipPresent.png"/>
-    <ion-card-content>
-      <ion-card-title>
-        <p>Dip Present: {{dipPresent}}</p>
-      </ion-card-title>
-      <Button ion-button (tap)="tapDecrease($event,2)"> - </Button>
-      <Button ion-button (tap)="tapIncrease($event,2)"> + </Button>
-    </ion-card-content>
-  </ion-card>
 
+  <ion-row>
+      <ion-card class="card3" margin="0px">
+          <img src="assets/imgs/smallDirt.png"/>
+          <ion-card-content>
+            <ion-card-title>
+              <p style="font-size: 12px">Small Dirt: {{smallDirt}}</p>
+            </ion-card-title>
+            <ion-row>
+                <Button class="btn" ion-button (tap)="tapDecrease($event,3)"> - </Button>
+                <Button class="btn" ion-button (tap)="tapIncrease($event,3)"> + </Button>
+              </ion-row>
+          </ion-card-content>
+        </ion-card>
+      
+        <ion-card class="card4" margin="0px">
+          <img src="assets/imgs/largeDirt.png"/>
+          <ion-card-content>
+            <ion-card-title>
+              <p style="font-size: 12px">Large Dirt: {{largeDirt}}</p>
+            </ion-card-title>
+            <ion-row>
+                <Button class="btn" ion-button (tap)="tapDecrease($event,4)"> - </Button>
+                <Button class="btn" ion-button (tap)="tapIncrease($event,4)"> + </Button>
+              </ion-row>
+          </ion-card-content>
+        </ion-card>
+  </ion-row>
 
-  <ion-card class="card" margin="0px">
-    <img src="assets/imgs/smallDirt.png"/>
-    <ion-card-content>
-      <ion-card-title>
-        <p>Small Dirt: {{smallDirt}}</p>
-      </ion-card-title>
-      <Button ion-button (tap)="tapDecrease($event,3)"> - </Button>
-      <Button ion-button (tap)="tapIncrease($event,3)"> + </Button>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card class="card" margin="0px">
-    <img src="assets/imgs/largeDirt.png"/>
-    <ion-card-content>
-      <ion-card-title>
-        <p>Large Dirt: {{largeDirt}}</p>
-      </ion-card-title>
-      <Button ion-button (tap)="tapDecrease($event,4)"> - </Button>
-      <Button ion-button (tap)="tapIncrease($event,4)"> + </Button>
-    </ion-card-content>
-  </ion-card>
-
-  <hr>
-  <hr>
-
-  <Button class="btn" ion-button (click)="saveData()"> Save </Button>
-  <Button class="btn" ion-button (click)="submitData()"> Submit </Button>
-  <Button class="btn" ion-button navPop> Back </Button>
-
-  <!--<ion-item *ngFor="let i of items">
-    <h2>{{ i.farm }}</h2>
-    <h2>{{ i.date }}</h2>
-  </ion-item>-->
+<ion-item>
+    <ion-row>
+        <button class="btn" ion-button (click)="saveData()">Save</button>
+        <button class="btn" ion-button (click)="back()"> Back </button>
+  </ion-row>
+</ion-item>
 
 </ion-content>

@@ -19,8 +19,8 @@ export class TeatService {
         dip_present: number,
         small_dirt: number,
         large_dirt: number,
-        beforeAfter: string) {
-            this.items.push(new Item(farm, date, observer, milker, clean, dip_present, small_dirt, large_dirt, beforeAfter));
+        before_after: string) {
+            this.items.push(new Item(farm, date, observer, milker, clean, dip_present, small_dirt, large_dirt, before_after));
             console.log(this.items);
        }
 
@@ -37,8 +37,8 @@ export class TeatService {
         dip_present: number,
         small_dirt: number,
         large_dirt: number,
-        beforeAfter: string) {
-            this.items[index] = new Item(farm, date, observer, milker, clean, dip_present, small_dirt, large_dirt, beforeAfter);
+        before_after: string) {
+            this.items[index] = new Item(farm, date, observer, milker, clean, dip_present, small_dirt, large_dirt, before_after);
        }
 
        removeItem(index: number) {
@@ -50,7 +50,7 @@ export class TeatService {
            //post: add your item to existing
            const userId = this.authService.getActiveUser().uid;
            return this.http
-                .post('https://cornell-mrmilk.firebaseio.com/' + userId + '/strip.json?auth=' + token, this.items)
+                .post('https://cornell-mrmilk.firebaseio.com/' + userId + '/teat.json?auth=' + token, this.items)
                 .map((response: Response) => {
                     return response.json();
                 });

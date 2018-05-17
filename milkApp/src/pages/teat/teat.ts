@@ -4,36 +4,57 @@ import { AlertController } from 'ionic-angular';
 import { TeatService } from '../../services/teat';
 import { AuthService } from "../../services/auth";
 import { DatabaseProvider } from '../../providers/database/database';
-import { Http } from "@angular/http";
+import { Http, Response, Headers } from "@angular/http";
 import * as moment from 'moment';
+import { ListPage } from '../../pages/list/list';
 
 @IonicPage()
 @Component({
   selector: 'page-teat',
   templateUrl: 'teat.html'
 })
+
+/*
+* The teat form
+*/
 export class TeatPage {
-  public farm: string = ""
-  public myDate: string = moment().format()
-  public observer: string = ""
-  public milker: string = ""
-  public clean: number = 0
-  public dipPresent: number = 0
-  public smallDirt: number = 0
-  public largeDirt: number = 0
-  public beforeAfter: string = "beforeAfter1"
+  // data in the form
+  public farm: string
+  public myDate: string
+  public observer: string
+  public milker: string
+  public clean: number
+  public dipPresent: number
+  public smallDirt: number
+  public largeDirt: number
+  public beforeAfter: string
 
-  public items = {};
-  public item  = {};
-  
+  // for user test display in html
+  private ListUser : any
 
+  // for global storage
+  public listMap: any
+
+  // construct the data by reading from global or initialize with default value
   constructor(public alerCtrl: AlertController,
     private teatService: TeatService,
     private http: Http,
     private authService: AuthService,
-    private database: DatabaseProvider) {
-      //this.loadTeatData();
+    private database: DatabaseProvider,
+    public navCtrl: NavController,
+    public navParams: NavParams) {
+      this.farm = (navParams.get('teatFarm') != undefined)?navParams.get('teatFarm'):""
+      this.myDate = (navParams.get('teatDate') != undefined)?navParams.get('teatDate'):moment().format('YYYY-MM-DD')
+      this.observer = (navParams.get('teatObserver') != undefined)?navParams.get('teatObserver'):""
+      this.milker = (navParams.get('teatMilker') != undefined)?navParams.get('teatMilker'):""
+      this.clean = (navParams.get('teatClean') != undefined)?navParams.get('teatClean'):0
+      this.dipPresent = (navParams.get('teatDip') != undefined)?navParams.get('teatDip'):0
+      this.smallDirt = (navParams.get('teatSmall') != undefined)?navParams.get('teatSmall'):0
+      this.largeDirt = (navParams.get('teatLarge') != undefined)?navParams.get('teatLarge'):0
+      this.beforeAfter = (navParams.get('teatBA') != undefined)?navParams.get('teatBA'):"b"
   }
+
+  // decrease the value of data
   tapDecrease(e,param:number){
     if(param==1){
       this.clean = Math.max(this.clean-1,0)
@@ -44,8 +65,9 @@ export class TeatPage {
     } else if(param==4){
       this.largeDirt = Math.max(this.largeDirt-1,0)
     }
-
   }
+
+  // increase the value of data
   tapIncrease(e,param:number) {
     if(param==1){
       this.clean++
@@ -57,13 +79,10 @@ export class TeatPage {
       this.largeDirt++
     }
   }
+
+  // save the data both in online firebase and into local storage
   saveData() {
-    let alert = this.alerCtrl.create({
-      title: 'Saved!',
-      message: 'Data have been saved locally!',
-      buttons: ['Ok']
-    });
-    //add new item
+    // back up the data in firebase (unabled when without network)
     this.teatService.updateItems(0,
       this.farm,
       this.myDate,
@@ -75,10 +94,6 @@ export class TeatPage {
       this.largeDirt,
       this.beforeAfter
     );
-
-    console.log("浏览器存储:")
-    console.log(this.teatService.getItems());
-    alert.present()
 
     //pushing data to firebase database
     this.authService.getActiveUser().getIdToken()
@@ -94,54 +109,72 @@ export class TeatPage {
         }
       );
 
-    //local storage to sqlite
+    //save it to local storage (sqlite)
     this.pushTeatData();
-  }
 
-  submitData() {
-    let alert = this.alerCtrl.create({
-      title: 'Submitted!',
-      message: 'Data have been submitted!',
-      buttons: ['Ok']
-    });
-    alert.present()
-
-    //push data to eventual database when there is network
-    
-    //reset the data
-    this.farm = ""
-    this.myDate = moment().format()
-    this.observer = ""
-    this.milker = ""
+    // reset flexible data to default
     this.clean = 0
     this.dipPresent = 0
     this.smallDirt = 0
     this.largeDirt = 0
-    this.beforeAfter = "beforeAfter1"
+    this.beforeAfter = "b"
+
+    // alert
+    let alert = this.alerCtrl.create({
+      title: 'Saved!',
+      message: 'Data have been saved locally!',
+      buttons: ['Ok']
+    });
+    alert.present()
   }
 
+  // alert when initiate this page
   ionViewDidLoad() {
     console.log('ionViewDidLoad TeatPage')
   }
 
+  // get the data out (for user test)
   loadTeatData() {
-    this.database.getTeatData().then((data) => {
-      console.log("数据库里的数据:")
-      console.log(data);
+    this.database.getTeatData().then((data: any) => {
+      this.ListUser = data
     }, (error) => {
       console.log(error);
     })
   }
 
+  // push the data into local storage
   pushTeatData() {
-    this.database.addTeatData(this.farm, this.myDate, this.myDate, this.observer, this.milker, this.clean, this.dipPresent, this.smallDirt, this.largeDirt)
+    this.database.addTeatData(this.farm,
+      this.myDate,
+      this.observer,
+      this.milker,
+      this.clean,
+      this.dipPresent,
+      this.smallDirt,
+      this.largeDirt,
+      this.beforeAfter)
       .then((data) => {
+        // test by getting the data and displaying it in the top of app screen
         this.loadTeatData();
-        console.log("当前传输的一条数据:")
-        console.log(data);
       }, (error) => {
         console.log(error);
       });
+  }
+
+  // pop the current form, and save all current data into global
+  back() {
+    this.listMap = NavParams
+    this.listMap['teatFarm'] = this.farm
+    this.listMap['teatDate'] = this.myDate
+    this.listMap['teatObserver'] = this.observer
+    this.listMap['teatMilker'] = this.milker
+    this.listMap['teatClean'] = this.clean
+    this.listMap['teatDip'] = this.dipPresent
+    this.listMap['teatSmall'] = this.smallDirt
+    this.listMap['teatLarge'] = this.largeDirt
+    this.listMap['teatBA'] = this.beforeAfter
+
+    this.navCtrl.pop();
   }
 
 }

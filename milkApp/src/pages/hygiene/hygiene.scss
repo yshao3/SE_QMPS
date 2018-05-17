@@ -1,12 +1,30 @@
 page-hygiene {
-  .card {
-    width: 39%;
+  .card1 {
+    width: 36%;
     float:left;
-    position: relative;
+    position: static;
+  }
+
+  .card2 {
+    width: 36%;
+    float:right;
+    position: static;
+  }
+
+  .card3 {
+    width: 36%;
+    float:left;
+    position: static;
+  }
+
+  .card4 {
+    width: 36%;
+    float:right;
+    position: static;
   }
 
   .btn {
-    width: 32%;
+    width: 40%;
     float:left;
     position: relative;
   }

@@ -3,7 +3,7 @@ export class Item {
         public farm: string,
         public date: string,
         public observer: string,
-        public group: number,
+        public group: string,
         public clean: number,
         public slightly_dirt: number,
         public moderately_dirt: number,

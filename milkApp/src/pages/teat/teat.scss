@@ -1,14 +1,31 @@
 page-teat {
-.card {
-  width: 39%;
-  float:left;
-  position: relative;
-}
+  .card1 {
+    width: 38%;
+    float:left;
+    position: static;
+  }
 
-.btn {
-  width: 32%;
-  float:left;
-  position: relative;
-}
+  .card2 {
+    width: 38%;
+    float:right;
+    position: static;
+  }
 
+  .card3 {
+    width: 38%;
+    float:left;
+    position: static;
+  }
+
+  .card4 {
+    width: 38%;
+    float:right;
+    position: static;
+  }
+
+  .btn {
+    width: 40%;
+    float:left;
+    position: relative;
+  }
 }

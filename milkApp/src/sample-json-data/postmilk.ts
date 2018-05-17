@@ -3,7 +3,7 @@ export default [
         farm: 'cornell farm',
         date: '03-12-2018',
         observer: 'Paul',
-        group: 3,
+        group: '3',
         teat_skin_condition: {
             LH: 'Normal',
             LF: 'Dry',
