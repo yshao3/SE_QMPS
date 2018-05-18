@@ -56,6 +56,21 @@ Sign in and sign up  are uthenticated using firebase, a firebase account associa
 * This file also provides a clear information option which helps the user to clear the local storage. This function is to provide the user to option to clear the database. However, we advise the user to use it with cautious. 
 
 # Web 
+## Run locally
+Run a web server locally 
+
+## Structure
+### pages: This folder contains all the web pages that can be displayed.
+ * index.html: this file provides a login page.
+ * Other html files provide different web pages for six forms. Each page contains search and download functions and data analytics and visualization.
+
+### Script.js: 
+* This javascript file that contains all the download functions for the six forms. Each of the individual function calls the API with specific date range and farm name to grab the Json file. These data are dynamically processed and assigned into cells with exact formulas and values.
+
+### /dist/js/chart draw.js:
+* This file contains six functions to generate the data visualization charts. The functions are triggered by the clicking of analytics buttons. utilis.js contains methods and variables to define the attributes of charts.
+### In the html file of webpages, amChart CDN is referenced in the header. Here is the link to download and use package locally https://www.amcharts.com/download/
+
 # Back-end
 
 ## create-DB
