@@ -1,4 +1,4 @@
-# Mobile App
+# Mobile App (milkApp)
 ## Development Environment
 Per the request of the client, we use Ionic 3 framework to develop the hybrid mobile app. 
 
@@ -55,7 +55,7 @@ Sign in and sign up  are uthenticated using firebase, a firebase account associa
 * By clicking the button, it triggers the getData() functions to extract the data from the local storage and then call the API to send the validation information as well as the JSON object of the data. 
 * This file also provides a clear information option which helps the user to clear the local storage. This function is to provide the user to option to clear the database. However, we advise the user to use it with cautious. 
 
-# Web 
+# Web (web3.0)
 ## Run locally
 Run a web server locally 
 
